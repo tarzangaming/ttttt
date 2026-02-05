@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getAllLocations, getLocationZipCodes } from '@/utils/content';
-import { getLocationUrl } from '@/utils/subdomain';
+import { getLocationUrl, getStateUrl } from '@/utils/subdomain';
 import { buildDynamicHeroHeader, buildDynamicHeroSubtextLines } from '@/lib/heroSubtext';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: StateServicePageProps): Promi
     openGraph: {
       title: `${serviceName} in ${stateFullName} | Bennett Construction & Roofing`,
       description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert roofing contractors for ${serviceName.toLowerCase()} with 25+ years of experience.`,
-      url: `https://bennettconstructionandroofing.com/states/${state.toLowerCase()}/${service}`,
+      url: getStateUrl(state, service),
       siteName: 'Bennett Construction & Roofing',
       locale: 'en_US',
       type: 'website',
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: StateServicePageProps): Promi
       description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert roofing contractors for ${serviceName.toLowerCase()} with 25+ years of experience.`,
     },
     alternates: {
-      canonical: `https://bennettconstructionandroofing.com/states/${state.toLowerCase()}/${service}`,
+      canonical: getStateUrl(state, service),
     },
   };
 }
@@ -231,7 +231,7 @@ export default async function StateServicePage({ params }: StateServicePageProps
           {stateLocations.length > 20 && (
             <div className="text-center mt-8">
               <Link
-                href={`/states/${state.toLowerCase()}`}
+                href={getStateUrl(state)}
                 className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 View All {stateLocations.length} Cities

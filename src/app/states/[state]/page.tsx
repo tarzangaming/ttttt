@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getAllLocations } from '@/utils/content';
-import { getLocationUrl } from '@/utils/subdomain';
+import { getLocationUrl, getStateUrl } from '@/utils/subdomain';
 import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -88,7 +88,7 @@ export async function generateMetadata({ params }: StatePageProps): Promise<Meta
     openGraph: {
       title: `Roofing & Construction in ${stateFullName} | Bennett Construction & Roofing`,
       description: `Expert roofing and construction services in ${stateFullName}. Licensed, experienced, and affordable!`,
-      url: `https://bennettconstructionandroofing.com/states/${state.toLowerCase()}`,
+      url: getStateUrl(state),
       siteName: 'Bennett Construction & Roofing',
       locale: 'en_US',
       type: 'website',
@@ -99,7 +99,7 @@ export async function generateMetadata({ params }: StatePageProps): Promise<Meta
       description: `Expert roofing and construction services in ${stateFullName}. Licensed, experienced, and affordable!`,
     },
     alternates: {
-      canonical: `https://bennettconstructionandroofing.com/states/${state.toLowerCase()}`,
+      canonical: getStateUrl(state),
     },
   };
 }
@@ -225,7 +225,7 @@ export default async function StatePage({ params }: StatePageProps) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {constructionServices.map((service) => (
-              <Link key={service.slug} href={`/services/${service.slug}`} className="block">
+              <Link key={service.slug} href={`/${service.slug}`} className="block">
                 <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   <div className="h-48 bg-gradient-to-br from-[#1e3a5f] to-[#2d5a8a] flex items-center justify-center">
                     <span className="text-6xl">{service.icon}</span>

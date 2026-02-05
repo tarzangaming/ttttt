@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getAllLocations } from '@/utils/content';
+import { getStateUrl } from '@/utils/subdomain';
 import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -47,13 +48,13 @@ export async function generateMetadata({ params }: StateServicesPageProps): Prom
     openGraph: {
       title: `Roofing & Construction Services in ${stateFullName} | Bennett Construction & Roofing`,
       description: `Complete roofing and construction services in ${stateFullName}. Roof repair, replacement, storm restoration, and more.`,
-      url: `https://bennettconstructionandroofing.com/states/${state.toLowerCase()}/services`,
+      url: getStateUrl(state, 'services'),
       siteName: 'Bennett Construction & Roofing',
       locale: 'en_US',
       type: 'website',
     },
     alternates: {
-      canonical: `https://bennettconstructionandroofing.com/states/${state.toLowerCase()}/services`,
+      canonical: getStateUrl(state, 'services'),
     },
   };
 }
@@ -112,7 +113,7 @@ export default async function StateServicesPage({ params }: StateServicesPagePro
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {(servicesData as any).services.map((service: any) => (
-              <Link key={service.slug} href={`/states/${state.toLowerCase()}/${service.slug}`} className="group block">
+              <Link key={service.slug} href={`/${service.slug}`} className="group block">
                 <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden transform group-hover:-translate-y-2 h-full flex flex-col">
                   <div className="h-48 bg-[#1e3a5f]/5 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300">
                     {service.icon}

@@ -70,10 +70,10 @@ export async function GET() {
   // Get unique states for the new /areas/ structure
   const uniqueStates = [...new Set(allLocations.map(loc => loc.state))];
 
-  // State pages (new /areas/[state] structure)
+  // State pages (subdomain format)
   const statePages = uniqueStates.map(state =>
     `  <url>
-    <loc>${DOMAIN}/areas/${state.toLowerCase()}</loc>
+    <loc>https://${state.toLowerCase()}.bennettconstructionandroofing.com</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -85,6 +85,7 @@ export async function GET() {
 ${mainPages}
 ${mainServicePages}
 ${locationPages}
+${statePages}
 </urlset>`
 
   return new NextResponse(sitemap, {

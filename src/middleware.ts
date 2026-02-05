@@ -1,5 +1,6 @@
 import { NextResponse, NextRequest } from 'next/server';
-import { isValidSubdomain, isValidStateCode } from './utils/subdomain';
+import { isValidStateCode } from './utils/state-codes';
+import { isValidSubdomain } from './utils/subdomain';
 
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host') || '';

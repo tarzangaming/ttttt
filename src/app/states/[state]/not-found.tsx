@@ -3,17 +3,20 @@
 import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import { getStateUrl } from '@/utils/subdomain';
 
 export default function StateNotFound() {
   const params = useParams();
   const state = params.state as string;
 
+  const redirectUrl = state ? getStateUrl(state) : 'https://bennettconstructionandroofing.com';
+
   useEffect(() => {
     const timer = setTimeout(() => {
-      window.location.href = state ? `/states/${state}` : '/';
+      window.location.href = redirectUrl;
     }, 3000);
     return () => clearTimeout(timer);
-  }, [state]);
+  }, [redirectUrl]);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center px-4">
@@ -28,7 +31,7 @@ export default function StateNotFound() {
 
         <div className="space-y-4">
           <Link
-            href={state ? `/states/${state}` : '/'}
+            href={redirectUrl}
             className="inline-block w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
             Go to States

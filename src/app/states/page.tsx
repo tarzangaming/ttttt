@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { getAllLocations } from '@/utils/content';
+import { getStateUrl } from '@/utils/subdomain';
 import imagesData from '@/data/images.json';
 
 export default function StatesPage() {
@@ -88,7 +89,7 @@ export default function StatesPage() {
             {statesArray.map((stateInfo) => (
               <Link
                 key={stateInfo.state}
-                href={`/states/${stateInfo.state.toLowerCase()}`}
+                href={getStateUrl(stateInfo.state)}
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 p-6 text-center group"
               >
                 <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#d97706] transition-colors mb-2">
