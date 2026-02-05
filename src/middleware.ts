@@ -1,5 +1,5 @@
 import { NextResponse, NextRequest } from 'next/server';
-import { isValidSubdomain } from './utils/subdomain';
+import { isValidSubdomain, isValidStateCode } from './utils/subdomain';
 
 export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host') || '';
@@ -11,7 +11,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301); // Permanent redirect
   }
 
-  // Redirect /locations/[id] and /locations/[id]/* to subdomain (all location pages use subdomains)
+  // Redirect /locations/[id] and /locations/[id]/* to location subdomain
   if (hostname === 'bennettconstructionandroofing.com') {
     const pathParts = url.pathname.split('/').filter(Boolean);
     if (pathParts[0] === 'locations' && pathParts[1]) {
@@ -19,6 +19,16 @@ export function middleware(request: NextRequest) {
       if (isValidSubdomain(locationId)) {
         const subPath = pathParts.slice(2).join('/');
         url.hostname = `${locationId}.bennettconstructionandroofing.com`;
+        url.pathname = subPath ? `/${subPath}` : '/';
+        return NextResponse.redirect(url, 301);
+      }
+    }
+    // Redirect /states/[state] and /states/[state]/* to state subdomain
+    if (pathParts[0] === 'states' && pathParts[1]) {
+      const stateCode = pathParts[1];
+      if (isValidStateCode(stateCode)) {
+        const subPath = pathParts.slice(2).join('/');
+        url.hostname = `${stateCode.toLowerCase()}.bennettconstructionandroofing.com`;
         url.pathname = subPath ? `/${subPath}` : '/';
         return NextResponse.redirect(url, 301);
       }
@@ -106,20 +116,34 @@ export function middleware(request: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
-  // Construction/Roofing service slugs
+  // Construction/Roofing service slugs (must match services.json for subdomain rewrites)
   const serviceSlugs = [
+    'roof-installation',
     'roof-repair',
+    'roof-leak-repair',
     'roof-replacement',
     'new-roof-installation',
-    'storm-damage-roof-repair',
-    'roof-inspection',
-    'emergency-roof-tarping',
+    'foam-roofing',
+    'tile-roofing',
+    'metal-roofing',
+    'shingle-roofing',
+    'flat-roof-repair',
+    'flat-roofing-systems',
+    'roof-coatings',
     'commercial-roofing',
+    'storm-damage-roof-repair',
+    'emergency-roof-repair',
+    'roof-maintenance-plans',
+    'roof-inspection',
     'gutter-installation',
     'gutter-repair',
-    'siding-installation',
-    'siding-repair',
+    'gutter-guards',
+    'gutter-cleaning',
     'general-construction',
+    'siding-installation',
+    'skylight-services',
+    'emergency-roof-tarping',
+    'siding-repair',
     'home-remodeling',
     'exterior-remodeling'
   ];

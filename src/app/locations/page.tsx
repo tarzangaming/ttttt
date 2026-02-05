@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getLocationBySubdomain, getLocationUrl } from '@/utils/subdomain';
+import { getLocationBySubdomain, getLocationUrl, getStateUrl } from '@/utils/subdomain';
 import LocationPageContent from '@/components/LocationPageContent';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -57,9 +57,8 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
   // STANDARD VIEW: NATIONWIDE USA HUB
   const allLocations = getAllLocations();
 
-  // Featured locations from across the USA (mix of states)
-  const featuredLocations = allLocations.slice(0, 12);
-  const otherLocations = allLocations.slice(12);
+  // Show only 15 locations on page - rest discoverable via sitemap & interlinking
+  const featuredLocations = allLocations.slice(0, 15);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -123,7 +122,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
             {getAllStates().map((state) => (
               <Link
                 key={state.slug}
-                href={`/locations/${state.slug}`}
+                href={getStateUrl(state.slug)}
                 className="px-4 py-3 bg-white rounded-lg shadow-sm hover:shadow-md border border-gray-100 flex items-center justify-between group transition-all"
               >
                 <span className="font-medium text-gray-700 group-hover:text-[#d97706] transition-colors text-sm truncate">{state.name}</span>
@@ -166,23 +165,6 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
           </div>
         )}
 
-        {/* Fallback for other locations if JSON has non-AZ */}
-        {otherLocations.length > 0 && (
-          <div className="mt-16 pt-16 border-t border-gray-200">
-            <h3 className="text-2xl font-bold text-[#1e3a5f] mb-8 text-center">Other Locations Served</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {otherLocations.map(loc => (
-                <Link
-                  key={loc.id}
-                  href={getLocationUrl(loc.id)}
-                  className="p-4 bg-white rounded-lg shadow-sm hover:shadow text-center text-gray-700 font-medium hover:text-[#d97706]"
-                >
-                  {loc.name}, {loc.state}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )}
       </section>
 
       {/* 3. NATIONWIDE VALUE PROP */}
