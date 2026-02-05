@@ -107,7 +107,7 @@ export function getLocationSEOFromFile(
     return {
       title: `Roofing in ${cityName}, ${state} | Bennett Construction`,
       description: `Professional roofing services in ${cityName}, ${state}. Licensed, insured. Call (866) 289-1750.`,
-      canonical: `https://bennettconstructionandroofing.com/locations/${locationId}`,
+      canonical: `https://${locationId}.bennettconstructionandroofing.com`,
     };
   }
   const zipDisplay = zipCodes?.length
@@ -142,7 +142,7 @@ export function getLocationServiceSEOFromFile(
     return {
       title: `${serviceTitle} in ${cityName}, ${state} | Bennett Construction`,
       description: `Professional ${serviceTitle} in ${cityName}, ${state}. Licensed, insured. Call (866) 289-1750.`,
-      canonical: `https://bennettconstructionandroofing.com/locations/${locationId}/${serviceSlug}`,
+      canonical: `https://${locationId}.bennettconstructionandroofing.com/${serviceSlug}`,
     };
   }
   const zipDisplay = zipCodes?.length
@@ -183,5 +183,95 @@ export function getServiceSEOFromFile(serviceTitle: string, serviceSlug: string)
     title: template.title.replace('{serviceTitle}', serviceTitle),
     description: template.description.replace('{serviceTitle}', serviceTitle),
     canonical: template.canonical?.replace('{slug}', serviceSlug) || undefined,
+  };
+}
+
+export function getCostPageSEOFromFile(
+  cityName: string,
+  state: string,
+  cityState: string,
+  serviceTitle: string,
+  serviceSlug: string
+): PageSEO {
+  const seo = readSeoFile();
+  const templates = seo.templates as Record<string, SEOTemplate> | undefined;
+  const template = templates?.costPage || null;
+  const year = new Date().getFullYear();
+  if (!template) {
+    return {
+      title: `${serviceTitle} Cost in ${cityName}, ${state} (${year} Guide)`,
+      description: `How much does ${serviceTitle.toLowerCase()} cost in ${cityName}? Calculate estimated prices for your home size. Local ${year} rates for roofing services.`,
+      canonical: `https://bennettconstructionandroofing.com/${cityState}/${serviceSlug}/cost`,
+    };
+  }
+  return {
+    title: template.title
+      .replace('{serviceTitle}', serviceTitle)
+      .replace('{cityName}', cityName)
+      .replace('{state}', state)
+      .replace('{year}', String(year)),
+    description: template.description
+      .replace('{serviceTitle}', serviceTitle)
+      .replace('{cityName}', cityName)
+      .replace('{year}', String(year)),
+    canonical: template.canonical
+      ?.replace('{cityState}', cityState)
+      ?.replace('{serviceSlug}', serviceSlug) || undefined,
+  };
+}
+
+export function getCostCalculatorPageSEOFromFile(
+  cityName: string,
+  state: string,
+  cityState: string,
+  serviceTitle: string,
+  serviceSlug: string
+): PageSEO {
+  const seo = readSeoFile();
+  const templates = seo.templates as Record<string, SEOTemplate> | undefined;
+  const template = templates?.costCalculatorPage || null;
+  const year = new Date().getFullYear();
+  if (!template) {
+    return {
+      title: `${serviceTitle} Cost Calculator in ${cityName}, ${state} (${year})`,
+      description: `Free ${serviceTitle.toLowerCase()} cost calculator for ${cityName}. Get low, average, and high estimates. ${year} local roofing rates.`,
+      canonical: `https://bennettconstructionandroofing.com/${cityState}/${serviceSlug}/cost-calculator`,
+    };
+  }
+  return {
+    title: template.title
+      .replace('{serviceTitle}', serviceTitle)
+      .replace('{cityName}', cityName)
+      .replace('{state}', state)
+      .replace('{year}', String(year)),
+    description: template.description
+      .replace('{serviceTitle}', serviceTitle)
+      .replace('{cityName}', cityName)
+      .replace('{year}', String(year)),
+    canonical: template.canonical
+      ?.replace('{cityState}', cityState)
+      ?.replace('{serviceSlug}', serviceSlug) || undefined,
+  };
+}
+
+export function getCostGuideSEOFromFile(
+  slug: string,
+  title: string,
+  description: string
+): PageSEO {
+  const seo = readSeoFile();
+  const templates = seo.templates as Record<string, SEOTemplate> | undefined;
+  const template = templates?.costGuide || null;
+  if (!template) {
+    return {
+      title,
+      description,
+      canonical: `https://bennettconstructionandroofing.com/cost-guides/${slug}`,
+    };
+  }
+  return {
+    title: template.title.replace('{title}', title),
+    description: template.description.replace('{description}', description),
+    canonical: template.canonical?.replace('{slug}', slug) || undefined,
   };
 }

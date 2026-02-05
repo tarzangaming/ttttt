@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Location } from '@/utils/content';
+import { getLocationUrl } from '@/utils/subdomain';
 
 interface NearbyAreasSectionProps {
   nearbyLocations: Location[];
@@ -27,7 +28,7 @@ export default function NearbyAreasSection({
           {nearbyLocations.map((loc) => (
             <Link
               key={loc.id}
-              href={`/locations/${loc.id}`}
+              href={getLocationUrl(loc.id)}
               className="block bg-white rounded-lg shadow-sm hover:shadow-md transition py-4 px-4 text-center font-medium text-gray-800 hover:text-[#d97706] border border-gray-100"
             >
               {loc.name}

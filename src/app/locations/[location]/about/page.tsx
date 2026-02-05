@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
       description: `Learn about our expert team in ${location.name}. Trusted roofing and construction services.`
     },
     alternates: {
-      canonical: `https://bennettconstructionandroofing.com/locations/${location.id}/about`
+      canonical: `https://${location.id}.bennettconstructionandroofing.com/about`
     }
   };
 }

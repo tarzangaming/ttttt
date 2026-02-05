@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { getLocationUrl } from '@/utils/subdomain';
 
 interface Location {
   id: string;
@@ -76,7 +77,7 @@ export default function ServiceAreas({ currentLocation }: ServiceAreasProps) {
             {displayedCities.map((location) => (
               <div key={location.id} className="group">
                 <Link
-                  href={`/locations/${location.id}`}
+                  href={getLocationUrl(location.id)}
                   className="block bg-gray-50 border border-gray-200 rounded-md px-2 py-2 text-center hover:bg-blue-50 hover:border-blue-300 transition-all duration-300 cursor-pointer group-hover:shadow-sm"
                 >
                   <div className="text-gray-800 font-medium text-xs leading-tight">

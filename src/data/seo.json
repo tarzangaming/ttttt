@@ -96,12 +96,27 @@
     "location": {
       "title": " Best Roofing Company in {cityName}, {state} - Roof Repair & Replacement",
       "description": "Need a roofer in {cityName}, {state}. Serving zip codes {zipCodes}. Expert roofing, siding, and construction services. Licensed, insured Roofing Contractors. Call (866) 289-1750.",
-      "canonical": "https://bennettconstructionandroofing.com/locations/{locationId}"
+      "canonical": "https://{locationId}.bennettconstructionandroofing.com"
     },
     "locationService": {
       "title": "{serviceTitle} in {cityName}, {state} Near Me",
       "description": "Professional {serviceTitle} in {cityName}, {state}. Serving zip codes {zipCodes} by Bennett Construction & Roofing. Licensed contractors, free estimates. Call (866) 289-1750.",
-      "canonical": "https://bennettconstructionandroofing.com/locations/{locationId}/{slug}"
+      "canonical": "https://{locationId}.bennettconstructionandroofing.com/{slug}"
+    },
+    "costPage": {
+      "title": "{serviceTitle} Cost in {cityName}, {state} ({year} Guide)",
+      "description": "How much does {serviceTitle} cost in {cityName}? Calculate estimated prices for your home size. Local {year} rates for roofing services. Free quote. Call (866) 289-1750.",
+      "canonical": "https://bennettconstructionandroofing.com/{cityState}/{serviceSlug}/cost"
+    },
+    "costCalculatorPage": {
+      "title": "{serviceTitle} Cost Calculator in {cityName}, {state} ({year})",
+      "description": "Free {serviceTitle} cost calculator for {cityName}. Get low, average, and high estimates. {year} local roofing rates. Call (866) 289-1750 for exact quote.",
+      "canonical": "https://bennettconstructionandroofing.com/{cityState}/{serviceSlug}/cost-calculator"
+    },
+    "costGuide": {
+      "title": "{title}",
+      "description": "{description}",
+      "canonical": "https://bennettconstructionandroofing.com/cost-guides/{slug}"
     }
   }
 }

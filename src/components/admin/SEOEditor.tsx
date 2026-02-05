@@ -25,7 +25,7 @@ export default function SEOEditor({ seoData, onSave, saving }: SEOEditorProps) {
       <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
         <h3 className="font-bold text-amber-900 mb-2">🔍 SEO Management</h3>
         <p className="text-amber-800 text-sm">
-          Manage meta titles, descriptions, and canonical URLs for all pages. Dynamic templates use placeholders: <code className="bg-amber-100 px-1 rounded">{'{serviceTitle}'}</code>, <code className="bg-amber-100 px-1 rounded">{'{slug}'}</code>, <code className="bg-amber-100 px-1 rounded">{'{cityName}'}</code>, <code className="bg-amber-100 px-1 rounded">{'{state}'}</code>, <code className="bg-amber-100 px-1 rounded">{'{subdomain}'}</code>
+          Manage meta titles, descriptions, and canonical URLs for all pages. Dynamic templates use placeholders: <code className="bg-amber-100 px-1 rounded">{'{serviceTitle}'}</code>, <code className="bg-amber-100 px-1 rounded">{'{slug}'}</code>, <code className="bg-amber-100 px-1 rounded">{'{cityName}'}</code>, <code className="bg-amber-100 px-1 rounded">{'{state}'}</code>, <code className="bg-amber-100 px-1 rounded">{'{cityState}'}</code>, <code className="bg-amber-100 px-1 rounded">{'{serviceSlug}'}</code>, <code className="bg-amber-100 px-1 rounded">{'{year}'}</code>, <code className="bg-amber-100 px-1 rounded">{'{title}'}</code>, <code className="bg-amber-100 px-1 rounded">{'{description}'}</code>
         </p>
       </div>
 
@@ -92,7 +92,7 @@ export default function SEOEditor({ seoData, onSave, saving }: SEOEditorProps) {
                 templates: { ...templates, [templateKey]: updated }
               } as Record<string, unknown>)}
               saving={saving}
-              sectionTitle={`Template: ${templateKey} ({serviceTitle}, {cityName}, {state}, {slug}, {subdomain})`}
+              sectionTitle={`Template: ${templateKey}`}
             />
           ))}
         </div>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getAllLocations, getLocationZipCodes } from '@/utils/content';
+import { getLocationUrl } from '@/utils/subdomain';
 import { buildDynamicHeroHeader, buildDynamicHeroSubtextLines } from '@/lib/heroSubtext';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -214,7 +215,7 @@ export default async function StateServicePage({ params }: StateServicePageProps
             {stateLocations.slice(0, 20).map((location) => (
               <Link
                 key={location.id}
-                href={`/locations/${location.id}/${service}`}
+                href={getLocationUrl(location.id, service)}
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-4 text-center group"
               >
                 <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">

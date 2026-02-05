@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import locationServicesData from '@/data/location-services.json';
 import imagesData from '@/data/images.json';
+import { getLocationUrl } from '@/utils/subdomain';
 
 interface LocationServiceGridProps {
     locationId: string;
@@ -44,7 +45,7 @@ const LocationServiceGrid: React.FC<LocationServiceGridProps> = ({
                             className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col h-full transform hover:-translate-y-2 relative"
                         >
                             <Link
-                                href={locationId === 'national' ? `/services/${service.slug}` : `/locations/${locationId}/${service.slug}`}
+                                href={locationId === 'national' ? `/services/${service.slug}` : getLocationUrl(locationId, service.slug)}
                                 className="absolute inset-0 z-10"
                                 aria-label={`View ${service.title} services in ${locationName}`}
                             />

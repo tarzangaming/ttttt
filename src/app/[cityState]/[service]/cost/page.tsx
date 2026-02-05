@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { LOCATIONS, getServiceCostConfig, getCityFromSlug } from '@/lib/cost-data';
+import { getCostPageSEOFromFile } from '@/lib/seo-server';
 import servicesData from '@/data/services.json';
 import CostCalculator from '@/components/cost/CostCalculator';
 import PriceTierCards from '@/components/cost/PriceTierCards';
@@ -38,11 +39,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     if (!location || !service) return {};
 
-    const currentYear = new Date().getFullYear();
+    const seo = getCostPageSEOFromFile(
+        location.city,
+        location.state,
+        cityState,
+        service.title,
+        serviceSlug
+    );
 
     return {
-        title: `${service.title} Cost in ${location.city}, ${location.state} (${currentYear} Guide)`,
-        description: `How much does ${service.title.toLowerCase()} cost in ${location.city}? Calculate estimated prices for your home size. Local 2025 rates for roofing services.`,
+        title: seo.title,
+        description: seo.description,
+        alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
+        openGraph: { title: seo.title, description: seo.description },
     };
 }
 

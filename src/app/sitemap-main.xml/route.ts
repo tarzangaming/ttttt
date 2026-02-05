@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { getAllLocations } from '@/utils/content'
 import servicesData from '@/data/services.json'
 
-const DOMAIN = 'https://www.bennettconstructionandroofing.com'
+const DOMAIN = 'https://bennettconstructionandroofing.com'
 
 export async function GET() {
   const currentDate = new Date().toISOString()
@@ -57,10 +57,10 @@ export async function GET() {
   // Get all locations using helper (handles nested states/cities structure)
   const allLocations = getAllLocations()
 
-  // Location pages (existing /locations/[location] structure)
+  // Location pages (subdomain format)
   const locationPages = allLocations.map(loc =>
     `  <url>
-    <loc>${DOMAIN}/locations/${loc.id}</loc>
+    <loc>https://${loc.id}.bennettconstructionandroofing.com</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

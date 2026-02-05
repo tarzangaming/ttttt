@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import guides from '@/data/cost-guides.json';
 import { getCompanyInfo } from '@/utils/content';
+import { getCostGuideSEOFromFile } from '@/lib/seo-server';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -28,9 +29,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         };
     }
 
+    const seo = getCostGuideSEOFromFile(slug, guide.title, guide.description);
+
     return {
-        title: guide.title,
-        description: guide.description,
+        title: seo.title,
+        description: seo.description,
+        alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
+        openGraph: { title: seo.title, description: seo.description },
     };
 }
 

@@ -5,10 +5,24 @@ export function middleware(request: NextRequest) {
   const hostname = request.headers.get('host') || '';
   const url = request.nextUrl;
 
-  // Redirect to www version for main domain (SEO best practice)
-  if (hostname === 'bennettconstructionandroofing.com') {
-    url.hostname = 'www.bennettconstructionandroofing.com';
+  // Redirect www to non-www (canonical = https://bennettconstructionandroofing.com)
+  if (hostname === 'www.bennettconstructionandroofing.com') {
+    url.hostname = 'bennettconstructionandroofing.com';
     return NextResponse.redirect(url, 301); // Permanent redirect
+  }
+
+  // Redirect /locations/[id] and /locations/[id]/* to subdomain (all location pages use subdomains)
+  if (hostname === 'bennettconstructionandroofing.com') {
+    const pathParts = url.pathname.split('/').filter(Boolean);
+    if (pathParts[0] === 'locations' && pathParts[1]) {
+      const locationId = pathParts[1];
+      if (isValidSubdomain(locationId)) {
+        const subPath = pathParts.slice(2).join('/');
+        url.hostname = `${locationId}.bennettconstructionandroofing.com`;
+        url.pathname = subPath ? `/${subPath}` : '/';
+        return NextResponse.redirect(url, 301);
+      }
+    }
   }
 
   // Handle different domain patterns
@@ -128,15 +142,15 @@ export function middleware(request: NextRequest) {
   ];
 
   if (pathSegments.length > 0 && blockedPaths.includes(pathSegments[0])) {
-    // Redirect to main domain for blocked paths on sub-domains
-    url.hostname = 'www.bennettconstructionandroofing.com';
+    // Redirect to main domain (non-www) for blocked paths on sub-domains
+    url.hostname = 'bennettconstructionandroofing.com';
     return NextResponse.redirect(url, 301);
   }
 
-  // Handle invalid subdomains - redirect to main domain
+  // Handle invalid subdomains - redirect to main domain (non-www)
   if (subdomain && !isStateSubdomain) {
     if (!isValidSubdomain(subdomain)) {
-      url.hostname = 'www.bennettconstructionandroofing.com';
+      url.hostname = 'bennettconstructionandroofing.com';
       return NextResponse.redirect(url, 301);
     }
   }

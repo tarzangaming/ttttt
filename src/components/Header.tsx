@@ -11,10 +11,9 @@ export default function Header() {
   const logoImage = imagesData.images.defaults?.logo;
 
   useEffect(() => {
-    // Check if we're on a sub-domain (not main domain)
+    // Check if we're on a sub-domain (not main domain - non-www canonical)
     const hostname = window.location.hostname;
     const isSub = hostname !== 'bennettconstructionandroofing.com' &&
-      hostname !== 'www.bennettconstructionandroofing.com' &&
       hostname.includes('.bennettconstructionandroofing.com');
     setIsSubDomain(isSub);
   }, []);

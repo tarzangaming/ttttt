@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getAllLocations } from '@/utils/content';
+import { getLocationUrl } from '@/utils/subdomain';
 import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -252,7 +253,7 @@ export default async function StatePage({ params }: StatePageProps) {
             {stateLocations.map((location) => (
               <Link
                 key={location.id}
-                href={`/locations/${location.id}`}
+                href={getLocationUrl(location.id)}
                 className="block p-4 bg-white rounded-lg hover:bg-[#1e3a5f]/10 transition text-center shadow-sm"
               >
                 <h4 className="font-semibold text-gray-800">{location.name}</h4>

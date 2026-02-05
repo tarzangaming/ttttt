@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getLocationBySubdomain } from '@/utils/subdomain';
+import { getLocationBySubdomain, getLocationUrl } from '@/utils/subdomain';
 import LocationPageContent from '@/components/LocationPageContent';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -137,7 +137,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
             {featuredLocations.map((location) => (
               <Link
                 key={location.id}
-                href={`/locations/${location.id}`}
+                href={getLocationUrl(location.id)}
                 className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden transform hover:-translate-y-1 block h-full"
               >
                 <div className="h-3 bg-[#d97706] group-hover:h-4 transition-all" />
@@ -174,7 +174,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
               {otherLocations.map(loc => (
                 <Link
                   key={loc.id}
-                  href={`/locations/${loc.id}`}
+                  href={getLocationUrl(loc.id)}
                   className="p-4 bg-white rounded-lg shadow-sm hover:shadow text-center text-gray-700 font-medium hover:text-[#d97706]"
                 >
                   {loc.name}, {loc.state}

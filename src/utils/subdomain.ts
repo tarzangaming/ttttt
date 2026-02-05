@@ -1,5 +1,13 @@
 import { getAllLocations } from './content';
 
+const DOMAIN = 'bennettconstructionandroofing.com';
+
+/** Canonical URL for a location (subdomain format) */
+export function getLocationUrl(locationId: string, path = ''): string {
+  const base = `https://${locationId}.${DOMAIN}`;
+  return path ? `${base}/${path.replace(/^\//, '')}` : base;
+}
+
 export function generateSubdomain(locationName: string): string {
   return locationName
     .toLowerCase()

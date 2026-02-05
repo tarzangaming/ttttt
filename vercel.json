@@ -3,5 +3,18 @@
   "outputDirectory": ".next",
   "framework": "nextjs",
   "installCommand": "npm install",
-  "devCommand": "npm run dev"
+  "devCommand": "npm run dev",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.bennettconstructionandroofing.com"
+        }
+      ],
+      "destination": "https://bennettconstructionandroofing.com/:path*",
+      "permanent": true
+    }
+  ]
 }

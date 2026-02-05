@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
       siteName: 'Bennett Construction & Roofing'
     },
     alternates: {
-      canonical: `https://bennettconstructionandroofing.com/locations/${location.id}/contact`
+      canonical: `https://${location.id}.bennettconstructionandroofing.com/contact`
     }
   };
 }

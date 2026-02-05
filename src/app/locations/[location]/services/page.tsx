@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
     title: `Construction & Roofing Services in ${location.name} | Bennett Construction`,
     description: `Expert roofing, siding, and remodeling services in ${location.name}, ${location.state}. Residential and commercial solutions by Bennett Construction.`,
     alternates: {
-      canonical: `https://bennettconstructionandroofing.com/locations/${location.id}/services`
+      canonical: `https://${location.id}.bennettconstructionandroofing.com/services`
     }
   };
 }
@@ -141,7 +141,7 @@ export default async function ServicesPage({ params }: LocationPageProps) {
               const serviceImage = imagesData.images.services[service.slug as keyof typeof imagesData.images.services];
 
               return (
-                <Link key={service.slug} href={`/locations/${safeLocation.id}/${service.slug}`} className="block group h-full">
+                <Link key={service.slug} href={`/${service.slug}`} className="block group h-full">
                   <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 group">
                     {/* Background Image */}
                     {serviceImage?.url ? (
@@ -226,7 +226,7 @@ export default async function ServicesPage({ params }: LocationPageProps) {
               Call {safeLocation.phone}
             </a>
             <Link
-              href={`/locations/${safeLocation.id}/contact`}
+              href="/contact"
               className="inline-flex items-center justify-center bg-white text-[#1e3a5f] font-bold px-8 py-4 rounded-lg text-lg hover:bg-gray-100 transition"
             >
               Request Free Estimate
