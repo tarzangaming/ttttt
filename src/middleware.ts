@@ -1,8 +1,19 @@
 import { NextResponse, NextRequest } from 'next/server';
+import { auth } from '@/auth';
 import { isValidStateCode } from './utils/state-codes';
 import { isValidSubdomain } from './utils/subdomain';
 
-export function middleware(request: NextRequest) {
+export default auth((req) => {
+  const request = req as NextRequest & { auth?: { user?: unknown } };
+  // Protect admin: redirect to login if not authenticated
+  const isAdminPage = request.nextUrl.pathname.startsWith('/admin');
+  const isLoginPage = request.nextUrl.pathname === '/admin/login';
+  if (isAdminPage && !isLoginPage && !request.auth?.user) {
+    const loginUrl = new URL('/admin/login', request.url);
+    loginUrl.searchParams.set('callbackUrl', request.nextUrl.pathname);
+    return NextResponse.redirect(loginUrl);
+  }
+
   const hostname = request.headers.get('host') || '';
   const url = request.nextUrl;
 
@@ -182,7 +193,7 @@ export function middleware(request: NextRequest) {
 
   // For all other routes, let them go through normally
   return NextResponse.next();
-}
+});
 
 export const config = {
   matcher: [

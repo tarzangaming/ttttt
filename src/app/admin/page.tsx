@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
 import LazyImage from '@/components/LazyImage';
 import ServiceImageManager from '@/components/admin/ServiceImageManager';
 import ContentEditor from '@/components/admin/ContentEditor';
@@ -791,12 +792,20 @@ export default function AdminDashboard() {
                         <h1 className="text-2xl font-bold">Admin Dashboard</h1>
                         <p className="text-sm opacity-80">Manage site content & images</p>
                     </div>
-                    <Link
-                        href="/"
-                        className="bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition"
-                    >
-                        ← Back to Site
-                    </Link>
+                    <div className="flex items-center gap-3">
+                        <button
+                            onClick={() => signOut({ callbackUrl: '/admin/login' })}
+                            className="bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition text-sm font-medium"
+                        >
+                            Logout
+                        </button>
+                        <Link
+                            href="/"
+                            className="bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg transition"
+                        >
+                            ← Back to Site
+                        </Link>
+                    </div>
                 </div>
             </header>
 

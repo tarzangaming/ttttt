@@ -1,6 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { auth } from '@/auth';
+
+async function requireAuth() {
+  const session = await auth();
+  if (!session?.user) {
+    return false;
+  }
+  return true;
+}
 
 // List of allowed JSON files that can be managed
 const ALLOWED_FILES = [
@@ -17,6 +26,9 @@ const DATA_DIR = path.join(process.cwd(), 'src', 'data');
 
 // GET - List all JSON files or get a specific file
 export async function GET(request: NextRequest) {
+    if (!(await requireAuth())) {
+        return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
     const { searchParams } = new URL(request.url);
     const fileName = searchParams.get('file');
 
@@ -89,6 +101,9 @@ export async function GET(request: NextRequest) {
 
 // POST - Update a JSON file
 export async function POST(request: NextRequest) {
+    if (!(await requireAuth())) {
+        return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
     try {
         const body = await request.json();
         const { fileName, data } = body;

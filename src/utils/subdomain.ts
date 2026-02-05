@@ -3,6 +3,8 @@ import { getStateUrl, isValidStateCode, STATE_CODES } from './state-codes';
 
 export { getStateUrl, isValidStateCode, STATE_CODES };
 
+const DOMAIN = 'bennettconstructionandroofing.com';
+
 /** Canonical URL for a location (subdomain format) */
 export function getLocationUrl(locationId: string, path = ''): string {
   const base = `https://${locationId}.${DOMAIN}`;
