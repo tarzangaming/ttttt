@@ -5,21 +5,14 @@ export async function GET() {
   const headersList = await headers()
   const host = headersList.get('host') || ''
   const currentDate = new Date().toISOString()
-  
-  // Extract subdomain from host
-  let subdomain = ''
-  if (host.includes('.gdprofessionalplumbing.com')) {
-    subdomain = host.replace('.gdprofessionalplumbing.com', '')
-  }
-  
-  // If it's the main domain, redirect to sitemap-main.xml
-  if (subdomain === 'www' || subdomain === 'gdprofessionalplumbing' || !subdomain) {
-    return NextResponse.redirect('https://www.gdprofessionalplumbing.com/sitemap-main.xml', 301)
+  const protocol = headersList.get('x-forwarded-proto') || 'https'
+  const baseUrl = `${protocol}://${host}`
+
+  // Main domain: redirect to sitemap-main.xml
+  if (!host || host.startsWith('www.') || host.split('.').length <= 2) {
+    return NextResponse.redirect(`${baseUrl}/sitemap-main.xml`, 301)
   }
 
-  // Note: State subdomain detection is not needed for sitemap generation
-  // as the sitemap structure is the same for both city and state subdomains
-  
   const serviceSlugs = [
     'plumber-water-heater-repair',
     'plumber-tankless-water-heater',
@@ -37,9 +30,7 @@ export async function GET() {
     'plumber-toilet-repair',
     'plumber-emergency-service'
   ]
-  
-  const baseUrl = `https://${subdomain}.gdprofessionalplumbing.com`
-  
+
   // Main pages for this subdomain
   const mainPages = [
     `  <url>

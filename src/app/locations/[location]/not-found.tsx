@@ -9,11 +9,9 @@ export default function LocationNotFound() {
   const location = params.location as string;
 
   useEffect(() => {
-    // Redirect to the main subdomain page after a short delay
     const timer = setTimeout(() => {
-      window.location.href = `https://${location}.gdprofessionalplumbing.com`;
+      window.location.href = location ? `/locations/${location}` : '/';
     }, 3000);
-
     return () => clearTimeout(timer);
   }, [location]);
 
@@ -24,26 +22,25 @@ export default function LocationNotFound() {
           <h1 className="text-6xl font-bold text-blue-600 mb-2">404</h1>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">Page Not Found</h2>
           <p className="text-gray-600 mb-6">
-            The page you're looking for doesn't exist. You'll be redirected to our {location} location page in a few seconds.
+            The page you&apos;re looking for doesn&apos;t exist. You&apos;ll be redirected in a few seconds.
           </p>
         </div>
-        
+
         <div className="space-y-4">
-          <Link 
-            href={`https://${location}.gdprofessionalplumbing.com`}
+          <Link
+            href={location ? `/locations/${location}` : '/'}
             className="inline-block w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
-            Go to {location} Location
+            Go to Locations
           </Link>
-          
-          <Link 
-            href={`https://${location}.gdprofessionalplumbing.com/services`}
+          <Link
+            href="/services"
             className="inline-block w-full bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
           >
-            View Services in {location}
+            View Our Services
           </Link>
         </div>
-        
+
         <p className="text-sm text-gray-500 mt-6">
           Redirecting automatically in 3 seconds...
         </p>

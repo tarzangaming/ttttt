@@ -1,59 +1,27 @@
 import { NextResponse } from 'next/server'
-import locationsData from '@/data/locations.json'
+import { getAllLocations } from '@/utils/content'
 
-// Define proper types for location data
-interface LocationData {
-  id: string;
-  name: string;
-  state: string;
-  fullName: string;
-  description: string;
-  phone: string;
-  heroTitle: string;
-  heroSubtitle: string;
-  services: Array<{
-    title: string;
-    description: string;
-    icon: string;
-  }>;
-  areas: string[];
-  zipCodes: string[];
-  image: string;
-  meta: {
-    title: string;
-    description: string;
-  };
-  faqs: Array<{
-    question: string;
-    answer: string;
-  }>;
-  testimonials: Array<{
-    name: string;
-    text: string;
-    location: string;
-  }>;
-}
-
-interface LocationsData {
-  locations: LocationData[];
-}
+const DOMAIN = 'bennettconstructionandroofing.com'
 
 export async function GET() {
   const currentDate = new Date().toISOString()
-  
+
+  // Get all locations using the helper
+  const allLocations = getAllLocations()
+
   // Generate individual city sitemap entries
-  const citySitemaps = (locationsData as LocationsData).locations.map((location: LocationData) => 
+  const citySitemaps = allLocations.map((location) =>
     `<sitemap>
-    <loc>https://${location.id}.gdprofessionalplumbing.com/sitemap.xml</loc>
+    <loc>https://${location.id}.${DOMAIN}/sitemap.xml</loc>
     <lastmod>${currentDate}</lastmod>
   </sitemap>`
   ).join('\n')
 
   // Generate state subdomain sitemap entries
-  const stateCodes = ['ca', 'ny', 'tx', 'fl', 'il', 'pa', 'oh', 'ga', 'nc', 'mi', 'nj', 'va', 'wa', 'az', 'ma', 'tn', 'in', 'mo', 'md', 'co', 'mn', 'wi', 'sc', 'al', 'la', 'ky', 'or', 'ok', 'ct', 'ut', 'ia', 'nv', 'ar', 'ms', 'ks', 'ne', 'id', 'nh', 'me', 'nm', 'ri', 'hi', 'mt', 'de', 'sd', 'nd', 'ak', 'vt', 'wy', 'wv'];
-  const stateSitemaps = stateCodes.map((state) => 
+  const uniqueStates = [...new Set(allLocations.map(loc => loc.state.toLowerCase()))];
+  const stateSitemaps = uniqueStates.map((state) =>
     `<sitemap>
-    <loc>https://${state}.gdprofessionalplumbing.com/sitemap.xml</loc>
+    <loc>https://${state}.${DOMAIN}/sitemap.xml</loc>
     <lastmod>${currentDate}</lastmod>
   </sitemap>`
   ).join('\n')
@@ -70,3 +38,4 @@ ${stateSitemaps}
     },
   })
 }
+

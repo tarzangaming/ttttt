@@ -1,212 +1,244 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
 import { getLocationBySubdomain } from '@/utils/subdomain';
 import LocationPageContent from '@/components/LocationPageContent';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import FloatingCTA from '@/components/FloatingCTA';
+import { getAllLocations, getAllStates } from '@/utils/content';
+import { getPageSEOFromFile } from '@/lib/seo-server';
 import locationsData from '@/data/locations.json';
+import imagesData from '@/data/images.json';
 
-export const metadata: Metadata = {
-  title: 'Plumbing Services by Location | GD Professional Plumbing',
-  description: 'Find professional plumbers in your area. GD Professional Plumbing serves multiple cities across the USA with fast, reliable 24/7 emergency plumbing services. Call (833) 609-0936.',
-  keywords: [
-    'plumbing services by location',
-    'local plumber',
-    'plumber near me',
-    'plumbing services by city',
-    'plumbing services by state',
-    'find plumber',
-    'local plumbing company',
-    'plumbing contractor near me',
-    'emergency plumber near me',
-    'residential plumber near me',
-    'commercial plumber near me',
-    'water heater repair near me',
-    'drain cleaning near me',
-    'leak detection near me',
-    'sewer line repair near me',
-    'toilet repair near me',
-    'faucet repair near me',
-    'plumbing services USA',
-    'plumbing company locations',
-    'plumbing service areas'
-  ],
-  openGraph: {
-    title: 'Plumbing Services by Location | GD Professional Plumbing',
-    description: 'Find professional plumbers in your area. GD Professional Plumbing serves multiple cities across the USA with fast, reliable 24/7 emergency plumbing services.',
-    url: 'https://gdprofessionalplumbing.com/locations',
-    siteName: 'GD Professional Plumbing',
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Plumbing Services by Location | GD Professional Plumbing',
-    description: 'Find professional plumbers in your area. GD Professional Plumbing serves multiple cities across the USA with fast, reliable 24/7 emergency plumbing services.',
-  },
-  alternates: {
-    canonical: 'https://gdprofessionalplumbing.com/locations',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = getPageSEOFromFile('locations');
+  if (!seo) {
+    return {
+      title: 'Nationwide Roofing Contractor | Serving All 50 States | USA',
+      description: "Bennett Construction & Roofing is America's premier licensed contractor.",
+      alternates: { canonical: 'https://bennettconstructionandroofing.com/locations' },
+    };
+  }
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
+    openGraph: { title: seo.title, description: seo.description, type: 'website' },
+  };
+}
 
 export const dynamic = 'force-dynamic';
 
-type BasicLocation = { id: string; name: string; state: string };
+type LocationType = { id: string; name: string; state: string; areas?: string[] };
 
 export default async function Page({ searchParams }: { searchParams: Promise<Record<string, string>> }) {
   const params = await searchParams;
   const city = params?.city?.toLowerCase();
-  
-  // If no city parameter, show locations listing
-  if (!city) {
-    const typedLocations = (locationsData as { locations: BasicLocation[] }).locations;
-    
-    // Group locations by state
-    const locationsByState = typedLocations.reduce(
-      (acc: Record<string, BasicLocation[]>, location: BasicLocation) => {
-        if (!acc[location.state]) {
-          acc[location.state] = [];
-        }
-        acc[location.state].push(location);
-        return acc;
-      },
-      {} as Record<string, BasicLocation[]>
-    );
 
-    // Deduplicate by id within each state and sort by name for stable render
-    const dedupedLocationsByState: Record<string, BasicLocation[]> = Object.fromEntries(
-      Object.entries(locationsByState).map(([state, list]) => {
-        const seenIds = new Set<string>();
-        const unique = (list as BasicLocation[])
-          .filter((loc: BasicLocation) => {
-            if (seenIds.has(loc.id)) return false;
-            seenIds.add(loc.id);
-            return true;
-          })
-          .sort((a: BasicLocation, b: BasicLocation) => a.name.localeCompare(b.name));
-        return [state, unique];
-      })
-    ) as Record<string, BasicLocation[]>;
-
-    const states = Object.keys(dedupedLocationsByState).sort();
-
-    return (
-      <div className="min-h-screen bg-gray-50">
-        <Header />
-        {/* Hero Section */}
-        <section className="relative h-[60vh] overflow-hidden">
-          <div className="absolute inset-0">
-            <img 
-              src="/hero-bg.jpg" 
-              alt="Plumbing background"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-700/60"></div>
+  // Subdomain Logic: If accessed via city.domain.com
+  if (city) {
+    const location = getLocationBySubdomain(city);
+    if (!location) {
+      return (
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-gray-800 mb-4">City not found</h1>
+            <p className="text-gray-600">The requested city &ldquo;{city}&rdquo; is not available.</p>
+            <Link href="/locations" className="text-[#d97706] font-bold hover:underline mt-4 inline-block">View All Locations</Link>
           </div>
-          <div className="relative z-10 h-full flex items-center justify-center">
-            <div className="text-center text-white px-6 max-w-4xl mx-auto">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-                Plumbing Services by Location
-              </h1>
-              <p className="text-lg md:text-xl lg:text-2xl opacity-95 max-w-3xl mx-auto leading-relaxed mb-8">
-                Find professional plumbers in your area. We serve multiple cities with fast, reliable service.
-              </p>
-              <div className="flex justify-center">
-                <a 
-                  href="tel:+18336090936" 
-                  className="group relative bg-white text-blue-700 font-bold px-8 py-4 rounded-xl text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center gap-3 animate-pulse"
-                >
-                  <div className="relative">
-                    <svg className="w-6 h-6 animate-bounce text-blue-700" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"/>
-                    </svg>
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-ping"></div>
-                  </div>
-                  <span className="font-bold tracking-wide">(833) 609-0936</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-        {/* States and Locations */}
-        <section className="py-16 px-4 max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Plumbing Services by Location</h2>
-          <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-            Find professional plumbers in your area. We serve multiple cities with fast, reliable service.
+        </div>
+      );
+    }
+    return <LocationPageContent location={location as any} />;
+  }
+
+  // STANDARD VIEW: NATIONWIDE USA HUB
+  const allLocations = getAllLocations();
+
+  // Featured locations from across the USA (mix of states)
+  const featuredLocations = allLocations.slice(0, 12);
+  const otherLocations = allLocations.slice(12);
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+
+      {/* 1. HERO SECTION */}
+      <section className="relative py-24 px-4 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={imagesData.images.hero.locations.url}
+            alt="USA Nationwide Roofing and Construction Services"
+            fill
+            priority
+            className="object-cover"
+            style={{ filter: 'brightness(0.3)' }}
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/80 to-[#0f1f33]/60" />
+
+        <div className="relative z-10 max-w-5xl mx-auto text-center text-white">
+          <span className="inline-block bg-[#d97706] text-white font-bold px-4 py-1.5 rounded-full text-sm mb-6 uppercase tracking-wider">
+            Nationwide Service
+          </span>
+          <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+            America&apos;s Premier <span className="text-[#d97706]">Roofing Contractor</span>
+          </h1>
+          <p className="text-xl md:text-2xl opacity-95 max-w-3xl mx-auto leading-relaxed mb-10 font-light">
+            From coast to coast, we protect American homes and businesses with quality craftsmanship. Serving all 50 states with trusted local teams.
           </p>
-          
-          <div className="space-y-8">
-            {states.map((state) => (
-              <div key={state} className="bg-white rounded-lg shadow-md p-6">
-                <a 
-                  href={`/states/${state.toLowerCase()}`}
-                  className="text-2xl font-bold mb-4 text-gray-800 hover:text-blue-600 transition-colors block"
-                >
-                  {state} →
-                </a>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {dedupedLocationsByState[state].map((location: BasicLocation) => (
-                    <a
-                      key={`${location.id}-${location.state}`}
-                      href={`https://${location.id.toLowerCase()}.gdprofessionalplumbing.com`}
-                      className="block p-4 bg-gray-50 rounded-lg hover:bg-blue-50 transition text-center"
-                    >
-                      <h4 className="font-semibold text-gray-800 mb-1">{location.name}</h4>
-                      <p className="text-sm text-gray-600">{location.state}</p>
-                    </a>
-                  ))}
-                </div>
-              </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:+18662891750"
+              className="bg-[#d97706] hover:bg-[#b45309] text-white font-bold px-8 py-5 rounded-xl text-lg transition shadow-xl flex items-center justify-center gap-3"
+            >
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" /></svg>
+              (866) 289-1750
+            </a>
+            <Link
+              href="#locations"
+              className="bg-white text-[#1e3a5f] hover:bg-gray-100 font-bold px-8 py-5 rounded-xl text-lg transition shadow-xl block"
+            >
+              Find Your City
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. FEATURED LOCATIONS GRID */}
+      <section id="locations" className="py-20 px-4 max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-6">Areas We Serve</h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Our crews are stationed throughout the country to ensure fast response times for emergency repairs, inspections, and installations.
+          </p>
+        </div>
+
+        {/* STATES SERVED GRID */}
+        <div className="mb-20">
+          <h3 className="text-2xl font-bold text-[#1e3a5f] mb-8 border-b pb-4">States We Serve</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            {getAllStates().map((state) => (
+              <Link
+                key={state.slug}
+                href={`/locations/${state.slug}`}
+                className="px-4 py-3 bg-white rounded-lg shadow-sm hover:shadow-md border border-gray-100 flex items-center justify-between group transition-all"
+              >
+                <span className="font-medium text-gray-700 group-hover:text-[#d97706] transition-colors text-sm truncate">{state.name}</span>
+              </Link>
             ))}
           </div>
-        </section>
+        </div>
 
-        {/* Stats */}
-        <div className="mt-16 text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Our Coverage</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-700">{typedLocations.length}</div>
-              <div className="text-gray-600">Cities Served</div>
+        {featuredLocations.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredLocations.map((location) => (
+              <Link
+                key={location.id}
+                href={`/locations/${location.id}`}
+                className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden transform hover:-translate-y-1 block h-full"
+              >
+                <div className="h-3 bg-[#d97706] group-hover:h-4 transition-all" />
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-2xl font-bold text-[#1e3a5f]">{location.name}</h3>
+                    <span className="text-[#d97706] text-xl group-hover:translate-x-1 transition-transform">→</span>
+                  </div>
+                  <p className="text-gray-600 mb-6">
+                    Professional roofing services for {location.name} and surrounding neighborhoods like {location.areas?.slice(0, 3).join(', ')}.
+                  </p>
+                  <span className="text-sm font-bold text-[#1e3a5f] uppercase tracking-wide group-hover:text-[#d97706] transition-colors">
+                    View Local Services
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center p-8 bg-white rounded-xl shadow border border-gray-200">
+            <p className="text-xl text-gray-600">
+              Don&apos;t see your city listed? We serve communities nationwide.
+              <br />
+              <a href="tel:8662891750" className="text-[#d97706] font-bold hover:underline">Call us to confirm coverage in your area.</a>
+            </p>
+          </div>
+        )}
+
+        {/* Fallback for other locations if JSON has non-AZ */}
+        {otherLocations.length > 0 && (
+          <div className="mt-16 pt-16 border-t border-gray-200">
+            <h3 className="text-2xl font-bold text-[#1e3a5f] mb-8 text-center">Other Locations Served</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {otherLocations.map(loc => (
+                <Link
+                  key={loc.id}
+                  href={`/locations/${loc.id}`}
+                  className="p-4 bg-white rounded-lg shadow-sm hover:shadow text-center text-gray-700 font-medium hover:text-[#d97706]"
+                >
+                  {loc.name}, {loc.state}
+                </Link>
+              ))}
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-700">{states.length}</div>
-              <div className="text-gray-600">States Covered</div>
+          </div>
+        )}
+      </section>
+
+      {/* 3. NATIONWIDE VALUE PROP */}
+      <section className="bg-[#1e3a5f] text-white py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">Why America Chooses Bennett</h2>
+              <p className="text-xl opacity-90 mb-8 leading-relaxed">
+                From desert heat to snow country, coastal humidity to Midwest storms—we know every climate. We don&apos;t just build roofs; we engineer defense systems for American homes nationwide.
+              </p>
+              <ul className="space-y-4 text-lg">
+                <li className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-[#d97706] flex items-center justify-center font-bold">✓</div>
+                  Licensed in All 50 States
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-[#d97706] flex items-center justify-center font-bold">✓</div>
+                  Climate-Specific Materials
+                </li>
+                <li className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-[#d97706] flex items-center justify-center font-bold">✓</div>
+                  24/7 Storm Emergency Response
+                </li>
+              </ul>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-blue-700">24/7</div>
-              <div className="text-gray-600">Emergency Service</div>
+            <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl skew-y-1 bg-gray-800">
+              <Image
+                src={imagesData.images.gallery.projects[0]?.url || imagesData.images.services['roof-replacement'].url}
+                alt="USA Nationwide Roofing Project"
+                fill
+                className="object-cover opacity-90"
+              />
             </div>
           </div>
         </div>
+      </section>
 
-        {/* CTA Section */}
-        <section className="bg-blue-700 text-white py-16 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">Need Plumbing Services?</h2>
-            <p className="text-xl mb-8">Call us today for fast, reliable service in your area.</p>
-            <a 
-              href="tel:+18336090936" 
-              className="bg-white text-blue-700 font-bold px-8 py-4 rounded-lg text-lg hover:bg-gray-100 transition inline-block"
-            >
-              Call (833) 609-0936
-            </a>
-          </div>
-        </section>
-      </div>
-    );
-  }
-
-  const location = getLocationBySubdomain(city);
-
-  if (!location) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">City not found</h1>
-          <p className="text-gray-600">The requested city &ldquo;{city}&rdquo; is not available.</p>
+      {/* 4. FINAL CTA */}
+      <section className="py-20 px-4 bg-gray-50 text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-[#1e3a5f] mb-6">Ready to Protect Your Property?</h2>
+          <p className="text-gray-600 text-xl mb-10">
+            Schedule a free inspection with your local Bennett Construction team. We are in your neighborhood.
+          </p>
+          <a
+            href="tel:8662891750"
+            className="inline-flex items-center bg-[#d97706] hover:bg-[#b45309] text-white font-bold px-10 py-5 rounded-full text-xl transition shadow-xl"
+          >
+            Get My Free Estimate
+          </a>
         </div>
-      </div>
-    );
-  }
+      </section>
 
-  return <LocationPageContent location={location} />;
-} 
+      <Footer />
+      <FloatingCTA />
+    </div>
+  );
+}

@@ -1,0 +1,107 @@
+{
+  "defaults": {
+    "titleSuffix": " | Bennett Construction & Roofing",
+    "siteName": "Bennett Construction & Roofing",
+    "locale": "en_US",
+    "type": "website",
+    "twitterCard": "summary_large_image"
+  },
+  "pages": {
+    "home": {
+      "title": "Roof installation Near Me  - Find roofing Service in USA",
+      "description": "Looking for roofing services near you? Bennett Construction & Roofing provides roof repair, roof replacement, and new roof installation across the USA. Get a free estimate today. Call (833) 609-0936.",
+      "keywords": [
+        "roofing contractor",
+        "construction company",
+        "roof repair",
+        "roof replacement",
+        "siding installation",
+        "gutter installation",
+        "general contractor",
+        "home remodeling"
+      ],
+      "canonical": "https://bennettconstructionandroofing.com"
+    },
+    "about": {
+      "title": "About Us | Bennett Construction & Roofing",
+      "description": "Learn about Bennett Construction & Roofing. 25+ years of trusted roofing and construction services. Licensed, insured, and committed to quality craftsmanship.",
+      "keywords": [
+        "about Bennett Construction",
+        "roofing company history",
+        "licensed contractor",
+        "insured roofer"
+      ],
+      "canonical": "https://bennettconstructionandroofing.com/about"
+    },
+    "contact": {
+      "title": "Contact Us | Bennett Construction & Roofing",
+      "description": "Contact Bennett Construction & Roofing for a free estimate. Call (833) 609-0936 or fill out our form. Available 24/7 for emergencies.",
+      "keywords": [
+        "contact roofer",
+        "roofing estimate",
+        "construction quote",
+        "emergency roofing"
+      ],
+      "canonical": "https://bennettconstructionandroofing.com/contact"
+    },
+    "services": {
+      "title": "Our Services | Bennett Construction & Roofing",
+      "description": "Explore our full range of roofing, siding, gutter, and construction services. Residential and commercial. Free estimates. Call (833) 609-0936.",
+      "keywords": [
+        "roofing services",
+        "construction services",
+        "siding services",
+        "gutter services"
+      ],
+      "canonical": "https://bennettconstructionandroofing.com/services"
+    },
+    "locations": {
+      "title": "Nationwide Roofing Contractor | Serving All 50 States | USA",
+      "description": "Bennett Construction & Roofing is America's premier licensed contractor. Serving communities coast to coast with professional roofing & construction. Call for a free estimate.",
+      "keywords": [
+        "roofing contractor",
+        "locations",
+        "roof repair",
+        "nationwide"
+      ],
+      "canonical": "https://bennettconstructionandroofing.com/locations"
+    },
+    "financing": {
+      "title": "Roofing Financing Options | Bennett Construction & Roofing",
+      "description": "Get a new roof for as low as $149/month. 0% Interest options available. Fast approval for homeowners. Call (833) 609-0936.",
+      "keywords": [
+        "roofing financing",
+        "payment plans",
+        "0% financing"
+      ],
+      "canonical": "https://bennettconstructionandroofing.com/financing"
+    },
+    "costGuides": {
+      "title": "Roofing Cost Guides | Price & Budgeting Resources",
+      "description": "Transparent pricing guides for roofing. Learn about costs for tile, shingle, foam, and metal roof replacement.",
+      "keywords": [
+        "roofing costs",
+        "price guide",
+        "budget"
+      ],
+      "canonical": "https://bennettconstructionandroofing.com/cost-guides"
+    }
+  },
+  "templates": {
+    "service": {
+      "title": "{serviceTitle} | Bennett Construction & Roofing",
+      "description": "Professional {serviceTitle} services by Bennett Construction & Roofing. Licensed, insured, free estimates. Call (833) 609-0936.",
+      "canonical": "https://bennettconstructionandroofing.com/services/{slug}"
+    },
+    "location": {
+      "title": "Roofing & Construction in {cityName}, {state} | Bennett Construction & Roofing",
+      "description": "Bennett Construction & Roofing serves {cityName}, {state}. Expert roofing, siding, and construction services. Licensed, insured. Call (833) 609-0936.",
+      "canonical": "https://bennettconstructionandroofing.com/locations/{locationId}"
+    },
+    "locationService": {
+      "title": "{serviceTitle} in {cityName}, {state} | Bennett Construction & Roofing",
+      "description": "Professional {serviceTitle} in {cityName}, {state}. Licensed contractors, free estimates. Call (833) 609-0936.",
+      "canonical": "https://bennettconstructionandroofing.com/locations/{locationId}/{slug}"
+    }
+  }
+}

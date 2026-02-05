@@ -14,10 +14,9 @@ export default function GlobalError({
     console.error('Global error:', error);
   }, [error]);
 
-  // For 404 errors, redirect to main domain
   useEffect(() => {
     if (error.message.includes('404') || error.message.includes('Not Found')) {
-      window.location.href = 'https://www.gdprofessionalplumbing.com';
+      window.location.href = '/';
     }
   }, [error]);
 
@@ -28,16 +27,16 @@ export default function GlobalError({
           <h1 className="text-6xl font-bold text-red-600 mb-2">Error</h1>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">Something went wrong</h2>
           <p className="text-gray-600 mb-6">
-            We're sorry, but something went wrong. You'll be redirected to our main website.
+            We&apos;re sorry, but something went wrong. Try going back to the homepage.
           </p>
         </div>
-        
+
         <div className="space-y-4">
           <button
-            onClick={() => window.location.href = 'https://www.gdprofessionalplumbing.com'}
+            onClick={() => (window.location.href = '/')}
             className="inline-block w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
-            Go to Main Website
+            Go to Homepage
           </button>
           
           <button

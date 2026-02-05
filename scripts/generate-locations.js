@@ -40,9 +40,9 @@ allLocations.forEach(city => {
     state,
     fullName: `${city}, ${state}`,
     description: `Professional plumbing services in ${city}, ${state}. Licensed, experienced, and affordable for repairs, installs, or maintenance!`,
-    phone: "(833) 609-0936",
+    phone: "(866) 289-1750",
     heroTitle: `Best Licensed & Certified Plumbers in ${city}`,
-    heroSubtitle: `Call Us at (833) 609-0936! Trusted plumbing experts in ${city}, ${state}. Licensed, experienced, and affordable for repairs, installs, or maintenance!`,
+    heroSubtitle: `Call Us at (866) 289-1750! Trusted plumbing experts in ${city}, ${state}. Licensed, experienced, and affordable for repairs, installs, or maintenance!`,
     services: [
       {
         title: "Water Heaters Repair and Installation",
@@ -70,12 +70,12 @@ allLocations.forEach(city => {
     image: `/images/${id}.jpg`,
     meta: {
       title: `Best Licensed & Certified Plumbers in ${city}, ${state} | PlumPro`,
-      description: `Trusted plumbing experts in ${city}, ${state}. Licensed, experienced, and affordable for repairs, installs, or maintenance! Call (833) 609-0936`
+      description: `Trusted plumbing experts in ${city}, ${state}. Licensed, experienced, and affordable for repairs, installs, or maintenance! Call (866) 289-1750`
     },
     faqs: [
       {
         question: "How can I obtain a free quote?",
-        answer: "You can get a free quote by calling us at (833) 609-0936 or filling out our online contact form. We'll provide you with a detailed estimate for your plumbing needs."
+        answer: "You can get a free quote by calling us at (866) 289-1750 or filling out our online contact form. We'll provide you with a detailed estimate for your plumbing needs."
       },
       {
         question: "Do you offer emergency plumbing services?",

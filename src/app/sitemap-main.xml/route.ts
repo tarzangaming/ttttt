@@ -1,72 +1,43 @@
 import { NextResponse } from 'next/server'
-import locationsData from '@/data/locations.json'
+import { getAllLocations } from '@/utils/content'
+import servicesData from '@/data/services.json'
 
-// Define proper types for location data
-interface LocationData {
-  id: string;
-  name: string;
-  state: string;
-}
-
-interface LocationsData {
-  locations: LocationData[];
-}
+const DOMAIN = 'https://www.bennettconstructionandroofing.com'
 
 export async function GET() {
   const currentDate = new Date().toISOString()
-  
-  const serviceSlugs = [
-    'plumber-water-heater-repair',
-    'plumber-tankless-water-heater',
-    'plumber-water-recirculation-pump',
-    'plumber-faucet-sink-repair',
-    'plumber-water-conservation',
-    'plumber-bathroom-renovation',
-    'plumber-water-system-repair',
-    'plumber-slab-leak-repair',
-    'plumber-sump-pump-repair',
-    'plumber-drain-cleaning',
-    'plumber-sewer-line-repair',
-    'plumber-gas-line-repair',
-    'plumber-leak-detection',
-    'plumber-toilet-repair',
-    'plumber-emergency-service'
-  ]
+
+  // Get all services
+  const services = (servicesData as { services: { slug: string }[] }).services
 
   // Main domain pages
   const mainPages = [
     `  <url>
-    <loc>https://www.gdprofessionalplumbing.com/</loc>
+    <loc>${DOMAIN}/</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>`,
     `  <url>
-    <loc>https://www.gdprofessionalplumbing.com/services</loc>
+    <loc>${DOMAIN}/services</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`,
     `  <url>
-    <loc>https://www.gdprofessionalplumbing.com/about</loc>
+    <loc>${DOMAIN}/about</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>`,
     `  <url>
-    <loc>https://www.gdprofessionalplumbing.com/contact</loc>
+    <loc>${DOMAIN}/contact</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>`,
     `  <url>
-    <loc>https://www.gdprofessionalplumbing.com/locations</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>`,
-    `  <url>
-    <loc>https://www.gdprofessionalplumbing.com/states</loc>
+    <loc>${DOMAIN}/locations</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -74,45 +45,35 @@ export async function GET() {
   ].join('\n')
 
   // Main domain service pages
-  const mainServicePages = serviceSlugs.map(service => 
+  const mainServicePages = services.map(service =>
     `  <url>
-    <loc>https://www.gdprofessionalplumbing.com/services/${service}</loc>
+    <loc>${DOMAIN}/services/${service.slug}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`
   ).join('\n')
 
-  // Get unique states
-  const typedLocationsData = locationsData as LocationsData;
-  const uniqueStates = [...new Set(typedLocationsData.locations.map(loc => loc.state))];
+  // Get all locations using helper (handles nested states/cities structure)
+  const allLocations = getAllLocations()
 
-  // State pages
-  const statePages = uniqueStates.map(state => 
+  // Location pages (existing /locations/[location] structure)
+  const locationPages = allLocations.map(loc =>
     `  <url>
-    <loc>https://www.gdprofessionalplumbing.com/states/${state.toLowerCase()}</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>`
-  ).join('\n')
-
-  // State services pages
-  const stateServicesPages = uniqueStates.flatMap(state =>
-    serviceSlugs.map(service => 
-      `  <url>
-    <loc>https://www.gdprofessionalplumbing.com/states/${state.toLowerCase()}/${service}</loc>
+    <loc>${DOMAIN}/locations/${loc.id}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`
-    )
   ).join('\n')
 
-  // State services index pages
-  const stateServicesIndexPages = uniqueStates.map(state => 
+  // Get unique states for the new /areas/ structure
+  const uniqueStates = [...new Set(allLocations.map(loc => loc.state))];
+
+  // State pages (new /areas/[state] structure)
+  const statePages = uniqueStates.map(state =>
     `  <url>
-    <loc>https://www.gdprofessionalplumbing.com/states/${state.toLowerCase()}/services</loc>
+    <loc>${DOMAIN}/areas/${state.toLowerCase()}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -123,9 +84,7 @@ export async function GET() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${mainPages}
 ${mainServicePages}
-${statePages}
-${stateServicesIndexPages}
-${stateServicesPages}
+${locationPages}
 </urlset>`
 
   return new NextResponse(sitemap, {
@@ -134,3 +93,4 @@ ${stateServicesPages}
     },
   })
 }
+

@@ -1,0 +1,124 @@
+{
+    "services": [
+        {
+            "slug": "roof-installation",
+            "icon": "🏗️",
+            "title": "Roof Installation",
+            "subtitle": "Professional Roof Installation in {{CITY}}, {{STATE}}",
+            "description": "Expert roof installation using high-quality materials including asphalt, metal, tile, and flat roofing systems. Built for long-term protection, energy efficiency, and local weather conditions in {{CITY}}.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "roof-replacement",
+            "icon": "🏠",
+            "title": "Roof Replacement",
+            "subtitle": "Roof Replacement Services in {{CITY}}, {{STATE}}",
+            "description": "Replace aging or damaged roofs with modern, durable roofing systems. Our roof replacement services improve safety, curb appeal, and long-term value for homes and businesses in {{CITY}}.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "roof-repair",
+            "icon": "🔧",
+            "title": "Roof Repair",
+            "subtitle": "Reliable Roof Repair in {{CITY}}, {{STATE}}",
+            "description": "Fast and effective roof repair for leaks, storm damage, cracked shingles, and general wear. We diagnose issues accurately and restore roof integrity before damage spreads.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "roof-inspection",
+            "icon": "🔍",
+            "title": "Roof Inspection & Maintenance",
+            "subtitle": "Roof Inspection & Maintenance in {{CITY}}, {{STATE}}",
+            "description": "Prevent costly repairs with professional roof inspections and scheduled maintenance. Our team ensures your roof stays structurally sound year-round.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "emergency-roof-repair",
+            "icon": "🚨",
+            "title": "Emergency Roof Repair",
+            "subtitle": "24/7 Emergency Roof Repair in {{CITY}}, {{STATE}}",
+            "description": "Immediate roofing assistance for storm damage, leaks, or unexpected failures. Our emergency roofing team responds quickly to protect your property.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "metal-roofing",
+            "icon": "🔩",
+            "title": "Metal Roof Installation",
+            "subtitle": "Metal Roof Installation in {{CITY}}, {{STATE}}",
+            "description": "Durable and energy-efficient metal roofing systems designed for extreme weather resistance and long lifespan. Ideal for residential and commercial properties.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "flat-roofing-systems",
+            "icon": "🏢",
+            "title": "Flat Roof Services",
+            "subtitle": "Flat Roof Installation & Repair in {{CITY}}, {{STATE}}",
+            "description": "Specialized flat roofing solutions including TPO, EPDM, and PVC roofing. Engineered for commercial buildings and modern residential structures.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "commercial-roofing",
+            "icon": "🏭",
+            "title": "Commercial Roofing",
+            "subtitle": "Commercial Roofing Services in {{CITY}}, {{STATE}}",
+            "description": "Complete commercial roofing solutions including installation, repair, maintenance, and restoration. Built to meet code compliance and business continuity needs.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "shingle-roofing",
+            "icon": "🏡",
+            "title": "Shingle Roofing",
+            "subtitle": "Residential Roofing Services in {{CITY}}, {{STATE}}",
+            "description": "Protect your home with professional residential roofing services. From minor repairs to full roof replacements, we deliver lasting quality.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "gutter-installation",
+            "icon": "🌧️",
+            "title": "Gutter Installation & Repair",
+            "subtitle": "Gutter Installation & Repair in {{CITY}}, {{STATE}}",
+            "description": "Custom gutter systems designed to manage water flow and protect your roof, foundation, and siding from water damage.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "storm-damage-roof-repair",
+            "icon": "⛈️",
+            "title": "Storm Damage Restoration",
+            "subtitle": "Storm Damage Roof Repair in {{CITY}}, {{STATE}}",
+            "description": "Roof restoration services for wind, hail, and storm-related damage. We help stabilize your roof and restore protection quickly.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "roof-coatings",
+            "icon": "🖌️",
+            "title": "Roof Coating & Waterproofing",
+            "subtitle": "Roof Coating & Waterproofing in {{CITY}}, {{STATE}}",
+            "description": "Extend roof lifespan with protective coatings and waterproofing systems that resist UV exposure, moisture, and thermal stress.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "roof-leak-repair",
+            "icon": "💧",
+            "title": "Roof Leak Detection",
+            "subtitle": "Roof Leak Detection in {{CITY}}, {{STATE}}",
+            "description": "Advanced leak detection services to locate hidden moisture intrusion and prevent structural damage before it escalates.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "skylight-services",
+            "icon": "☀️",
+            "title": "Skylight Installation & Repair",
+            "subtitle": "Skylight Services in {{CITY}}, {{STATE}}",
+            "description": "Professional skylight installation and repair to enhance natural light while maintaining waterproof seals and roof integrity.",
+            "cta": "Explore Service"
+        },
+        {
+            "slug": "general-construction",
+            "icon": "🛠️",
+            "title": "General Construction",
+            "subtitle": "General Construction Services in {{CITY}}, {{STATE}}",
+            "description": "Licensed general construction for residential and commercial projects. From additions to structural repairs, we handle it all.",
+            "cta": "Explore Service"
+        }
+    ]
+}

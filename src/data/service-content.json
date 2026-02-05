@@ -1,0 +1,1940 @@
+{
+    "templates": {
+        "new-roof-installation": {
+            "hero": {
+                "title": "Professional Roof Installation in {{CITY}}, {{STATE}}",
+                "subheading": "High-quality roof installation using durable materials designed to withstand {{CITY}}’s climate and protect your property long-term.",
+                "intro": "At {{COMPANY_NAME}}, we provide professional roof installation services in {{CITY}}, {{STATE}} for residential and commercial properties. Whether you are building a new home or replacing an outdated roofing system, our experienced team installs roofs that are strong, energy-efficient, and built to handle local weather conditions.\n\nFrom material selection to final inspection, every roof installation is completed with precision, safety, and long-term performance in mind."
+            },
+            "includes": {
+                "title": "What’s Included in Our Roof Installation Services in {{CITY}}",
+                "items": [
+                    "Full roof assessment and material recommendations",
+                    "Removal of old roofing (if applicable)",
+                    "Structural deck inspection and preparation",
+                    "High-quality underlayment installation",
+                    "Precision installation of roofing materials",
+                    "Proper flashing, sealing, and ventilation",
+                    "Final inspection and complete site cleanup"
+                ]
+            },
+            "materials": {
+                "title": "Roofing Materials We Install in {{CITY}}, {{STATE}}",
+                "items": [
+                    {
+                        "name": "Asphalt Shingle Roofing",
+                        "description": "Affordable, durable, and versatile asphalt shingles are a popular choice for homeowners in {{CITY}}. They provide reliable protection and come in a wide range of styles and colors."
+                    },
+                    {
+                        "name": "Metal Roofing",
+                        "description": "Metal roofing offers exceptional durability, energy efficiency, and resistance to extreme weather. Ideal for long-term performance and modern homes in {{CITY}}."
+                    },
+                    {
+                        "name": "Tile Roofing",
+                        "description": "Tile roofs provide excellent insulation, longevity, and curb appeal. Perfect for homes seeking a premium and weather-resistant roofing solution."
+                    },
+                    {
+                        "name": "Flat Roofing Systems",
+                        "description": "We install flat roofing systems including TPO, EPDM, and PVC for commercial buildings and modern residential properties."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "Why Choose {{COMPANY_NAME}} for Roof Installation in {{CITY}}",
+                "items": [
+                    "Licensed and fully insured roofing professionals",
+                    "Local experience with {{CITY}}’s building codes and climate",
+                    "High-quality materials from trusted manufacturers",
+                    "Clear timelines and transparent pricing",
+                    "Skilled craftsmanship with attention to detail",
+                    "Clean, safe, and professional job sites"
+                ]
+            },
+            "process": {
+                "title": "Our Roof Installation Process",
+                "items": [
+                    {
+                        "step": "Initial Inspection & Consultation",
+                        "description": "We evaluate your property and discuss material options and budget."
+                    },
+                    {
+                        "step": "Detailed Estimate & Planning",
+                        "description": "You receive a clear, written estimate with timeline and scope."
+                    },
+                    {
+                        "step": "Roof Installation",
+                        "description": "Our trained team installs your roof with precision and safety."
+                    },
+                    {
+                        "step": "Final Inspection & Cleanup",
+                        "description": "We ensure everything meets quality standards and leave your property clean."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Do You Need a New Roof Installation?",
+                "intro": "You may need roof installation if you notice:",
+                "items": [
+                    "Aging or worn roofing materials",
+                    "Frequent leaks or water damage",
+                    "Storm or wind-related roof damage",
+                    "Poor insulation or rising energy bills",
+                    "Structural concerns or sagging rooflines"
+                ],
+                "outro": "If unsure, call {{PHONE}} for a professional evaluation."
+            }
+        },
+        "roof-replacement": {
+            "hero": {
+                "title": "Reliable Roof Replacement in {{CITY}}, {{STATE}}",
+                "subheading": "Update your home with a durable, high-performance roof replacement designed for {{CITY}} weather.",
+                "intro": "When your roof has reached the end of its lifespan, {{COMPANY_NAME}} is here to help with professional roof replacement in {{CITY}}, {{STATE}}. A new roof is more than just a home improvement; it's a vital investment in your property's safety, efficiency, and value.\n\nWe specialize in complete tear-offs and full-system replacements, ensuring your new roof is built on a solid foundation and ready to protect your family for decades."
+            },
+            "includes": {
+                "title": "Our Local {{CITY}} Roof Replacement Process",
+                "items": [
+                    "Complete removal of existing roofing materials",
+                    "Wood deck inspection and localized replacement",
+                    "New ice and water shield installation",
+                    "Premium synthetic underlayment application",
+                    "Full shingle, tile, or metal installation",
+                    "New ridge vents and ventilation balancing",
+                    "Magnetic sweep and comprehensive yard cleanup"
+                ]
+            },
+            "materials": {
+                "title": "Replacement Options for {{CITY}} Homes",
+                "items": [
+                    {
+                        "name": "Luxury Asphalt Shingles",
+                        "description": "Multi-layered shingles that mimic the look of slate or wood shake while providing superior impact resistance in {{CITY}}."
+                    },
+                    {
+                        "name": "Composite & Synthetic Roofing",
+                        "description": "High-tech materials that offer incredible longevity and extreme weather performance without the weight of traditional materials."
+                    },
+                    {
+                        "name": "Stone-Coated Steel",
+                        "description": "Combines the strength of steel with the aesthetic of tile or wood, perfect for {{CITY}} homeowners wanting ultimate protection."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The {{CITY}} Roof Replacement Experts",
+                "items": [
+                    "Certified installers for leading manufacturers",
+                    "Extended labor and material warranties",
+                    "0% Financing options for qualified homeowners",
+                    "Daily site clean-up and safety protocols",
+                    "Decades of experience in the {{STATE}} roofing industry"
+                ]
+            },
+            "process": {
+                "title": "Your Replacement Journey",
+                "items": [
+                    {
+                        "step": "Comprehensive Assessment",
+                        "description": "We identify exactly why your old roof failed to prevent it happening again."
+                    },
+                    {
+                        "step": "Material Selection",
+                        "description": "Choose from a wide variety of colors and styles that fit your HOA and budget."
+                    },
+                    {
+                        "step": "The Big Day",
+                        "description": "Our crew arrives on time, protects your landscaping, and begins the tear-off."
+                    },
+                    {
+                        "step": "Final Walkthrough",
+                        "description": "We inspect every detail with you to ensure 100% satisfaction."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Is it Time for a Total Replacement?",
+                "intro": "Consider a full replacement if your {{CITY}} roof shows:",
+                "items": [
+                    "Age over 20-25 years",
+                    "Curling, cracking, or missing shingles across large areas",
+                    "Granule loss filling your gutters",
+                    "Multiple leaks appearing in different locations",
+                    "Energy bills that keep rising unexpectedly"
+                ],
+                "outro": "Don't wait for a collapse. Call {{PHONE}} for an expert opinion."
+            },
+            "faqs": {
+                "title": "Roof Replacement FAQs – {{CITY}}",
+                "items": [
+                    {
+                        "question": "Can I just put new shingles over the old ones?",
+                        "answer": "In {{CITY}}, we strongly recommend a full tear-off to inspect the wood deck and ensure proper ventilation."
+                    },
+                    {
+                        "question": "Will my insurance cover roof replacement?",
+                        "answer": "If your roof has storm or hail damage, it might be. We can help you navigate the inspection process."
+                    }
+                ]
+            }
+        },
+        "roof-repair": {
+            "hero": {
+                "title": "Expert Roof Repair Services in {{CITY}}, {{STATE}}",
+                "subheading": "Fast, reliable roof repairs to stop leaks and prevent costly secondary damage in {{CITY}}.",
+                "intro": "Don't let a small leak turn into a major structural problem. {{COMPANY_NAME}} offers rapid-response roof repair in {{CITY}}, {{STATE}} for all types of roofing systems. Whether it's missing shingles after a storm or a persistent leak in your valley, our technicians have the tools and experience to fix it right the first time.\n\nWe focus on extending the life of your current roof while ensuring your interior remains dry and protected."
+            },
+            "includes": {
+                "title": "Comprehensive Repair Solutions in {{CITY}}",
+                "items": [
+                    "Thorough leak detection and moisture analysis",
+                    "Individual shingle or tile replacement",
+                    "Chimney and skylight flashing repairs",
+                    "Pipe boot and ventilation sealing",
+                    "Structural reinforcement for localized rot",
+                    "Gutter and downspout adjustments",
+                    "Waterproofing around complex roof penetrations"
+                ]
+            },
+            "materials": {
+                "title": "Quality Materials for Durable Repairs",
+                "items": [
+                    {
+                        "name": "Matching Materials",
+                        "description": "We stock a wide variety of shingle and tile profiles to ensure your repair blends seamlessly with the rest of your roof."
+                    },
+                    {
+                        "name": "Solar-Grade Sealants",
+                        "description": "High-performance sealants designed specifically for {{CITY}}'s intense UV exposure and heat."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Preferred {{CITY}} Roof Repair Team",
+                "items": [
+                    "Fast response times for active leaks",
+                    "Honest assessments—we only fix what's broken",
+                    "Transparent pricing with no hidden fees",
+                    "Experienced with {{CITY}}'s common roof failure points",
+                    "Fully stocked repair trucks for same-day service"
+                ]
+            },
+            "process": {
+                "title": "How We Handle Your Repair",
+                "items": [
+                    {
+                        "step": "Leak Investigation",
+                        "description": "We don't just find the drip; we find the entry point on the roof surface."
+                    },
+                    {
+                        "step": "Written Proposal",
+                        "description": "A clear explanation of the repair scope and cost before work begins."
+                    },
+                    {
+                        "step": "Precision Execution",
+                        "description": "We remove damaged components and install new, watertight layers."
+                    },
+                    {
+                        "step": "Testing",
+                        "description": "We verify the repair to ensure your home stays dry."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Signs Your {{CITY}} Home Needs Immediate Repair",
+                "intro": "Keep an eye out for these red flags:",
+                "items": [
+                    "Water spots on your ceiling or walls",
+                    "Missing, cracked, or 'baconed' shingles",
+                    "Granules in the splash blocks of your gutters",
+                    "Light visible in your attic space",
+                    "Moss or algae growth on north-facing slopes"
+                ],
+                "outro": "Call {{PHONE}} now to schedule a local repair specialist."
+            },
+            "faqs": {
+                "title": "Roof Repair FAQs",
+                "items": [
+                    {
+                        "question": "Is it worth repairing an old roof?",
+                        "answer": "If the damage is localized and the rest of the roof is healthy, repair is often the best choice in {{CITY}}."
+                    },
+                    {
+                        "question": "How quickly can you come out?",
+                        "answer": "We prioritize active leaks and can often have a technician on-site within 24-48 hours."
+                    }
+                ]
+            }
+        },
+        "storm-damage-roof-repair": {
+            "hero": {
+                "title": "Storm Damage Roof Restoration in {{CITY}}, {{STATE}}",
+                "subheading": "Professional restoration for hail, wind, and impact damage to protect your {{CITY}} property.",
+                "intro": "Severe weather can strike {{CITY}} without warning, leaving your roof vulnerable to leaks and long-term damage. {{COMPANY_NAME}} specializes in storm damage restoration in {{CITY}}, {{STATE}}, helping homeowners navigate the complexities of weather-related repairs. From massive hail to high-wind events, we provide the expertise needed to return your home to pre-storm condition.\n\nOur team is trained to identify 'hidden' storm damage that often goes unnoticed by the untrained eye but can cause major problems later."
+            },
+            "includes": {
+                "title": "Complete Storm Recovery Services",
+                "items": [
+                    "Emergency tarping and temporary dry-in",
+                    "Detailed hail and wind damage documentation",
+                    "Assistance with insurance adjusters and inspections",
+                    "Debris removal and site safety checks",
+                    "Full system restoration using impact-resistant materials",
+                    "Gutter and siding damage assessments",
+                    "Skylight and window wrap inspections"
+                ]
+            },
+            "materials": {
+                "title": "Storm-Resistant Options for {{CITY}}",
+                "items": [
+                    {
+                        "name": "Class 4 Impact Shingles",
+                        "description": "Designed to withstand large hail and extreme winds, potentially lowering your insurance premiums in {{CITY}}."
+                    },
+                    {
+                        "name": "Reinforcement Underlayment",
+                        "description": "A secondary barrier that remains watertight even if the primary roofing material is compromised during a storm."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "Your Trusted Storm Partner in {{CITY}}",
+                "items": [
+                    "Specialized training in storm damage identification",
+                    "Local company with a permanent presence—no 'storm chasers'",
+                    "Dedicated insurance support team",
+                    "Rapid response for emergency tarping",
+                    "Commitment to high-quality, long-lasting restoration"
+                ]
+            },
+            "process": {
+                "title": "Our Restoration Process",
+                "items": [
+                    {
+                        "step": "Emergency Response",
+                        "description": "We secure your home immediately to prevent further water damage."
+                    },
+                    {
+                        "step": "Comprehensive Documentation",
+                        "description": "We take high-resolution photos and detailed notes for your records."
+                    },
+                    {
+                        "step": "Insurance Coordination",
+                        "description": "We meet with adjusters to ensure all damage is properly accounted for."
+                    },
+                    {
+                        "step": "Expert Restoration",
+                        "description": "We rebuild your roof to current codes with premium materials."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Common Storm Damage in {{CITY}}",
+                "intro": "Look for these signs after a major {{STATE}} weather event:",
+                "items": [
+                    "Missing or torn shingles",
+                    "Bruises or dents on shingles (hail damage)",
+                    "Dented metal vents or gutters",
+                    "Large branches or debris on the roof",
+                    "Sudden leaks appearing after heavy rain"
+                ],
+                "outro": "Suspect damage? Call {{PHONE}} for a free storm inspection."
+            },
+            "faqs": {
+                "title": "Storm Damage FAQ",
+                "items": [
+                    {
+                        "question": "How long do I have to file a claim?",
+                        "answer": "Most policies have a time limit. We recommend getting an inspection as soon as possible after a storm in {{CITY}}."
+                    },
+                    {
+                        "question": "Can I repair only the damaged part?",
+                        "answer": "Depending on the extent of the damage and your insurance policy, a full replacement may be more cost-effective and safer."
+                    }
+                ]
+            }
+        },
+        "gutter-installation": {
+            "hero": {
+                "title": "Seamless Gutter Installation in {{CITY}}, {{STATE}}",
+                "subheading": "Custom-fit gutter systems to protect your {{CITY}} home's foundation and landscaping.",
+                "intro": "Protecting your home from water damage starts at the roofline. {{COMPANY_NAME}} provides professional seamless gutter installation in {{CITY}}, {{STATE}}, using high-grade materials and custom onsite fabrication. Standard gutters often leak at the seams, but our seamless systems are designed to provide a continuous, leak-free path for rainwater.\n\nBy effectively managing runoff, we help you prevent soil erosion, basement flooding, and siding stains—keeping your {{CITY}} property beautiful and sound."
+            },
+            "includes": {
+                "title": "Our Gutter Implementation in {{CITY}}",
+                "items": [
+                    "Onsite gutter fabrication to exact measurements",
+                    "Removal and eco-friendly disposal of old gutters",
+                    "Fascia board inspection and localized repair",
+                    "Hidden hanger installation for a sleek look",
+                    "Strategic downspout placement for optimal drainage",
+                    "Precision pitch alignment for clog-free flow",
+                    "Optional gutter guard integration"
+                ]
+            },
+            "materials": {
+                "title": "Gutter Options for Your {{CITY}} Home",
+                "items": [
+                    {
+                        "name": "Seamless Aluminum",
+                        "description": "The gold standard for durability and value. Available in dozens of colors to match your trim."
+                    },
+                    {
+                        "name": "Copper Gutters",
+                        "description": "Provides a high-end, classic look that develops a beautiful patina over time. Ideal for luxury {{CITY}} estates."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The {{CITY}} Gutter Specialists",
+                "items": [
+                    "Heavy-duty materials that won't sag or rust",
+                    "Wide variety of colors and styles (K-Style, Half-Round)",
+                    "Expert knowledge of {{CITY}}'s drainage requirements",
+                    "Clean installation with hidden fasteners",
+                    "Combined roofing and gutter expertise for a total solution"
+                ]
+            },
+            "process": {
+                "title": "Installation Step-by-Step",
+                "items": [
+                    {
+                        "step": "Measurement & Design",
+                        "description": "We evaluate your roofline and calculate the necessary capacity."
+                    },
+                    {
+                        "step": "Onsite Extrusion",
+                        "description": "We roll-form your gutters from a coil of metal right in your driveway."
+                    },
+                    {
+                        "step": "Secure Attachment",
+                        "description": "We use heavy-duty screws and hidden hangers into your rafters."
+                    },
+                    {
+                        "step": "Sealing & Testing",
+                        "description": "We seal end-caps and miters with high-grade gutter sealant."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Signs You Need New Gutters in {{CITY}}",
+                "intro": "If you see these, it's time for an upgrade:",
+                "items": [
+                    "Gutters pulling away or sagging from the house",
+                    "Peeling paint or rust on your current gutters",
+                    "Water marks or mold on your siding",
+                    "Puddles around your foundation after rain",
+                    "Overflow occurring even during light rain"
+                ],
+                "outro": "Keep your foundation dry. Call {{PHONE}} for a gutter quote."
+            },
+            "faqs": {
+                "title": "Gutter FAQs",
+                "items": [
+                    {
+                        "question": "What size gutters do I need?",
+                        "answer": "In {{CITY}}, we typically recommend 5' or 6' seamless gutters depending on your roof's pitch and surface area."
+                    },
+                    {
+                        "question": "Do you offer gutter guards?",
+                        "answer": "Yes, we install several high-quality leaf protection systems to keep your new gutters maintenance-free."
+                    }
+                ]
+            }
+        },
+        "siding-installation": {
+            "hero": {
+                "title": "Premium Siding Installation in {{CITY}}, {{STATE}}",
+                "subheading": "Transform and protect your {{CITY}} home with durable, beautiful siding solutions.",
+                "intro": "Your siding is your home's skin, providing both curb appeal and vital protection against the elements. {{COMPANY_NAME}} offers expert siding installation in {{CITY}}, {{STATE}}, using high-performance materials from leading manufacturers. Whether you're looking for the low maintenance of vinyl or the classic beauty of fiber cement, our team delivers flawless results.\n\nNew siding can dramatically increase your home's energy efficiency and resale value while giving it a fresh, modern look that stands out in {{CITY}}."
+            },
+            "includes": {
+                "title": "Complete Siding Packages in {{CITY}}",
+                "items": [
+                    "Full removal of old siding and underlayment",
+                    "House-wrap installation for a draft-free home",
+                    "Custom aluminum trim and soffit work",
+                    "Window and door flashing integration",
+                    "Insulated siding options for energy gains",
+                    "Corner post and J-channel precision fitting",
+                    "Final caulking and waterproofing around penetrations"
+                ]
+            },
+            "materials": {
+                "title": "Popular Siding Choices in {{CITY}}",
+                "items": [
+                    {
+                        "name": "Fiber Cement (James Hardie)",
+                        "description": "Incredibly durable, fire-resistant, and can be painted any color. Ideal for {{CITY}}'s variable climate."
+                    },
+                    {
+                        "name": "Premium Vinyl Siding",
+                        "description": "The ultimate low-maintenance choice. Modern vinyl offers deep colors and realistic wood textures."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The {{CITY}} Siding Professionals",
+                "items": [
+                    "Expert installers trained in all material types",
+                    "High-quality underlayment for maximum protection",
+                    "Wide selection of colors and profiles",
+                    "Attention to detail on trim and transitions",
+                    "Long-term material and labor warranties"
+                ]
+            },
+            "process": {
+                "title": "Our Siding Process",
+                "items": [
+                    {
+                        "step": "Design Consultation",
+                        "description": "Choose colors and materials that complement your home's architecture."
+                    },
+                    {
+                        "step": "Site Prep",
+                        "description": "We remove old materials and inspect the underlying structure for rot."
+                    },
+                    {
+                        "step": "The Wrap",
+                        "description": "We apply an advanced weather barrier to keep moisture out and air in."
+                    },
+                    {
+                        "step": "Flawless Finish",
+                        "description": "We install your new siding with perfect alignment and secure fastening."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Signs Your Siding is Failing in {{CITY}}",
+                "intro": "Don't ignore these siding issues:",
+                "items": [
+                    "Cracked, loose, or missing siding panels",
+                    "Bubbling or blistering on the surface",
+                    "Unexpectedly high heating or cooling bills",
+                    "Fungus, mold, or mildew growth",
+                    "Frequent need for repainting or touch-ups"
+                ],
+                "outro": "Ready for a transformation? Call {{PHONE}} for a siding estimate."
+            },
+            "faqs": {
+                "title": "Siding FAQ",
+                "items": [
+                    {
+                        "question": "How long does new siding last?",
+                        "answer": "Depending on the material, your new siding in {{CITY}} can last 20 to 50 years with minimal maintenance."
+                    },
+                    {
+                        "question": "Will new siding save me money?",
+                        "answer": "Yes! Insulated siding options can significantly reduce your energy costs throughout the year."
+                    }
+                ]
+            }
+        },
+        "general-construction": {
+            "hero": {
+                "title": "General Construction Services in {{CITY}}, {{STATE}}",
+                "subheading": "Your trusted partner for additions, remodeling, and structural projects in {{CITY}}.",
+                "intro": "From expanding your living space to structural repairs, {{COMPANY_NAME}} provides comprehensive general construction services in {{CITY}}, {{STATE}}. We combine our roofing expertise with a full range of building capabilities, ensuring your project is handled with professionalism and care from foundation to roofline.\n\nWhether you're planning a new addition or need a major structural overhaul, our team brings local experience and quality craftsmanship to every build in {{CITY}}."
+            },
+            "includes": {
+                "title": "Our {{CITY}} Construction Capabilities",
+                "items": [
+                    "Residential home additions and expansions",
+                    "Detached garage and accessory building construction",
+                    "Structural repair and framing reinforcement",
+                    "Exterior remodeling and deck builds",
+                    "Drywall and finishing services",
+                    "Project management and subcontractor coordination",
+                    "Permitting and code compliance handling"
+                ]
+            },
+            "materials": {
+                "title": "Quality Building Materials",
+                "items": [
+                    {
+                        "name": "Structural Grade Lumber",
+                        "description": "We use high-quality wood for all framing to ensure the longevity and safety of your structure."
+                    },
+                    {
+                        "name": "Premium Finishes",
+                        "description": "From windows to trim, we select products that meet {{CITY}}'s standards and your aesthetic goals."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "Why Choose Us for Your {{CITY}} Project",
+                "items": [
+                    "Licensed, bonded, and fully insured general contractor",
+                    "Deep understanding of {{CITY}}'s building codes",
+                    "One point of contact for your entire project",
+                    "Commitment to timelines and budget management",
+                    "Decades of local construction experience"
+                ]
+            },
+            "process": {
+                "title": "How We Build for You",
+                "items": [
+                    {
+                        "step": "Initial Consultation",
+                        "description": "We discuss your vision, budget, and project feasibility."
+                    },
+                    {
+                        "step": "Planning & Design",
+                        "description": "Detailed blueprints and material specifications are finalized."
+                    },
+                    {
+                        "step": "Permitting",
+                        "description": "We handle the paperwork and inspections with {{CITY}} building departments."
+                    },
+                    {
+                        "step": "Construction",
+                        "description": "Our team executes the build with a focus on safety and quality."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Signs You Need Structural Help in {{CITY}}",
+                "intro": "Call us if you encounter these construction issues:",
+                "items": [
+                    "Sagging rooflines or visible floor drops",
+                    "Major cracks in walls or foundation",
+                    "Desire for more space via home additions",
+                    "Outdated exteriors requiring professional remodeling",
+                    "Structural damage from fire, water, or impact"
+                ],
+                "outro": "Start your project today. Call {{PHONE}} for a construction consultation."
+            },
+            "faqs": {
+                "title": "Construction FAQ",
+                "items": [
+                    {
+                        "question": "Do you handle all the permits?",
+                        "answer": "Yes, we handle the entire permitting process with the local {{CITY}} authorities."
+                    },
+                    {
+                        "question": "How long does a home addition take?",
+                        "answer": "Timeline varies by scope, but we provide a detailed schedule during the planning phase."
+                    }
+                ]
+            }
+        },
+        "foam-roofing": {
+            "hero": {
+                "title": "Seamless Foam Roofing in {{CITY}}, {{STATE}}",
+                "subheading": "Energy-efficient Spray Polyurethane Foam (SPF) roofing solutions for {{CITY}}'s flat and low-slope roofs.",
+                "intro": "{{COMPANY_NAME}} is your local expert for SPF foam roofing in {{CITY}}, {{STATE}}. Foam roofing is a game-changer for commercial and residential flat roofs, providing a monolithic, leak-proof barrier that also offers incredible insulation value.\n\nIn {{CITY}}'s variable climate, foam roofing helps significantly reduce cooling costs while eliminating the seams where traditional roofs often fail."
+            },
+            "includes": {
+                "title": "Our {{CITY}} Foam Roofing Services",
+                "items": [
+                    "Surface preparation and precision cleaning",
+                    "Spray Polyurethane Foam (SPF) application",
+                    "Seamless flashing and penetration sealing",
+                    "UV-resistant elastomeric top-coating",
+                    "Premium granule surfacing for added durability",
+                    "Detailed thermal performance assessments",
+                    "Full system maintenance and recoating"
+                ]
+            },
+            "materials": {
+                "title": "High-Performance Foam Materials",
+                "items": [
+                    {
+                        "name": "Closed-Cell SPF",
+                        "description": "High-density foam that provides structural strength and a high R-value for maximum energy efficiency in {{CITY}}."
+                    },
+                    {
+                        "name": "Silicone Top Coatings",
+                        "description": "Premium waterproof barriers that resist ponding water and reflect up to 88% of solar heat."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The {{CITY}} Foam Specialists",
+                "items": [
+                    "Certified SPF installers with specialized equipment",
+                    "Decades of experience with {{CITY}} flat roofs",
+                    "Commitment to energy-saving solutions",
+                    "Proven track record with commercial and residential SPF",
+                    "Comprehensive warranty on both labor and materials"
+                ]
+            },
+            "process": {
+                "title": "The SPF Installation Process",
+                "items": [
+                    {
+                        "step": "Preparation",
+                        "description": "We ensure the existing substrate is clean, dry, and secure."
+                    },
+                    {
+                        "step": "Foam Application",
+                        "description": "The foam is sprayed, expanding 30x to seal every crack and seam."
+                    },
+                    {
+                        "step": "Protective Coating",
+                        "description": "A durable top coat is applied to protect against UV and weather."
+                    },
+                    {
+                        "step": "Final Inspection",
+                        "description": "We verify thickness and coverage for a perfect, leak-free finish."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Signs Your {{CITY}} Foam Roof Needs Help",
+                "intro": "Look for these indicators on your SPF roof:",
+                "items": [
+                    "Cracking or 'alligatoring' in the top coating",
+                    "Exposed foam turning yellow or brown (UV damage)",
+                    "Punctures from hail or heavy equipment",
+                    "Ponding water that doesn't evaporate within 48 hours",
+                    "Sudden increases in indoor temperature"
+                ],
+                "outro": "Keep your foam roof fresh. Call {{PHONE}} for a local specialist."
+            },
+            "faqs": {
+                "title": "Foam Roofing FAQ – {{CITY}}",
+                "items": [
+                    {
+                        "question": "Can I walk on a foam roof?",
+                        "answer": "Yes, high-density SPF is very strong and designed for typical maintenance foot traffic in {{CITY}}."
+                    },
+                    {
+                        "question": "How often does it need a recoat?",
+                        "answer": "Typically every 10-15 years to maintain the UV protection and waterproof warranty."
+                    }
+                ]
+            }
+        },
+        "tile-roofing": {
+            "hero": {
+                "title": "Expert Tile Roofing Services in {{CITY}}, {{STATE}}",
+                "subheading": "Premium clay and concrete tile roofing designed for beauty and longevity in {{CITY}}.",
+                "intro": "Tile roofing is a hallmark of quality architecture in {{CITY}}, {{STATE}}. At {{COMPANY_NAME}}, we specialize in the installation and repair of concrete and clay tile systems that offer unparalleled curb appeal and fire resistance.\n\nWhile tiles can last a lifetime, the underlayment beneath them often needs expert care. We provide comprehensive tile roofing solutions tailored to {{CITY}}'s unique weather conditions."
+            },
+            "includes": {
+                "title": "Our Local {{CITY}} Tile Roofing Solutions",
+                "items": [
+                    "New tile installation for custom homes",
+                    "Full tile R&R (Remove and Replace underlayment)",
+                    "Broken tile replacement and color matching",
+                    "Precision valley and flashing repair",
+                    "Bird stop and eave closure installation",
+                    "Structural engineering reviews for new tile installs",
+                    "Specialized tile cleaning and maintenance"
+                ]
+            },
+            "materials": {
+                "title": "Tile Options for {{CITY}} Properties",
+                "items": [
+                    {
+                        "name": "Concrete Roof Tile",
+                        "description": "Diverse styles including Mediterranean, Slate, and Wood-look profiles. Extremely durable and cost-effective."
+                    },
+                    {
+                        "name": "Authentic Clay Tile",
+                        "description": "Classic beauty that never fades. Naturally insulating and perfect for {{CITY}}'s luxury homes."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Preferred {{CITY}} Tile Experts",
+                "items": [
+                    "Skilled craftsmen trained in traditional and modern tile techniques",
+                    "Local knowledge of {{CITY}}'s common tile failure points",
+                    "Access to a wide variety of discontinued tile profiles for repairs",
+                    "Honest advice on leak detection and underlayment health",
+                    "Commitment to maintaining the historic beauty of {{CITY}} homes"
+                ]
+            },
+            "process": {
+                "title": "Our Tile Roofing Process",
+                "items": [
+                    {
+                        "step": "Detailed Inspection",
+                        "description": "We check for cracked tiles and sign of underlayment failure."
+                    },
+                    {
+                        "step": "Precision Removal",
+                        "description": "We carefully remove tiles to access and replace the waterproof layers."
+                    },
+                    {
+                        "step": "Underlayment & Flashing",
+                        "description": "We install dual-layer or high-temp synthetic barriers for ultimate safety."
+                    },
+                    {
+                        "step": "Resetting Tiles",
+                        "description": "Tiles are re-installed accurately with proper fasteners and spacing."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Does Your {{CITY}} Tile Roof Need Service?",
+                "intro": "Watch for these common tile issues:",
+                "items": [
+                    "Visible cracks or slipped tiles on the roof surface",
+                    "Debris or 'white dust' appearing in your gutters",
+                    "Leaks that only appear during heavy or wind-driven rain",
+                    "Bird or pest activity under your tiles",
+                    "Accumulated dirt or moss in the valleys blocking drainage"
+                ],
+                "outro": "Call {{PHONE}} for a professional tile evaluation today."
+            },
+            "faqs": {
+                "title": "Tile Roofing FAQ",
+                "items": [
+                    {
+                        "question": "How long do tile roofs last in {{CITY}}?",
+                        "answer": "The tiles themselves can last 50-100 years, but the underlayment usually needs replacement every 20-30 years."
+                    },
+                    {
+                        "question": "Can I walk on my tile roof to clean it?",
+                        "answer": "We strongly recommend against it. Tiles are brittle and can break easily under weight, leading to leaks."
+                    }
+                ]
+            }
+        },
+        "metal-roofing": {
+            "hero": {
+                "title": "Durable Metal Roofing in {{CITY}}, {{STATE}}",
+                "subheading": "Sleek, modern, and energy-efficient metal roofing systems for homes and businesses in {{CITY}}.",
+                "intro": "Metal roofing is one of the fastest-growing choices for homeowners in {{CITY}}, {{STATE}}. {{COMPANY_NAME}} offers premium standing seam and metal shingle systems that provide a lifetime of protection while significantly enhancing your home's energy efficiency.\n\nBuilt to withstand high winds and resistant to fire, our metal roofing systems are the ultimate 'once-and-done' solution for {{CITY}} property owners."
+            },
+            "includes": {
+                "title": "Comprehensive Metal Services in {{CITY}}",
+                "items": [
+                    "Custom onsite metal panel fabrication",
+                    "Standing seam and concealed fastener installation",
+                    "High-performance metal underlayment application",
+                    "Precision flashing for chimneys and valleys",
+                    "Stone-coated steel shingle installation",
+                    "Existing metal roof repairs and screw tightening",
+                    "Reflective cool-roof coating options"
+                ]
+            },
+            "materials": {
+                "title": "Premium Metal Products",
+                "items": [
+                    {
+                        "name": "Standing Seam Panels",
+                        "description": "The gold standard of metal roofing. Clean lines and no exposed fasteners for a lifetime of leak-free performance."
+                    },
+                    {
+                        "name": "Stone-Coated Steel",
+                        "description": "Combines the strength of steel with the look of wood shake or tile. Incredibly durable in {{CITY}} weather."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Preferred {{CITY}} Metal Team",
+                "items": [
+                    "Specialized tools and training for metal fabrication",
+                    "Local experience with high-wind fastening requirements",
+                    "Commitment to high-quality, non-corrosive materials",
+                    "Decades of experience in the {{STATE}} metal roofing industry",
+                    "Transparent pricing on lifetime roofing solutions"
+                ]
+            },
+            "process": {
+                "title": "Our Precision Metal Process",
+                "items": [
+                    {
+                        "step": "Exact Measurement",
+                        "description": "We take 3D measurements of your roof for perfect panel sizing."
+                    },
+                    {
+                        "step": "Detailed Preparation",
+                        "description": "We install specialized underlayment to prevent noise and condensation."
+                    },
+                    {
+                        "step": "Custom Fabrication",
+                        "description": "Panels are often roll-formed right at your {{CITY}} job site."
+                    },
+                    {
+                        "step": "Precision Lock",
+                        "description": "Panels are mechanically seamed or locked for a watertight fit."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Is a Metal Roof Right for Your {{CITY}} Home?",
+                "intro": "Consider metal roofing if you value:",
+                "items": [
+                    "Ultimate wildfire and ember resistance",
+                    "Extremely high wind ratings (up to 140mph+)",
+                    "Maximizing energy efficiency and cooling savings",
+                    "Eco-friendly materials that are 100% recyclable",
+                    "Ending the cycle of 15-year roof replacements"
+                ],
+                "outro": "Join the metal revolution. Call {{PHONE}} for a custom quote."
+            },
+            "faqs": {
+                "title": "Metal Roofing FAQ",
+                "items": [
+                    {
+                        "question": "Will a metal roof attract lightning?",
+                        "answer": "No, metal roofing is no more likely to be hit by lightning than any other material, and it is non-combustible."
+                    },
+                    {
+                        "question": "Is metal roofing noisy when it rains?",
+                        "answer": "With modern solid-deck installation and insulation, metal roofs are actually very quiet in {{CITY}} storms."
+                    }
+                ]
+            }
+        },
+        "shingle-roofing": {
+            "hero": {
+                "title": "Quality Shingle Roofing in {{CITY}}, {{STATE}}",
+                "subheading": "Versatile, affordable, and beautiful asphalt shingle roofing for {{CITY}} homes.",
+                "intro": "Asphalt shingles remain the most popular choice for {{CITY}}, {{STATE}} homeowners due to their versatility and value. {{COMPANY_NAME}} installs premium architectural and designer shingle systems from top manufacturers like GAF, Owens Corning, and Malarkey.\n\nOur team ensures your shingle roof is installed as a complete system, providing the warranties and protection your {{CITY}} family deserves."
+            },
+            "includes": {
+                "title": "Complete Shingle Systems in {{CITY}}",
+                "items": [
+                    "Professional removal of existing layers",
+                    "Structural deck inspection and reinforcement",
+                    "Designer and architectural shingle installation",
+                    "Matching starter strip and ridge cap utility",
+                    "Balanced attic ventilation system upgrades",
+                    "Synthetic high-performance underlayment",
+                    "Full 6-nail high-wind fastening application"
+                ]
+            },
+            "materials": {
+                "title": "Shingle Options for {{CITY}} Homes",
+                "items": [
+                    {
+                        "name": "Architectural (Laminate) Shingles",
+                        "description": "Multi-dimensional and highly durable. The standard for modern {{CITY}} homes."
+                    },
+                    {
+                        "name": "Impact-Resistant (Class 4) Shingles",
+                        "description": "Designed for areas with heavy hail, these can often lower your insurance premiums in {{STATE}}."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "Your Local {{CITY}} Shingle Experts",
+                "items": [
+                    "Certified installers for leading shingle brands",
+                    "Access to extended manufacturer system warranties",
+                    "Expert knowledge of {{CITY}}'s ventilation requirements",
+                    "commitment to avoiding 'cut corners' in invisible areas",
+                    "Clean, professional job sites and respect for your property"
+                ]
+            },
+            "process": {
+                "title": "Our Shingle Installation Process",
+                "items": [
+                    {
+                        "step": "Surface Prep",
+                        "description": "We ensure a perfectly flat and secure deck for the new system."
+                    },
+                    {
+                        "step": "Batten & Barrier",
+                        "description": "Underlayment and leak barriers are applied to critical areas."
+                    },
+                    {
+                        "step": "Shingle Layout",
+                        "description": "We use chalk-line accuracy for perfectly straight roof lines."
+                    },
+                    {
+                        "step": "Ventilation Check",
+                        "description": "We ensure your attic can breathe to prevent shingle 'cooking'."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Signs Your {{CITY}} Shingles are Failing",
+                "intro": "Look for these warning points:",
+                "items": [
+                    "Shingles curling, buckling, or 'baconing' in the sun",
+                    "Excessive granule loss filling up your downspouts",
+                    "Bald spots where the asphalt is directly exposed",
+                    "Missing or broken shingles after a wind event",
+                    "Streaking or moss growth affecting curb appeal"
+                ],
+                "outro": "Don't delay. Call {{PHONE}} for a shingle health check."
+            },
+            "faqs": {
+                "title": "Shingle FAQ",
+                "items": [
+                    {
+                        "question": "How long do shingles last in {{CITY}}?",
+                        "answer": "Typically 20-30 years, depending on ventilation quality and heat exposure."
+                    },
+                    {
+                        "question": "Is one brand better than the others?",
+                        "answer": "We install the best from several manufacturers. We'll help you pick based on your specific roof's needs."
+                    }
+                ]
+            }
+        },
+        "roof-leak-repair": {
+            "hero": {
+                "title": "Fast Roof Leak Repair in {{CITY}}, {{STATE}}",
+                "subheading": "Expert leak detection and rapid repair to protect your {{CITY}} property.",
+                "intro": "A leaking roof is an emergency that demands immediate attention. {{COMPANY_NAME}} specializes in rapid-response roof leak repair in {{CITY}}, {{STATE}}. We don't just patch the symptom; we use advanced detection techniques to find the true source of moisture and fix it permanently.\n\nFrom a single drip in the garage to major water intrusion, our {{CITY}} repair teams are ready to secure your home and prevent costly secondary damage."
+            },
+            "includes": {
+                "title": "Comprehensive Leak Solutions",
+                "items": [
+                    "Electronic moisture mapping and leak detection",
+                    "Secondary damage assessment (drywall and insulation)",
+                    "Pipe jack and ventilation flashing repairs",
+                    "Valley and wall transition waterproofing",
+                    "Sky-light and chimney leak specialized fix",
+                    "Tile/Shingle matching and replacement",
+                    "Emergency interior protection services"
+                ]
+            },
+            "materials": {
+                "title": "High-Grade Repair Materials",
+                "items": [
+                    {
+                        "name": "High-Temp Self-Adhering Barriers",
+                        "description": "Critical for fixing leaks in valleys and transitions where water congregates."
+                    },
+                    {
+                        "name": "Solar-Resistant Flashings",
+                        "description": "Replacement parts for the most common failure points on {{CITY}} roofs."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Preferred {{CITY}} Leak Specialists",
+                "items": [
+                    "Trained specifically in moisture migration and leak tracing",
+                    "Honest, flat-rate pricing for standard repairs",
+                    "Commitment to permanent solutions—not just 'caulk and walk'",
+                    "Same-day or next-day appointments for active leaks",
+                    "Decades of experience with {{CITY}}'s common leak causes"
+                ]
+            },
+            "process": {
+                "title": "The Leak Repair Journey",
+                "items": [
+                    {
+                        "step": "Investigation",
+                        "description": "We trace water paths from the interior damage to the roof exterior."
+                    },
+                    {
+                        "step": "Proposal",
+                        "description": "You receive a clear explanation of the fix and the cost upfront."
+                    },
+                    {
+                        "step": "The Fix",
+                        "description": "We remove damaged layers and install new, watertight components."
+                    },
+                    {
+                        "step": "Verification",
+                        "description": "We water-test (if appropriate) to ensure the leak is 100% resolved."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Signs of a Hidden Leak in {{CITY}}",
+                "intro": "Water isn't always obvious. Watch for:",
+                "items": [
+                    "Faint brown spots or 'halos' on your ceilings",
+                    "Peeling or bubbling paint near the wall/ceiling joint",
+                    "A musty or earthy smell in certain rooms or the attic",
+                    "Dampness on the floor or windowsills after a storm",
+                    "Sudden localized mold growth on walls or baseboards"
+                ],
+                "outro": "Stop the damage now. Call {{PHONE}} for a leak specialist."
+            },
+            "faqs": {
+                "title": "Leak Repair FAQ",
+                "items": [
+                    {
+                        "question": "Is a leak always an emergency?",
+                        "answer": "Yes. Water can damage electrical systems and rot structural wood very quickly in {{CITY}}."
+                    },
+                    {
+                        "question": "Can you find a leak without tearing up the roof?",
+                        "answer": "Often, yes. We use non-destructive tools and visual expertise to pinpoint the source first."
+                    }
+                ]
+            }
+        },
+        "roof-inspection": {
+            "hero": {
+                "title": "Professional Roof Inspection in {{CITY}}, {{STATE}}",
+                "subheading": "Detailed condition reports for home buyers, sellers, and property owners in {{CITY}}.",
+                "intro": "Knowledge is power when it comes to your roof's health. {{COMPANY_NAME}} provides comprehensive roof inspections in {{CITY}}, {{STATE}}, delivering the clear, photographic evidence you need to make informed decisions. Whether you are buying a new home, preparing for a sale, or just want to catch problems early, our certified inspectors provide a level of detail that standard home inspectors often miss."
+            },
+            "includes": {
+                "title": "What's in Our {{CITY}} Inspection Report",
+                "items": [
+                    "Full walk-through of all roof planes and surfaces",
+                    "Detailed inspection of flashings, boots, and valleys",
+                    "Ventilation and attic airflow adequacy check",
+                    "Remaining lifespan estimate based on localized wear",
+                    "High-resolution photo documentation of all findings",
+                    "Estimated repair costs for any identified issues",
+                    "Official certification for real estate transactions"
+                ]
+            },
+            "materials": {
+                "title": "Tools We Use for Accuracy",
+                "items": [
+                    {
+                        "name": "High-Res Photography",
+                        "description": "We document every concern so you can see exactly what we see without climbing a ladder."
+                    },
+                    {
+                        "name": "Moisture Detection Tools",
+                        "description": "Non-invasive tools to identify 'hidden' water issues before they become visible."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Trusted {{CITY}} Inspection Team",
+                "items": [
+                    "Certified by major industry associations",
+                    "Third-party, unbiased assessments of roof health",
+                    "Clear, easy-to-read reports delivered digitally within 24 hours",
+                    "Decades of experience in identifying {{CITY}} storm damage",
+                    "Preferred partner for local realtors and property managers"
+                ]
+            },
+            "process": {
+                "title": "The Inspection Protocol",
+                "items": [
+                    {
+                        "step": "Exterior Survey",
+                        "description": "We check the perimeter, gutters, and ground-level signs of roof issues."
+                    },
+                    {
+                        "step": "Surface Evaluation",
+                        "description": "We inspect every square foot of the roof for wear and damage."
+                    },
+                    {
+                        "step": "Attic & Internal",
+                        "description": "We check the underside of the deck for leaks and wood health."
+                    },
+                    {
+                        "step": "Final Report",
+                        "description": "We compile findings into a professional PDF for your records."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "When to Schedule an Inspection in {{CITY}}",
+                "intro": "Don't wait for a leak. Inspect if:",
+                "items": [
+                    "You are buying or selling a property in {{CITY}}",
+                    "It has been more than 2 years since your last checkup",
+                    "A major storm or hail event just passed through {{STATE}}",
+                    "You notice shingles or tiles on the ground around your home",
+                    "Your insurance carrier is requesting a condition update"
+                ],
+                "outro": "Get peace of mind today. Call {{PHONE}} for an inspection."
+            },
+            "faqs": {
+                "title": "Roof Inspection FAQ",
+                "items": [
+                    {
+                        "question": "How long does it take?",
+                        "answer": "Most residential inspections in {{CITY}} take between 45 and 90 minutes."
+                    },
+                    {
+                        "question": "Will you suggest repairs I don't need?",
+                        "answer": "No. Our inspectors are trained to be objective. We tell you what is critical, what is maintenance, and what is healthy."
+                    }
+                ]
+            }
+        },
+        "flat-roof-repair": {
+            "hero": {
+                "title": "Expert Flat Roof Repair in {{CITY}}, {{STATE}}",
+                "subheading": "Solving ponding water, leaks, and membrane issues for {{CITY}}'s flat roofs.",
+                "intro": "Flat roofs present unique challenges, from drainage issues to UV-related seam failure. {{COMPANY_NAME}} provides specialized flat roof repair in {{CITY}}, {{STATE}} for both residential and commercial properties.\n\nWhether you have a TPO, EPDM, foam, or modified bitumen roof, our {{CITY}} technicians have the specific training and materials needed to restore your roof's integrity and stop leaks fast."
+            },
+            "includes": {
+                "title": "Comprehensive Flat Roof Solutions in {{CITY}}",
+                "items": [
+                    "Detailed membrane and seam inspections",
+                    "TPO and EPDM specialized patching",
+                    "Ponding water evaluation and drainage correction",
+                    "Custom cricket installation for water diversion",
+                    "Flashing and curb specialized repairs",
+                    "Drain clearing and mechanical box sealing",
+                    "Emergency tarping and weighted dry-in"
+                ]
+            },
+            "materials": {
+                "title": "Specialized Flat Roof Materials",
+                "items": [
+                    {
+                        "name": "Heat-Welded Membranes",
+                        "description": "For TPO and PVC repairs, we use thermal welders to create a permanent, molecular bond."
+                    },
+                    {
+                        "name": "Self-Leveling Sealants",
+                        "description": "Ideal for sealing around complex mechanical roof penetrations on {{CITY}} commercial buildings."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Preferred {{CITY}} Flat Roof Team",
+                "items": [
+                    "Expertise in low-slope drainage requirements",
+                    "Certified for major commercial membrane systems",
+                    "Access to industrial-grade patching and sealing compounds",
+                    "Decades of experience with {{CITY}}'s industrial and residential flat roofs",
+                    "Proven record of solving persistent ponding issues"
+                ]
+            },
+            "process": {
+                "title": "Our Repair Protocol",
+                "items": [
+                    {
+                        "step": "Surface Cleaning",
+                        "description": "We remove all debris and silt to properly see the membrane health."
+                    },
+                    {
+                        "step": "Source Detection",
+                        "description": "We find the exact seam or puncture causing the issue."
+                    },
+                    {
+                        "step": "Membrane Repair",
+                        "description": "We apply specific patches using heat-welding or industrial adhesives."
+                    },
+                    {
+                        "step": "Drainage Check",
+                        "description": "We verify that water can now exit the roof surface effectively."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Signs Your {{CITY}} Flat Roof is Failing",
+                "intro": "Watch for these red flags on your flat roof:",
+                "items": [
+                    "Standing water that remains 48+ hours after rain",
+                    "Bubbling or billowing in the roof membrane during wind",
+                    "Separating seams or cracking around the edges",
+                    "Active leaks appearing near drains or HVAC units",
+                    "Visible silt and mud collections (evidence of ponding)"
+                ],
+                "outro": "Don't let ponding water win. Call {{PHONE}} for a flat roof expert."
+            },
+            "faqs": {
+                "title": "Flat Roof FAQ",
+                "items": [
+                    {
+                        "question": "Can ponding water damage my structure?",
+                        "answer": "Yes, it adds significant weight and eventually seeps through even small membrane imperfections in {{CITY}}."
+                    },
+                    {
+                        "question": "Is it worth repairing an old flat roof?",
+                        "answer": "If more than 25% of the surface is failing, a coating or replacement might be more cost-effective."
+                    }
+                ]
+            }
+        },
+        "flat-roofing-systems": {
+            "hero": {
+                "title": "Premium Flat Roofing Systems in {{CITY}}, {{STATE}}",
+                "subheading": "Durable TPO, EPDM, and Modified Bitumen solutions for {{CITY}} properties.",
+                "intro": "A high-quality flat roof system is essential for modern architecture and commercial buildings in {{CITY}}, {{STATE}}. {{COMPANY_NAME}} specializes in the installation of high-performance single-ply and multi-layered flat roofing systems designed for maximum longevity and energy efficiency.\n\nOur systems are built to handle {{CITY}}'s heat and rain, providing a seamless or highly-secure barrier that protects your entire interior."
+            },
+            "includes": {
+                "title": "Our {{CITY}} Flat Roofing Capabilities",
+                "items": [
+                    "Full TPO White-Reflective system installation",
+                    "Durable EPDM 'Rubber Roof' applications",
+                    "Multi-layered Modified Bitumen (Torch-Down) installs",
+                    "Rigid ISO board insulation for high energy R-value",
+                    "Custom metal coping and edge-guard fabrication",
+                    "Structural assessment for proper drainage slope",
+                    "Walkway pad installation for equipment access"
+                ]
+            },
+            "materials": {
+                "title": "Flat Roof Material Comparison",
+                "items": [
+                    {
+                        "name": "TPO (Thermoplastic Polyolefin)",
+                        "description": "White, reflective, and heat-welded. Excellent for reducing AC costs in {{CITY}}."
+                    },
+                    {
+                        "name": "EPDM Rubber",
+                        "description": "Incredibly durable and flexible. Resistant to thermal shock and extreme {{CITY}} weather."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Preferred {{CITY}} System Installers",
+                "items": [
+                    "Certified by top manufacturers (GAF, Firestone, Carlisle)",
+                    "Commitment to high wind-uplift resistance standards",
+                    "Expert knowledge of commercial building codes in {{CITY}}",
+                    "Comprehensive project management for large-scale builds",
+                    "Transparent warranties up to 20 or 30 years"
+                ]
+            },
+            "process": {
+                "title": "Our Installation Journey",
+                "items": [
+                    {
+                        "step": "Substrate Prep",
+                        "description": "We ensure the deck is clean and the insulation layer is secure."
+                    },
+                    {
+                        "step": "Membrane Layout",
+                        "description": "We roll out the system with precise overlap for maximum security."
+                    },
+                    {
+                        "step": "Seam Integration",
+                        "description": "Seams are heat-welded or chemically bonded into a single sheet."
+                    },
+                    {
+                        "step": "Edge Termination",
+                        "description": "We secure the perimeter with custom metal and heavy-duty sealants."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Is it Time for a New Flat Roof in {{CITY}}?",
+                "intro": "Consider a full system replacement if:",
+                "items": [
+                    "Your current flat roof has reached 15-20 years of age",
+                    "Multiple leaks are appearing across different zones",
+                    "The insulation layer is saturated and soft to walk on",
+                    "Energy costs are soaring due to a lack of reflective surfacing",
+                    "Your insurance carrier will no longer cover the aged membrane"
+                ],
+                "outro": "Upgrade your protection. Call {{PHONE}} for a system quote."
+            },
+            "faqs": {
+                "title": "System FAQ",
+                "items": [
+                    {
+                        "question": "Which system is best for my building?",
+                        "answer": "TPO is usually best for energy savings, while EPDM is great for longevity in varied climates. We'll help you choose."
+                    },
+                    {
+                        "question": "How long does a flat roof installation take?",
+                        "answer": "Depending on size, most commercial buildings in {{CITY}} take 3-7 days for a full system."
+                    }
+                ]
+            }
+        },
+        "roof-coatings": {
+            "hero": {
+                "title": "Restorative Roof Coatings in {{CITY}}, {{STATE}}",
+                "subheading": "Extend your roof's life and lower energy costs with liquid-applied protection.",
+                "intro": "Don't replace it—restore it! {{COMPANY_NAME}} offers advanced roof coating systems in {{CITY}}, {{STATE}} that can add decades to your roof's lifespan for a fraction of the cost of a full replacement.\n\nOur silicone and acrylic coatings create a seamless, waterproof barrier that reflects UV rays and turns your 'hot' roof into a energy-saving asset for your {{CITY}} property."
+            },
+            "includes": {
+                "title": "Our Coating Solutions in {{CITY}}",
+                "items": [
+                    "Industrial-strength pressure washing and cleaning",
+                    "Full seam and penetration reinforcement",
+                    "High-solids silicone 'Cool Roof' applications",
+                    "Durable acrylic coating for UV protection",
+                    "Rust inhibition for aging metal roofs",
+                    "Walkway granule integration for safety",
+                    "Certified warranty inspections and maintenance"
+                ]
+            },
+            "materials": {
+                "title": "Premium Coating Options",
+                "items": [
+                    {
+                        "name": "High-Solids Silicone",
+                        "description": "The ultimate waterproof barrier. Resists ponding water and provides permanent flexibility."
+                    },
+                    {
+                        "name": "White Acrylic Coatings",
+                        "description": "Excellent UV reflectivity and cost-effective restoration for well-draining roofs."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Preferred {{CITY}} Coating Specialists",
+                "items": [
+                    "Trained in proper millage application for valid warranties",
+                    "Access to industrial-grade restorative compounds",
+                    "Honest assessments of whether your roof is a coating candidate",
+                    "Decades of experience in {{STATE}} climate-specific protection",
+                    "Commitment to eco-friendly, energy-saving roofing"
+                ]
+            },
+            "process": {
+                "title": "Our Coating Protocol",
+                "items": [
+                    {
+                        "step": "Deep Cleaning",
+                        "description": "We remove all dirt and chalking to ensure a perfect bond."
+                    },
+                    {
+                        "step": "Detailing",
+                        "description": "We reinforce every screw, seam, and pipe with specialized tape or mastic."
+                    },
+                    {
+                        "step": "Coating Application",
+                        "description": "We apply the coating evenly to the specified thickness (mils)."
+                    },
+                    {
+                        "step": "Curing & Check",
+                        "description": "We verify the seamless seal and ensure proper adhesion."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Should You Coat Your {{CITY}} Roof?",
+                "intro": "Your roof may be a candidate for restoration if:",
+                "items": [
+                    "The surface is aging but the structure is sound",
+                    "You want to stop minor leaks without a full tear-off",
+                    "Energy bills for the building are unacceptably high",
+                    "You want a tax-deductible maintenance alternative to replacement",
+                    "You need to extend your roof's life by another 10-20 years"
+                ],
+                "outro": "Go green and save. Call {{PHONE}} for a coating evaluation."
+            },
+            "faqs": {
+                "title": "Coating FAQ",
+                "items": [
+                    {
+                        "question": "Is this a new roof?",
+                        "answer": "Technically no, but it provides a new 10-20 year waterproof warranty in {{CITY}}."
+                    },
+                    {
+                        "question": "Does it work on any roof?",
+                        "answer": "It's best for flat, low-slope, or metal roofs. We'll perform an adhesion test to be sure."
+                    }
+                ]
+            }
+        },
+        "commercial-roofing": {
+            "hero": {
+                "title": "Professional Commercial Roofing in {{CITY}}, {{STATE}}",
+                "subheading": "Reliable roofing solutions for {{CITY}}'s businesses, warehouses, and HOAs.",
+                "intro": "Commercial roofing requires a level of expertise and project management that goes beyond residential work. At {{COMPANY_NAME}}, we provide comprehensive commercial roofing services in {{CITY}}, {{STATE}}, focusing on durability, budget oversight, and minimal business disruption.\n\nFrom small retail centers to massive industrial warehouses, we provide the protection your business assets deserve in the {{CITY}} area."
+            },
+            "includes": {
+                "title": "Our {{CITY}} Commercial Services",
+                "items": [
+                    "Large-scale reroofing and new construction",
+                    "Preventive maintenance and leak-response contracts",
+                    "Detailed asset management and roof condition auditing",
+                    "TPO, EPDM, PVC, and Modified Bitumen systems",
+                    "Commercial-grade gutter and drainage systems",
+                    "Safety compliance and OSHA-certified job sites",
+                    "Assistance with capital budget planning"
+                ]
+            },
+            "materials": {
+                "title": "Industrial-Grade Materials",
+                "items": [
+                    {
+                        "name": "Durable Single-Ply Systems",
+                        "description": "Modern membranes designed for foot traffic and chemical resistance in {{CITY}}'s industrial zones."
+                    },
+                    {
+                        "name": "Reflective Surface Systems",
+                        "description": "Vital for reducing the heat-island effect and lowering cooling loads on large {{CITY}} buildings."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Preferred {{CITY}} Commercial Partner",
+                "items": [
+                    "Licensed, bonded, and fully insured for major projects",
+                    "Experienced in managing complex, multi-phase commercial builds",
+                    "Commitment to tenant safety and business continuity",
+                    "Dedicated account management and rapid communications",
+                    "Decades of experience in {{STATE}}'s commercial market"
+                ]
+            },
+            "process": {
+                "title": "Our Professional Process",
+                "items": [
+                    {
+                        "step": "Planning & Logistics",
+                        "description": "We coordinate material staging and safety zones to keep your business running."
+                    },
+                    {
+                        "step": "Execution",
+                        "description": "Our large crews complete work efficiently with constant supervision."
+                    },
+                    {
+                        "step": "Quality Assurance",
+                        "description": "We conduct daily walkthroughs and detailed safety checks."
+                    },
+                    {
+                        "step": "Closeout",
+                        "description": "You receive full documentation, warranties, and maintenance guides."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Signs Your Commercial Roof Needs Attention",
+                "intro": "Don't risk your inventory or operations:",
+                "items": [
+                    "Visible water stains on interior warehouse or office ceilings",
+                    "Aged surface membranes showing cracks or tears",
+                    "HVAC units vibrating or causing leaks around curbs",
+                    "Frequent tenant complaints about temperature or drips",
+                    "High maintenance costs for localized patch-work"
+                ],
+                "outro": "Secure your business assets. Call {{PHONE}} for a commercial consultation."
+            },
+            "faqs": {
+                "title": "Commercial FAQ",
+                "items": [
+                    {
+                        "question": "Do you work during business hours?",
+                        "answer": "Yes, we implement strict safety zones and noise-management protocols to minimize impact."
+                    },
+                    {
+                        "question": "Can you handle multi-building HOA projects?",
+                        "answer": "Absolutely. We specialize in consistent, high-volume production for {{CITY}} communities."
+                    }
+                ]
+            }
+        },
+        "emergency-roof-repair": {
+            "hero": {
+                "title": "24/7 Emergency Roof Repair in {{CITY}}, {{STATE}}",
+                "subheading": "Rapid response for storm damage, major leaks, and fallen trees in {{CITY}}.",
+                "intro": "When your roof fails unexpectedly, every minute counts to protect your property. {{COMPANY_NAME}} provides 24/7 emergency roof repair in {{CITY}}, {{STATE}}. Our teams are on standby to provide immediate tarping, structural stabilization, and leak prevention to keep your home or business safe during the worst weather."
+            },
+            "includes": {
+                "title": "Emergency Response in {{CITY}}",
+                "items": [
+                    "24/7 priority emergency dispatch",
+                    "Emergency tarping and shrink-wrapping",
+                    "Fallen tree and debris removal from roof",
+                    "Temporary structural shoring and support",
+                    "Immediate moisture extraction and protection",
+                    "Detailed damage documentation for insurance",
+                    "Rapid permanent repair scheduling"
+                ]
+            },
+            "materials": {
+                "title": "Emergency Gear",
+                "items": [
+                    {
+                        "name": "Heavy-Duty UV-Resistant Tarps",
+                        "description": "Designed to stand up to {{CITY}}'s wind and rain for weeks if necessary while permanent repairs are planned."
+                    },
+                    {
+                        "name": "Moisture Barriers",
+                        "description": "Self-adhering membranes for immediate water-stop on punctures and splits."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Preferred {{CITY}} Emergency Team",
+                "items": [
+                    "Fastest response times for {{CITY}} residents during storms",
+                    "Equipped with specialized night-vision and lighting gear",
+                    "Licensed and insured for high-risk emergency work",
+                    "Proven track record of preventing total loss from water damage",
+                    "Direct assistance with emergency insurance claims"
+                ]
+            },
+            "process": {
+                "title": "Our Emergency Protocol",
+                "items": [
+                    {
+                        "step": "Rapid Dispatch",
+                        "description": "Our team arrive with a fully stocked truck for immediate action."
+                    },
+                    {
+                        "step": "Risk Assessment",
+                        "description": "We identify electrical hazards and structural weaknesses first."
+                    },
+                    {
+                        "step": "The Multi-Stop",
+                        "description": "We implement tarping or capping to stop water intrusion immediately."
+                    },
+                    {
+                        "step": "Documentation",
+                        "description": "We provide a photo report for your insurance carrier before leaving."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "When is it a Roof Emergency in {{CITY}}?",
+                "intro": "Call {{PHONE}} immediately if you experience:",
+                "items": [
+                    "A tree has fallen on or punctured your roof",
+                    "Multiple shingles or tiles have been ripped off by high wind",
+                    "A section of the roof deck appears to be sagging or collapsing",
+                    "Water is flowing freely into the living area of your home",
+                    "Fire damage has compromised the roof's waterproofing"
+                ],
+                "outro": "Safety first. Call {{PHONE}} for 24/7 emergency help."
+            },
+            "faqs": {
+                "title": "Emergency FAQ",
+                "items": [
+                    {
+                        "question": "How fast can you get here?",
+                        "answer": "We aim for under 2 hours for active emergencies in the {{CITY}} area."
+                    },
+                    {
+                        "question": "Can you fix the roof in the rain?",
+                        "answer": "We can tarp and stop leaks in the rain; permanent repairs happen once it's dry."
+                    }
+                ]
+            }
+        },
+        "roof-maintenance-plans": {
+            "hero": {
+                "title": "Proactive Roof Maintenance in {{CITY}}, {{STATE}}",
+                "subheading": "Extend your roof's life and prevent costly surprises with scheduled care.",
+                "intro": "Your roof is a major investment that deserves regular professional attention. {{COMPANY_NAME}} offers tailored roof maintenance plans in {{CITY}}, {{STATE}} designed to catch small issues before they become expensive failures. Our proactive approach ensures your roof stays compliant with manufacturer warranties and performs at its best throughout the year."
+            },
+            "includes": {
+                "title": "Our {{CITY}} Maintenance Checklist",
+                "items": [
+                    "Bi-annual roof cleaning and debris removal",
+                    "Comprehensive fastener and sealant checkup",
+                    "Gutter and downspout functional testing",
+                    "Sky-light and chimney flashing tune-ups",
+                    "Bird and pest mitigation on roof surfaces",
+                    "Detailed condition reporting with every visit",
+                    "Priority scheduling for any needed repairs"
+                ]
+            },
+            "materials": {
+                "title": "Maintenance Supplies",
+                "items": [
+                    {
+                        "name": "Industrial Grade Sealants",
+                        "description": "We touch up transitions using UV-resistant compounds that outperform store-bought options."
+                    },
+                    {
+                        "name": "Biodegradable Moss/Algae Treatments",
+                        "description": "Keeps your {{CITY}} roof looking new without damaging landscaping."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Preferred {{CITY}} Care Team",
+                "items": [
+                    "A focus on preservation, not just replacement",
+                    "Affordable, transparent annual and bi-annual plans",
+                    "Expert knowledge of how {{CITY}} weather affects different roof types",
+                    "Commitment to thoroughness—we check every inch",
+                    "Detailed maintenance logs provided for insurance and resale"
+                ]
+            },
+            "process": {
+                "title": "Our Maintenance Visit",
+                "items": [
+                    {
+                        "step": "Surface Clear",
+                        "description": "We remove leaves, silt, and debris that trap moisture."
+                    },
+                    {
+                        "step": "The Tune-Up",
+                        "description": "We tighten loose fasteners and refresh aging sealants."
+                    },
+                    {
+                        "step": "System Audit",
+                        "description": "We check every penetration and flashing point for integrity."
+                    },
+                    {
+                        "step": "Performance Report",
+                        "description": "You receive a clear summary of your roof's current health."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Does Your {{CITY}} Roof Need Maintenance?",
+                "intro": "Start a plan if your roof shows:",
+                "items": [
+                    "Visible debris collections in valleys or behind chimneys",
+                    "Streaking, moss, or algae growth starting to appear",
+                    "Any sealants that look cracked, dry, or separated",
+                    "Frequent gutter clogs or overflowing sections",
+                    "Your roof is over 5 years old and hasn't been professionally serviced"
+                ],
+                "outro": "Protect your investment. Call {{PHONE}} to start a plan."
+            },
+            "faqs": {
+                "title": "Maintenance FAQ",
+                "items": [
+                    {
+                        "question": "Is maintenance worth the cost?",
+                        "answer": "Yes, it typically costs 1/10th of a major repair and can double your roof's lifespan in {{CITY}}."
+                    },
+                    {
+                        "question": "Does this help my warranty?",
+                        "answer": "Absolutely. Most manufacturers require regular maintenance to honor their full warranties."
+                    }
+                ]
+            }
+        },
+        "gutter-repair": {
+            "hero": {
+                "title": "Professional Gutter Repair in {{CITY}}, {{STATE}}",
+                "subheading": "Fixing sagging, leaking, and detached gutters to protect your foundation.",
+                "intro": "Damaged gutters can lead to serious structural issues, from basement flooding to foundation erosion. {{COMPANY_NAME}} specializes in high-quality gutter repair in {{CITY}}, {{STATE}}. We restore proper drainage flow and ensure your system is securely fastened to keep water away from where it can do damage."
+            },
+            "includes": {
+                "title": "Gutter Solutions for {{CITY}} Homes",
+                "items": [
+                    "Precision leak sealing and corner repair",
+                    "Sagging gutter realignment and re-pitching",
+                    "Loose hanger and fascia fastener tightening",
+                    "Downspout redirection and clog clearing",
+                    "Splash block and extension installation",
+                    "Damaged section replacement and matching",
+                    "Structural fascia board rot assessment"
+                ]
+            },
+            "materials": {
+                "title": "Durable Repair Parts",
+                "items": [
+                    {
+                        "name": "Heavy-Duty Hidden Hangers",
+                        "description": "Stronger than original spikes, these secure your gutters even through {{CITY}}'s heaviest rain."
+                    },
+                    {
+                        "name": "High-Performance Sealants",
+                        "description": "Industrial-grade compounds designed specifically for aluminum and copper gutters."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Preferred {{CITY}} Gutter Team",
+                "items": [
+                    "Experts in proper gutter pitch and drainage physics",
+                    "Fast response for leaks and sagging sections",
+                    "Commitment to fixing the root cause — not just a patch",
+                    "Decades of experience with {{CITY}}'s drainage challenges",
+                    "Honest advice on repair vs. replacement"
+                ]
+            },
+            "process": {
+                "title": "Our Gutter Fix Protocol",
+                "items": [
+                    {
+                        "step": "Functional Test",
+                        "description": "We use water to confirm exactly where the block or leak is."
+                    },
+                    {
+                        "step": "Re-Securing",
+                        "description": "We replace old spikes with heavy-duty screw-in hangers."
+                    },
+                    {
+                        "step": "Sealing",
+                        "description": "We clean and seal all joints for a watertight finish."
+                    },
+                    {
+                        "step": "Flow Verification",
+                        "description": "We ensure water exits the system efficiently and far from your home."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Signs Your {{CITY}} Gutters Need Repair",
+                "intro": "Watch for these drainage warning signs:",
+                "items": [
+                    "Visible gaps or dripping water at the corners/seams",
+                    "Gutters pulling away from the house or sagging in the middle",
+                    "Water overflowing even during moderate rainfall",
+                    "Erosion or 'trenching' in the soil directly beneath a gutter",
+                    "Peeling paint or rotting wood on your fascia boards"
+                ],
+                "outro": "Save your foundation. Call {{PHONE}} for a gutter check."
+            },
+            "faqs": {
+                "title": "Gutter Repair FAQ",
+                "items": [
+                    {
+                        "question": "Can I just repair one section?",
+                        "answer": "Yes, we can often replace or fix a single damaged segment to save you money."
+                    },
+                    {
+                        "question": "How long does a repair take?",
+                        "answer": "Most residential gutter repairs in {{CITY}} are completed in under 2 hours."
+                    }
+                ]
+            }
+        },
+        "gutter-guards": {
+            "hero": {
+                "title": "Gutter Guard Installation in {{CITY}}, {{STATE}}",
+                "subheading": "Keep your gutters flowing freely without the climb.",
+                "intro": "Cleaning gutters is dangerous and tedious. {{COMPANY_NAME}} offers premium gutter guard installation in {{CITY}}, {{STATE}}, providing a permanent solution that keeps leaves, pine needles, and debris out of your drainage system. Our high-performance guards allow water to flow freely while significantly reducing your home's maintenance needs."
+            },
+            "includes": {
+                "title": "Our {{CITY}} Guard Solutions",
+                "items": [
+                    "System-wide gutter cleaning and flushing",
+                    "Professional gutter realignment and pitch check",
+                    "Stainless steel micro-mesh guard installation",
+                    "Custom helmet-style protection systems",
+                    "Downspout strainer and guard integration",
+                    "Multi-point attachment for wind resistance",
+                    "Maintenance-free performance guarantee"
+                ]
+            },
+            "materials": {
+                "title": "Top-Tier Filter Materials",
+                "items": [
+                    {
+                        "name": "Surgical Grade Stainless Mesh",
+                        "description": "The best for {{CITY}} homes — blocks even the smallest debris while handling heavy rain."
+                    },
+                    {
+                        "name": "All-Weather Aluminum Brackets",
+                        "description": "Ensures your guards never warp or lift even in extreme heat."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Preferred {{CITY}} Guard Installers",
+                "items": [
+                    "Access to the highest-rated micro-mesh systems",
+                    "Expertise in matching the right guard for your specific trees",
+                    "Priority focus on proper water tension and flow",
+                    "Decades of experience in {{CITY}}'s leaf-protection market",
+                    "Commitment to quality over 'quick-fix' retail products"
+                ]
+            },
+            "process": {
+                "title": "Our Precision Guard Process",
+                "items": [
+                    {
+                        "step": "Surface Prep",
+                        "description": "We ensure your existing gutters are perfect before covering them."
+                    },
+                    {
+                        "step": "Custom Fitting",
+                        "description": "We trim and fit each guard section for a gap-free finish."
+                    },
+                    {
+                        "step": "Securing",
+                        "description": "Guards are mechanically fastened to the gutter lip for security."
+                    },
+                    {
+                        "step": "Final Test",
+                        "description": "We verify water entry and eave protection for the entire system."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Is it Time for Gutter Guards in {{CITY}}?",
+                "intro": "Consider guards if you experience:",
+                "items": [
+                    "The need to clean your gutters more than twice a year",
+                    "Large trees overhanging your roofline in {{CITY}}",
+                    "Basement or foundation dampness caused by clogs",
+                    "Safety concerns regarding ladder use for cleaning",
+                    "Visible 'waterfalls' coming off your roof during storms"
+                ],
+                "outro": "End the cleaning cycle. Call {{PHONE}} for a guard quote."
+            },
+            "faqs": {
+                "title": "Gutter Guard FAQ",
+                "items": [
+                    {
+                        "question": "Do they work with pine needles?",
+                        "answer": "Our micro-mesh systems are specifically designed to block even small needles."
+                    },
+                    {
+                        "question": "Will they affect my shingles?",
+                        "answer": "No, our systems are designed to fit securely to the gutter without voiding your roof warranty."
+                    }
+                ]
+            }
+        },
+        "gutter-cleaning": {
+            "hero": {
+                "title": "Professional Gutter Cleaning in {{CITY}}, {{STATE}}",
+                "subheading": "Safe, thorough debris removal and drainage verification.",
+                "intro": "Don't risk the ladder climb. {{COMPANY_NAME}} provides professional gutter cleaning services in {{CITY}}, {{STATE}}, ensuring your drainage system is free of leaves, silt, and clogs. We don't just 'scoop and go' — we perform a full functional check of your gutters and downspouts to give you total peace of mind before the next storm."
+            },
+            "includes": {
+                "title": "Our {{CITY}} Cleaning Protocol",
+                "items": [
+                    "Full removal of all organic and non-organic debris",
+                    "High-pressure system flush to clear hidden clogs",
+                    "Downspout functional verification and clearing",
+                    "Minor sealant touch-ups as needed",
+                    "Roof surface debris removal (near gutters)",
+                    "Full cleanup of all mess at ground level",
+                    "Detailed digital photo report of gutter health"
+                ]
+            },
+            "materials": {
+                "title": "Professional Tools",
+                "items": [
+                    {
+                        "name": "Deep-Reach Flush Tools",
+                        "description": "Allow us to clear downspouts that standard hoses can't reach."
+                    },
+                    {
+                        "name": "Surface-Safe Padded Ladders",
+                        "description": "We protect your gutters and siding while we work."
+                    }
+                ]
+            },
+            "whyChooseUs": {
+                "title": "The Preferred {{CITY}} Cleaning Team",
+                "items": [
+                    "Fully insured for high-altitude residential work",
+                    "Strict attention to detail—we clean the corners too",
+                    "Prompt, reliable scheduling for {{CITY}} homeowners",
+                    "Decades of experience in maintaining local drainage systems",
+                    "A focus on leave-no-trace site cleanliness"
+                ]
+            },
+            "process": {
+                "title": "Our Cleaning Journey",
+                "items": [
+                    {
+                        "step": "Manual Removal",
+                        "description": "We hand-scoop the bulk of the debris for proper disposal."
+                    },
+                    {
+                        "step": "Flush & Clear",
+                        "description": "We use water to clear fine silt and prove downspouts share clear."
+                    },
+                    {
+                        "step": "Inspection",
+                        "description": "While up there, we check for loose hangars and leaks."
+                    },
+                    {
+                        "step": "Site Cleanup",
+                        "description": "We ensure your driveway and yard are cleaner than when we arrived."
+                    }
+                ]
+            },
+            "signs": {
+                "title": "Signs Your {{CITY}} Gutters are Clogged",
+                "intro": "Schedule a cleaning if you see:",
+                "items": [
+                    "Water spilling over the sides during rain",
+                    "Silt and mud collections visible from the ground",
+                    "Small plants or weeds growing inside your gutters",
+                    "Birds or pests frequenting your roofline",
+                    "Foundations that stay wet long after the rain stops"
+                ],
+                "outro": "Don't delay. Call {{PHONE}} for a professional cleaning."
+            },
+            "faqs": {
+                "title": "Gutter Cleaning FAQ",
+                "items": [
+                    {
+                        "question": "How often should I clean my gutters?",
+                        "answer": "Twice a year is standard, but more if you have heavy tree cover in {{CITY}}."
+                    },
+                    {
+                        "question": "Do you offer seasonal contracts?",
+                        "answer": "Yes, we can schedule your cleanings automatically for the spring and fall."
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -4,26 +4,26 @@
 
 ### 1. **Submit Sitemap to Google Search Console**
 - Go to [Google Search Console](https://search.google.com/search-console/)
-- Add your property: `www.gdprofessionalplumbing.com`
+- Add your property: `www.your-domain.com`
 - Navigate to "Sitemaps" section
-- Submit: `https://www.gdprofessionalplumbing.com/sitemap.xml`
+- Submit: `https://www.your-domain.com/sitemap.xml`
 
 ### 2. **Request Indexing for Key Pages**
 - In Google Search Console, use "URL Inspection" tool
 - Test these critical URLs:
-  - `https://www.gdprofessionalplumbing.com/`
-  - `https://www.gdprofessionalplumbing.com/services`
-  - `https://www.gdprofessionalplumbing.com/contact`
-  - `https://www.gdprofessionalplumbing.com/about`
-  - `https://www.gdprofessionalplumbing.com/locations`
+  - `https://www.your-domain.com/`
+  - `https://www.your-domain.com/services`
+  - `https://www.your-domain.com/contact`
+  - `https://www.your-domain.com/about`
+  - `https://www.your-domain.com/locations`
 
 ### 3. **Submit Individual Sub-domain Sitemaps**
 For each major city sub-domain, submit separate sitemaps:
-- `https://houston.gdprofessionalplumbing.com/sitemap.xml`
-- `https://phoenix.gdprofessionalplumbing.com/sitemap.xml`
-- `https://new-york.gdprofessionalplumbing.com/sitemap.xml`
-- `https://los-angeles.gdprofessionalplumbing.com/sitemap.xml`
-- `https://chicago.gdprofessionalplumbing.com/sitemap.xml`
+- `https://houston.your-domain.com/sitemap.xml`
+- `https://phoenix.your-domain.com/sitemap.xml`
+- `https://new-york.your-domain.com/sitemap.xml`
+- `https://los-angeles.your-domain.com/sitemap.xml`
+- `https://chicago.your-domain.com/sitemap.xml`
 
 ## 🎯 **Quick Indexing Strategies**
 
@@ -72,7 +72,7 @@ Your sitemap includes:
 4. **Update sitemap** if new pages added
 
 ### **Priority Pages for Quick Indexing**
-1. **Homepage**: `www.gdprofessionalplumbing.com`
+1. **Homepage**: `www.your-domain.com`
 2. **Main Services**: `/services` and individual service pages
 3. **Top 50 Cities**: Major metropolitan areas
 4. **Contact/About**: Essential business pages

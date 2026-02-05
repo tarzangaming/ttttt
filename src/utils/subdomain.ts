@@ -1,4 +1,4 @@
-import locationsData from '../data/locations.json';
+import { getAllLocations } from './content';
 
 export function generateSubdomain(locationName: string): string {
   return locationName
@@ -10,14 +10,16 @@ export function generateSubdomain(locationName: string): string {
 }
 
 export function getLocationBySubdomain(subdomain: string) {
-  return locationsData.locations.find(loc => 
-    loc.id === subdomain.toLowerCase() || 
+  const allLocations = getAllLocations();
+  return allLocations.find(loc =>
+    loc.id === subdomain.toLowerCase() ||
     generateSubdomain(loc.name) === subdomain.toLowerCase()
   );
 }
 
 export async function getAllSubdomains() {
-  return locationsData.locations.map(loc => ({
+  const allLocations = getAllLocations();
+  return allLocations.map(loc => ({
     id: loc.id,
     name: loc.name,
     subdomain: generateSubdomain(loc.name),
@@ -27,4 +29,4 @@ export async function getAllSubdomains() {
 
 export function isValidSubdomain(subdomain: string): boolean {
   return getLocationBySubdomain(subdomain) !== undefined;
-} 
+}

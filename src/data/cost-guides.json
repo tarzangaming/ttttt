@@ -1,0 +1,155 @@
+[
+    {
+        "slug": "roof-replacement-cost-arizona",
+        "title": "Roof Replacement Cost in Arizona (2025 Guide)",
+        "description": "Complete guide to roof replacement costs in Arizona. Learn about pricing for tile, shingle, foam, and flat roofs in Phoenix, Tucson, and statewide.",
+        "minCost": 8500,
+        "maxCost": 25000,
+        "averageCost": 16500,
+        "factors": [
+            "Roof Size (Square Footage)",
+            "Material Selection (Tile, Shingle, Foam)",
+            "Roof Pitch and Complexity",
+            "Removal of Old Roof (Tear-off)",
+            "Underlayment Quality",
+            "Access and Permitting"
+        ],
+        "materials": [
+            {
+                "name": "Asphalt Shingles",
+                "priceRange": "$4.50 - $7.00 per sq. ft.",
+                "lifespan": "20-30 Years"
+            },
+            {
+                "name": "Concrete Tile",
+                "priceRange": "$8.00 - $14.00 per sq. ft.",
+                "lifespan": "40-50+ Years"
+            },
+            {
+                "name": "Spray Foam (SPF)",
+                "priceRange": "$5.00 - $9.00 per sq. ft.",
+                "lifespan": "20+ Years (with recoating)"
+            },
+            {
+                "name": "Metal Roofing",
+                "priceRange": "$10.00 - $18.00 per sq. ft.",
+                "lifespan": "50-70 Years"
+            }
+        ],
+        "sections": [
+            {
+                "heading": "Average Roof Replacement Cost in Arizona",
+                "content": "The average cost to replace a roof in Arizona ranges from **$8,500 to $25,000**, heavily depending on the material chosen. For a standard 2,000 sq. ft. home in Phoenix, you can expect to pay around **$12,000** for a shingle roof or **$22,000** for a new tile roof setup."
+            },
+            {
+                "heading": "Why Arizona Roofs Cost What They Do",
+                "content": "Arizona's climate presents unique challenges. The intense heat and UV radiation require high-quality UV-resistant materials. Additionally, monsoons demand robust waterproofing and wind resistance. Local code requirements in cities like Scottsdale or Mesa may also influence underlayment standards."
+            }
+        ]
+    },
+    {
+        "slug": "tile-roof-cost-arizona",
+        "title": "Tile Roof Cost in Arizona: Concrete & Clay",
+        "description": "Detailed breakdown of tile roof costs in Arizona. Compare concrete vs. clay tile pricing, underlayment options, and lifespan benefits.",
+        "minCost": 15000,
+        "maxCost": 35000,
+        "averageCost": 21000,
+        "factors": [
+            "Concrete vs. Clay Material",
+            "Underlayment Type (Single vs. Double Layer)",
+            "Batten System",
+            "Birdstops and Flashing",
+            "Roof Structure Reinforcement"
+        ],
+        "materials": [
+            {
+                "name": "Concrete Tile",
+                "priceRange": "$8.00 - $12.00 per sq. ft.",
+                "lifespan": "50 Years"
+            },
+            {
+                "name": "Clay Tile (Sandcast/Spanish)",
+                "priceRange": "$11.00 - $20.00 per sq. ft.",
+                "lifespan": "70+ Years"
+            }
+        ],
+        "sections": [
+            {
+                "heading": "Is a Tile Roof Worth the Investment?",
+                "content": "Tile roofs are the gold standard in Arizona. While the initial investment is higher ($15,000+), their longevity and energy efficiency make them cost-effective over time. A properly installed tile roof can last 50 years or longer, outlasting shingles by decades."
+            },
+            {
+                "heading": "The Importance of Underlayment",
+                "content": "With tile roofs, the tile itself sheds water, but the underlayment provides the final waterproof barrier. In Arizona heat, organic felts dry out. We recommend synthetic modifiers or double-layer systems (SBS) for maximum protection against monsoon rains."
+            }
+        ]
+    },
+    {
+        "slug": "foam-roof-cost-arizona",
+        "title": "Foam Roof Cost in Arizona (SPF Guide)",
+        "description": "Pricing guide for Spray Polyurethane Foam (SPF) roofing in Arizona. Energy efficiency savings, recoating costs, and installation explained.",
+        "minCost": 7000,
+        "maxCost": 18000,
+        "averageCost": 11500,
+        "factors": [
+            "Foam Thickness (1 inch vs 1.5 inch)",
+            "Acrylic vs. Silicone Coating",
+            "Roof Accessibility",
+            "Prep Work Needed"
+        ],
+        "materials": [
+            {
+                "name": "SPF + Acrylic Coating",
+                "priceRange": "$5.00 - $8.00 per sq. ft.",
+                "lifespan": "15-20 Years (Recoat every 5-10)"
+            },
+            {
+                "name": "SPF + High-Solids Silicone",
+                "priceRange": "$6.00 - $9.50 per sq. ft.",
+                "lifespan": "20+ Years (Recoat every 15-20)"
+            }
+        ],
+        "sections": [
+            {
+                "heading": "Energy Savings with Foam Roofing",
+                "content": "Foam roofing is popular in Phoenix and Tucson because of its insulation properties. It can pay for itself in energy savings by reflecting UV rays and providing a seamless thermal barrier. Homeowners often see a 15-30% reduction in cooling costs."
+            },
+            {
+                "heading": "Recoating Maintenance",
+                "content": "One key advantage of foam is that you rarely need to tear it off. Every 5 to 10 years, you clean and recoat the top layer, which costs significantly less than a full replacement—typically $2.50 - $4.00 per sq. ft."
+            }
+        ]
+    },
+    {
+        "slug": "metal-roof-cost-arizona",
+        "title": "Metal Roof Cost in Arizona: Standing Seam & Corrugated",
+        "description": "Understanding metal roofing prices in Arizona. From durable standing seam to rustic corrugated finishes. Long-term value analysis.",
+        "minCost": 18000,
+        "maxCost": 45000,
+        "averageCost": 28000,
+        "factors": [
+            "Gauge of Metal (24ga vs 26ga)",
+            "Finish Type (Kynar 500 etc.)",
+            "Standing Seam vs. Exposed Fastener",
+            "Complexity of Flashing"
+        ],
+        "materials": [
+            {
+                "name": "Corrugated/Exposed Fastener",
+                "priceRange": "$6.00 - $10.00 per sq. ft.",
+                "lifespan": "30-40 Years"
+            },
+            {
+                "name": "Standing Seam (Hidden Fastener)",
+                "priceRange": "$12.00 - $18.00 per sq. ft.",
+                "lifespan": "50-70 Years"
+            }
+        ],
+        "sections": [
+            {
+                "heading": "Metal Roofing Longevity",
+                "content": "Metal roofs are virtually indestructible in the Arizona sun if high-quality Kynar paints are used. They resist fire, wind, and impact, making them ideal for remote areas or modern architectural styles in Scottsdale and Sedona."
+            }
+        ]
+    }
+]

@@ -1,0 +1,126 @@
+{
+    "testimonials": [
+        {
+            "type": "Roof Replacement",
+            "quote": "From the first inspection to the final cleanup, {{COMPANY_NAME}} was professional and transparent. Our new roof looks amazing and feels built for the long haul.",
+            "name": "David W.",
+            "rating": 5
+        },
+        {
+            "type": "Roof Repair",
+            "quote": "Fast response, clear communication, and the repair was done right. They fixed the leak and walked us through what caused it.",
+            "name": "Sarah M.",
+            "rating": 5
+        },
+        {
+            "type": "Storm Damage",
+            "quote": "After the storm, we needed help immediately. {{COMPANY_NAME}} handled the emergency repair quickly and made the whole process stress-free.",
+            "name": "Michael R.",
+            "rating": 5
+        },
+        {
+            "type": "Metal Roofing",
+            "quote": "We chose metal roofing for durability and efficiency. The install was clean, on schedule, and the finish looks premium. Highly recommended.",
+            "name": "Jennifer L.",
+            "rating": 5
+        },
+        {
+            "type": "Commercial Roofing",
+            "quote": "Great experience for our commercial property. They were organized, safe, and completed the job without disrupting our operations.",
+            "name": "Robert K.",
+            "rating": 5
+        },
+        {
+            "type": "Inspection & Maintenance",
+            "quote": "Their inspection was detailed and honest. We got a clear plan and avoided unnecessary replacement. Very knowledgeable team.",
+            "name": "Amanda P.",
+            "rating": 5
+        },
+        {
+            "type": "Roof Repair",
+            "quote": "The team was prompt and very professional. They found the source of our leak that two other companies missed. Highly recommend!",
+            "name": "Thomas H.",
+            "rating": 5
+        },
+        {
+            "type": "Roof Replacement",
+            "quote": "Excellent craftsmanship. They worked around our schedule and left the yard spotless. The new roof has completely changed our home's curb appeal.",
+            "name": "Elizabeth B.",
+            "rating": 5
+        }
+    ],
+    "faqs": [
+        {
+            "question": "How do I know if I need roof repair or full replacement?",
+            "answer": "If damage is localized (small leaks, limited shingle loss), repair may work. If your roof is older, has widespread wear, repeated leaks, or storm-related structural issues, replacement is often the smarter long-term option."
+        },
+        {
+            "question": "How long does a roof replacement take in {{CITY}}?",
+            "answer": "Most residential roof replacements take 1–2 days depending on roof size, material, weather, and decking condition. We provide a clear timeline after inspection."
+        },
+        {
+            "question": "Do you provide free roof inspections in {{CITY}}, {{STATE}}?",
+            "answer": "Yes—{{COMPANY_NAME}} offers a roof evaluation and recommendations. Call {{PHONE}} to schedule."
+        },
+        {
+            "question": "What roofing materials do you install?",
+            "answer": "We install asphalt shingles, metal roofing, tile roofing, and flat roofing systems (TPO/EPDM/PVC) depending on the property type and your goals."
+        },
+        {
+            "question": "Can you help with storm damage roof repair?",
+            "answer": "Yes. We handle wind and storm-related damage, emergency leak control, and full restoration options based on the roof’s condition."
+        },
+        {
+            "question": "How much does roof repair usually cost?",
+            "answer": "Cost depends on leak location, damage extent, material type, and roof pitch. After inspection, we provide a clear estimate—no guesswork."
+        },
+        {
+            "question": "How often should I get my roof inspected?",
+            "answer": "We recommend at least once per year, plus after major storms. Regular inspections catch small issues before they become expensive."
+        },
+        {
+            "question": "Do you offer emergency roof repair services?",
+            "answer": "Yes. If your roof is actively leaking or storm-damaged, call {{PHONE}} for fast help and temporary protection if needed."
+        },
+        {
+            "question": "Will you replace rotten roof decking?",
+            "answer": "If we find damaged decking during replacement, we’ll document it and replace what’s necessary to keep your roof structurally sound."
+        },
+        {
+            "question": "What warranties do you offer?",
+            "answer": "Warranty options vary by roofing system and manufacturer. We explain both material warranties and workmanship coverage before the job starts."
+        },
+        {
+            "question": "Do you install metal roofs on existing roofs?",
+            "answer": "In some cases, metal retrofitting is possible. We’ll inspect your current roof structure and recommend the safest approach."
+        },
+        {
+            "question": "Do you work on commercial flat roofs in {{CITY}}?",
+            "answer": "Yes. We install and repair TPO, EPDM, PVC, coatings, and drainage improvements for commercial properties."
+        },
+        {
+            "question": "How do you protect landscaping and clean up after the job?",
+            "answer": "We use tarps, magnetic nail sweeps, and careful debris removal. Final cleanup is part of every project."
+        },
+        {
+            "question": "Can you fix roof ventilation or attic airflow problems?",
+            "answer": "Yes. Poor ventilation can shorten roof life and increase energy bills. We assess intake/exhaust ventilation and recommend upgrades."
+        },
+        {
+            "question": "Do you install or repair gutters too?",
+            "answer": "Yes. We install and repair gutters and downspouts to improve drainage and prevent water damage to the roof and foundation."
+        },
+        {
+            "question": "What signs of roof damage should I watch for?",
+            "answer": "Water stains on ceilings, missing shingles, granules in gutters, sagging roof lines, flashing damage, and mold odors are common signs."
+        },
+        {
+            "question": "Is financing available?",
+            "answer": "Yes, financing options may be available—ask our team about flexible payment plans for your project."
+        },
+        {
+            "question": "How do do I book an estimate with {{COMPANY_NAME}}?",
+            "answer": "Call {{PHONE}} or request a quote online. We’ll schedule an inspection at a time that works for you."
+        }
+    ]
+}

@@ -1,44 +1,30 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '@/components/Header';
-import locationsData from '@/data/locations.json';
+import Footer from '@/components/Footer';
+import servicesData from '@/data/services.json';
+import imagesData from '@/data/images.json';
+import FloatingCTA from '@/components/FloatingCTA';
+import { getLocationById, getLocationZipCodes, getNearbyLocations, getExtendedServiceContent, replacePlaceholders } from '@/utils/content';
+import { buildDynamicHeroHeader, buildDynamicHeroSubtextLines, buildHeroSubtext, buildIntroContent } from '@/lib/heroSubtext';
 import type { Metadata } from 'next';
+import LocationServiceGrid from '@/components/LocationServiceGrid';
+import LocationTestimonials from '@/components/LocationTestimonials';
+import LocationFAQ from '@/components/LocationFAQ';
+import NearbyAreasSection from '@/components/NearbyAreasSection';
 
-// Type definitions for location data
-interface LocationData {
-  id: string;
-  name: string;
-  state: string;
-  fullName: string;
+interface ServiceItem {
+  slug: string;
+  title: string;
   description: string;
-  phone: string;
-  heroTitle: string;
-  heroSubtitle: string;
-  services: Array<{
-    title: string;
-    description: string;
-    icon: string;
-  }>;
-  areas: string[];
-  zipCodes: string[];
-  image: string;
-  meta: {
-    title: string;
-    description: string;
-  };
-  faqs: Array<{
-    question: string;
-    answer: string;
-  }>;
-  testimonials: Array<{
-    name: string;
-    text: string;
-    location: string;
-  }>;
-}
-
-interface LocationsData {
-  locations: LocationData[];
+  icon: string;
+  heroTitle?: string;
+  heroSubtitle?: string;
+  features?: string[];
+  faqs?: Array<{ question: string; answer: string; }>;
+  relatedServices?: string[];
+  [key: string]: unknown;
 }
 
 interface ServicePageProps {
@@ -48,1270 +34,441 @@ interface ServicePageProps {
   }>;
 }
 
-// Service data with detailed information for all 15 services
-const serviceData = {
-  'plumber-water-heater-repair': {
-    title: 'Water Heater Repair and Installation',
-    shortTitle: 'Water Heater Services',
-    description: 'Professional water heater repair and installation services',
-    heroTitle: 'Expert Water Heater Repair & Installation',
-    heroSubtitle: 'Fast, reliable water heater services for homes and businesses',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Traditional Tank Water Heater Installation',
-      'Tankless Water Heater Installation',
-      'Water Heater Repair & Maintenance',
-      'Emergency Water Heater Services',
-      'Water Heater Replacement',
-      'Gas & Electric Water Heater Services'
-    ],
-    benefits: [
-      '24/7 Emergency Service',
-      'Licensed & Insured Technicians',
-      'Free Estimates',
-      'Warranty on All Work',
-      'Same Day Service Available',
-      'Competitive Pricing'
-    ],
-    content: [
-      {
-        title: 'Professional Water Heater Installation',
-        description: 'Our expert technicians install all types of water heaters including traditional tank water heaters, tankless water heaters, and hybrid models. We ensure proper sizing, installation, and safety compliance for optimal performance and energy efficiency.'
-      },
-      {
-        title: 'Comprehensive Water Heater Repair',
-        description: 'We diagnose and repair all water heater issues including no hot water, insufficient hot water, strange noises, leaks, and pilot light problems. Our technicians are trained to work with all major brands and models.'
-      },
-      {
-        title: 'Emergency Water Heater Services',
-        description: 'When your water heater fails, we provide 24/7 emergency repair services. Our team responds quickly to restore hot water to your home or business, minimizing disruption to your daily routine.'
-      },
-      {
-        title: 'Water Heater Maintenance',
-        description: 'Regular maintenance extends the life of your water heater and prevents costly repairs. Our maintenance services include inspection, cleaning, testing, and adjustment of all components.'
-      }
-    ]
-  },
-  'plumber-tankless-water-heater': {
-    title: 'Tankless Water Heater Installation',
-    shortTitle: 'Tankless Water Heaters',
-    description: 'Energy-efficient tankless water heater installation and repair',
-    heroTitle: 'Tankless Water Heater Installation & Repair',
-    heroSubtitle: 'Endless hot water with energy savings and space efficiency',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Tankless Water Heater Installation',
-      'Tankless Water Heater Repair',
-      'Gas & Electric Tankless Systems',
-      'Whole House Tankless Installation',
-      'Point-of-Use Tankless Units',
-      'Tankless System Maintenance'
-    ],
-    benefits: [
-      'Endless Hot Water Supply',
-      'Energy Cost Savings',
-      'Space-Saving Design',
-      'Longer Lifespan',
-      'Reduced Carbon Footprint',
-      'On-Demand Heating'
-    ],
-    content: [
-      {
-        title: 'Tankless Water Heater Installation',
-        description: 'We specialize in installing tankless water heaters that provide endless hot water while saving energy and space. Our technicians are certified to install both gas and electric tankless systems for residential and commercial properties.'
-      },
-      {
-        title: 'Energy Efficiency Benefits',
-        description: 'Tankless water heaters only heat water when needed, reducing energy consumption by up to 30% compared to traditional tank water heaters. This translates to significant savings on your utility bills over time.'
-      },
-      {
-        title: 'Professional Installation Process',
-        description: 'Our installation process includes proper sizing, gas line or electrical upgrades if needed, venting installation, and system testing. We ensure your tankless system operates at peak efficiency.'
-      },
-      {
-        title: 'Maintenance & Repair Services',
-        description: 'Regular maintenance keeps your tankless water heater running efficiently. We provide descaling, filter cleaning, and component inspection to prevent issues and extend system lifespan.'
-      }
-    ]
-  },
-  'plumber-water-recirculation-pump': {
-    title: 'Water Recirculation Pump Repair & Installation',
-    shortTitle: 'Water Recirculation Pumps',
-    description: 'Professional repair and installation of hot water recirculation pumps',
-    heroTitle: 'Water Recirculation Pump Services',
-    heroSubtitle: 'Get instant hot water and save water with efficient recirculation systems',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Hot Water Recirculation Pump Installation',
-      'Recirculation Pump Repair & Maintenance',
-      'Timer-Controlled Recirculation Systems',
-      'Demand-Controlled Recirculation Systems',
-      'Pump Replacement & Upgrades',
-      'System Optimization & Tuning'
-    ],
-    benefits: [
-      'Instant Hot Water',
-      'Water Conservation',
-      'Energy Efficiency',
-      'Reduced Wait Times',
-      'Lower Utility Bills',
-      'Improved Comfort'
-    ],
-    content: [
-      {
-        title: 'Water Recirculation Pump Installation',
-        description: 'We install hot water recirculation pumps that provide instant hot water at every faucet in your home or business. Our systems eliminate the wait for hot water while conserving water and energy.'
-      },
-      {
-        title: 'Energy-Efficient Solutions',
-        description: 'Our recirculation systems use smart timers and demand controls to minimize energy consumption while maximizing convenience. We ensure your system operates efficiently and cost-effectively.'
-      },
-      {
-        title: 'Professional Installation Process',
-        description: 'Our installation includes proper pump sizing, piping modifications, electrical connections, and system testing. We ensure your recirculation system integrates seamlessly with your existing plumbing.'
-      },
-      {
-        title: 'Maintenance & Repair Services',
-        description: 'Regular maintenance keeps your recirculation pump running smoothly. We provide pump cleaning, motor inspection, valve maintenance, and system optimization to prevent issues.'
-      }
-    ]
-  },
-  'plumber-faucet-sink-repair': {
-    title: 'Faucet and Sink Repair & Replacement',
-    shortTitle: 'Faucet & Sink Services',
-    description: 'Expert installation and repair of kitchen and bathroom faucets and sinks',
-    heroTitle: 'Faucet & Sink Repair & Installation',
-    heroSubtitle: 'Professional faucet and sink services for kitchens and bathrooms',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Kitchen Faucet Installation & Repair',
-      'Bathroom Faucet Installation & Repair',
-      'Sink Installation & Replacement',
-      'Leak Detection & Repair',
-      'Fixture Upgrades & Modernization',
-      'Emergency Faucet & Sink Repairs'
-    ],
-    benefits: [
-      'Leak-Free Performance',
-      'Upgraded Fixtures',
-      'Improved Functionality',
-      'Modern Design Options',
-      'Water Conservation',
-      'Professional Installation'
-    ],
-    content: [
-      {
-        title: 'Faucet Installation & Repair',
-        description: 'We install and repair all types of faucets including kitchen faucets, bathroom faucets, shower faucets, and specialty fixtures. Our work ensures leak-free operation and optimal performance.'
-      },
-      {
-        title: 'Sink Installation & Replacement',
-        description: 'Our sink installation services include kitchen sinks, bathroom sinks, utility sinks, and specialty sinks. We handle all types of materials including stainless steel, porcelain, granite, and composite.'
-      },
-      {
-        title: 'Leak Detection & Repair',
-        description: 'We quickly identify and repair faucet and sink leaks to prevent water damage and high utility bills. Our technicians use advanced diagnostic tools to locate hidden leaks.'
-      },
-      {
-        title: 'Fixture Upgrades',
-        description: 'Upgrade your faucets and sinks to modern, water-efficient models. We offer a wide selection of styles and finishes to match your home\'s design and improve functionality.'
-      }
-    ]
-  },
-  'plumber-water-conservation': {
-    title: 'Water Conservation Plumbing Systems',
-    shortTitle: 'Water Conservation',
-    description: 'Eco-friendly water-saving plumbing solutions for homes and businesses',
-    heroTitle: 'Water Conservation Plumbing Services',
-    heroSubtitle: 'Reduce water waste and cut utility bills with sustainable plumbing solutions',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Low-Flow Fixture Installation',
-      'Water-Efficient Toilet Installation',
-      'Smart Irrigation Systems',
-      'Greywater Recycling Systems',
-      'Rainwater Harvesting Systems',
-      'Water Conservation Audits'
-    ],
-    benefits: [
-      'Reduced Water Waste',
-      'Lower Utility Bills',
-      'Environmental Protection',
-      'Sustainable Living',
-      'Rebate Eligibility',
-      'Increased Property Value'
-    ],
-    content: [
-      {
-        title: 'Water-Efficient Fixtures',
-        description: 'We install low-flow faucets, showerheads, and toilets that use significantly less water while maintaining performance. These fixtures can reduce water consumption by up to 50%.'
-      },
-      {
-        title: 'Smart Irrigation Systems',
-        description: 'Our smart irrigation systems use weather data and soil sensors to optimize watering schedules. This prevents overwatering and ensures your landscape gets exactly what it needs.'
-      },
-      {
-        title: 'Greywater & Rainwater Systems',
-        description: 'We design and install greywater recycling and rainwater harvesting systems that capture and reuse water for irrigation and other non-potable uses, further reducing water consumption.'
-      },
-      {
-        title: 'Water Conservation Audits',
-        description: 'Our comprehensive water audits identify opportunities to reduce water consumption throughout your property. We provide detailed recommendations and implementation plans.'
-      }
-    ]
-  },
-  'plumber-bathroom-renovation': {
-    title: 'Custom Bathroom Renovation',
-    shortTitle: 'Bathroom Renovation',
-    description: 'From outdated to outstanding—expert bathroom design and renovation services',
-    heroTitle: 'Custom Bathroom Renovation Services',
-    heroSubtitle: 'Transform your bathroom with modern fixtures, efficient layouts, and timeless appeal',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Complete Bathroom Remodeling',
-      'Plumbing Fixture Installation',
-      'Shower & Tub Installation',
-      'Vanity & Sink Installation',
-      'Tile & Flooring Installation',
-      'Accessibility Modifications'
-    ],
-    benefits: [
-      'Modern Design',
-      'Efficient Layouts',
-      'Timeless Appeal',
-      'Increased Home Value',
-      'Improved Functionality',
-      'Professional Quality'
-    ],
-    content: [
-      {
-        title: 'Complete Bathroom Remodeling',
-        description: 'We handle complete bathroom renovations from design to completion. Our team works with you to create a beautiful, functional bathroom that meets your needs and exceeds your expectations.'
-      },
-      {
-        title: 'Plumbing Fixture Installation',
-        description: 'Our expert installation of toilets, sinks, showers, tubs, and other fixtures ensures proper function and long-lasting performance. We work with all major brands and styles.'
-      },
-      {
-        title: 'Design & Layout Optimization',
-        description: 'We optimize your bathroom layout for maximum functionality and comfort. Our designs consider traffic flow, storage needs, and accessibility requirements.'
-      },
-      {
-        title: 'Quality Materials & Workmanship',
-        description: 'We use only high-quality materials and provide expert workmanship that stands the test of time. Our renovations are built to last and maintain their beauty for years to come.'
-      }
-    ]
-  },
-  'plumber-water-system-repair': {
-    title: 'Water System Installation & Repair',
-    shortTitle: 'Water Systems',
-    description: 'We install, repair, and maintain residential and commercial water systems',
-    heroTitle: 'Water System Installation & Repair',
-    heroSubtitle: 'Delivering clean, safe, and uninterrupted water flow for your property',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Whole House Water Filtration Systems',
-      'Water Softener Installation',
-      'Reverse Osmosis Systems',
-      'Well Water System Installation',
-      'Water Pressure Regulation',
-      'Backflow Prevention Systems'
-    ],
-    benefits: [
-      'Clean, Safe Water',
-      'Uninterrupted Flow',
-      'Improved Water Quality',
-      'Protection from Contaminants',
-      'Optimal Water Pressure',
-      'System Reliability'
-    ],
-    content: [
-      {
-        title: 'Water Filtration Systems',
-        description: 'We install whole-house water filtration systems that remove contaminants and improve water quality throughout your home. Our systems protect your family and your plumbing fixtures.'
-      },
-      {
-        title: 'Water Softener Installation',
-        description: 'Hard water can damage your plumbing and appliances. We install water softeners that remove minerals and extend the life of your plumbing system and water-using appliances.'
-      },
-      {
-        title: 'Reverse Osmosis Systems',
-        description: 'For the purest drinking water, we install reverse osmosis systems that remove virtually all contaminants. These systems provide clean, great-tasting water for drinking and cooking.'
-      },
-      {
-        title: 'System Maintenance & Repair',
-        description: 'Regular maintenance keeps your water systems operating efficiently. We provide filter changes, system testing, and component replacement to ensure optimal performance.'
-      }
-    ]
-  },
-  'plumber-slab-leak-repair': {
-    title: 'Slab Leak Detection & Repair',
-    shortTitle: 'Slab Leak Services',
-    description: 'Fast and accurate slab leak detection with expert repairs',
-    heroTitle: 'Slab Leak Detection & Repair',
-    heroSubtitle: 'Protect your foundation and prevent costly water damage',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Advanced Leak Detection',
-      'Slab Leak Repair',
-      'Foundation Protection',
-      'Pipe Rerouting Services',
-      'Preventive Leak Detection',
-      'Emergency Slab Leak Services'
-    ],
-    benefits: [
-      'Foundation Protection',
-      'Prevent Water Damage',
-      'Preserve Structural Integrity',
-      'Advanced Detection Technology',
-      'Minimal Disruption',
-      'Comprehensive Solutions'
-    ],
-    content: [
-      {
-        title: 'Advanced Leak Detection',
-        description: 'We use state-of-the-art leak detection equipment including acoustic sensors, thermal imaging, and electronic leak detection to accurately locate slab leaks without unnecessary excavation.'
-      },
-      {
-        title: 'Slab Leak Repair',
-        description: 'Our repair methods include trenchless pipe repair, pipe rerouting, and targeted excavation. We choose the most effective and least disruptive approach for your specific situation.'
-      },
-      {
-        title: 'Foundation Protection',
-        description: 'Slab leaks can compromise your foundation. We provide comprehensive solutions that protect your foundation while repairing the leak and preventing future issues.'
-      },
-      {
-        title: 'Preventive Services',
-        description: 'Regular leak detection services can identify potential problems before they cause damage. We offer preventive maintenance programs to protect your property.'
-      }
-    ]
-  },
-  'plumber-sump-pump-repair': {
-    title: 'Sump Pump Installation & Repair',
-    shortTitle: 'Sump Pump Services',
-    description: 'Keep your basement dry and protected with professional sump pump services',
-    heroTitle: 'Sump Pump Installation & Repair',
-    heroSubtitle: 'Flood prevention solutions built for long-term reliability',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Sump Pump Installation',
-      'Sump Pump Repair & Maintenance',
-      'Battery Backup Systems',
-      'Sump Pump Replacement',
-      'Emergency Sump Pump Services',
-      'Flood Prevention Systems'
-    ],
-    benefits: [
-      'Basement Protection',
-      'Flood Prevention',
-      'Long-Term Reliability',
-      'Battery Backup Available',
-      'Emergency Response',
-      'Peace of Mind'
-    ],
-    content: [
-      {
-        title: 'Sump Pump Installation',
-        description: 'We install reliable sump pumps that protect your basement from flooding. Our installations include proper sizing, backup systems, and professional setup for optimal performance.'
-      },
-      {
-        title: 'Battery Backup Systems',
-        description: 'Power outages often occur during storms when you need your sump pump most. We install battery backup systems that ensure your sump pump continues working even during power failures.'
-      },
-      {
-        title: 'Maintenance & Repair',
-        description: 'Regular maintenance keeps your sump pump ready for action. We provide cleaning, testing, and component replacement to ensure reliable operation when you need it most.'
-      },
-      {
-        title: 'Emergency Services',
-        description: 'When your sump pump fails, we provide 24/7 emergency repair services. Our team responds quickly to prevent flooding and restore protection to your basement.'
-      }
-    ]
-  },
-  'plumber-drain-cleaning': {
-    title: 'Professional Drain Cleaning',
-    shortTitle: 'Drain Cleaning',
-    description: 'Fast and effective drain cleaning for clogged sinks, tubs, and sewer lines',
-    heroTitle: 'Professional Drain Cleaning Services',
-    heroSubtitle: 'Restore smooth drainage and eliminate blockages',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Kitchen Drain Cleaning',
-      'Bathroom Drain Cleaning',
-      'Sewer Line Cleaning',
-      'Hydro Jetting Services',
-      'Video Camera Inspection',
-      'Preventive Drain Maintenance'
-    ],
-    benefits: [
-      'Fast Service',
-      'Effective Results',
-      'Prevent Future Issues',
-      'Advanced Equipment',
-      'Video Inspection',
-      'Comprehensive Cleaning'
-    ],
-    content: [
-      {
-        title: 'Professional Drain Cleaning',
-        description: 'We use advanced equipment and techniques to clear even the toughest clogs. Our hydro jetting and mechanical cleaning methods restore full drainage flow quickly and effectively.'
-      },
-      {
-        title: 'Video Camera Inspection',
-        description: 'Our video camera inspections allow us to see inside your pipes to identify the cause of clogs and potential problems. This helps us provide targeted solutions and prevent future issues.'
-      },
-      {
-        title: 'Sewer Line Cleaning',
-        description: 'We clean main sewer lines and lateral connections to prevent backups and ensure proper waste flow. Our services keep your entire drainage system functioning properly.'
-      },
-      {
-        title: 'Preventive Maintenance',
-        description: 'Regular drain cleaning prevents clogs and keeps your plumbing system running smoothly. We offer maintenance programs to protect your drains and prevent costly repairs.'
-      }
-    ]
-  },
-
-  'plumber-sewer-line-repair': {
-    title: 'Sewer Line Inspection & Replacement',
-    shortTitle: 'Sewer Line Services',
-    description: 'Thorough sewer camera inspections, repairs, and full replacements',
-    heroTitle: 'Sewer Line Inspection & Replacement',
-    heroSubtitle: 'Ensure proper waste flow and avoid costly backups',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Sewer Camera Inspection',
-      'Sewer Line Repair',
-      'Sewer Line Replacement',
-      'Trenchless Sewer Repair',
-      'Sewer Line Cleaning',
-      'Emergency Sewer Services'
-    ],
-    benefits: [
-      'Proper Waste Flow',
-      'Avoid Costly Backups',
-      'Smooth Operation',
-      'Advanced Inspection',
-      'Trenchless Options',
-      'Comprehensive Solutions'
-    ],
-    content: [
-      {
-        title: 'Sewer Camera Inspection',
-        description: 'Our advanced camera inspections provide detailed views of your sewer line condition. This helps us identify problems early and plan the most effective repair strategy.'
-      },
-      {
-        title: 'Sewer Line Repair',
-        description: 'We repair damaged sewer lines using modern techniques that minimize disruption. Our repairs restore proper waste flow and prevent backups.'
-      },
-      {
-        title: 'Trenchless Sewer Replacement',
-        description: 'When replacement is needed, we offer trenchless options that minimize damage to your property. These methods are faster and less disruptive than traditional excavation.'
-      },
-      {
-        title: 'Preventive Maintenance',
-        description: 'Regular sewer line maintenance prevents major problems and costly repairs. We offer maintenance programs to keep your sewer system functioning properly.'
-      }
-    ]
-  },
-  'plumber-gas-line-repair': {
-    title: 'Gas Line Installation & Repair',
-    shortTitle: 'Gas Line Services',
-    description: 'Safe and code-compliant gas line installations, repairs, and replacements',
-    heroTitle: 'Gas Line Installation & Repair',
-    heroSubtitle: 'Power your appliances with confidence and protect your property',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Gas Line Installation',
-      'Gas Line Repair',
-      'Gas Appliance Hookups',
-      'Gas Line Inspection',
-      'Emergency Gas Line Services',
-      'Gas Line Upgrades'
-    ],
-    benefits: [
-      'Safe Operation',
-      'Code Compliance',
-      'Appliance Protection',
-      'Emergency Response',
-      'Professional Installation',
-      'Peace of Mind'
-    ],
-    content: [
-      {
-        title: 'Gas Line Installation',
-        description: 'We install gas lines for new construction, additions, and appliance installations. All work is performed to code and includes proper testing and safety measures.'
-      },
-      {
-        title: 'Gas Appliance Hookups',
-        description: 'We safely connect gas appliances including water heaters, furnaces, stoves, dryers, and fireplaces. Our installations ensure proper operation and safety.'
-      },
-      {
-        title: 'Gas Line Inspection',
-        description: 'Regular gas line inspections identify potential safety issues before they become problems. We check for leaks, corrosion, and code compliance.'
-      },
-      {
-        title: 'Emergency Gas Services',
-        description: 'Gas leaks are serious safety hazards. We provide 24/7 emergency gas line services to quickly address leaks and restore safe operation.'
-      }
-    ]
-  },
-  'plumber-leak-detection': {
-    title: 'Leak Detection & Repair',
-    shortTitle: 'Leak Detection',
-    description: 'Advanced leak detection tools to quickly locate and repair hidden water leaks',
-    heroTitle: 'Leak Detection & Repair Services',
-    heroSubtitle: 'Minimize damage, lower water bills, and keep your plumbing efficient',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Water Leak Detection',
-      'Slab Leak Detection',
-      'Pipe Leak Repair',
-      'Fixture Leak Repair',
-      'Emergency Leak Services',
-      'Preventive Leak Detection'
-    ],
-    benefits: [
-      'Minimize Damage',
-      'Lower Water Bills',
-      'Efficient Plumbing',
-      'Advanced Technology',
-      'Quick Detection',
-      'Comprehensive Repair'
-    ],
-    content: [
-      {
-        title: 'Advanced Leak Detection',
-        description: 'We use state-of-the-art equipment including acoustic sensors, thermal imaging, and electronic leak detection to locate hidden leaks quickly and accurately.'
-      },
-      {
-        title: 'Comprehensive Leak Repair',
-        description: 'Once we locate a leak, we provide complete repair services. Our repairs address the root cause and prevent future leaks from occurring.'
-      },
-      {
-        title: 'Water Bill Analysis',
-        description: 'Unexplained increases in water bills often indicate hidden leaks. We analyze your water usage patterns to identify potential problems.'
-      },
-      {
-        title: 'Preventive Services',
-        description: 'Regular leak detection services can identify potential problems before they cause damage. We offer maintenance programs to protect your property.'
-      }
-    ]
-  },
-  'plumber-toilet-repair': {
-    title: 'Toilet Repair & Installation',
-    shortTitle: 'Toilet Services',
-    description: 'Fast and reliable toilet plumbing services for clogs, leaks, and replacements',
-    heroTitle: 'Toilet Repair & Installation',
-    heroSubtitle: 'Restore full function, improve efficiency, and prevent water waste',
-    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Toilet Installation',
-      'Toilet Repair',
-      'Toilet Replacement',
-      'Clog Removal',
-      'Leak Repair',
-      'Toilet Maintenance'
-    ],
-    benefits: [
-      'Full Function',
-      'Improved Efficiency',
-      'Prevent Water Waste',
-      'Professional Installation',
-      'Fast Service',
-      'Reliable Operation'
-    ],
-    content: [
-      {
-        title: 'Toilet Installation',
-        description: 'We install new toilets with proper plumbing connections and ensure optimal performance. Our installations include proper sealing and testing for leak-free operation.'
-      },
-      {
-        title: 'Toilet Repair',
-        description: 'We repair all toilet issues including running toilets, clogs, leaks, and flushing problems. Our repairs restore full function and prevent water waste.'
-      },
-      {
-        title: 'Toilet Replacement',
-        description: 'When repair isn\'t cost-effective, we provide toilet replacement services. We help you choose water-efficient models that save money and water.'
-      },
-      {
-        title: 'Emergency Toilet Services',
-        description: 'Toilet problems can be urgent. We provide emergency repair services to quickly restore function and prevent water damage.'
-      }
-    ]
-  },
-
-  'plumber-emergency-service': {
-    title: 'Emergency Plumbing Services',
-    shortTitle: 'Emergency Plumbing',
-    description: '24/7 emergency plumbing repair and services',
-    heroTitle: '24/7 Emergency Plumbing Services',
-    heroSubtitle: 'Fast response emergency plumbing when you need it most',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    services: [
-      'Burst Pipe Repair',
-      'Water Heater Emergencies',
-      'Sewer Line Emergencies',
-      'Gas Line Emergencies',
-      'Flooding & Water Damage',
-      'Clogged Drain Emergencies'
-    ],
-    benefits: [
-      '24/7 Availability',
-      'Fast Response Time',
-      'Emergency Equipment',
-      'Licensed Technicians',
-      'Insurance Coverage',
-      'Prevent Further Damage'
-    ],
-    content: [
-      {
-        title: '24/7 Emergency Response',
-        description: 'We provide round-the-clock emergency plumbing services for urgent situations. Our team is always available to handle burst pipes, water heater failures, sewer backups, and other plumbing emergencies.'
-      },
-      {
-        title: 'Rapid Emergency Repair',
-        description: 'Our emergency technicians are equipped with the tools and parts needed to quickly resolve most plumbing emergencies. We prioritize safety and work efficiently to minimize damage and restore function.'
-      },
-      {
-        title: 'Comprehensive Emergency Services',
-        description: 'We handle all types of plumbing emergencies including water leaks, gas leaks, sewer backups, and equipment failures. Our team is trained to assess situations quickly and provide effective solutions.'
-      },
-      {
-        title: 'Damage Prevention',
-        description: 'Quick response to plumbing emergencies prevents costly water damage and property loss. Our emergency services help protect your home or business from extensive damage.'
-      }
-    ]
-  }
-};
-
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const { location: locationId, service: serviceSlug } = await params;
-  const location = (locationsData as LocationsData).locations.find((loc: LocationData) => loc.id === locationId);
-  const serviceInfo = serviceData[serviceSlug as keyof typeof serviceData];
-  
+
+  const location = getLocationById(locationId);
+  const serviceInfo = (servicesData as unknown as { services: ServiceItem[] }).services.find((s) => s.slug === serviceSlug);
+
   if (!location || !serviceInfo) {
     return {
-      title: 'Plumbing Services | GD Professional Plumbing',
-      description: 'Professional plumbing services across the USA. Licensed, experienced, and affordable for repairs, installs, or maintenance!'
+      title: 'Service Not Found | Bennett Construction & Roofing',
+      description: 'The requested service page could not be found.'
     };
   }
 
+  const { getLocationServiceSEOFromFile } = await import('@/lib/seo-server');
+  const zipCodes = getLocationZipCodes({ ...location, zipCodes: location.zipCodes || [] });
+  const seo = getLocationServiceSEOFromFile(
+    location.name,
+    location.state,
+    serviceInfo.title,
+    serviceSlug,
+    location.id,
+    zipCodes
+  );
+
   return {
-    title: `${serviceInfo.title} in ${location.name}, ${location.state} | GD Professional Plumbing`,
-    description: `Professional ${serviceInfo.title.toLowerCase()} services in ${location.name}, ${location.state}. ${serviceInfo.description} Call (833) 609-0936 for expert plumbing solutions.`,
-    keywords: [
-      `${serviceInfo.title.toLowerCase()} ${location.name}`,
-      `plumber ${location.name}`,
-      `plumbing services ${location.name}`,
-      `emergency plumber ${location.name}`,
-      `local plumber ${location.name}`,
-      `plumber near me ${location.name}`,
-      `plumbing repair ${location.name}`,
-      `24/7 plumber ${location.name}`,
-      `licensed plumber ${location.name}`,
-      `plumbing contractor ${location.name}`,
-      `residential plumbing ${location.name}`,
-      `commercial plumbing ${location.name}`,
-      `plumbing maintenance ${location.name}`,
-      `plumbing emergency ${location.name}`
-    ],
-    openGraph: {
-      title: `${serviceInfo.title} in ${location.name}, ${location.state} | GD Professional Plumbing`,
-      description: `Professional ${serviceInfo.title.toLowerCase()} services in ${location.name}, ${location.state}. ${serviceInfo.description} Call (833) 609-0936 for expert plumbing solutions.`,
-      type: 'website',
-      locale: 'en_US',
-      siteName: 'GD Professional Plumbing'
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${serviceInfo.title} in ${location.name}, ${location.state} | GD Professional Plumbing`,
-      description: `Professional ${serviceInfo.title.toLowerCase()} services in ${location.name}, ${location.state}. ${serviceInfo.description} Call (833) 609-0936 for expert plumbing solutions.`
-    },
-    alternates: {
-      canonical: `https://${location.id}.gdprofessionalplumbing.com/${serviceSlug}`
-    }
+    title: seo.title,
+    description: seo.description,
+    alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
   };
 }
 
 export default async function ServicePage({ params }: ServicePageProps) {
-  const { location, service } = await params;
-  
-  // Get location data from local import
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const locationData = (locationsData as any).locations.find((loc: any) => loc.id === location);
-  if (!locationData) {
+  const { location: locationId, service: serviceSlug } = await params;
+
+  const location = getLocationById(locationId);
+  const serviceInfo = (servicesData as unknown as { services: ServiceItem[] }).services.find((s) => s.slug === serviceSlug);
+
+  if (!location || !serviceInfo) {
     notFound();
   }
-  
-  const safeLocation = locationData;
-  
-  // Get service data
-  const serviceInfo = serviceData[service as keyof typeof serviceData];
-  if (!serviceInfo) {
-    notFound();
-  }
+
+  // Safe location object
+  const safeLocation = {
+    ...location,
+    phone: location.phone || '(866) 289-1750',
+    zipCodes: location.zipCodes || []
+  };
+
+  const replacements = {
+    CITY: safeLocation.name,
+    STATE: safeLocation.state,
+    PHONE: safeLocation.phone,
+    COMPANY_NAME: 'Bennett Construction & Roofing'
+  };
+
+  const extendedContent = getExtendedServiceContent(serviceSlug);
+
+  // Helper to find image for service or fallback
+  const getServiceImage = () => {
+    const serviceImages = (imagesData.images.services as any);
+    if (serviceImages[serviceSlug]) return serviceImages[serviceSlug];
+
+    if (serviceInfo.category === 'exterior') return serviceImages['siding-installation'];
+    if (serviceInfo.category === 'construction') return serviceImages['general-construction'];
+
+    return serviceImages['roof-repair'];
+  };
+  const serviceHeroImage = getServiceImage();
+
+  const heroSubtext = buildHeroSubtext({
+    serviceKey: serviceSlug,
+    serviceLabel: serviceInfo.title,
+    city: safeLocation.name,
+    state: safeLocation.state,
+    phone: safeLocation.phone,
+  });
+  const zipCodes = getLocationZipCodes(safeLocation);
+  const nearbyLocations = getNearbyLocations(safeLocation.id, safeLocation.state);
+  const dynamicHeroHeader = buildDynamicHeroHeader({
+    serviceLabel: serviceInfo.title,
+    city: safeLocation.name,
+    state: safeLocation.state,
+    zipCodes,
+    seed: serviceSlug,
+  });
+  const dynamicSubtextLines = buildDynamicHeroSubtextLines({
+    serviceKey: serviceSlug,
+    serviceLabel: serviceInfo.title,
+    city: safeLocation.name,
+    state: safeLocation.state,
+    phone: safeLocation.phone,
+    zipCodes: safeLocation.zipCodes,
+  });
+  const introContent = buildIntroContent({
+    serviceKey: serviceSlug,
+    serviceLabel: serviceInfo.title,
+    city: safeLocation.name,
+    state: safeLocation.state,
+    phone: safeLocation.phone,
+  });
 
   return (
-    <div className="bg-white min-h-screen flex flex-col font-sans">
+    <div className="min-h-screen bg-white font-sans text-gray-900">
       <Header />
-      
-      {/* Enhanced Hero Section */}
-      <section className="relative h-[80vh] overflow-visible">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/90">
-          <img 
-            src="https://ik.imagekit.io/nang9yead/Worker%20Adjusting%20Water%20Filtration%20System%20Valves?updatedAt=1756066968225" 
-            alt={`${serviceInfo.title} in ${safeLocation.name}`}
-            className="w-full h-full object-cover mix-blend-multiply"
+
+      {/* SECTION 1: HERO SECTION */}
+      <section className="relative py-20 md:py-28 lg:py-32 px-4 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={serviceHeroImage.url}
+            alt={serviceInfo.heroTitle || serviceInfo.title}
+            fill
+            priority
+            className="object-cover"
+            style={{ filter: 'brightness(0.25)' }}
           />
         </div>
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="text-center text-white px-6 max-w-6xl mx-auto">
-            <div className="mb-6">
-              <span className="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
-                Licensed & Insured
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              Expert {serviceInfo.title} in {safeLocation.name}, {safeLocation.state}
-            </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl opacity-95 max-w-5xl mx-auto leading-relaxed mb-8">
-              Professional {serviceInfo.title.toLowerCase()} services in {safeLocation.name}. {serviceInfo.description}
-            </p>
-          </div>
-        </div>
-        
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/90 to-[#0f1f33]/70" />
 
-      </section>
+        <div className="relative max-w-7xl mx-auto">
+          <div className="max-w-4xl text-white">
+              <div className="flex flex-wrap gap-3 mb-6">
+                <span className="bg-[#d97706] text-white text-xs font-bold px-3 py-1.5 rounded-full">Licensed & Insured</span>
+                <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Top Rated in {safeLocation.name}</span>
+                <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Free Estimates</span>
+              </div>
 
-      {/* SEO Intro Section */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
-            Find the Best {serviceInfo.title} Services in {safeLocation.name}
-          </h2>
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-            Looking for reliable {serviceInfo.title.toLowerCase()}? Our team of licensed and certified plumbers provides exceptional service at competitive prices. Whether you need new installation, replacement, or maintenance, we're your trusted plumbing experts. Serving {safeLocation.name} and surrounding areas with 24/7 availability and guaranteed satisfaction.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
-              className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg text-lg transition-colors duration-300"
-              >
-                Call {safeLocation.phone} Now
-              </a>
-            </div>
-          </div>
-      </section>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                {dynamicHeroHeader}
+              </h1>
 
-      {/* Search Block */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
-                Are you searching for expert {serviceInfo.title.toLowerCase()}?
-            </h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Look no further! GD Professional Plumbing is your trusted plumbing expert in {safeLocation.name}. We provide comprehensive {serviceInfo.title.toLowerCase()} solutions for both residential and commercial properties, with 24/7 emergency service availability.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">Residential Services</h3>
-                  <p className="text-gray-600 text-sm">
-                    Professional {serviceInfo.title.toLowerCase()} for homes with proper installation and maintenance.
-                  </p>
-                </div>
-                <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">Commercial Services</h3>
-                  <p className="text-gray-600 text-sm">
-                    Large-scale {serviceInfo.title.toLowerCase()} systems for businesses with minimal downtime and maximum efficiency.
-                  </p>
-                </div>
+              <div className="text-xl md:text-2xl opacity-95 mb-6 leading-relaxed space-y-2">
+                <p>{dynamicSubtextLines.line1}</p>
+                <p>{dynamicSubtextLines.line2}</p>
+                <p>{dynamicSubtextLines.line3}</p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <a
+                  href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
+                  className="inline-flex items-center justify-center bg-[#d97706] hover:bg-[#b45309] text-white font-bold px-8 py-4 rounded-lg text-lg transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </svg>
+                  {safeLocation.phone}
+                </a>
+                <a
+                  href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
+                  className="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-[#1e3a5f] font-bold px-8 py-4 rounded-lg text-lg transition shadow-lg"
+                >
+                  Get Free Estimate
+                </a>
+              </div>
+              <div className="flex gap-6 text-sm font-medium opacity-90">
+                <span className="flex items-center gap-2">✓ Licensed ROC</span>
+                <span className="flex items-center gap-2">✓ Fully Insured</span>
+                <span className="flex items-center gap-2">✓ A+ Rating</span>
               </div>
             </div>
-            <div className="flex justify-center">
-              <img 
-                src="https://ik.imagekit.io/nang9yead/Smiling%20Plumber%20Holding%20Wrench%20in%20Kitchen.png?updatedAt=1756066963942" 
-                alt="Professional plumber working"
-                className="w-full h-64 sm:h-80 lg:h-96 object-cover rounded-2xl shadow-2xl"
-              />
-            </div>
           </div>
-        </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 px-4 bg-blue-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-blue-700 mb-2">50+</div>
-              <div className="text-gray-600">Years Experience</div>
-                </div>
-            <div>
-              <div className="text-4xl font-bold text-blue-700 mb-2">24/7</div>
-              <div className="text-gray-600">Emergency Service</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-blue-700 mb-2">100%</div>
-              <div className="text-gray-600">Satisfaction</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-blue-700 mb-2">15 Min</div>
-              <div className="text-gray-600">Response Time</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Why Choose Section */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Why Choose {serviceInfo.title}?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover the advantages of {serviceInfo.title.toLowerCase()} and why they're becoming the preferred choice for modern homes and businesses in {safeLocation.name}.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {serviceInfo.benefits.map((benefit, index) => {
-              const icons = ['♾️', '💰', '🏠', '🌱', '⏱️', '🔧'];
-              return (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="text-4xl mb-4">{icons[index] || '✅'}</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit}</h3>
-                  <p className="text-gray-600">
-                    {benefit === 'Endless Hot Water Supply' && 'Never run out of hot water again. Tankless water heaters provide continuous hot water on demand.'}
-                    {benefit === 'Energy Cost Savings' && 'Save up to 30% on energy bills compared to traditional tank water heaters.'}
-                    {benefit === 'Space-Saving Design' && 'Compact design saves valuable space in your home or business.'}
-                    {benefit === 'Reduced Carbon Footprint' && 'Reduce your carbon footprint with energy-efficient tankless technology.'}
-                    {benefit === 'On-Demand Heating' && 'Get hot water instantly without waiting for a tank to heat up.'}
-                    {benefit === 'Longer Lifespan' && 'Tankless water heaters typically last 20+ years with proper maintenance.'}
-                    {!['Endless Hot Water Supply', 'Energy Cost Savings', 'Space-Saving Design', 'Reduced Carbon Footprint', 'On-Demand Heating', 'Longer Lifespan'].includes(benefit) && `Professional ${serviceInfo.title.toLowerCase()} provides ${benefit.toLowerCase()} for your property.`}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
-      {/* Our Services List */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-            <img
-              src={serviceInfo.image}
-              alt={serviceInfo.title}
-              className="w-full h-48 sm:h-64 lg:h-80 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our {serviceInfo.shortTitle} Services</h3>
-              <div className="space-y-3">
-                {serviceInfo.services.map((serviceItem, index) => (
-                  <div key={index} className="flex items-start">
-                    <svg className="w-5 h-5 mr-3 mt-1 text-[#1c7bc8]" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-gray-700">{serviceItem}</span>
+      {/* Intro Section - Anti-Thin */}
+      <section className="py-16 px-4 bg-white relative">
+        <div className="max-w-4xl mx-auto">
+          <div className="prose prose-lg max-w-none text-gray-700 mb-16 text-center">
+            <h1 className="text-3xl font-bold text-[#1e3a5f] mb-6">{introContent.headline}</h1>
+            {introContent.paragraphs.map((para, i) => (
+              <p key={i} className={i === 0 ? "lead text-xl mb-6" : "text-lg mb-6"}>
+                {para}
+              </p>
+            ))}
+          </div>
+
+          {/* SECTION 2: WHAT OUR SERVICE INCLUDES */}
+          {extendedContent && (
+            <div className="mb-20">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-8 text-center">
+                {replacePlaceholders(extendedContent.includes.title, replacements)}
+              </h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                {extendedContent.includes.items.map((item: string, idx: number) => (
+                  <div key={idx} className="flex items-start bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm">
+                    <span className="text-[#d97706] text-xl mr-4 mt-1 font-bold">✓</span>
+                    <span className="font-medium text-gray-800">{replacePlaceholders(item, replacements)}</span>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          )}
 
-      {/* Comprehensive Services Section */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Comprehensive {serviceInfo.title} Services
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From installation to maintenance, we provide complete {serviceInfo.title.toLowerCase()} solutions for all your needs in {safeLocation.name}.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-              <div className="text-4xl mb-6">🔧</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">New Installation</h3>
-              <p className="text-gray-600 mb-6">
-                Professional installation of new {serviceInfo.title.toLowerCase()} systems with proper sizing and configuration.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Proper sizing for your needs</li>
-                <li>• Professional installation</li>
-                <li>• Code compliance</li>
-                <li>• Warranty coverage</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-              <div className="text-4xl mb-6">🔄</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Replacement</h3>
-              <p className="text-gray-600 mb-6">
-                Upgrade your existing system to an energy-efficient {serviceInfo.title.toLowerCase()} solution.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• System evaluation</li>
-                <li>• Seamless replacement</li>
-                <li>• Minimal disruption</li>
-                <li>• Performance optimization</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-              <div className="text-4xl mb-6">🔧</div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Repair & Maintenance</h3>
-              <p className="text-gray-600 mb-6">
-                Expert repair and maintenance services to keep your {serviceInfo.title.toLowerCase()} running efficiently.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Diagnostic services</li>
-                <li>• Component replacement</li>
-                <li>• Preventive maintenance</li>
-                <li>• Performance tuning</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Ready to Upgrade Section */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Ready to Upgrade to {serviceInfo.title}?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Contact us today for a free consultation and estimate. Our experts will help you choose the perfect {serviceInfo.title.toLowerCase()} for your needs in {safeLocation.name}.
-          </p>
-          <a
-            href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
-            className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-xl transition-colors duration-300"
-          >
-            Call {safeLocation.phone}
-          </a>
-        </div>
-      </section>
-
-      {/* Detailed Service Information */}
-      <section className="py-16 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
-            {serviceInfo.title} in {safeLocation.name}, {safeLocation.state}
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {serviceInfo.content.map((item, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{item.description}</p>
+          {/* SECTION 3: MATERIAL OPTIONS */}
+          {extendedContent && extendedContent.materials && (
+            <div className="mb-20 bg-[#1e3a5f]/5 p-8 md:p-12 rounded-3xl">
+              <h2 className="text-3xl font-bold text-[#1e3a5f] mb-10 text-center">
+                {replacePlaceholders(extendedContent.materials.title, replacements)}
+              </h2>
+              <div className="grid md:grid-cols-2 gap-8">
+                {extendedContent.materials.items.map((item: any, idx: number) => (
+                  <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-3">{replacePlaceholders(item.name, replacements)}</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                      {replacePlaceholders(item.description, replacements)}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+          )}
+
+          {/* Dynamic Service Grid (Section for SEO connectivity) */}
+          <div className="mb-20">
+            <h2 className="text-3xl font-bold text-center text-[#1e3a5f] mb-12">Complete Exterior Solutions in {safeLocation.name}</h2>
+            <LocationServiceGrid
+              locationId={safeLocation.id}
+              locationName={safeLocation.name}
+              stateName={safeLocation.state}
+              phone={safeLocation.phone}
+            />
           </div>
-        </div>
-      </section>
 
+          {/* SECTION 4: WHY CHOOSE US FOR [SERVICE] */}
+          {extendedContent && (
+            <div className="mb-20">
+              <h2 className="text-3xl font-bold text-[#1e3a5f] mb-10 text-center">
+                {replacePlaceholders(extendedContent.whyChooseUs.title, replacements)}
+              </h2>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {extendedContent.whyChooseUs.items.map((item: string, idx: number) => (
+                  <div key={idx} className="relative group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-blue-50/50">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gray-50 rounded-bl-full -mr-8 -mt-8 -z-0 group-hover:bg-orange-50 transition-colors duration-500" />
 
-
-      {/* Types of Plumbing Services We Offer */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Types of Plumbing Services We Offer in {safeLocation.name}, {safeLocation.state}</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">GD Professional Plumbing Helps You with All Your Plumbing Projects including:</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Water Heater Repair and Installation */}
-            <Link href={`/plumber-water-heater-repair`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Plumber%20Fixing%20Leaking%20Sink%20Pipe%20with%20Wrench.png?updatedAt=1756066955385"
-                  alt="Water Heater Repair and Installation"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Water Heater Repair and Installation in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. Affordable water heater repair and professional installation for homes and commercial buildings in {safeLocation.name}—fast service, licensed plumbers, and energy-efficient systems.
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Tankless Water Heater Installation */}
-            <Link href={`/plumber-tankless-water-heater`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Worker%20Adjusting%20Water%20Filtration%20System%20Valves?updatedAt=1756066968225"
-                  alt="Tankless Water Heater Installation"
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Tankless Water Heater Installation in {safeLocation.name}, {safeLocation.state}</h3>
-                      <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. Expert installation of energy-efficient tankless water heaters for homes and businesses in {safeLocation.name}—endless hot water, lower utility bills, and space-saving design.
+                    <div className="relative z-10">
+                      <div className="w-14 h-14 bg-[#1e3a5f] rounded-xl flex items-center justify-center text-white text-xl font-bold mb-6 shadow-lg shadow-blue-900/30 group-hover:bg-[#d97706] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                        {idx + 1}
+                      </div>
+                      <p className="text-xl text-gray-700 font-medium leading-relaxed group-hover:text-gray-900 transition-colors">
+                        {replacePlaceholders(item, replacements)}
                       </p>
                     </div>
                   </div>
-                </Link>
-
-            {/* Water Recirculation Pump */}
-            <Link href={`/plumber-water-recirculation-pump`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Maintenance%20Worker%20Adjusting%20Copper%20Plumbing%20Pipes.png?updatedAt=1756066948233"
-                  alt="Water Recirculation Pump"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Water Recirculation Pump Repair & Installation in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. Professional repair and installation of hot water recirculation pumps for homes and businesses in {safeLocation.name}—get instant hot water, save water, and boost plumbing efficiency.
-                  </p>
-                </div>
+                ))}
               </div>
-            </Link>
+            </div>
+          )}
 
-            {/* Faucets & Sinks */}
-            <Link href={`/plumber-faucet-sink-repair`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Smiling%20Plumber%20Repairing%20Bathroom%20Sink%20Pipe.png?updatedAt=1756066965094"
-                  alt="Faucets & Sinks"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Faucet and Sink Repair & Replacement in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. Expert installation and repair of kitchen and bathroom faucets and sinks in {safeLocation.name}—leak-free performance, upgraded fixtures, and improved space functionality.
-                  </p>
-                </div>
+          {/* SECTION 5: SERVICE PROCESS */}
+          {extendedContent && (
+            <div className="mb-20">
+              <h2 className="text-3xl font-bold text-[#1e3a5f] mb-12 text-center">
+                {replacePlaceholders(extendedContent.process.title, replacements)}
+              </h2>
+              <div className="space-y-8 max-w-3xl mx-auto">
+                {extendedContent.process.items.map((item: any, idx: number) => (
+                  <div key={idx} className="flex gap-6 relative">
+                    {idx < extendedContent.process.items.length - 1 && (
+                      <div className="absolute left-[23px] top-[50px] bottom-[-30px] w-0.5 bg-gray-200" />
+                    )}
+                    <div className="w-12 h-12 rounded-full bg-[#1e3a5f] flex items-center justify-center text-white font-bold shrink-0 z-10">
+                      {idx + 1}
+                    </div>
+                    <div className="pb-8">
+                      <h4 className="text-xl font-bold text-[#1e3a5f] mb-2">{replacePlaceholders(item.step, replacements)}</h4>
+                      <p className="text-gray-600">{replacePlaceholders(item.description, replacements)}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </Link>
+            </div>
+          )}
 
-            {/* Water Conservation Plumbing */}
-            <Link href={`/plumber-water-conservation`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Plumbers%20Installing%20Wall-Mounted%20Water%20Tap?updatedAt=1756066963229"
-                  alt="Water Conservation Plumbing"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Water Conservation Plumbing Systems in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. Eco-friendly water-saving plumbing solutions for homes and businesses in {safeLocation.name}—reduce water waste, cut utility bills, and support sustainable living.
-                  </p>
-                </div>
+          {/* SECTION 6: SIGNS YOU NEED SERVICE */}
+          {extendedContent && (
+            <div className="mb-20 bg-orange-50 border border-orange-200 p-8 md:p-12 rounded-3xl">
+              <h2 className="text-3xl font-bold text-[#1e3a5f] mb-6 text-center">
+                {replacePlaceholders(extendedContent.signs.title, replacements)}
+              </h2>
+              <p className="text-center text-lg text-gray-700 mb-8">
+                {replacePlaceholders(extendedContent.signs.intro, replacements)}
+              </p>
+              <div className="grid md:grid-cols-2 gap-4 mb-10">
+                {extendedContent.signs.items.map((item: string, idx: number) => (
+                  <div key={idx} className="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm">
+                    <span className="text-red-500 font-bold">⚠️</span>
+                    <span className="text-gray-700 font-medium">{replacePlaceholders(item, replacements)}</span>
+                  </div>
+                ))}
               </div>
-            </Link>
+              <p className="text-center font-bold text-[#1e3a5f] text-xl">
+                {replacePlaceholders(extendedContent.signs.outro, replacements)}
+              </p>
+            </div>
+          )}
 
-            {/* Custom Bathroom Renovation */}
-            <Link href={`/plumber-bathroom-renovation`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/young%20female%20plumber%20fixing%20?updatedAt=1756066968835"
-                  alt="Custom Bathroom Renovation"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Custom Bathroom Renovation in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. From outdated to outstanding—our expert team designs and renovates bathrooms in {safeLocation.name} with modern fixtures, efficient layouts, and timeless appeal for residential properties.
-                  </p>
-                </div>
-              </div>
-            </Link>
+          {/* Testimonials & FAQs (Localized) */}
+          <LocationTestimonials
+            locationName={safeLocation.name}
+            stateName={safeLocation.state}
+            phone={safeLocation.phone}
+          />
 
-            {/* Water System Installation & Repair */}
-            <Link href={`/plumber-water-system-repair`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Industrial%20HVAC%20Technician%20Inspection.png?updatedAt=1756066941834"
-                  alt="Water System Installation & Repair"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Water System Installation & Repair in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. We install, repair, and maintain residential and commercial water systems in {safeLocation.name}—delivering clean, safe, and uninterrupted water flow for your property.
-                  </p>
-                </div>
+          {/* SECTION 9: MINI FAQ (Service-Specific) */}
+          {extendedContent && extendedContent.faqs && extendedContent.faqs.items && extendedContent.faqs.items.length > 0 && (
+            <div className="mt-20">
+              <h2 className="text-3xl font-bold text-[#1e3a5f] mb-10 text-center">
+                {replacePlaceholders(extendedContent.faqs.title, replacements)}
+              </h2>
+              <div className="space-y-6 max-w-3xl mx-auto">
+                {extendedContent.faqs.items.map((faq: any, idx: number) => (
+                  <div key={idx} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <h3 className="text-lg font-bold text-[#1e3a5f] mb-3">{replacePlaceholders(faq.question, replacements)}</h3>
+                    <p className="text-gray-600 leading-relaxed">{replacePlaceholders(faq.answer, replacements)}</p>
+                  </div>
+                ))}
               </div>
-            </Link>
+            </div>
+          )}
 
-            {/* Slab Leak Detection & Repair */}
-            <Link href={`/plumber-slab-leak-repair`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Old%20Rusty%20Pipe%20Dripping%20Water.png?updatedAt=1756066951741"
-                  alt="Slab Leak Detection & Repair"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Slab Leak Detection & Repair in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. Fast and accurate slab leak detection with expert repairs in {safeLocation.name}—protect your foundation, prevent costly water damage, and preserve your property's structural integrity.
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Sump Pump Installation & Repair */}
-            <Link href={`/plumber-sump-pump-repair`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Plumber%20Installing%20Water%20Pump%20in%20Basement.png?updatedAt=1756066964034"
-                  alt="Sump Pump Installation & Repair"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Sump Pump Installation & Repair in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. Keep your basement dry and protected with professional sump pump repair, installation, and maintenance in {safeLocation.name}—flood prevention solutions built for long-term reliability.
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Professional Drain Cleaning */}
-            <Link href={`/plumber-drain-cleaning`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/plumber%20clearing%20blocked%20sink%20with%20water?updatedAt=1756066954284"
-                  alt="Professional Drain Cleaning"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Professional Drain Cleaning in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. Fast and effective drain cleaning for clogged sinks, tubs, and sewer lines in {safeLocation.name}—restore smooth drainage, eliminate blockages, and prevent future plumbing issues.
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Expert Drain Repair */}
-            <Link href={`/plumber-drain-repair`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Plumber%20Fixing%20Leaking%20Sink%20Pipe%20with%20Wrench.png?updatedAt=1756066955385"
-                  alt="Expert Drain Repair"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Expert Drain Repair in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. We fix damaged or leaking drains with precision in {safeLocation.name}—prevent backups, water damage, and ensure a smooth-flowing, reliable plumbing system in your home or business.
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Sewer Line Inspection & Replacement */}
-            <Link href={`/plumber-sewer-line-repair`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Old%20Rusty%20Underground%20Pipeline.png?updatedAt=1756066953091"
-                  alt="Sewer Line Inspection & Replacement"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Sewer Line Inspection & Replacement in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. Thorough sewer camera inspections, repairs, and full replacements in {safeLocation.name}—ensure proper waste flow, avoid costly backups, and keep your sewer system running smoothly.
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Gas Line Installation & Repair */}
-            <Link href={`/plumber-gas-line-repair`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Plumber%20Installing%20Gas%20Line%20in%20Kitchen.png?updatedAt=1756066961834"
-                  alt="Gas Line Installation & Repair"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Gas Line Installation & Repair in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. Safe and code-compliant gas line installations, repairs, and replacements in {safeLocation.name}—power your appliances with confidence and protect your property from gas hazards.
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Leak Detection & Repair */}
-            <Link href={`/plumber-leak-detection`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/PVC%20Pipe%20Installation%20in%20Soil.png?updatedAt=1756066962271"
-                  alt="Leak Detection & Repair"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Leak Detection & Repair in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. We use advanced leak detection tools to quickly locate and repair hidden water leaks in {safeLocation.name}—minimize damage, lower water bills, and keep your plumbing system efficient.
-                  </p>
-                </div>
-              </div>
-            </Link>
-
-            {/* Toilet Repair & Installation */}
-            <Link href={`/plumber-toilet-repair`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Plumber%20Using%20Plunger%20on%20Toilet%20Bowl%20worker%20in%20orange%20uniform%20unclogging%20toilet?updatedAt=1756066962119"
-                  alt="Toilet Repair & Installation"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Toilet Repair & Installation in {safeLocation.name}, {safeLocation.state}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at {safeLocation.phone}. Fast and reliable toilet plumbing services for clogs, leaks, and replacements in {safeLocation.name}—restore full function, improve efficiency, and prevent costly water waste.
-                  </p>
-                </div>
-              </div>
-            </Link>
+          {/* Standard Dynamic FAQ for the city */}
+          <div className="mt-20">
+            <LocationFAQ
+              locationName={safeLocation.name}
+              stateName={safeLocation.state}
+              phone={safeLocation.phone}
+            />
           </div>
         </div>
-      </section>
+      </section >
 
-      {/* CTA Section */}
-      <section className="bg-[#1c7bc8] text-white py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            Need {serviceInfo.shortTitle} in {safeLocation.name}?
+      {/* SECTION 7: SERVICE AREA & Related Services */}
+      {
+        serviceInfo.relatedServices && serviceInfo.relatedServices.length > 0 && (
+          <section className="py-16 px-4 bg-gray-50 border-t border-gray-100">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-[#1e3a5f] mb-4">
+                  More Services in {safeLocation.name}
+                </h2>
+                <p className="text-gray-600">Expert exterior care for every part of your home.</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {serviceInfo.relatedServices.map((slug: string) => {
+                  const relatedService = (servicesData as unknown as { services: ServiceItem[] }).services.find(s => s.slug === slug);
+                  if (!relatedService) return null;
+
+                  const serviceImage = imagesData.images.services[slug as keyof typeof imagesData.images.services];
+
+                  return (
+                    <Link key={slug} href={`/locations/${safeLocation.id}/${slug}`} className="block group h-full">
+                      <div className="relative h-[300px] w-full rounded-2xl overflow-hidden shadow-md transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                        {serviceImage?.url ? (
+                          <Image
+                            src={serviceImage.url}
+                            alt={serviceImage.alt || relatedService.title}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
+                          />
+                        ) : (
+                          <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#0f1f33]" />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/90 via-[#1e3a5f]/40 to-transparent" />
+                        <div className="absolute inset-x-0 bottom-0 p-6">
+                          <div className="flex items-center gap-3">
+                            <span className="text-2xl">{relatedService.icon}</span>
+                            <h3 className="text-xl font-bold text-white">{relatedService.title}</h3>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        )
+      }
+
+      <NearbyAreasSection
+        nearbyLocations={nearbyLocations}
+        currentLocationName={safeLocation.name}
+        state={safeLocation.state}
+      />
+
+      {/* SECTION 8: CTA (Bottom Conversion) */}
+      <section className="bg-[#d97706] text-white py-20 px-4 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full filter blur-3xl translate-x-1/2 -translate-y-1/2" />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            {extendedContent
+              ? replacePlaceholders(extendedContent.hero.title.replace('Professional', 'Get a'), replacements)
+              : `Need ${serviceInfo.title} in ${safeLocation.name}?`}
           </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Call us today for professional {serviceInfo.title.toLowerCase()} services
+          <p className="text-xl md:text-2xl mb-10 opacity-90">
+            Protect your home or business with a professionally installed {serviceInfo.title.toLowerCase()}. Expert service since 2000.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
-              className="bg-white text-[#1c7bc8] font-bold px-8 py-4 rounded-lg text-xl hover:bg-gray-50 transition-colors duration-300"
+              className="bg-white text-[#d97706] font-bold px-10 py-5 rounded-xl text-2xl hover:bg-gray-50 transition shadow-xl flex items-center gap-4 transform hover:scale-105 duration-300"
             >
+              <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
               Call {safeLocation.phone}
             </a>
             <Link
-              href={`/services`}
-              className="border-2 border-white text-white font-bold px-8 py-4 rounded-lg text-xl hover:bg-white hover:text-[#1c7bc8] transition-colors duration-300"
+              href="/contact"
+              className="text-white border-2 border-white/40 hover:border-white font-bold px-10 py-5 rounded-xl text-xl transition"
             >
-              View All Services
+              Request Free Estimate
             </Link>
           </div>
         </div>
       </section>
-    </div>
+
+      <section className="bg-white py-12 px-4 border-t border-gray-100">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-2xl font-bold text-[#1e3a5f] mb-4">Planning a Budget?</h3>
+          <p className="text-gray-600 mb-8">Get a detailed cost estimate for {serviceInfo.title} in {safeLocation.name} with our interactive calculator.</p>
+          <Link
+            href={`/${safeLocation.id}/${serviceSlug}/cost-calculator`}
+            className="inline-flex items-center font-bold text-[#d97706] hover:text-[#b45309] text-lg hover:underline transition"
+          >
+            Calculate {serviceInfo.title} Cost in {safeLocation.name} →
+          </Link>
+        </div>
+      </section>
+
+      <Footer location={{ name: safeLocation.name, state: safeLocation.state }} />
+      <FloatingCTA phone={safeLocation.phone.replace(/\D/g, '')} locationName={safeLocation.name} />
+    </div >
   );
-} 
+}

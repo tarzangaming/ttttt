@@ -2,7 +2,7 @@
 
 ## 📋 **Website Overview**
 
-**Domain:** `https://www.gdprofessionalplumbing.com`  
+**Domain:** `https://www.your-domain.com`  
 **Type:** Multi-location plumbing services website  
 **Technology:** Next.js 15.5.2, TypeScript, Tailwind CSS  
 **Deployment:** Vercel  
@@ -14,7 +14,7 @@
 
 ### **Main Domain Structure**
 ```
-gdprofessionalplumbing.com/
+your-domain.com/
 ├── / (Homepage)
 ├── /services (Services overview)
 ├── /about (About us)
@@ -25,7 +25,7 @@ gdprofessionalplumbing.com/
 
 ### **Subdomain Structure**
 ```
-[city].gdprofessionalplumbing.com/
+[city].your-domain.com/
 ├── / (City homepage)
 ├── /about (City-specific about)
 ├── /contact (City-specific contact)
@@ -77,13 +77,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   env: {
-    NEXT_PUBLIC_SITE_URL: 'https://www.gdprofessionalplumbing.com',
+    NEXT_PUBLIC_SITE_URL: 'https://www.your-domain.com',
   },
   async rewrites() {
     return [];
   },
   publicRuntimeConfig: {
-    siteUrl: 'https://www.gdprofessionalplumbing.com',
+    siteUrl: 'https://www.your-domain.com',
   },
   async headers() {
     return [
@@ -136,16 +136,16 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl;
 
   // Redirect to www version for main domain
-  if (hostname === 'gdprofessionalplumbing.com') {
-    url.hostname = 'www.gdprofessionalplumbing.com';
+  if (hostname === 'your-domain.com') {
+    url.hostname = 'www.your-domain.com';
     return NextResponse.redirect(url, 301);
   }
 
   // Handle subdomain routing
   let subdomain = '';
   
-  if (hostname.includes('.gdprofessionalplumbing.com')) {
-    subdomain = hostname.replace('.gdprofessionalplumbing.com', '');
+  if (hostname.includes('.your-domain.com')) {
+    subdomain = hostname.replace('.your-domain.com', '');
   } else if (hostname.includes('localhost')) {
     const parts = hostname.split('.');
     if (parts.length > 1) {
@@ -154,7 +154,7 @@ export function middleware(request: NextRequest) {
   }
 
   // Skip www and root domain
-  if (subdomain === 'www' || subdomain === 'gdprofessionalplumbing' || subdomain === 'localhost') {
+  if (subdomain === 'www' || subdomain === 'your-domain' || subdomain === 'localhost') {
     return NextResponse.next();
   }
 
@@ -272,7 +272,7 @@ export const config = {
 ```typescript
 export const metadata: Metadata = {
   title: "24/7 Emergency Plumbing & Repairs Services | GD Professional Plumbing",
-  description: "Professional 24/7 emergency plumbing services across the USA. Water heater repair, drain cleaning, leak detection, and more. Licensed, insured, and trusted since 1973. Call (833) 609-0936 for immediate service.",
+  description: "Professional 24/7 emergency plumbing services across the USA. Water heater repair, drain cleaning, leak detection, and more. Licensed, insured, and trusted since 1973. Call (866) 289-1750 for immediate service.",
   keywords: [
     "24/7 emergency plumbing",
     "emergency plumber",
@@ -286,7 +286,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "24/7 Emergency Plumbing & Repairs Services | GD Professional Plumbing",
     description: "Professional 24/7 emergency plumbing services across the USA...",
-    url: "https://gdprofessionalplumbing.com",
+    url: "https://your-domain.com",
     siteName: "GD Professional Plumbing",
     locale: "en_US",
     type: "website",
@@ -297,7 +297,7 @@ export const metadata: Metadata = {
     description: "Professional 24/7 emergency plumbing services across the USA...",
   },
   alternates: {
-    canonical: "https://gdprofessionalplumbing.com",
+    canonical: "https://your-domain.com",
   },
 };
 ```
@@ -338,9 +338,9 @@ export const metadata: Metadata = {
       "state": "NY",
       "fullName": "New York, NY",
       "description": "Best Licensed & Certified Plumbers in New York...",
-      "phone": "(833) 609-0936",
+      "phone": "(866) 289-1750",
       "heroTitle": "Best Licensed & Certified Plumbers in New York",
-      "heroSubtitle": "Call Us at (833) 609-0936! Trusted plumbing experts...",
+      "heroSubtitle": "Call Us at (866) 289-1750! Trusted plumbing experts...",
       "services": [
         {
           "title": "Water Heaters Repair and Installation",
@@ -403,9 +403,9 @@ export const metadata: Metadata = {
 ## 📞 **Contact Information**
 
 ### **Main Contact**
-- **Phone:** (833) 609-0936
-- **Email:** info@gdprofessionalplumbing.com
-- **Website:** https://www.gdprofessionalplumbing.com
+- **Phone:** (866) 289-1750
+- **Email:** info@your-domain.com
+- **Website:** https://www.your-domain.com
 - **Service Areas:** All 50 US States
 - **Hours:** 24/7 Emergency Service
 

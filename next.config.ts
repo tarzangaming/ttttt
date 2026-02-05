@@ -1,21 +1,71 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Force the correct domain for sitemap generation
+  // Configure external images (ImageKit CDN) with caching
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ik.imagekit.io',
+        pathname: '/roofingusa/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
+    ],
+    // Enable aggressive image caching (cache for 1 year)
+    minimumCacheTTL: 31536000,
+    // Use device sizes for responsive images
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
   env: {
-    NEXT_PUBLIC_SITE_URL: 'https://www.gdprofessionalplumbing.com',
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || '',
   },
   // Ensure sitemap uses correct domain
   async rewrites() {
     return [];
   },
-  // Override any environment variables that might be causing affinsight.com
-  publicRuntimeConfig: {
-    siteUrl: 'https://www.gdprofessionalplumbing.com',
-  },
-  // Security headers
+
+  // Security and caching headers
   async headers() {
     return [
+      // Cache images aggressively (1 year)
+      {
+        source: '/_next/image(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache static assets (1 year)
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache images in public folder (1 week with revalidation)
+      {
+        source: '/images/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=604800, stale-while-revalidate=86400',
+          },
+        ],
+      },
+      // Security headers for all pages
       {
         source: '/(.*)',
         headers: [

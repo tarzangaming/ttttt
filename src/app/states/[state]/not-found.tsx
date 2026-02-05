@@ -9,11 +9,9 @@ export default function StateNotFound() {
   const state = params.state as string;
 
   useEffect(() => {
-    // Redirect to the main state subdomain page after a short delay
     const timer = setTimeout(() => {
-      window.location.href = `https://${state}.gdprofessionalplumbing.com`;
+      window.location.href = state ? `/states/${state}` : '/';
     }, 3000);
-
     return () => clearTimeout(timer);
   }, [state]);
 
@@ -24,26 +22,25 @@ export default function StateNotFound() {
           <h1 className="text-6xl font-bold text-blue-600 mb-2">404</h1>
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">Page Not Found</h2>
           <p className="text-gray-600 mb-6">
-            The page you're looking for doesn't exist. You'll be redirected to our {state.toUpperCase()} state page in a few seconds.
+            The page you&apos;re looking for doesn&apos;t exist. You&apos;ll be redirected in a few seconds.
           </p>
         </div>
-        
+
         <div className="space-y-4">
-          <Link 
-            href={`https://${state}.gdprofessionalplumbing.com`}
+          <Link
+            href={state ? `/states/${state}` : '/'}
             className="inline-block w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
-            Go to {state.toUpperCase()} State
+            Go to States
           </Link>
-          
-          <Link 
-            href={`https://${state}.gdprofessionalplumbing.com/services`}
+          <Link
+            href="/services"
             className="inline-block w-full bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
           >
-            View Services in {state.toUpperCase()}
+            View Our Services
           </Link>
         </div>
-        
+
         <p className="text-sm text-gray-500 mt-6">
           Redirecting automatically in 3 seconds...
         </p>

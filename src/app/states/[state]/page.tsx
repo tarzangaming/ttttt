@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import locationsData from '@/data/locations.json';
+import { getAllLocations } from '@/utils/content';
 import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -9,11 +9,51 @@ interface StatePageProps {
   params: Promise<{ state: string }>;
 }
 
+// Construction services to display
+const constructionServices = [
+  {
+    slug: 'roof-repair',
+    title: 'Roof Repair',
+    description: 'Expert repair for leaks, storm damage, missing shingles, and more.',
+    icon: '🔧'
+  },
+  {
+    slug: 'roof-replacement',
+    title: 'Roof Replacement',
+    description: 'Complete tear-off and new roof installation with premium materials and warranty.',
+    icon: '🏠'
+  },
+  {
+    slug: 'storm-damage-roof-repair',
+    title: 'Storm Damage Repair',
+    description: 'Emergency response for hail, wind, and storm damage. Insurance claim help available.',
+    icon: '⛈️'
+  },
+  {
+    slug: 'gutter-installation',
+    title: 'Gutter Installation',
+    description: 'Seamless gutters custom-fit to your home with multiple color options.',
+    icon: '🌧️'
+  },
+  {
+    slug: 'siding-installation',
+    title: 'Siding Installation',
+    description: 'Vinyl, fiber cement, and wood siding to transform your home\'s exterior.',
+    icon: '🏡'
+  },
+  {
+    slug: 'general-construction',
+    title: 'General Construction',
+    description: 'Additions, garages, decks, and structural work by licensed professionals.',
+    icon: '🏗️'
+  },
+];
+
 export async function generateMetadata({ params }: StatePageProps): Promise<Metadata> {
   const { state } = await params;
-  const typedLocationsData = locationsData as { locations: Array<{ id: string; name: string; state: string }> };
-  
-  const stateLocations = typedLocationsData.locations.filter(
+  const allLocations = getAllLocations();
+
+  const stateLocations = allLocations.filter(
     (loc) => loc.state.toLowerCase() === state.toLowerCase()
   );
 
@@ -28,50 +68,47 @@ export async function generateMetadata({ params }: StatePageProps): Promise<Meta
   const stateFullName = getStateFullName(stateName);
 
   return {
-    title: `Best Licensed & Certified Plumbers in ${stateFullName} | GD Professional Plumbing`,
-    description: `Trusted plumbing experts in ${stateFullName}. Licensed, experienced, and affordable for repairs, installs, or maintenance! Call (833) 609-0936 for 24/7 service.`,
+    title: `Roofing & Construction in ${stateFullName} | Bennett Construction & Roofing`,
+    description: `Expert roofing and construction services in ${stateFullName}. Licensed, experienced, and affordable for roof repair, replacement, siding, gutters, and more! Call (866) 289-1750 for a free estimate.`,
     keywords: [
-      `plumber ${stateFullName}`,
-      `plumbing services ${stateFullName}`,
-      `emergency plumber ${stateFullName}`,
-      `drain cleaning ${stateFullName}`,
-      `water heater repair ${stateFullName}`,
-      `leak detection ${stateFullName}`,
-      `sewer line repair ${stateFullName}`,
-      `toilet repair ${stateFullName}`,
-      `faucet repair ${stateFullName}`,
-      `plumbing contractor ${stateFullName}`,
-      `residential plumber ${stateFullName}`,
-      `commercial plumber ${stateFullName}`,
-      `plumbing company ${stateFullName}`,
-      `plumbing repair ${stateFullName}`,
-      `plumbing installation ${stateFullName}`
+      `roofer ${stateFullName}`,
+      `roofing services ${stateFullName}`,
+      `roof repair ${stateFullName}`,
+      `roof replacement ${stateFullName}`,
+      `storm damage repair ${stateFullName}`,
+      `gutter installation ${stateFullName}`,
+      `siding installation ${stateFullName}`,
+      `construction contractor ${stateFullName}`,
+      `residential roofing ${stateFullName}`,
+      `commercial roofing ${stateFullName}`,
+      `roofing company ${stateFullName}`,
+      `home remodeling ${stateFullName}`
     ],
     openGraph: {
-      title: `Best Licensed & Certified Plumbers in ${stateFullName} | GD Professional Plumbing`,
-      description: `Trusted plumbing experts in ${stateFullName}. Licensed, experienced, and affordable for repairs, installs, or maintenance!`,
-      url: `https://${state.toLowerCase()}.gdprofessionalplumbing.com`,
-      siteName: 'GD Professional Plumbing',
+      title: `Roofing & Construction in ${stateFullName} | Bennett Construction & Roofing`,
+      description: `Expert roofing and construction services in ${stateFullName}. Licensed, experienced, and affordable!`,
+      url: `https://bennettconstructionandroofing.com/states/${state.toLowerCase()}`,
+      siteName: 'Bennett Construction & Roofing',
       locale: 'en_US',
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `Best Licensed & Certified Plumbers in ${stateFullName} | GD Professional Plumbing`,
-      description: `Trusted plumbing experts in ${stateFullName}. Licensed, experienced, and affordable for repairs, installs, or maintenance!`,
+      title: `Roofing & Construction in ${stateFullName} | Bennett Construction & Roofing`,
+      description: `Expert roofing and construction services in ${stateFullName}. Licensed, experienced, and affordable!`,
     },
     alternates: {
-      canonical: `https://${state.toLowerCase()}.gdprofessionalplumbing.com`,
+      canonical: `https://bennettconstructionandroofing.com/states/${state.toLowerCase()}`,
     },
   };
 }
 
 export default async function StatePage({ params }: StatePageProps) {
   const { state } = await params;
-  const typedLocationsData = locationsData as { locations: Array<{ id: string; name: string; state: string }> };
-  
+  const allLocations = getAllLocations();
+
   // Get all locations for this state
-  const stateLocations = typedLocationsData.locations.filter(
+  const stateLocations = allLocations.filter(
     (loc) => loc.state.toLowerCase() === state.toLowerCase()
   );
 
@@ -86,124 +123,166 @@ export default async function StatePage({ params }: StatePageProps) {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      
-      {/* Enhanced Hero Section */}
-      <section className="relative h-[80vh] overflow-visible">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/90">
-          <img 
-            src="/images/plumber-hero.jpg" 
-            alt="Professional plumber working"
-            className="w-full h-full object-cover mix-blend-multiply"
-          />
-        </div>
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="text-center text-white px-6 max-w-6xl mx-auto">
-            <div className="mb-6">
-              <span className="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold">
-                Licensed & Insured
-              </span>
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              Best Licensed & Certified Plumbers in {stateFullName}
-            </h1>
-            <p className="text-xl md:text-2xl lg:text-3xl opacity-95 max-w-5xl mx-auto leading-relaxed mb-8">
-              Trusted plumbing experts in {stateFullName}. Licensed, experienced, and affordable for repairs, installs, or maintenance!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="tel:8336090936"
-                className="inline-flex items-center bg-white text-blue-700 font-bold px-8 py-4 rounded-xl text-lg hover:bg-gray-100 transition-colors duration-300"
-              >
-                <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"/>
-                </svg>
-                <span>(833) 609-0936</span>
-              </a>
-            </div>
+
+      {/* Hero Section */}
+      <section className="relative py-24 bg-gradient-to-r from-[#1e3a5f] to-[#0f1f33]">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 text-center text-white">
+          <div className="mb-6">
+            <span className="bg-[#d97706] text-white px-4 py-2 rounded-full text-sm font-semibold">
+              Licensed & Insured • 25+ Years
+            </span>
           </div>
-        </div>
-      </section>
-      
-      {/* SEO Intro Section */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
-            Find the Best Cost-effective & Top-Rated Plumber in {stateFullName}
-          </h2>
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-            Looking for reliable plumbing services in {stateFullName}? Our team of licensed and certified plumbers in {stateFullName} provides exceptional service at competitive prices. Whether you need emergency repairs, installations, or maintenance in {stateFullName}, we're your trusted local plumbing experts. Serving {stateFullName} and surrounding areas with 24/7 availability and guaranteed satisfaction.
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            Roofing & Construction in {stateFullName}
+          </h1>
+          <p className="text-xl md:text-2xl opacity-95 max-w-5xl mx-auto leading-relaxed mb-8">
+            Expert roofing and construction services across {stateFullName}. Licensed, experienced, and affordable for repairs, installations, and more!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:8336090936"
-              className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg text-lg transition-colors duration-300"
+            <a
+              href="tel:8662891750"
+              className="inline-flex items-center bg-[#d97706] hover:bg-[#b45309] text-white font-bold px-8 py-4 rounded-xl text-lg transition"
             >
               <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"/>
+                <path d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" />
               </svg>
-              <span>Call (833) 609-0936</span>
+              <span>(866) 289-1750</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* Services Section - Using same service cards as city pages */}
+      {/* Intro Section */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Welcome to <span className="font-bold text-[#1e3a5f]">Bennett Construction & Roofing</span>,
+              your trusted local roofing and construction experts delivering durable, high-quality roofing
+              solutions across <span className="font-semibold">{stateFullName}</span>. We believe
+              a roof is more than just a structure—it&apos;s your home&apos;s first line of defense against weather,
+              time, and wear. That&apos;s why we focus on building strong, long-lasting roofs designed to protect
+              what matters most.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Homeowners and property managers across {stateFullName} trust us for our craftsmanship,
+              professionalism, and attention to detail. One satisfied customer shared:
+            </p>
+
+            {/* Testimonial Quote */}
+            <div className="bg-[#1e3a5f]/5 border-l-4 border-[#d97706] rounded-r-xl p-6 my-8">
+              <p className="text-lg italic text-gray-700 mb-4">
+                &quot;Bennett Construction & Roofing completely upgraded our roof. The quality, workmanship,
+                and reliability exceeded our expectations—it&apos;s built to last.&quot;
+              </p>
+              <p className="text-sm font-semibold text-[#1e3a5f]">
+                — Satisfied Homeowner
+              </p>
+            </div>
+
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              We offer a full range of roofing services, including roof installation, roof replacement,
+              roof repairs, inspections, and ongoing maintenance. Whether it&apos;s a residential or commercial project,
+              our experienced roofing professionals deliver on time, every time—without cutting corners.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              At <span className="font-bold text-[#1e3a5f]">Bennett Construction & Roofing</span>, we combine
+              premium materials, proven techniques, and local expertise to provide roofing systems that are
+              durable, energy-efficient, and visually appealing. From storm protection to long-term performance,
+              your peace of mind is always our priority.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed mb-8">
+              Choose <span className="font-bold text-[#1e3a5f]">Bennett Construction & Roofing</span> for
+              reliable roofing services in {stateFullName}—where quality craftsmanship
+              meets dependable service.
+            </p>
+
+            <div className="text-center">
+              <a
+                href="tel:8662891750"
+                className="inline-flex items-center bg-[#1e3a5f] hover:bg-[#2e4a6f] text-white font-bold px-8 py-3 rounded-lg text-lg transition"
+              >
+                <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" />
+                </svg>
+                <span>Call (866) 289-1750</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Types of Plumbing Services We Offer in {stateFullName}</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">GD Professional Plumbing Helps You with All Your Plumbing Projects including:</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Services in {stateFullName}</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Bennett Construction & Roofing provides expert services for your home or business.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Water Heater Repair and Installation */}
-            <Link href={`/plumber-water-heater-repair`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Plumber%20Fixing%20Leaking%20Sink%20Pipe%20with%20Wrench.png?updatedAt=1756066955385"
-                  alt="Water Heater Repair and Installation"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Water Heater Repair and Installation in {stateFullName}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at (833) 609-0936. Affordable water heater repair and professional installation for homes and commercial buildings in {stateFullName}—fast service, licensed plumbers, and energy-efficient systems.
-                  </p>
+            {constructionServices.map((service) => (
+              <Link key={service.slug} href={`/services/${service.slug}`} className="block">
+                <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                  <div className="h-48 bg-gradient-to-br from-[#1e3a5f] to-[#2d5a8a] flex items-center justify-center">
+                    <span className="text-6xl">{service.icon}</span>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-3">» {service.title} in {stateFullName}</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      Call Bennett Construction & Roofing at (866) 289-1750. {service.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* Tankless Water Heater Installation */}
-            <Link href={`/plumber-tankless-water-heater`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Worker%20Adjusting%20Water%20Filtration%20System%20Valves?updatedAt=1756066968225"
-                  alt="Tankless Water Heater Installation"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Tankless Water Heater Installation in {stateFullName}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at (833) 609-0936. Expert installation of energy-efficient tankless water heaters for homes and businesses in {stateFullName}—endless hot water, lower utility bills, and space-saving design.
-                  </p>
-                </div>
-              </div>
-            </Link>
+      {/* Cities Section */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
+            Cities We Serve in {stateFullName}
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {stateLocations.map((location) => (
+              <Link
+                key={location.id}
+                href={`/locations/${location.id}`}
+                className="block p-4 bg-white rounded-lg hover:bg-[#1e3a5f]/10 transition text-center shadow-sm"
+              >
+                <h4 className="font-semibold text-gray-800">{location.name}</h4>
+                <p className="text-sm text-gray-600">{location.state}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* Water Recirculation Pump */}
-            <Link href={`/plumber-water-recirculation-pump`} className="block">
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src="https://ik.imagekit.io/nang9yead/Maintenance%20Worker%20Adjusting%20Copper%20Plumbing%20Pipes.png?updatedAt=1756066948233"
-                  alt="Water Recirculation Pump"
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-blue-700 mb-3">» Water Recirculation Pump Repair & Installation in {stateFullName}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    Call GD Professional Plumbing at (833) 609-0936. Professional repair and installation of hot water recirculation pumps for homes and businesses in {stateFullName}—get instant hot water, save water, and boost plumbing efficiency.
-                  </p>
-                </div>
-              </div>
+      {/* CTA Section */}
+      <section className="bg-[#d97706] text-white py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to Get Started in {stateFullName}?</h2>
+          <p className="text-xl mb-8">Call us now for a free estimate on your roofing or construction project.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="tel:8662891750"
+              className="inline-flex items-center justify-center bg-[#1e3a5f] hover:bg-[#2d5a8a] text-white font-bold px-8 py-4 rounded-lg text-lg transition"
+            >
+              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              Call (866) 289-1750
+            </a>
+            <Link
+              href="/contact"
+              className="bg-white text-[#1e3a5f] font-bold px-8 py-4 rounded-lg text-lg hover:bg-gray-100 transition"
+            >
+              Request Free Estimate
             </Link>
           </div>
         </div>
@@ -267,6 +346,6 @@ function getStateFullName(stateCode: string): string {
     'WY': 'Wyoming',
     'WV': 'West Virginia'
   };
-  
+
   return stateNames[stateCode] || stateCode;
 }

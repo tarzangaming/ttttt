@@ -3,43 +3,10 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
+import NearbyAreasSection from '@/components/NearbyAreasSection';
 import locationsData from '@/data/locations.json';
-
-interface LocationData {
-  id: string;
-  name: string;
-  state: string;
-  fullName: string;
-  description: string;
-  phone: string;
-  heroTitle: string;
-  heroSubtitle: string;
-  services: Array<{
-    title: string;
-    description: string;
-    icon: string;
-  }>;
-  areas: string[];
-  zipCodes: string[];
-  image: string;
-  meta: {
-    title: string;
-    description: string;
-  };
-  faqs: Array<{
-    question: string;
-    answer: string;
-  }>;
-  testimonials: Array<{
-    name: string;
-    text: string;
-    location: string;
-  }>;
-}
-
-interface LocationsData {
-  locations: LocationData[];
-}
+import { getLocationById, getLocationZipCodes, getNearbyLocations } from '@/utils/content';
+import { buildDynamicHeroHeader, buildLocationPageHeroSubtext } from '@/lib/heroSubtext';
 
 interface LocationPageProps {
   params: Promise<{ location: string }>;
@@ -47,87 +14,98 @@ interface LocationPageProps {
 
 export async function generateMetadata({ params }: LocationPageProps): Promise<Metadata> {
   const { location: locationId } = await params;
-  const location = (locationsData as LocationsData).locations.find((loc: LocationData) => loc.id === locationId);
-  
+  const location = getLocationById(locationId);
+
   if (!location) {
     return {
-      title: 'About Us | GD Professional Plumbing',
-      description: 'Learn about our expert plumbing team. We provide reliable, affordable plumbing services, from repairs to installations, with 24/7 emergency support.'
+      title: 'About Us | Bennett Construction & Roofing',
+      description: 'Learn about our expert team. We provide reliable, affordable construction and roofing services.'
     };
   }
 
   return {
-    title: `About Our Plumbing Services in ${location.name} | Trusted Local Plumbers`,
-    description: `Learn about our expert plumbing team in ${location.name}. We provide reliable, affordable plumbing services, from repairs to installations, with 24/7 emergency support.`,
+    title: `About Bennett Construction & Roofing in ${location.name} | Trusted Local Experts`,
+    description: `Learn about our expert team in ${location.name}. We provide reliable, affordable roofing and construction services. Licensed & Insured.`,
     keywords: [
-      `about plumber ${location.name}`,
-      `plumbing company ${location.name}`,
-      `local plumber ${location.name}`,
-      `plumbing team ${location.name}`,
-      `plumbing services ${location.name}`,
-      `emergency plumber ${location.name}`,
-      `licensed plumber ${location.name}`,
-      `plumbing contractor ${location.name}`,
-      `residential plumbing ${location.name}`,
-      `commercial plumbing ${location.name}`,
-      `plumbing repair ${location.name}`,
-      `plumbing installation ${location.name}`,
-      `24/7 plumber ${location.name}`,
-      `plumbing maintenance ${location.name}`,
-      `plumbing emergency ${location.name}`
+      `about roofer ${location.name}`,
+      `roofing company ${location.name}`,
+      `local roofer ${location.name}`,
     ],
     openGraph: {
-      title: `About Our Plumbing Services in ${location.name} | Trusted Local Plumbers`,
-      description: `Learn about our expert plumbing team in ${location.name}. We provide reliable, affordable plumbing services, from repairs to installations, with 24/7 emergency support.`,
+      title: `About Bennett Construction & Roofing in ${location.name}`,
+      description: `Learn about our expert team in ${location.name}. Trusted roofing and construction services.`,
       type: 'website',
       locale: 'en_US',
-      siteName: 'GD Professional Plumbing'
+      siteName: 'Bennett Construction & Roofing'
     },
     twitter: {
       card: 'summary_large_image',
-      title: `About Our Plumbing Services in ${location.name} | Trusted Local Plumbers`,
-      description: `Learn about our expert plumbing team in ${location.name}. We provide reliable, affordable plumbing services, from repairs to installations, with 24/7 emergency support.`
+      title: `About Bennett Construction & Roofing in ${location.name}`,
+      description: `Learn about our expert team in ${location.name}. Trusted roofing and construction services.`
     },
     alternates: {
-      canonical: `https://${location.id}.gdprofessionalplumbing.com/about`
+      canonical: `https://bennettconstructionandroofing.com/locations/${location.id}/about`
     }
   };
 }
 
 export default async function AboutPage({ params }: LocationPageProps) {
   const { location: locationId } = await params;
-  const location = (locationsData as LocationsData).locations.find((loc: LocationData) => loc.id === locationId);
-  
+  const location = getLocationById(locationId);
+
   if (!location) {
     notFound();
   }
 
+  // Safe location object
+  const safeLocation = {
+    ...location,
+    phone: location.phone || '(866) 289-1750',
+    zipCodes: location.zipCodes || []
+  };
+
+  const zipCodes = getLocationZipCodes(safeLocation);
+  const nearbyLocations = getNearbyLocations(safeLocation.id, safeLocation.state);
+  const dynamicHeroHeader = buildDynamicHeroHeader({
+    serviceLabel: 'Roofing Contractor',
+    city: safeLocation.name,
+    state: safeLocation.state,
+    zipCodes,
+    seed: 'about',
+  });
+  const dynamicSubtextLines = buildLocationPageHeroSubtext({
+    city: safeLocation.name,
+    state: safeLocation.state,
+    pageType: 'about',
+    zipCodes: safeLocation.zipCodes,
+  });
+
   const teamMembers = [
     {
-      name: 'Mike Johnson',
-      role: 'Lead Plumber',
-      experience: '15+ years',
-      specialties: ['Emergency Repairs', 'Water Heater Installation', 'Sewer Line Repair']
+      name: 'John Bennett',
+      role: 'Founder & Lead Contractor',
+      experience: '25+ years',
+      specialties: ['Roofing Systems', 'Structural Design', 'Project Management']
     },
     {
-      name: 'Sarah Williams',
-      role: 'Senior Technician',
+      name: 'Michael Rodriguez',
+      role: 'Senior Project Manager',
+      experience: '18+ years',
+      specialties: ['Commercial Roofing', 'Safety Compliance', 'Team Leadership']
+    },
+    {
+      name: 'Sarah Thomas',
+      role: 'Customer Success Manager',
       experience: '12+ years',
-      specialties: ['Drain Cleaning', 'Leak Detection', 'Bathroom Renovation']
-    },
-    {
-      name: 'David Chen',
-      role: 'Commercial Specialist',
-      experience: '10+ years',
-      specialties: ['Commercial Plumbing', 'Gas Line Installation', 'Preventive Maintenance']
+      specialties: ['Client Relations', 'Project Coordination', 'Warranty Services']
     }
   ];
 
   const values = [
     {
-      title: 'Quality Workmanship',
-      description: 'We take pride in delivering high-quality plumbing work that stands the test of time.',
-      icon: '🔧'
+      title: 'Quality Craftsmanship',
+      description: 'We take pride in delivering high-quality work that stands the test of time.',
+      icon: '🔨'
     },
     {
       title: 'Customer Satisfaction',
@@ -140,85 +118,81 @@ export default async function AboutPage({ params }: LocationPageProps) {
       icon: '⏰'
     },
     {
-      title: 'Transparency',
+      title: 'Integrity',
       description: 'We provide honest, upfront pricing with no hidden fees or surprise charges.',
-      icon: '💯'
+      icon: '🤝'
     }
   ];
 
   return (
     <div className="bg-white min-h-screen flex flex-col font-sans">
       <Header />
-      
+
       {/* Hero Section */}
-      <section className="relative h-[80vh] overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://ik.imagekit.io/nang9yead/Smiling%20Plumber%20Holding%20Wrench%20in%20Kitchen.png?updatedAt=1756066963942"
-            alt="Professional plumber working"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-700/60"></div>
-        </div>
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <div className="text-center text-white px-6 max-w-6xl mx-auto">
-            <div className="transition-all duration-1000 opacity-100 translate-y-0">
-              <div className="mb-6">
-                <span className="bg-red-600 text-white px-6 py-3 rounded-full text-sm font-semibold animate-pulse">
-                  Since 1973
-                </span>
+      <section className="relative py-20 md:py-28 lg:py-32 px-4 overflow-hidden bg-gradient-to-r from-[#1e3a5f] to-[#0f1f33]">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] via-[#2d5a8a] to-[#0f1f33] opacity-90" />
+
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <div className="max-w-4xl text-white">
+              <div className="flex flex-wrap gap-3 mb-6">
+                <span className="bg-[#d97706] text-white text-xs font-bold px-3 py-1.5 rounded-full">Licensed & Insured</span>
+                <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Top Rated in {safeLocation.name}</span>
+                <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Free Estimates</span>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-                About Our Plumbing Services in {location.name}, {location.state}
+                {dynamicHeroHeader}
               </h1>
-              <p className="text-xl md:text-2xl lg:text-3xl opacity-95 max-w-4xl mx-auto leading-relaxed mb-8">
-                Five decades of trusted service in {location.name}, innovation, and unwavering commitment to excellence
-              </p>
-              <div className="flex justify-center">
-                <a 
-                  href="tel:+18336090936" 
-                  className="group relative bg-white text-blue-700 font-bold px-8 py-4 rounded-xl text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl inline-flex items-center gap-3 animate-pulse"
+              <div className="text-xl md:text-2xl opacity-95 leading-relaxed mb-8 space-y-2">
+                <p>{dynamicSubtextLines.line1}</p>
+                <p>{dynamicSubtextLines.line2}</p>
+                <p>{dynamicSubtextLines.line3}</p>
+              </div>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
+                  className="bg-[#d97706] hover:bg-[#b45309] text-white font-bold px-8 py-4 rounded-xl text-lg transition shadow-lg inline-flex items-center gap-3 transform hover:-translate-y-1"
                 >
-                  <div className="relative">
-                    <svg className="w-6 h-6 animate-bounce text-blue-700" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z"/>
-                    </svg>
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-ping"></div>
-                  </div>
-                  <span className="font-bold tracking-wide">(833) 609-0936</span>
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </svg>
+                  Call {safeLocation.phone}
                 </a>
+              </div>
+              <div className="mt-8 flex gap-6 text-sm font-medium opacity-90">
+                <span className="flex items-center gap-2">✓ Licensed ROC</span>
+                <span className="flex items-center gap-2">✓ Fully Insured</span>
+                <span className="flex items-center gap-2">✓ A+ Rating</span>
               </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#1c7bc8] to-[#0f5a9e] text-white">
+      <section className="py-20 px-4 bg-gray-50 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center group">
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/30 transition-all duration-300 transform hover:scale-105">
-                <div className="text-4xl md:text-5xl font-bold mb-2">50+</div>
-                <div className="text-sm md:text-base opacity-90">Years of Experience</div>
+              <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="text-4xl md:text-5xl font-bold mb-2 text-[#1e3a5f]">25+</div>
+                <div className="text-sm md:text-base text-gray-600">Years of Experience</div>
               </div>
             </div>
             <div className="text-center group">
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/30 transition-all duration-300 transform hover:scale-105">
-                <div className="text-4xl md:text-5xl font-bold mb-2">50+</div>
-                <div className="text-sm md:text-base opacity-90">Expert Plumbers</div>
+              <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="text-4xl md:text-5xl font-bold mb-2 text-[#1e3a5f]">50+</div>
+                <div className="text-sm md:text-base text-gray-600">Expert Contractors</div>
               </div>
             </div>
             <div className="text-center group">
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/30 transition-all duration-300 transform hover:scale-105">
-                <div className="text-4xl md:text-5xl font-bold mb-2">50,000+</div>
-                <div className="text-sm md:text-base opacity-90">Happy Customers</div>
+              <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="text-4xl md:text-5xl font-bold mb-2 text-[#1e3a5f]">10k+</div>
+                <div className="text-sm md:text-base text-gray-600">Happy Customers</div>
               </div>
             </div>
             <div className="text-center group">
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/30 transition-all duration-300 transform hover:scale-105">
-                <div className="text-4xl md:text-5xl font-bold mb-2">5,000+</div>
-                <div className="text-sm md:text-base opacity-90">Projects Completed</div>
+              <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <div className="text-4xl md:text-5xl font-bold mb-2 text-[#1e3a5f]">100%</div>
+                <div className="text-sm md:text-base text-gray-600">Satisfaction Guaranteed</div>
               </div>
             </div>
           </div>
@@ -226,39 +200,40 @@ export default async function AboutPage({ params }: LocationPageProps) {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-4 bg-gray-50">
+      <section id="about" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Story & Values</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover the journey that made us the most trusted name in plumbing services in {location.name}
+              Discover the journey that made us the most trusted name in roofing and construction in {safeLocation.name}
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+          <div className="bg-gray-50 rounded-3xl shadow-xl overflow-hidden border border-gray-100">
             <div className="p-8 md:p-12">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                  <h3 className="text-3xl font-bold text-gray-900 mb-6">A Legacy of Excellence in {location.name}, {location.state} Since 1973</h3>
+                  <h3 className="text-3xl font-bold text-[#1e3a5f] mb-6">Excellence in {safeLocation.name}, {safeLocation.state}</h3>
                   <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                     <p>
-                      Founded in 1973 by George Davidson, GD Professional Plumbing began as a small family business with a simple mission: to provide honest, reliable plumbing services in {location.name} and surrounding areas. What started as a one-man operation has grown into one of the most trusted names in professional plumbing services throughout {location.state}.
+                      Bennett Construction & Roofing began with a simple mission: to provide honest, reliable roofing and construction services in {safeLocation.name} and surrounding areas. What started as a small operation has grown into one of the most trusted names in the industry throughout {safeLocation.state}.
                     </p>
                     <p>
-                      Over the past five decades, we've witnessed the evolution of plumbing technology, from basic pipe systems to sophisticated smart home solutions. Through it all, we've maintained our commitment to quality, integrity, and customer satisfaction while expanding our reach to serve communities throughout {location.name} and the surrounding region.
+                      Over the years, we&apos;ve witnessed the evolution of construction technology and materials. Through it all, we&apos;ve maintained our commitment to quality, integrity, and customer satisfaction while expanding our reach to serve communities throughout the region.
                     </p>
                     <p>
-                      Today, GD Professional Plumbing serves thousands of residential and commercial customers in {location.name} with a team of over 50 licensed professionals, state-of-the-art equipment, and unwavering dedication to excellence in every project we undertake.
+                      Today, we serve residential and commercial customers in {safeLocation.name} with a team of licensed professionals, quality materials, and unwavering dedication to excellence in every project we undertake.
                     </p>
                   </div>
                 </div>
-                <div className="relative">
-                  <img 
-                    src="https://ik.imagekit.io/nang9yead/Plumber%20Fixing%20Leaking%20Sink%20Pipe%20with%20Wrench.png?updatedAt=1756066955385"
-                    alt="Plumber working professionally"
-                    className="rounded-2xl shadow-xl w-full h-64 sm:h-80 lg:h-96 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                <div className="relative h-full min-h-[400px]">
+                  {/* Placeholder for About Image - could use a generic construction image if no specific one available */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#2d5a8a] rounded-2xl flex items-center justify-center text-white">
+                    <div className="text-center p-8">
+                      <span className="text-6xl mb-4 block">🏗️</span>
+                      <h4 className="text-2xl font-bold">Building Dreams in {safeLocation.name}</h4>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -277,7 +252,7 @@ export default async function AboutPage({ params }: LocationPageProps) {
               Numbers that speak to our commitment and expertise
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="text-4xl font-bold text-blue-700 mb-2">50+</div>
@@ -310,7 +285,7 @@ export default async function AboutPage({ params }: LocationPageProps) {
               Licensed professionals dedicated to serving {location.name}
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <div key={index} className="bg-gray-50 rounded-lg p-6 text-center">
@@ -344,7 +319,7 @@ export default async function AboutPage({ params }: LocationPageProps) {
               What drives us to provide exceptional service in {location.name}
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <div key={index} className="text-center">
@@ -358,30 +333,36 @@ export default async function AboutPage({ params }: LocationPageProps) {
       </section>
 
 
+      <NearbyAreasSection
+        nearbyLocations={nearbyLocations}
+        currentLocationName={location.name}
+        state={location.state}
+      />
+
       {/* Service Areas */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Ready to Experience the GD Professional Plumbing Difference?
+              Ready to Experience the Bennett Construction Difference?
             </h2>
             <p className="text-xl text-gray-600">
-              Join thousands of satisfied customers in {location.name} who trust us with their plumbing needs
+              Join thousands of satisfied customers in {location.name} who trust us with their roofing needs
             </p>
           </div>
-          
+
           <div className="bg-blue-50 rounded-lg p-8 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              From emergency repairs to new installations, we're here to help
+              From emergency repairs to new installations, we&apos;re here to help
             </h3>
             <p className="text-lg text-gray-600 mb-6">
-              Contact us today for reliable, professional plumbing services in {location.name}, {location.state}. We're available 24/7 for emergency calls and scheduled appointments.
+              Contact us today for reliable, professional services in {location.name}, {location.state}. We&apos;re available 24/7 for emergency calls and scheduled appointments.
             </p>
-            <a 
-              href="tel:+18336090936" 
-              className="bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-blue-800 transition inline-block"
+            <a
+              href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
+              className="bg-[#d97706] text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-[#b45309] transition inline-block"
             >
-              Call (833) 609-0936
+              Call {safeLocation.phone}
             </a>
           </div>
         </div>

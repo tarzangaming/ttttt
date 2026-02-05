@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import { getPageSEOFromFile } from "@/lib/seo-server";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,67 +14,121 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "24/7 Emergency Plumbing & Repairs Services | GD Professional Plumbing",
-  description: "Professional 24/7 emergency plumbing services across the USA. Water heater repair, drain cleaning, leak detection, and more. Licensed, insured, and trusted since 1973. Call (833) 609-0936 for immediate service.",
+function getDefaultMetadata(): Metadata {
+  const seo = getPageSEOFromFile('home');
+  return {
+  title: seo?.title || "Expert Roofing & Construction Services | Bennett Construction & Roofing",
+  description: seo?.description || "Bennett Construction & Roofing provides professional roofing, siding, gutters, and construction services. Licensed, insured, and trusted for 25+ years. Free estimates. Call (866) 289-1750.",
   keywords: [
-    "24/7 emergency plumbing",
-    "emergency plumber",
-    "plumbing services",
-    "water heater repair",
-    "drain cleaning",
-    "leak detection",
-    "plumber near me",
-    "24/7 plumbing",
-    "licensed plumber",
-    "residential plumbing",
-    "commercial plumbing",
-    "plumbing repair",
-    "plumbing installation",
-    "sewer line repair",
-    "gas line repair",
-    "toilet repair",
-    "faucet repair",
-    "sink repair",
-    "pipe repair",
-    "plumbing maintenance"
+    "roofing contractor",
+    "construction company",
+    "roof repair",
+    "roof replacement",
+    "storm damage repair",
+    "siding installation",
+    "gutter installation",
+    "general contractor",
+    "home remodeling",
+    "exterior remodeling",
+    "commercial roofing",
+    "residential roofing",
+    "licensed roofer",
+    "insured contractor",
+    "free roofing estimate"
   ],
   icons: {
-    icon: "https://ik.imagekit.io/nang9yead/8f7118ab-ec26-4a6f-88c3-dc61ebb150c3.png?updatedAt=1757159395174",
-    shortcut: "https://ik.imagekit.io/nang9yead/8f7118ab-ec26-4a6f-88c3-dc61ebb150c3.png?updatedAt=1757159395174",
-    apple: "https://ik.imagekit.io/nang9yead/8f7118ab-ec26-4a6f-88c3-dc61ebb150c3.png?updatedAt=1757159395174",
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
   openGraph: {
-    title: "24/7 Emergency Plumbing & Repairs Services | GD Professional Plumbing",
-    description: "Professional 24/7 emergency plumbing services across the USA. Water heater repair, drain cleaning, leak detection, and more. Licensed, insured, and trusted since 1973.",
-    url: "https://gdprofessionalplumbing.com",
-    siteName: "GD Professional Plumbing",
+    title: seo?.title || "Expert Roofing & Construction Services | Bennett Construction & Roofing",
+    description: seo?.description || "Bennett Construction & Roofing provides professional roofing, siding, gutters, and construction services.",
+    url: "https://bennettconstructionandroofing.com",
+    siteName: "Bennett Construction & Roofing",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "24/7 Emergency Plumbing & Repairs Services | GD Professional Plumbing",
-    description: "Professional 24/7 emergency plumbing services across the USA. Water heater repair, drain cleaning, leak detection, and more.",
+    title: seo?.title || "Expert Roofing & Construction Services | Bennett Construction & Roofing",
+    description: seo?.description || "Professional roofing, siding, gutters, and construction services.",
   },
   alternates: {
-    canonical: "https://gdprofessionalplumbing.com",
+    canonical: seo?.canonical || "https://bennettconstructionandroofing.com",
   },
-};
+  };
+}
+
+export const metadata: Metadata = getDefaultMetadata();
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Organization and LocalBusiness schema
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Bennett Construction & Roofing",
+    "url": "https://bennettconstructionandroofing.com",
+    "logo": "https://bennettconstructionandroofing.com/images/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-866-289-1750",
+      "contactType": "customer service",
+      "areaServed": "US",
+      "availableLanguage": "English"
+    }
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "RoofingContractor",
+    "name": "Bennett Construction & Roofing",
+    "image": "https://bennettconstructionandroofing.com/images/logo.png",
+    "url": "https://bennettconstructionandroofing.com",
+    "telephone": "+1-866-289-1750",
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "19:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    }
+  };
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* Google Analytics */}
+        {/* Google Analytics - Replace with your GA ID */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-CTZ6N4SPQP"
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -81,7 +136,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-CTZ6N4SPQP');
+            gtag('config', 'G-XXXXXXXXXX');
           `}
         </Script>
         {children}

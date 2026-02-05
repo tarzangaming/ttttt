@@ -75,8 +75,8 @@ export default function ServiceAreas({ currentLocation }: ServiceAreasProps) {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-2">
             {displayedCities.map((location) => (
               <div key={location.id} className="group">
-                <Link 
-                  href={`https://${location.id.toLowerCase()}.gdprofessionalplumbing.com`}
+                <Link
+                  href={`/locations/${location.id}`}
                   className="block bg-gray-50 border border-gray-200 rounded-md px-2 py-2 text-center hover:bg-blue-50 hover:border-blue-300 transition-all duration-300 cursor-pointer group-hover:shadow-sm"
                 >
                   <div className="text-gray-800 font-medium text-xs leading-tight">

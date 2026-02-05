@@ -1,11 +1,17 @@
 import Link from 'next/link';
-import locationsData from '@/data/locations.json';
+import { notFound } from 'next/navigation';
+import Image from 'next/image';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { getAllLocations } from '@/utils/content';
+import imagesData from '@/data/images.json';
 
 export default function StatesPage() {
-  const typedLocationsData = locationsData as { locations: Array<{ id: string; name: string; state: string }> };
-  
+  // Get all locations using the helper
+  const allLocations = getAllLocations();
+
   // Group locations by state
-  const stateGroups = typedLocationsData.locations.reduce((acc: Record<string, Array<{ id: string; name: string; state: string }>>, location) => {
+  const stateGroups = allLocations.reduce((acc: Record<string, Array<{ id: string; name: string; state: string }>>, location) => {
     const state = location.state;
     if (!acc[state]) {
       acc[state] = [];
@@ -25,26 +31,39 @@ export default function StatesPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <Header />
+
+      {/* Hero Section with Background Image */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={imagesData.images.hero.locations.url}
+            alt={imagesData.images.hero.locations.alt}
+            fill
+            priority
+            className="object-cover"
+            style={{ filter: 'brightness(0.35)' }}
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/70 to-[#0f1f33]/50" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Plumbing Services by State
+            Roofing & Construction by State
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Professional plumbing services available across the United States. 
+            Professional roofing and construction services available across the United States.
             Click on any state to view all cities we serve in that area.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:(833) 609-0936" 
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+            <a
+              href="tel:(866) 289-1750"
+              className="bg-[#d97706] hover:bg-[#b45309] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
             >
-              Call (833) 609-0936
+              Call (866) 289-1750
             </a>
-            <a 
-              href="#states" 
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors"
+            <a
+              href="#states"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#1e3a5f] transition-colors"
             >
               View All States
             </a>
@@ -60,7 +79,7 @@ export default function StatesPage() {
               States We Serve
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Professional plumbing services available in {statesArray.length} states across the United States. 
+              Professional roofing and construction services available in {statesArray.length} states across the United States.
               Click on any state to view all cities we serve in that area.
             </p>
           </div>
@@ -70,18 +89,18 @@ export default function StatesPage() {
               <Link
                 key={stateInfo.state}
                 href={`/states/${stateInfo.state.toLowerCase()}`}
-                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-6 text-center group"
+                className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 p-6 text-center group"
               >
-                <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#d97706] transition-colors mb-2">
                   {stateInfo.fullName}
                 </h3>
-                <p className="text-3xl font-bold text-blue-600 mb-2">
+                <p className="text-3xl font-bold text-[#1e3a5f] mb-2">
                   {stateInfo.cityCount}
                 </p>
                 <p className="text-sm text-gray-600">
                   {stateInfo.cityCount === 1 ? 'City' : 'Cities'} Available
                 </p>
-                <div className="mt-4 text-blue-600 font-medium group-hover:text-blue-800 transition-colors">
+                <div className="mt-4 text-[#d97706] font-medium group-hover:text-[#b45309] transition-colors">
                   View Cities →
                 </div>
               </Link>
@@ -90,26 +109,38 @@ export default function StatesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* CTA Section with Background Image */}
+      <section className="relative py-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={imagesData.images.cta?.secondary?.url || imagesData.images.cta?.banner?.url || ''}
+            alt="CTA Background"
+            fill
+            className="object-cover"
+            style={{ filter: 'brightness(0.25)' }}
+          />
+        </div>
+        <div className="absolute inset-0 bg-[#1e3a5f]/60" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Need Plumbing Services?
+            Need Roofing or Construction Services?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Our licensed and experienced plumbers are available 24/7 for emergency services 
+            Our licensed and experienced professionals are available for emergency services
             and scheduled appointments across the United States.
           </p>
           <div className="flex justify-center">
-            <a 
-              href="tel:(833) 609-0936" 
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+            <a
+              href="tel:(866) 289-1750"
+              className="bg-[#d97706] hover:bg-[#b45309] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
             >
-              Call (833) 609-0936
+              Call (866) 289-1750
             </a>
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
@@ -167,6 +198,6 @@ function getStateFullName(stateCode: string): string {
     'WY': 'Wyoming',
     'WV': 'West Virginia'
   };
-  
+
   return stateNames[stateCode] || stateCode;
-} 
+}

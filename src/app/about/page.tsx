@@ -1,49 +1,26 @@
 import type { Metadata } from 'next';
 import AboutPageContent from '@/components/AboutPageContent';
+import { getPageSEOFromFile } from '@/lib/seo-server';
 
-export const metadata: Metadata = {
-  title: 'About GD Professional Plumbing in the US | GD Professional Plumbing',
-  description: 'Learn about GD Professional Plumbing - 50+ years of trusted service across the USA. Licensed, insured, and committed to excellence in residential and commercial plumbing since 1973.',
-  keywords: [
-    'about GD Professional Plumbing',
-    'plumbing company history',
-    'trusted plumber',
-    'licensed plumber',
-    'insured plumber',
-    'professional plumbing service',
-    'plumbing company USA',
-    'residential plumbing',
-    'commercial plumbing',
-    'plumbing contractor',
-    'plumbing business',
-    'plumbing experience',
-    'plumbing expertise',
-    'plumbing team',
-    'plumbing professionals',
-    'plumbing service provider',
-    'reliable plumber',
-    'experienced plumber',
-    'plumbing company about',
-    'plumbing service history'
-  ],
-  openGraph: {
-    title: 'About GD Professional Plumbing in the US | GD Professional Plumbing',
-    description: 'Learn about GD Professional Plumbing - 50+ years of trusted service across the USA. Licensed, insured, and committed to excellence in residential and commercial plumbing since 1973.',
-    url: 'https://gdprofessionalplumbing.com/about',
-    siteName: 'GD Professional Plumbing',
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'About GD Professional Plumbing in the US | GD Professional Plumbing',
-    description: 'Learn about GD Professional Plumbing - 50+ years of trusted service across the USA. Licensed, insured, and committed to excellence in residential and commercial plumbing since 1973.',
-  },
-  alternates: {
-    canonical: 'https://gdprofessionalplumbing.com/about',
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = getPageSEOFromFile('about');
+  if (!seo) {
+    return {
+      title: 'About Us | Bennett Construction & Roofing',
+      description: 'Learn about Bennett Construction & Roofing - 25+ years of trusted roofing and construction services across the USA.',
+      alternates: { canonical: 'https://bennettconstructionandroofing.com/about' },
+    };
+  }
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
+    openGraph: { title: seo.title, description: seo.description, type: 'website' },
+    twitter: { card: 'summary_large_image', title: seo.title, description: seo.description },
+  };
+}
 
 export default function AboutPage() {
   return <AboutPageContent />;
-} 
+}

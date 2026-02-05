@@ -33,7 +33,7 @@ export default function WaterHeaterRepairPageContent() {
             </p>
           </div>
         </div>
-        <FloatingCTA phone="8336090936" locationName="Your Area" />
+        <FloatingCTA phone="8662891750" locationName="Your Area" />
       </section>
       
       {/* SEO Intro Section */}
@@ -47,10 +47,10 @@ export default function WaterHeaterRepairPageContent() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="tel:8336090936"
+              href="tel:8662891750"
               className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-lg text-lg transition-colors duration-300"
             >
-              Call (833) 609-0936 Now
+              Call (866) 289-1750 Now
             </a>
           </div>
         </div>
@@ -186,13 +186,13 @@ export default function WaterHeaterRepairPageContent() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="tel:8336090936"
+              href="tel:8662891750"
               className="inline-flex items-center bg-white text-blue-600 font-bold px-8 py-4 rounded-lg text-lg hover:bg-gray-50 transition-colors duration-300"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              Call (833) 609-0936
+              Call (866) 289-1750
             </a>
           </div>
         </div>

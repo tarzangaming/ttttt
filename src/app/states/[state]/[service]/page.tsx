@@ -1,7 +1,11 @@
-import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import locationsData from '@/data/locations.json';
+import { getAllLocations, getLocationZipCodes } from '@/utils/content';
+import { buildDynamicHeroHeader, buildDynamicHeroSubtextLines } from '@/lib/heroSubtext';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import servicesData from '@/data/services.json';
 
 interface StateServicePageProps {
   params: Promise<{ state: string; service: string }>;
@@ -9,9 +13,9 @@ interface StateServicePageProps {
 
 export async function generateMetadata({ params }: StateServicePageProps): Promise<Metadata> {
   const { state, service } = await params;
-  const typedLocationsData = locationsData as { locations: Array<{ id: string; name: string; state: string }> };
-  
-  const stateLocations = typedLocationsData.locations.filter(
+  const allLocations = getAllLocations();
+
+  const stateLocations = allLocations.filter(
     (loc) => loc.state.toLowerCase() === state.toLowerCase()
   );
 
@@ -27,44 +31,44 @@ export async function generateMetadata({ params }: StateServicePageProps): Promi
   const serviceName = getServiceName(service);
 
   return {
-    title: `${serviceName} in ${stateFullName} | GD Professional Plumbing`,
-    description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert plumbers for ${serviceName.toLowerCase()} with 24/7 emergency service. Call (833) 609-0936!`,
+    title: `${serviceName} in ${stateFullName} | Bennett Construction & Roofing`,
+    description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert roofing contractors for ${serviceName.toLowerCase()} with 25+ years of experience. Call (866) 289-1750!`,
     keywords: [
       `${serviceName.toLowerCase()} ${stateFullName}`,
-      `plumber ${stateFullName}`,
+      `roofer ${stateFullName}`,
       `${serviceName.toLowerCase()} services ${stateFullName}`,
       `professional ${serviceName.toLowerCase()} ${stateFullName}`,
       `emergency ${serviceName.toLowerCase()} ${stateFullName}`,
-      `plumbing contractor ${stateFullName}`,
-      `plumbing company ${stateFullName}`,
-      `plumbing repair ${stateFullName}`,
-      `plumbing installation ${stateFullName}`
+      `roofing contractor ${stateFullName}`,
+      `roofing company ${stateFullName}`,
+      `roof repair ${stateFullName}`,
+      `roof installation ${stateFullName}`
     ],
     openGraph: {
-      title: `${serviceName} in ${stateFullName} | GD Professional Plumbing`,
-      description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert plumbers for ${serviceName.toLowerCase()} with 24/7 emergency service.`,
-      url: `https://www.gdprofessionalplumbing.com/states/${state.toLowerCase()}/${service}`,
-      siteName: 'GD Professional Plumbing',
+      title: `${serviceName} in ${stateFullName} | Bennett Construction & Roofing`,
+      description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert roofing contractors for ${serviceName.toLowerCase()} with 25+ years of experience.`,
+      url: `https://bennettconstructionandroofing.com/states/${state.toLowerCase()}/${service}`,
+      siteName: 'Bennett Construction & Roofing',
       locale: 'en_US',
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${serviceName} in ${stateFullName} | GD Professional Plumbing`,
-      description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert plumbers for ${serviceName.toLowerCase()} with 24/7 emergency service.`,
+      title: `${serviceName} in ${stateFullName} | Bennett Construction & Roofing`,
+      description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert roofing contractors for ${serviceName.toLowerCase()} with 25+ years of experience.`,
     },
     alternates: {
-      canonical: `https://www.gdprofessionalplumbing.com/states/${state.toLowerCase()}/${service}`,
+      canonical: `https://bennettconstructionandroofing.com/states/${state.toLowerCase()}/${service}`,
     },
   };
 }
 
 export default async function StateServicePage({ params }: StateServicePageProps) {
   const { state, service } = await params;
-  const typedLocationsData = locationsData as { locations: Array<{ id: string; name: string; state: string }> };
-  
+  const allLocations = getAllLocations();
+
   // Get all locations for this state
-  const stateLocations = typedLocationsData.locations.filter(
+  const stateLocations = allLocations.filter(
     (loc) => loc.state.toLowerCase() === state.toLowerCase()
   );
 
@@ -76,29 +80,53 @@ export default async function StateServicePage({ params }: StateServicePageProps
   const stateName = stateLocations[0].state;
   const stateFullName = getStateFullName(stateName);
   const serviceName = getServiceName(service);
+  const zipCodes = getLocationZipCodes({ state: stateName, zipCodes: stateLocations[0]?.zipCodes || [] } as any);
+
+  const dynamicHeroHeader = buildDynamicHeroHeader({
+    serviceLabel: serviceName,
+    city: stateFullName,
+    state: stateName,
+    zipCodes,
+    seed: service,
+  });
+  const dynamicSubtextLines = buildDynamicHeroSubtextLines({
+    serviceKey: service,
+    serviceLabel: serviceName,
+    city: stateFullName,
+    state: stateName,
+    phone: '(866) 289-1750',
+    zipCodes,
+  });
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
+      <Header />
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+      <section className="bg-gradient-to-r from-[#1e3a5f] to-[#0f1f33] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="flex flex-wrap gap-3 justify-center mb-6">
+            <span className="bg-[#d97706] text-white text-xs font-bold px-3 py-1.5 rounded-full">Licensed & Insured</span>
+            <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Top Rated in {stateFullName}</span>
+            <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Free Estimates</span>
+          </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            {serviceName} in {stateFullName}
+            {dynamicHeroHeader}
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Professional {serviceName.toLowerCase()} services available throughout {stateFullName}. 
-            Licensed, experienced, and affordable for all your plumbing needs!
-          </p>
+          <div className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto space-y-2">
+            <p>{dynamicSubtextLines.line1}</p>
+            <p>{dynamicSubtextLines.line2}</p>
+            <p>{dynamicSubtextLines.line3}</p>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:(833) 609-0936" 
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+            <a
+              href="tel:(866) 289-1750"
+              className="bg-[#d97706] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#b45309] transition-colors"
             >
-              Call (833) 609-0936
+              Call (866) 289-1750
             </a>
-            <a 
-              href="#cities" 
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors"
+            <a
+              href="#cities"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#1e3a5f] transition-colors"
             >
               View Cities
             </a>
@@ -106,61 +134,64 @@ export default async function StateServicePage({ params }: StateServicePageProps
         </div>
       </section>
 
-      {/* Service Description Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Professional {serviceName} Services in {stateFullName}
-              </h2>
-              <p className="text-lg text-gray-600 mb-6">
-                Our experienced plumbers provide top-quality {serviceName.toLowerCase()} services throughout {stateFullName}. 
-                We use the latest tools and techniques to ensure your plumbing system works perfectly.
+      {/* Intro Section */}
+      <section className="py-16 px-4 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Welcome to <span className="font-bold text-[#1e3a5f]">Bennett Construction & Roofing</span>,
+              your trusted local roofing and construction experts delivering durable, high-quality roofing
+              solutions across <span className="font-semibold">{stateFullName}</span> for <span className="font-semibold">{serviceName.toLowerCase()}</span>. We believe
+              a roof is more than just a structure—it&apos;s your home&apos;s first line of defense against weather,
+              time, and wear. That&apos;s why we focus on building strong, long-lasting roofs designed to protect
+              what matters most.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Homeowners and property managers across {stateFullName} trust us for our craftsmanship,
+              professionalism, and attention to detail. One satisfied customer shared:
+            </p>
+
+            {/* Testimonial Quote */}
+            <div className="bg-[#1e3a5f]/5 border-l-4 border-[#d97706] rounded-r-xl p-6 my-8">
+              <p className="text-lg italic text-gray-700 mb-4">
+                &quot;Bennett Construction & Roofing completely upgraded our roof. The quality, workmanship,
+                and reliability exceeded our expectations—it&apos;s built to last.&quot;
               </p>
-              <p className="text-lg text-gray-600 mb-8">
-                Whether you need emergency repairs or scheduled maintenance, our licensed professionals 
-                are ready to help with fast, reliable service in {stateLocations.length} cities across {stateFullName}.
+              <p className="text-sm font-semibold text-[#1e3a5f]">
+                — Satisfied Homeowner
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a 
-                  href="tel:(833) 609-0936" 
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center"
-                >
-                  Call (833) 609-0936
-                </a>
-                <a 
-                  href={`/states/${state.toLowerCase()}/services`}
-                  className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors text-center"
-                >
-                  View All Services
-                </a>
-              </div>
             </div>
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Us?</h3>
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-3">✓</span>
-                  <span className="text-gray-700">Licensed and insured professionals</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-3">✓</span>
-                  <span className="text-gray-700">24/7 emergency service available</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-3">✓</span>
-                  <span className="text-gray-700">Latest tools and technology</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-3">✓</span>
-                  <span className="text-gray-700">Competitive pricing and upfront quotes</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-3">✓</span>
-                  <span className="text-gray-700">Satisfaction guarantee on all work</span>
-                </li>
-              </ul>
+
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              We offer a full range of roofing services, including roof installation, roof replacement,
+              roof repairs, inspections, and ongoing maintenance. Whether it&apos;s a residential or commercial project,
+              our experienced roofing professionals deliver on time, every time—without cutting corners.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              At <span className="font-bold text-[#1e3a5f]">Bennett Construction & Roofing</span>, we combine
+              premium materials, proven techniques, and local expertise to provide roofing systems that are
+              durable, energy-efficient, and visually appealing. From storm protection to long-term performance,
+              your peace of mind is always our priority.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed mb-8">
+              Choose <span className="font-bold text-[#1e3a5f]">Bennett Construction & Roofing</span> for
+              reliable roofing services in {stateFullName}—where quality craftsmanship
+              meets dependable service.
+            </p>
+
+            <div className="text-center">
+              <a
+                href="tel:8662891750"
+                className="inline-flex items-center bg-[#1e3a5f] hover:bg-[#2e4a6f] text-white font-bold px-8 py-3 rounded-lg text-lg transition"
+              >
+                <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" />
+                </svg>
+                <span>Call (866) 289-1750</span>
+              </a>
             </div>
           </div>
         </div>
@@ -174,7 +205,7 @@ export default async function StateServicePage({ params }: StateServicePageProps
               {serviceName} Services in {stateFullName} Cities
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Professional {serviceName.toLowerCase()} services available in {stateLocations.length} cities across {stateFullName}. 
+              Professional {serviceName.toLowerCase()} services available in {stateLocations.length} cities across {stateFullName}.
               Click on any city to learn more about our services in that area.
             </p>
           </div>
@@ -183,7 +214,7 @@ export default async function StateServicePage({ params }: StateServicePageProps
             {stateLocations.slice(0, 20).map((location) => (
               <Link
                 key={location.id}
-                href={`https://${location.id.toLowerCase()}.gdprofessionalplumbing.com/${service}`}
+                href={`/locations/${location.id}/${service}`}
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow p-4 text-center group"
               >
                 <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
@@ -195,7 +226,7 @@ export default async function StateServicePage({ params }: StateServicePageProps
               </Link>
             ))}
           </div>
-          
+
           {stateLocations.length > 20 && (
             <div className="text-center mt-8">
               <Link
@@ -210,25 +241,27 @@ export default async function StateServicePage({ params }: StateServicePageProps
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-16">
+      <section className="bg-[#d97706] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Need {serviceName} Services in {stateFullName}?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Our licensed and experienced plumbers are available 24/7 for emergency services 
+            Our licensed and experienced roofing professionals are available for emergency repairs
             and scheduled appointments throughout {stateFullName}.
           </p>
           <div className="flex justify-center">
-            <a 
-              href="tel:(833) 609-0936" 
-              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
+            <a
+              href="tel:(866) 289-1750"
+              className="bg-[#1e3a5f] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#2d5a8a] transition-colors"
             >
-              Call (833) 609-0936
+              Call (866) 289-1750
             </a>
           </div>
         </div>
       </section>
+
+      <Footer location={{ name: stateFullName, state: stateName }} />
     </div>
   );
 }
@@ -286,28 +319,11 @@ function getStateFullName(stateCode: string): string {
     'WY': 'Wyoming',
     'WV': 'West Virginia'
   };
-  
+
   return stateNames[stateCode] || stateCode;
 }
 
 function getServiceName(serviceSlug: string): string {
-  const serviceNames: { [key: string]: string } = {
-    'plumber-drain-cleaning': 'Drain Cleaning',
-    'plumber-water-heater-repair': 'Water Heater Repair',
-    'plumber-tankless-water-heater': 'Tankless Water Heater',
-    'plumber-water-recirculation-pump': 'Water Recirculation Pump',
-    'plumber-faucet-sink-repair': 'Faucet & Sink Repair',
-    'plumber-water-conservation': 'Water Conservation',
-    'plumber-bathroom-renovation': 'Bathroom Renovation',
-    'plumber-water-system-repair': 'Water System Repair',
-    'plumber-slab-leak-repair': 'Slab Leak Repair',
-    'plumber-sump-pump-repair': 'Sump Pump Repair',
-    'plumber-sewer-line-repair': 'Sewer Line Repair',
-    'plumber-gas-line-repair': 'Gas Line Repair',
-    'plumber-leak-detection': 'Leak Detection',
-    'plumber-toilet-repair': 'Toilet Repair',
-    'plumber-emergency-service': 'Emergency Service'
-  };
-  
-  return serviceNames[serviceSlug] || serviceSlug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  const service = (servicesData as any).services.find((s: any) => s.slug === serviceSlug);
+  return service ? service.title : serviceSlug.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
 }

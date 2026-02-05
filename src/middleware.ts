@@ -6,17 +6,17 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl;
 
   // Redirect to www version for main domain (SEO best practice)
-  if (hostname === 'gdprofessionalplumbing.com') {
-    url.hostname = 'www.gdprofessionalplumbing.com';
+  if (hostname === 'bennettconstructionandroofing.com') {
+    url.hostname = 'www.bennettconstructionandroofing.com';
     return NextResponse.redirect(url, 301); // Permanent redirect
   }
 
   // Handle different domain patterns
   let subdomain = '';
-  
-  // Handle gdprofessionalplumbing.com domain
-  if (hostname.includes('.gdprofessionalplumbing.com')) {
-    subdomain = hostname.replace('.gdprofessionalplumbing.com', '');
+
+  // Handle bennettconstructionandroofing.com domain
+  if (hostname.includes('.bennettconstructionandroofing.com')) {
+    subdomain = hostname.replace('.bennettconstructionandroofing.com', '');
   } else if (hostname.includes('localhost')) {
     // For local development, extract subdomain from localhost
     const parts = hostname.split('.');
@@ -30,7 +30,7 @@ export function middleware(request: NextRequest) {
   const isStateSubdomain = stateCodes.includes(subdomain.toLowerCase());
 
   // If it's www or the root domain, let it go normally
-  if (subdomain === 'www' || subdomain === 'gdprofessionalplumbing' || subdomain === 'localhost') {
+  if (subdomain === 'www' || subdomain === 'bennettconstructionandroofing' || subdomain === 'localhost') {
     return NextResponse.next();
   }
 
@@ -81,7 +81,7 @@ export function middleware(request: NextRequest) {
 
   // Block access to main domain service pages on sub-domains to prevent duplicate content
   const pathSegments = url.pathname.split('/').filter(Boolean);
-  
+
   // If trying to access /services/* on sub-domain, redirect to appropriate services page
   if (pathSegments[0] === 'services' && pathSegments.length === 1) {
     if (isStateSubdomain) {
@@ -92,36 +92,22 @@ export function middleware(request: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
-  // Block access to /services/plumber-* on sub-domains to prevent duplicate content
-  if (pathSegments[0] === 'services' && pathSegments.length === 2 && pathSegments[1].startsWith('plumber-')) {
-    // Redirect to main domain for /services/plumber-* URLs on subdomains
-    if (isStateSubdomain) {
-      url.hostname = 'www.gdprofessionalplumbing.com';
-      url.pathname = `/services/${pathSegments[1]}`;
-    } else {
-      url.hostname = 'www.gdprofessionalplumbing.com';
-      url.pathname = `/services/${pathSegments[1]}`;
-    }
-    return NextResponse.redirect(url, 301);
-  }
-  
-  // Block direct access to main domain service pages on sub-domains
+  // Construction/Roofing service slugs
   const serviceSlugs = [
-    'plumber-water-heater-repair',
-    'plumber-tankless-water-heater',
-    'plumber-water-recirculation-pump',
-    'plumber-faucet-sink-repair',
-    'plumber-water-conservation',
-    'plumber-bathroom-renovation',
-    'plumber-water-system-repair',
-    'plumber-slab-leak-repair',
-    'plumber-sump-pump-repair',
-    'plumber-drain-cleaning',
-    'plumber-sewer-line-repair',
-    'plumber-gas-line-repair',
-    'plumber-leak-detection',
-    'plumber-toilet-repair',
-    'plumber-emergency-service'
+    'roof-repair',
+    'roof-replacement',
+    'new-roof-installation',
+    'storm-damage-roof-repair',
+    'roof-inspection',
+    'emergency-roof-tarping',
+    'commercial-roofing',
+    'gutter-installation',
+    'gutter-repair',
+    'siding-installation',
+    'siding-repair',
+    'general-construction',
+    'home-remodeling',
+    'exterior-remodeling'
   ];
 
   // If trying to access main domain service page directly on sub-domain, redirect to appropriate version
@@ -140,17 +126,17 @@ export function middleware(request: NextRequest) {
     'api',
     'robots.txt'
   ];
-  
+
   if (pathSegments.length > 0 && blockedPaths.includes(pathSegments[0])) {
     // Redirect to main domain for blocked paths on sub-domains
-    url.hostname = 'www.gdprofessionalplumbing.com';
+    url.hostname = 'www.bennettconstructionandroofing.com';
     return NextResponse.redirect(url, 301);
   }
 
   // Handle invalid subdomains - redirect to main domain
   if (subdomain && !isStateSubdomain) {
     if (!isValidSubdomain(subdomain)) {
-      url.hostname = 'www.gdprofessionalplumbing.com';
+      url.hostname = 'www.bennettconstructionandroofing.com';
       return NextResponse.redirect(url, 301);
     }
   }
@@ -163,4 +149,4 @@ export const config = {
   matcher: [
     '/((?!api|_next/static|_next/image|favicon.ico).*)',
   ],
-}; 
+};

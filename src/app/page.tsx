@@ -1,913 +1,353 @@
-"use client";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import Header from "@/components/Header";
-import FloatingCTA from "@/components/FloatingCTA";
-import Footer from "@/components/Footer";
+import Link from 'next/link';
+import Image from 'next/image';
+import type { Metadata } from 'next';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import FloatingCTA from '@/components/FloatingCTA';
+import { getMainContent } from '@/utils/content';
+import { getPageSEOFromFile } from '@/lib/seo-server';
+import servicesData from '@/data/services.json';
+import locationsData from '@/data/locations.json';
+import imagesData from '@/data/images.json';
 
-export default function Home() {
-  // Updated homepage with new service card design
-  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const toggleFAQ = (index: number) => {
-    setOpenFAQ(openFAQ === index ? null : index);
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = getPageSEOFromFile('home');
+  if (!seo) {
+    return {
+      title: 'Premier Roofing & Construction Services | Nationwide Coverage',
+      description: 'Bennett Construction & Roofing provides expert residential and commercial roofing services across the USA. Licensed, bonded, and insured. Call for a free estimate.',
+      alternates: { canonical: 'https://bennettconstructionandroofing.com' },
+    };
+  }
+  return {
+    title: seo.title,
+    description: seo.description,
+    keywords: seo.keywords,
+    alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
+    openGraph: { title: seo.title, description: seo.description, type: 'website' },
+    twitter: { card: 'summary_large_image', title: seo.title, description: seo.description },
   };
+}
 
-  // Auto-slide testimonials
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % 3); // 3 slides total
-    }, 4000); // Change every 4 seconds
-
-    return () => clearInterval(interval);
-  }, []);
+export default function HomePage() {
+  const content = getMainContent();
+  const homepage = (content as any).homepage || {};
+  const hero = homepage.hero || {};
+  const features = homepage.features || [];
+  const whyChooseUs = homepage.whyChooseUs || [];
+  const coverage = homepage.coverage || {};
+  const heroImage = imagesData.images.hero.home.url;
+  const recentProjects = (imagesData as any).images.gallery.projects.slice(0, 6);
 
   return (
-    <div className="bg-white min-h-screen flex flex-col font-sans">
+    <div className="bg-white font-sans text-gray-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "RoofingContractor",
+            "name": "Bennett Construction & Roofing",
+            "url": "https://bennettconstructionandroofing.com",
+            "logo": "https://bennettconstructionandroofing.com/logo.png",
+            "description": "Licensed nationwide roofing contractor specializing in residential and commercial roofing.",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "US"
+            },
+            "telephone": "(866) 289-1750",
+            "priceRange": "$$",
+            "areaServed": {
+              "@type": "Country",
+              "name": "United States"
+            }
+          })
+        }}
+      />
+
       <Header />
-      
-      {/* Hero Section */}
-      <section className="relative min-h-[70vh] md:h-[60vh] overflow-hidden">
-        {/* Background Image */}
-        <img 
-          src="/hero-bg.jpg" 
-          alt="Plumbing background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-700/60"></div>
-        {/* Content */}
-        <div className="relative z-10 h-full flex items-center justify-center pb-20 md:pb-0">
-          <div className="text-center text-white px-6 max-w-4xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Top-Rated Plumbing Services in the US
+
+      {/* 1. HERO SECTION - NATIONAL */}
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={heroImage}
+            alt="National Roofing Services by Bennett Construction"
+            fill
+            priority
+            className="object-cover object-top"
+            style={{ filter: 'brightness(0.4)' }}
+          />
+        </div>
+
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+          <div className="md:max-w-3xl">
+            <span className="inline-block bg-[#d97706] text-white font-bold px-4 py-1.5 rounded-full text-sm mb-6 uppercase tracking-wider">
+              {hero.badge || 'Serving Communities Nationwide'}
+            </span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
+              {(() => {
+                const t = hero.title || 'Quality Roofing You Can Trust';
+                const match = t.match(/^(.+?)(\s+You Can Trust)$/);
+                return match ? <><>{match[1]}</> <br /><span className="text-[#d97706]">{match[2].trim()}</span></> : t;
+              })()}
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl opacity-95 max-w-3xl mx-auto leading-relaxed">
-              Fast, Reliable, and Affordable Plumbing Solutions for Your Home and Business Nationwide
+            <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed font-light">
+              {hero.subtitle || 'From residential repairs to large-scale commercial projects, we deliver superior craftsmanship and materials across the country.'}
             </p>
-          </div>
-        </div>
-        
-        <FloatingCTA />
-      </section>
 
-
-      
-      {/* About Company Section - SEO Optimized */}
-      <section className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Trusted Residential & Commercial Plumbing Services in the USA</h2>
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
-                <p>
-                  At GD Professional Plumbing, we&apos;ve been helping Americans keep their pipes in check with real, no-nonsense plumbing services. Whether it&apos;s a busted water heater, a stubborn drain, or a full remodel, our team shows up ready to fix it—without the upsell or drama.
-                </p>
-                <p>
-                  We&apos;re a small crew of licensed and insured professionals who take pride in our work. If we say we&apos;ll be there at 9, we show up at 8:55. No shortcuts. No guessing games. Just solid plumbing done right the first time.
-                </p>
-                <p>
-                  Need something fixed or upgraded? Give GD Professional Plumbing a ring. We&apos;ll take care of it like pros—because that&apos;s exactly what we are.
-                </p>
-              </div>
-              <div className="mt-8 space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="bg-[#1c7bc8] text-white rounded-full p-2 mt-1">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path d="M5 13l4 4L19 7"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Licensed & Insured</h3>
-                    <p className="text-gray-600 text-sm">All our plumbers are fully licensed, bonded, and insured for your complete peace of mind.</p>
-                  </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a
+                href="tel:8662891750"
+                className="group relative px-8 py-4 bg-[#d97706] text-white text-lg font-bold rounded-xl shadow-xl hover:bg-[#b45309] transition-all transform hover:-translate-y-1 overflow-hidden"
+              >
+                <div className="absolute inset-0 w-full h-full bg-white/20 transform -translate-x-full skew-x-12 group-hover:translate-x-full transition-transform duration-700"></div>
+                <div className="relative flex items-center justify-center gap-2">
+                  {hero.cta?.primary || 'Get Free Estimate'}
                 </div>
-                <div className="flex items-start gap-3">
-                  <div className="bg-[#1c7bc8] text-white rounded-full p-2 mt-1">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path d="M5 13l4 4L19 7"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">50+ Years Experience</h3>
-                    <p className="text-gray-600 text-sm">Established in 1973, we bring decades of expertise to every plumbing project.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="bg-[#1c7bc8] text-white rounded-full p-2 mt-1">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path d="M5 13l4 4L19 7"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">24/7 Emergency Service</h3>
-                    <p className="text-gray-600 text-sm">Round-the-clock emergency plumbing services with guaranteed same-day response.</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="bg-[#1c7bc8] text-white rounded-full p-2 mt-1">
-                    <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path d="M5 13l4 4L19 7"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Guaranteed Workmanship</h3>
-                    <p className="text-gray-600 text-sm">We stand behind every job with our comprehensive workmanship guarantee.</p>
-                  </div>
-                </div>
-              </div>
+              </a>
+              <Link
+                href="/services"
+                className="px-8 py-4 bg-transparent border-2 border-white text-white text-lg font-bold rounded-xl hover:bg-white/10 transition backdrop-blur-sm"
+              >
+                {hero.cta?.secondary || 'Our Services'}
+              </Link>
             </div>
-            <div className="flex flex-col items-start justify-start">
-              <img 
-                src="https://ik.imagekit.io/nang9yead/Smiling%20Plumber%20Holding%20Wrench%20in%20Kitchen.png?updatedAt=1756066963942"
-                alt="Professional plumbing services"
-                className="rounded-2xl shadow-lg w-full h-64 sm:h-80 lg:h-96 object-cover mb-6"
-              />
-              
 
-              
-              {/* Contact Card */}
-              <div className="bg-[#1c7bc8] text-white p-6 rounded-xl w-full">
-                <h4 className="font-bold mb-4 text-lg">Ready to Get Started?</h4>
-                <div className="space-y-3 mb-4">
-                  <div className="flex items-center">
-                    <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    <span className="font-semibold">(833) 609-0936</span>
-                  </div>
-            </div>
-                <a href="tel:8336090936" className="inline-flex items-center bg-white text-[#1c7bc8] px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition text-sm">
-                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  Call Now
-                </a>
-          </div>
+            <div className="mt-10 flex flex-wrap items-center gap-6 text-white/90 text-sm font-medium justify-center md:justify-start">
+              <div className="flex items-center gap-2">
+                <span className="text-[#d97706] text-xl">✓</span> Licensed & Insured
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[#d97706] text-xl">✓</span> 25+ Years Experience
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-[#d97706] text-xl">✓</span> Nationwide Network
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-        {/* Our Professional Services */}
-        <section className="pt-2 pb-12 px-4 bg-gray-50">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Types of Plumbing Services We Offer in the US</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">GD Professional Plumbing Helps You with All Your Plumbing Projects including:</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Water Heater Repair and Installation */}
-              <Link href="/services/plumber-water-heater-repair" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/Plumber%20Fixing%20Leaking%20Sink%20Pipe%20with%20Wrench.png?updatedAt=1756066955385"
-                    alt="Water Heater Repair and Installation"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Water Heater Repair & Installation in the US</h3>
-                    <p className="text-gray-600">
-                      Affordable water heater repair and professional installation for homes and commercial buildings in the US—fast service, licensed plumbers, and energy-efficient systems.
-                    </p>
-                  </div>
-                </div>
-              </Link>
+      {/* 2. SERVICES OVERVIEW */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-4">Comprehensive Roofing Solutions</h2>
+          <p className="text-xl text-gray-600 mb-16 max-w-3xl mx-auto">
+            We provide specialized roofing systems tailored to your residential and commercial needs.
+          </p>
 
-              {/* Tankless Water Heater Installation */}
-              <Link href="/services/plumber-tankless-water-heater" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/Worker%20Adjusting%20Water%20Filtration%20System%20Valves?updatedAt=1756066968225"
-                    alt="Tankless Water Heater Installation"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Tankless Water Heater Installation in the US</h3>
-                    <p className="text-gray-600">
-                      Expert installation of energy-efficient tankless water heaters for homes and businesses in the US—endless hot water, lower utility bills, and space-saving design.
-                    </p>
-                  </div>
-                </div>
-              </Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {(servicesData as any).services.slice(0, 9).map((service: any) => {
+              const serviceImage = imagesData.images.services[service.slug as keyof typeof imagesData.images.services];
+              return (
+                <div key={service.slug} className="group relative h-[400px] w-full rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                  <Link href={`/services/${service.slug}`} className="absolute inset-0 z-20" aria-label={`View ${service.title}`} />
 
-              {/* Water Recirculation Pump */}
-              <Link href="/services/plumber-water-recirculation-pump" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/Maintenance%20Worker%20Adjusting%20Copper%20Plumbing%20Pipes.png?updatedAt=1756066948233"
-                    alt="Water Recirculation Pump"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Water Recirculation Pump in the US</h3>
-                    <p className="text-gray-600">
-                      Professional repair and installation of hot water recirculation pumps for homes and businesses in the US—get instant hot water, save water, and boost plumbing efficiency.
-                    </p>
-                  </div>
-                </div>
-              </Link>
+                  {/* Background Image */}
+                  {serviceImage?.url ? (
+                    <Image
+                      src={serviceImage.url}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gray-200" />
+                  )}
 
-              {/* Faucets & Sinks */}
-              <Link href="/services/plumber-faucet-sink-repair" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/Smiling%20Plumber%20Repairing%20Bathroom%20Sink%20Pipe.png?updatedAt=1756066965094"
-                    alt="Faucets & Sinks"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Faucets & Sinks in the US</h3>
-                    <p className="text-gray-600">
-                      Expert installation and repair of kitchen and bathroom faucets and sinks in the US—leak-free performance, upgraded fixtures, and improved space functionality.
-                    </p>
-                  </div>
-                </div>
-              </Link>
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f] via-[#1e3a5f]/60 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-95" />
 
-              {/* Water Conservation Plumbing Systems */}
-              <Link href="/services/plumber-water-conservation" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/Plumbers%20Installing%20Wall-Mounted%20Water%20Tap?updatedAt=1756066963229"
-                    alt="Water Conservation Plumbing Systems"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Water Conservation Plumbing in the US</h3>
-                    <p className="text-gray-600">
-                      Eco-friendly water-saving plumbing solutions for homes and businesses in the US—reduce water waste, cut utility bills, and support sustainable living.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Custom Bathroom Renovation */}
-              <Link href="/services/plumber-bathroom-renovation" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/young%20female%20plumber%20fixing%20?updatedAt=1756066968835"
-                    alt="Custom Bathroom Renovation"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Custom Bathroom Renovation in the US</h3>
-                    <p className="text-gray-600">
-                      From outdated to outstanding—our expert team designs and renovates bathrooms with modern fixtures, efficient layouts, and timeless appeal for residential properties in the US.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Water System Installation & Repair */}
-              <Link href="/services/plumber-water-system-repair" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/Industrial%20HVAC%20Technician%20Inspection.png?updatedAt=1756066941834"
-                    alt="Water System Installation & Repair"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Water System Installation & Repair in the US</h3>
-                    <p className="text-gray-600">
-                      We install, repair, and maintain residential and commercial water systems in the US—delivering clean, safe, and uninterrupted water flow for your property.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Slab Leak Detection & Repair */}
-              <Link href="/services/plumber-slab-leak-repair" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/Old%20Rusty%20Pipe%20Dripping%20Water.png?updatedAt=1756066951741"
-                    alt="Slab Leak Detection & Repair"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Slab Leak Detection & Repair in the US</h3>
-                    <p className="text-gray-600">
-                      Fast and accurate slab leak detection with expert repairs in the US—protect your foundation, prevent costly water damage, and preserve your property's structural integrity.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Sump Pump Installation & Repair */}
-              <Link href="/services/plumber-sump-pump-repair" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/Electrician%20Working%20on%20Outdoor%20Wiring%20in%20Lawn.png?updatedAt=1756066952425"
-                    alt="Sump Pump Installation & Repair"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Sump Pump Installation & Repair in the US</h3>
-                    <p className="text-gray-600">
-                      Keep your basement dry and protected with professional sump pump repair, installation, and maintenance in the US—flood prevention solutions built for long-term reliability.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Professional Drain Cleaning */}
-              <Link href="/services/plumber-drain-cleaning" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/plumber%20clearing%20blocked%20sink%20with%20water?updatedAt=1756066954284"
-                    alt="Professional Drain Cleaning"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Professional Drain Cleaning in the US</h3>
-                    <p className="text-gray-600">
-                      Fast and effective drain cleaning for clogged sinks, tubs, and sewer lines in the US—restore smooth drainage, eliminate blockages, and prevent future plumbing issues.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-
-
-
-              {/* Sewer Line Inspection & Replacement */}
-              <Link href="/services/plumber-sewer-line-repair" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/Old%20Rusty%20Underground%20Pipeline.png?updatedAt=1756066953091"
-                    alt="Sewer Line Inspection & Replacement"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Sewer Line Inspection & Replacement in the US</h3>
-                    <p className="text-gray-600">
-                      Thorough sewer camera inspections, repairs, and full replacements in the US—ensure proper waste flow, avoid costly backups, and keep your sewer system running smoothly.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Gas Line Installation & Repair */}
-              <Link href="/services/plumber-gas-line-repair" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/Industrial%20Green%20and%20Orange%20Water%20Pipelines?updatedAt=1756066950649"
-                    alt="Gas Line Installation & Repair"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Gas Line Installation & Repair in the US</h3>
-                    <p className="text-gray-600">
-                      Safe and code-compliant gas line installations, repairs, and replacements in the US—power your appliances with confidence and protect your property from gas hazards.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Leak Detection & Repair */}
-              <Link href="/services/plumber-leak-detection" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/PVC%20Pipe%20Installation%20in%20Soil.png?updatedAt=1756066962271"
-                    alt="Leak Detection & Repair"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Leak Detection & Repair in the US</h3>
-                    <p className="text-gray-600">
-                      We use advanced leak detection tools to quickly locate and repair hidden water leaks in the US—minimize damage, lower water bills, and keep your plumbing system efficient.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Toilet Repair & Installation */}
-              <Link href="/services/plumber-toilet-repair" className="block">
-                <div className="bg-white rounded-xl shadow-lg border hover:shadow-xl transition-shadow overflow-hidden">
-                  <img
-                    src="https://ik.imagekit.io/nang9yead/Plumber%20Using%20Plunger%20on%20Toilet%20Bowl%20worker%20in%20orange%20uniform%20unclogging%20toilet?updatedAt=1756066962119"
-                    alt="Toilet Repair & Installation"
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold mb-4 text-black">Toilet Repair & Installation in the US</h3>
-                    <p className="text-gray-600">
-                      Fast and reliable toilet plumbing services for clogs, leaks, and replacements in the US—restore full function, improve efficiency, and prevent costly water waste.
-                    </p>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Why Choose GD Professional Plumbing? */}
-        <section className="py-12 px-4 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose GD Professional Plumbing?</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">50+ years of trusted service with licensed professionals and guaranteed workmanship</p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                             {/* Experienced Professionals */}
-               <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition">
-                 <div className="flex justify-center mb-4">
-                   <svg className="w-12 h-12 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                                 <h3 className="text-black font-semibold text-lg mb-3 text-center">Experienced Professionals</h3>
-                <p className="text-gray-600 text-center">We have decades of experience solving all plumbing challenges, big or small.</p>
-              </div>
-
-                             {/* 24/7 Emergency Services */}
-               <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition">
-                 <div className="flex justify-center mb-4">
-                   <svg className="w-12 h-12 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                                 <h3 className="text-black font-semibold text-lg mb-3 text-center">24/7 Emergency Services</h3>
-                <p className="text-gray-600 text-center">No hidden fees or surprise charges. Our pricing is transparent and budget-friendly.</p>
-              </div>
-
-                             {/* Licensed and Insured */}
-               <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition">
-                 <div className="flex justify-center mb-4">
-                   <svg className="w-12 h-12 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                                 <h3 className="text-black font-semibold text-lg mb-3 text-center">Licensed and Insured</h3>
-                <p className="text-gray-600 text-center">Our dedicated team of plumbers are fully licensed and insured for your peace of mind.</p>
-              </div>
-
-                             {/* Reliable and Trustworthy */}
-               <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition">
-                 <div className="flex justify-center mb-4">
-                   <svg className="w-12 h-12 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                  </svg>
-                </div>
-                                 <h3 className="text-black font-semibold text-lg mb-3 text-center">Reliable and Trustworthy</h3>
-                <p className="text-gray-600 text-center">We pride ourselves on honest, dependable service you can rely on every time.</p>
-              </div>
-
-                             {/* Affordable Pricing */}
-               <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition">
-                 <div className="flex justify-center mb-4">
-                   <svg className="w-12 h-12 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                  </svg>
-                </div>
-                                 <h3 className="text-black font-semibold text-lg mb-3 text-center">Affordable Pricing</h3>
-                <p className="text-gray-600 text-center">Our quality plumbing solutions are fairly priced to give you the best value.</p>
-              </div>
-
-                             {/* Customer Satisfaction Guaranteed */}
-               <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition">
-                 <div className="flex justify-center mb-4">
-                   <svg className="w-12 h-12 text-black" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-                  </svg>
-                </div>
-                                 <h3 className="text-black font-semibold text-lg mb-3 text-center">Customer Satisfaction Guaranteed</h3>
-                <p className="text-gray-600 text-center">We&apos;re committed to top-notch service and complete customer satisfaction.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section - Above FAQ */}
-        <section className="py-4 px-4 bg-gradient-to-r from-[#1c7bc8] to-[#0f5a9e] text-white">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6 py-3">
-              {/* Left Side - Phone Number */}
-              <div className="text-center md:text-left">
-                <div className="text-sm opacity-90 mb-1">Call us for a Cost estimate over free phone</div>
-                <div className="text-3xl md:text-4xl font-bold">(833) 609-0936</div>
-              </div>
-              
-              {/* Right Side - Order Service Button */}
-              <div>
-                <a
-                  href="tel:8336090936"
-                  className="inline-flex items-center bg-[#0d4a8a] hover:bg-[#0a3d75] text-white px-8 py-4 rounded-full font-bold text-lg transition shadow-lg"
-                >
-                  Order Service now
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Our Seamless Plumbing Process - Block Style with Arrows */}
-        {/* Our Seamless Plumbing Process - Modern Design */}
-        <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#1c7bc8] rounded-full mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Seamless Plumbing Process</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">Experience our streamlined approach to plumbing excellence</p>
-            </div>
-            
-            {/* Modern Process Steps */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Step 1 */}
-              <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1c7bc8] to-[#0f5a9e] rounded-2xl transform rotate-2 group-hover:rotate-4 transition-transform duration-300"></div>
-                <div className="relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                  <div className="bg-[#1c7bc8] text-white rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                    </svg>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-sm font-semibold text-[#1c7bc8] mb-2">STEP 1</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">Personalized Consultation</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      We begin with a detailed call to understand your issue and offer a clear, honest estimate.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Step 2 */}
-              <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1c7bc8] to-[#0f5a9e] rounded-2xl transform -rotate-1 group-hover:-rotate-3 transition-transform duration-300"></div>
-                <div className="relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                  <div className="bg-[#1c7bc8] text-white rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-sm font-semibold text-[#1c7bc8] mb-2">STEP 2</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">Accurate Diagnosis</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      Our expert team inspects thoroughly to find the real issue using modern tools.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Step 3 */}
-              <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1c7bc8] to-[#0f5a9e] rounded-2xl transform rotate-1 group-hover:rotate-3 transition-transform duration-300"></div>
-                <div className="relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                  <div className="bg-[#1c7bc8] text-white rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-sm font-semibold text-[#1c7bc8] mb-2">STEP 3</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">Quality Workmanship</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      We fix the problem with care, professionalism, and attention to detail.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Step 4 */}
-              <div className="group relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1c7bc8] to-[#0f5a9e] rounded-2xl transform -rotate-2 group-hover:-rotate-4 transition-transform duration-300"></div>
-                <div className="relative bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                  <div className="bg-[#1c7bc8] text-white rounded-full w-16 h-16 flex items-center justify-center mb-6 mx-auto">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-sm font-semibold text-[#1c7bc8] mb-2">STEP 4</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">After-Service Care</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      We follow up to ensure everything runs perfectly and offer ongoing support.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Process Flow Line */}
-            <div className="hidden lg:block mt-12">
-              <div className="flex items-center justify-center space-x-4">
-                <div className="w-8 h-8 bg-[#1c7bc8] rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">1</span>
-                </div>
-                <div className="flex-1 h-1 bg-gradient-to-r from-[#1c7bc8] to-gray-300 rounded-full"></div>
-                <div className="w-8 h-8 bg-[#1c7bc8] rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">2</span>
-                </div>
-                <div className="flex-1 h-1 bg-gradient-to-r from-gray-300 to-[#1c7bc8] rounded-full"></div>
-                <div className="w-8 h-8 bg-[#1c7bc8] rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">3</span>
-                </div>
-                <div className="flex-1 h-1 bg-gradient-to-r from-[#1c7bc8] to-gray-300 rounded-full"></div>
-                <div className="w-8 h-8 bg-[#1c7bc8] rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">4</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-
-        {/* Professional Plumber Section - Two Column Layout */}
-        <section className="py-16 px-0 bg-white">
-          <div className="w-full">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch">
-              {/* Left Column - Text Content */}
-              <div className="bg-[#1c7bc8] text-white p-10 flex flex-col justify-center">
-                <h2 className="text-3xl font-bold mb-6 leading-tight">
-                  Need Professional Plumber for All Your Plumbing Needs
-                </h2>
-                <p className="text-base mb-8 leading-relaxed opacity-95">
-                  When it comes to reliable plumbing services in the USA, GD Professional Plumbing is the name you can trust. We're proud to serve our community with top-quality plumbing solutions that keep your home or business running smoothly. Whether you're looking for routine maintenance, emergency repairs, or a complete plumbing overhaul, our team is ready to provide the expert service you deserve.
-                </p>
-                <a
-                  href="tel:+18336090936"
-                  className="inline-flex items-center bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded-xl text-lg hover:bg-white hover:text-[#1c7bc8] transition-all duration-300 self-start"
-                >
-                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                  Call Now
-                </a>
-              </div>
-              
-              {/* Right Column - Plumber Image */}
-              <div className="relative h-full">
-                <img 
-                  src="https://ik.imagekit.io/nang9yead/Female%20Carpenter%20or%20Technician%20in%20Workshop.png?updatedAt=1756066944879" 
-                  alt="Professional Plumber at Work" 
-                  className="w-full h-full object-cover shadow-lg"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section - Expandable and Optimized - Build Fix */}
-        <section className="py-12 px-4 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-3">Frequently Asked Questions</h2>
-              <p className="text-base text-gray-600 max-w-3xl mx-auto">Get answers to common questions about our plumbing services</p>
-            </div>
-            
-            <div className="space-y-2">
-              {[
-                {
-                  question: "What areas do you serve?",
-                  answer: "We provide comprehensive plumbing services throughout the USA, including residential and commercial properties. Our team is available for emergency calls and scheduled appointments nationwide."
-                },
-                {
-                  question: "Do you offer emergency plumbing services?",
-                  answer: "Yes, we provide 24/7 emergency plumbing services. Our team is always ready to respond to urgent plumbing issues like burst pipes, water heater failures, and severe leaks. We guarantee same-day response for emergency calls."
-                },
-                {
-                  question: "Are your plumbers licensed and insured?",
-                  answer: "Absolutely. All our plumbers are fully licensed, bonded, and insured. We maintain the highest standards of professionalism and safety. You can trust that our work meets all national and local building codes and regulations."
-                },
-                {
-                  question: "What types of plumbing services do you offer?",
-                  answer: "We offer a complete range of plumbing services including emergency repairs, water heater installation and repair, drain cleaning, sewer line services, pipe installation, fixture installation, and commercial plumbing solutions."
-                },
-                {
-                  question: "Do you provide free estimates?",
-                  answer: "Yes, we provide free, no-obligation estimates for all plumbing projects. We believe in transparent pricing and will clearly explain all costs before starting any work. There are no hidden fees or surprises."
-                },
-                {
-                  question: "What is your warranty policy?",
-                  answer: "We stand behind all our work with comprehensive warranties. Our workmanship is guaranteed, and we also provide warranties on parts and materials. We're committed to your complete satisfaction."
-                },
-                {
-                  question: "What is your response time for emergencies?",
-                  answer: "For emergency plumbing issues, we typically respond within 1-2 hours. We prioritize emergency calls and provide same-day service whenever possible."
-                },
-                {
-                  question: "How long have you been in business?",
-                  answer: "GD Professional Plumbing has been serving customers since 1973, with over 50 years of experience in residential and commercial plumbing services."
-                }
-              ].map((faq, index) => (
-                <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
-                  <button 
-                    className="w-full px-4 py-3 text-left bg-white hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center"
-                    onClick={() => toggleFAQ(index)}
-                  >
-                    <h3 className="text-base font-semibold text-gray-900">{faq.question}</h3>
-                    <svg 
-                      className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${openFAQ === index ? 'rotate-180' : ''}`} 
-                      fill="none" 
-                      stroke="currentColor" 
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  <div className={`px-4 transition-all duration-300 ease-in-out ${openFAQ === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <div className="pb-3">
-                      <p className="text-sm text-gray-600 leading-relaxed">{faq.answer}</p>
+                  {/* Content */}
+                  <div className="absolute inset-0 p-8 flex flex-col justify-end text-white z-10">
+                    <div className="transform transition-transform duration-300 group-hover:-translate-y-2">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="text-3xl filter drop-shadow-lg">{service.icon}</span>
+                        <h3 className="text-2xl font-bold shadow-black/10">{service.title}</h3>
+                      </div>
+                      <p className="text-gray-200 line-clamp-2 mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 absolute bottom-0 transform translate-y-full group-hover:translate-y-0 relative">
+                        {service.description}
+                      </p>
+                      <span className="inline-flex items-center text-[#d97706] font-bold uppercase tracking-wider text-sm mt-2 group-hover:text-white transition-colors">
+                        Learn More <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                      </span>
                     </div>
                   </div>
                 </div>
-                              ))}
-              </div>
+              );
+            })}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              href="/services"
+              className="inline-block bg-[#1e3a5f] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#0f1f33] transition shadow-lg text-lg"
+            >
+              View All Services
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. NATIONAL COVERAGE */}
+      <section className="py-20 bg-[#1e3a5f] text-white">
+        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span className="text-[#d97706] font-bold uppercase tracking-wider text-sm">Where We Work</span>
+            <h2 className="text-3xl md:text-5xl font-bold mt-2 mb-6">{coverage.title || 'Serving Great Communities Across the USA'}</h2>
+            <p className="text-lg opacity-90 mb-8 leading-relaxed">
+              {coverage.subtitle || 'Bennett Construction & Roofing has established a reputation for reliability in multiple states. Our local teams understand the specific building codes and climate challenges of your region.'}
+            </p>
+            <div className="grid grid-cols-2 gap-4">
+              {/* Group locations by state for display */}
+              {Array.from(new Set((locationsData as any).locations.map((l: any) => l.state))).slice(0, 2).map((stateCode: any) => {
+                const stateLocations = (locationsData as any).locations.filter((l: any) => l.state === stateCode);
+                // Map state code to full name if possible, else use code
+                const stateName = stateLocations[0]?.fullName.split(', ')[1] || stateCode;
+
+                return (
+                  <div key={stateCode}>
+                    <h4 className="font-bold text-lg mb-2 text-[#d97706]">{stateCode} Region</h4>
+                    <ul className="space-y-1 text-sm opacity-80">
+                      {stateLocations.slice(0, 4).map((loc: any) => (
+                        <li key={loc.id}>{loc.name}</li>
+                      ))}
+                      {stateLocations.length > 4 && <li>+ {stateLocations.length - 4} more</li>}
+                    </ul>
+                  </div>
+                );
+              })}
+
+              {/* Fallback for "Other Regions" if we have more than 2 states or just to show nationwide capability */}
+              {(locationsData as any).locations.length > 0 && (
+                <div>
+                  <h4 className="font-bold text-lg mb-2 text-[#d97706]">Nationwide</h4>
+                  <ul className="space-y-1 text-sm opacity-80">
+                    <li>Commercial Projects</li>
+                    <li>Select Residential</li>
+                    <li>Travel Crews Available</li>
+                  </ul>
+                </div>
+              )}
             </div>
-          </section>
+            <div className="mt-8">
+              <Link href="/locations" className="inline-block bg-white text-[#1e3a5f] font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition">
+                Find Your Local Office
+              </Link>
+            </div>
+          </div>
+          <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl skew-x-3 border-4 border-[#d97706]">
+            <Image
+              src={imagesData.images.hero.locations.url}
+              alt="National Service Map"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
 
-
-      {/* Testimonials - Stylish Design */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="max-w-7xl mx-auto">
+      {/* 4. WHY CHOOSE US */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-[#1c7bc8] rounded-full mb-6">
-              <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-              </svg>
-            </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Trusted by thousands of satisfied customers since 1973</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f]">The Bennett Advantage</h2>
           </div>
-          
-          {/* Testimonials Slider */}
-          <div className="relative overflow-hidden">
-            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-              {/* Slide 1 */}
-              <div className="w-full flex-shrink-0">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {[
-                    {
-                      name: "Sarah Johnson",
-                      text: "GD Professional Plumbing saved us during a major pipe burst. Their emergency response was incredible - they arrived within 30 minutes and fixed everything professionally.",
-                      rating: 5
-                    },
-                    {
-                      name: "Michael Chen",
-                      text: "We've been using GD Professional Plumbing for our office building maintenance for over 10 years. Their reliability and expertise are unmatched.",
-                      rating: 5
-                    },
-                    {
-                      name: "Lisa Rodriguez",
-                      text: "The team installed our new water heater perfectly. Professional, clean, and reasonably priced. Highly recommend their services!",
-                      rating: 5
-                    },
-                  ].map((t, index) => (
-                    <div key={`slide1-${index}`} className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#1c7bc8] to-[#0f5a9e] rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
-                      <div className="relative bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div className="flex items-center mb-6">
-                          {[...Array(t.rating)].map((_, i) => (
-                            <svg key={i} className="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                          ))}
-                        </div>
-                        <div className="text-[#1c7bc8] text-4xl mb-4">"</div>
-                        <p className="text-gray-700 mb-6 text-lg leading-relaxed italic">{t.text}</p>
-                        <div className="flex items-center">
-                          <div>
-                            <div className="font-bold text-gray-900 text-lg">{t.name}</div>
-                          </div>
-                        </div>
-                        <div className="absolute top-4 right-4 text-[#1c7bc8] opacity-20">
-                          <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
-              {/* Slide 2 */}
-              <div className="w-full flex-shrink-0">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {[
-                    {
-                      name: "David Martinez",
-                      text: "Outstanding service! They fixed our complex drainage issue in record time. Professional, punctual, and reasonably priced. Highly recommended!",
-                      rating: 5
-                    },
-                    {
-                      name: "Jennifer Wilson",
-                      text: "GD Professional Plumbing has been maintaining our restaurant's plumbing for 5 years. They're reliable, fast, and always professional.",
-                      rating: 5
-                    },
-                    {
-                      name: "Robert Thompson",
-                      text: "They handle all our emergency calls efficiently. Their team is skilled, professional, and always available when we need them.",
-                      rating: 5
-                    },
-                  ].map((t, index) => (
-                    <div key={`slide2-${index}`} className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#1c7bc8] to-[#0f5a9e] rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
-                      <div className="relative bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div className="flex items-center mb-6">
-                          {[...Array(t.rating)].map((_, i) => (
-                            <svg key={i} className="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                          ))}
-                        </div>
-                        <div className="text-[#1c7bc8] text-4xl mb-4">"</div>
-                        <p className="text-gray-700 mb-6 text-lg leading-relaxed italic">{t.text}</p>
-                        <div className="flex items-center">
-                          <div>
-                            <div className="font-bold text-gray-900 text-lg">{t.name}</div>
-                          </div>
-                        </div>
-                        <div className="absolute top-4 right-4 text-[#1c7bc8] opacity-20">
-                          <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+          <div className="grid md:grid-cols-4 gap-8">
+            {(whyChooseUs.length > 0 ? whyChooseUs : [
+              { icon: "🛡️", title: "Licensed & Insured", desc: "Full coverage for your peace of mind." },
+              { icon: "💰", title: "Fair Pricing", desc: "Transparent quotes with no hidden fees." },
+              { icon: "👷", title: "Expert Crews", desc: "Highly trained, safety-certified installers." },
+              { icon: "🤝", title: "5-Year Warranty", desc: "We stand behind our workmanship." }
+            ]).map((item: any, i: number) => (
+              <div key={i} className="text-center p-6 border border-gray-100 rounded-xl hover:shadow-lg transition">
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="font-bold text-lg text-[#1e3a5f] mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-600">{item.description || item.desc}</p>
               </div>
-
-              {/* Slide 3 */}
-              <div className="w-full flex-shrink-0">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {[
-                    {
-                      name: "Amanda Foster",
-                      text: "Excellent work on our bathroom remodel. The team was professional, clean, and completed the job on time. Highly satisfied!",
-                      rating: 5
-                    },
-                    {
-                      name: "Carlos Rodriguez",
-                      text: "Fast response time and excellent work quality. They fixed our plumbing emergency within hours. Very reliable service!",
-                      rating: 5
-                    },
-                    {
-                      name: "Emily Davis",
-                      text: "GD Professional Plumbing has been our go-to for all properties. Consistent quality, fair pricing, and exceptional service.",
-                      rating: 5
-                    },
-                  ].map((t, index) => (
-                    <div key={`slide3-${index}`} className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#1c7bc8] to-[#0f5a9e] rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
-                      <div className="relative bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div className="flex items-center mb-6">
-                          {[...Array(t.rating)].map((_, i) => (
-                            <svg key={i} className="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                          ))}
-                        </div>
-                        <div className="text-[#1c7bc8] text-4xl mb-4">"</div>
-                        <p className="text-gray-700 mb-6 text-lg leading-relaxed italic">{t.text}</p>
-                        <div className="flex items-center">
-                          <div>
-                            <div className="font-bold text-gray-900 text-lg">{t.name}</div>
-                          </div>
-                        </div>
-                        <div className="absolute top-4 right-4 text-[#1c7bc8] opacity-20">
-                          <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation Dots */}
-            <div className="flex justify-center mt-8 space-x-2">
-              {[0, 1, 2].map((slide) => (
-                <button
-                  key={slide}
-                  onClick={() => setCurrentSlide(slide)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    currentSlide === slide ? 'bg-[#1c7bc8] scale-125' : 'bg-gray-300'
-                  }`}
-                />
-              ))}
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* 5. HOMEPAGE FAQ SECTION */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-6">Frequently Asked Questions</h2>
+            <p className="text-xl text-gray-600">Common questions about our roofing and construction services.</p>
+          </div>
 
+          <div className="space-y-6">
+            {[
+              {
+                q: "Do you service my area?",
+                a: "We are a nationwide roofing contractor with local teams in major metropolitan areas across the US. From Texas to New York, Florida to Arizona, we likely have crews near you. Check our Locations page or call us to confirm."
+              },
+              {
+                q: "Are you licensed and insured?",
+                a: "Yes, absolutely. Bennett Construction & Roofing carries all necessary state licenses and strictly maintains liability and workers' compensation insurance to protect our clients and our crews."
+              },
+              {
+                q: "Do you offer financing?",
+                a: "Yes! We partner with top lending institutions to offer flexible financing options for roof replacements and major repairs, subject to credit approval."
+              },
+              {
+                q: "What types of roofs do you install?",
+                a: "We work with all major roofing systems including Asphalt Shingles, Metal (Standing Seam), Tile (Clay/Concrete), Flat Roofs (TPO/EPDM/Foam), and more."
+              },
+              {
+                q: "Do you handle insurance claims?",
+                a: "Yes. Our team is experienced in storm damage restoration and can assist you through the insurance claim process, ensuring all damage is documented and covered."
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition">
+                <h3 className="text-xl font-bold text-[#1e3a5f] mb-3">{faq.q}</h3>
+                <p className="text-gray-600 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-
+      {/* 6. CTA LANDSCAPE */}
+      <section className="relative py-24 px-4 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src={imagesData.images.cta.banner.url}
+            alt="Contact Us"
+            fill
+            className="object-cover"
+            style={{ filter: 'brightness(0.25)' }}
+          />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">Ready to Start Your Project?</h2>
+          <p className="text-xl md:text-2xl opacity-90 mb-10">
+            Contact us today for a free inspection and detailed estimate.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <a
+              href="tel:8662891750"
+              className="bg-[#d97706] text-white font-bold px-10 py-5 rounded-xl text-xl hover:bg-[#b45309] transition shadow-2xl flex items-center justify-center gap-3"
+            >
+              Call (866) 289-1750
+            </a>
+            <Link
+              href="/contact"
+              className="bg-white text-[#1e3a5f] font-bold px-10 py-5 rounded-xl text-xl hover:bg-gray-100 transition shadow-xl"
+            >
+              Request Online
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <Footer />
+      <FloatingCTA />
     </div>
   );
 }

@@ -1,147 +1,114 @@
-'use client';
+import React, { useMemo } from 'react';
+import locationExtras from '@/data/location-extras.json';
 
-import { useState, useEffect } from 'react';
-
-interface LocationTestimonialsProps {
-  cityName?: string;
-  stateName?: string;
+interface Testimonial {
+  type: string;
+  quote: string;
+  name: string;
+  rating: number;
 }
 
-export default function LocationTestimonials({ }: LocationTestimonialsProps) {
-  const [currentSlide, setCurrentSlide] = useState(0);
+interface LocationTestimonialsProps {
+  locationName: string;
+  stateName: string;
+  companyName?: string;
+  phone?: string;
+}
 
-  // Auto-slide testimonials
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % 3); // 3 slides total
-    }, 4000); // Change every 4 seconds
+const LocationTestimonials: React.FC<LocationTestimonialsProps> = ({
+  locationName,
+  stateName,
+  companyName = 'Bennett Construction & Roofing',
+  phone = '(866) 289-1750'
+}) => {
+  const replacePlaceholders = (text: string) => {
+    return text
+      .replaceAll('{{CITY}}', locationName)
+      .replaceAll('{{STATE}}', stateName)
+      .replaceAll('{{COMPANY_NAME}}', companyName)
+      .replaceAll('{{PHONE}}', phone);
+  };
 
-    return () => clearInterval(interval);
-  }, []);
-
-  // Natural, authentic testimonials without repetitive city mentions
-  const testimonials = [
-    // Slide 1
-    [
-      {
-        name: "Sarah Johnson",
-        text: "GD Professional Plumbing saved us during a major pipe burst. Their emergency response was incredible - they arrived within 30 minutes and fixed everything professionally. Couldn't be happier with their service!",
-        rating: 5
-      },
-      {
-        name: "Michael Chen",
-        text: "We've been using GD Professional Plumbing for our office building maintenance for over 10 years. Their reliability and expertise are unmatched. They always show up on time and get the job done right.",
-        rating: 5
-      },
-      {
-        name: "Lisa Rodriguez",
-        text: "The team installed our new water heater perfectly. Professional, clean, and reasonably priced. They took the time to explain everything and made sure we were completely satisfied.",
-        rating: 5
-      },
-    ],
-    // Slide 2
-    [
-      {
-        name: "David Martinez",
-        text: "Outstanding service! They fixed our complex drainage issue in record time. Professional, punctual, and reasonably priced. Highly recommend them to anyone needing plumbing work.",
-        rating: 5
-      },
-      {
-        name: "Jennifer Wilson",
-        text: "GD Professional Plumbing has been maintaining our restaurant's plumbing for 5 years. They're reliable, fast, and always professional. They understand that downtime costs money and work efficiently.",
-        rating: 5
-      },
-      {
-        name: "Robert Thompson",
-        text: "They handle all our emergency calls efficiently. Their team is skilled, professional, and always available when we need them. We trust them completely with all our plumbing needs.",
-        rating: 5
-      },
-    ],
-    // Slide 3
-    [
-      {
-        name: "Amanda Foster",
-        text: "Excellent work on our bathroom remodel. The team was professional, clean, and completed the job on time. They transformed our outdated bathroom into something beautiful and functional.",
-        rating: 5
-      },
-      {
-        name: "Carlos Rodriguez",
-        text: "Fast response time and excellent work quality. They fixed our plumbing emergency within hours. Very reliable service and fair pricing. Will definitely call them again!",
-        rating: 5
-      },
-      {
-        name: "Emily Davis",
-        text: "GD Professional Plumbing has been our go-to for all properties. Consistent quality, fair pricing, and exceptional service. They treat every job like it's their own home.",
-        rating: 5
-      },
-    ]
-  ];
+  // Pseudo-random selection based on locationName seed
+  const selectedTestimonials = useMemo(() => {
+    const seed = locationName.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const shuffled = [...locationExtras.testimonials].sort((a, b) => {
+      const hashA = (a.name.length + seed) % 10;
+      const hashB = (b.name.length + seed) % 10;
+      return hashA - hashB;
+    });
+    return shuffled.slice(0, 6); // Pick 6 for a good grid/slider
+  }, [locationName]);
 
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section className="py-20 px-4 bg-gray-50 overflow-hidden" id="testimonials">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-[#1c7bc8] rounded-full mb-6">
-            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-            </svg>
-          </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">Trusted by thousands of satisfied customers since 1973</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-6">
+            What {locationName} Homeowners Say About {companyName}
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Real feedback from local customers in {locationName}, {stateName}—roof repairs, replacements,
+            storm restoration, and construction projects completed with quality craftsmanship.
+          </p>
         </div>
-        
-        {/* Testimonials Slider */}
-        <div className="relative overflow-hidden">
-          <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-            {testimonials.map((slide, slideIndex) => (
-              <div key={slideIndex} className="w-full flex-shrink-0">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {slide.map((testimonial, index) => (
-                    <div key={`slide${slideIndex}-${index}`} className="group relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#1c7bc8] to-[#0f5a9e] rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-300"></div>
-                      <div className="relative bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div className="flex items-center mb-6">
-                          {[...Array(testimonial.rating)].map((_, i) => (
-                            <svg key={i} className="w-6 h-6 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                          ))}
-                        </div>
-                        <div className="text-[#1c7bc8] text-4xl mb-4">"</div>
-                        <p className="text-gray-700 mb-6 text-lg leading-relaxed italic">{testimonial.text}</p>
-                        <div className="flex items-center">
-                          <div>
-                            <div className="font-bold text-gray-900 text-lg">{testimonial.name}</div>
-                          </div>
-                        </div>
-                        <div className="absolute top-4 right-4 text-[#1c7bc8] opacity-20">
-                          <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
 
-          {/* Navigation Dots */}
-          <div className="flex justify-center mt-8 space-x-2">
-            {[0, 1, 2].map((slide) => (
-              <button
-                key={slide}
-                onClick={() => setCurrentSlide(slide)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  currentSlide === slide ? 'bg-[#1c7bc8] scale-125' : 'bg-gray-300'
-                }`}
-              />
-            ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {selectedTestimonials.map((t, idx) => (
+            <div
+              key={idx}
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col h-full transform hover:-translate-y-1"
+            >
+              <div className="flex text-yellow-400 mb-4">
+                {[...Array(t.rating)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+
+              <p className="text-gray-700 italic text-lg leading-relaxed mb-6 flex-grow">
+                &quot;{replacePlaceholders(t.quote)}&quot;
+              </p>
+
+              <div className="mt-6 pt-6 border-t border-gray-50 flex items-center justify-between">
+                <div>
+                  <h4 className="font-bold text-[#1e3a5f]">{t.name}</h4>
+                  <p className="text-sm text-gray-500">{locationName}, {stateName}</p>
+                </div>
+                <span className="bg-[#1e3a5f]/5 text-[#1e3a5f] text-xs font-bold px-3 py-1 rounded-full">
+                  {t.type}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16 bg-[#1e3a5f] rounded-3xl p-10 text-center text-white shadow-2xl">
+          <h3 className="text-2xl md:text-3xl font-bold mb-4">
+            Ready to start your roofing project in {locationName}, {stateName}?
+          </h3>
+          <p className="text-xl opacity-90 mb-8">
+            Call {phone} or request a free quote today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={`tel:${phone.replace(/\D/g, '')}`}
+              className="bg-[#d97706] hover:bg-[#b45309] text-white font-bold px-10 py-4 rounded-xl text-lg transition shadow-xl"
+            >
+              Call {phone}
+            </a>
+            <a
+              href="/contact"
+              className="bg-white text-[#1e3a5f] hover:bg-gray-100 font-bold px-10 py-4 rounded-xl text-lg transition shadow-xl"
+            >
+              Get Free Quote
+            </a>
           </div>
         </div>
       </div>
     </section>
   );
-} 
+};
+
+export default LocationTestimonials;

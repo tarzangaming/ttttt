@@ -1,0 +1,1996 @@
+{
+  "NY": [
+    {
+      "id": "apulia-station-ny",
+      "name": "Apulia Station",
+      "state": "NY",
+      "fullName": "Apulia Station, NY",
+      "zipCode": "13020"
+    },
+    {
+      "id": "ardsley-on-hudson-ny",
+      "name": "Ardsley On Hudson",
+      "state": "NY",
+      "fullName": "Ardsley On Hudson, NY",
+      "zipCode": "10503"
+    },
+    {
+      "id": "atlantic-beach-ny",
+      "name": "Atlantic Beach",
+      "state": "NY",
+      "fullName": "Atlantic Beach, NY",
+      "zipCode": "11509"
+    },
+    {
+      "id": "baldwin-place-ny",
+      "name": "Baldwin Place",
+      "state": "NY",
+      "fullName": "Baldwin Place, NY",
+      "zipCode": "10505"
+    },
+    {
+      "id": "bay-shore-ny",
+      "name": "Bay Shore",
+      "state": "NY",
+      "fullName": "Bay Shore, NY",
+      "zipCode": "11706"
+    },
+    {
+      "id": "bedford-hills-ny",
+      "name": "Bedford Hills",
+      "state": "NY",
+      "fullName": "Bedford Hills, NY",
+      "zipCode": "10507"
+    },
+    {
+      "id": "bernhards-bay-ny",
+      "name": "Bernhards Bay",
+      "state": "NY",
+      "fullName": "Bernhards Bay, NY",
+      "zipCode": "13028"
+    },
+    {
+      "id": "blodgett-mills-ny",
+      "name": "Blodgett Mills",
+      "state": "NY",
+      "fullName": "Blodgett Mills, NY",
+      "zipCode": "13738"
+    },
+    {
+      "id": "blooming-grove-ny",
+      "name": "Blooming Grove",
+      "state": "NY",
+      "fullName": "Blooming Grove, NY",
+      "zipCode": "10914"
+    },
+    {
+      "id": "blue-point-ny",
+      "name": "Blue Point",
+      "state": "NY",
+      "fullName": "Blue Point, NY",
+      "zipCode": "11715"
+    },
+    {
+      "id": "breezy-point-ny",
+      "name": "Breezy Point",
+      "state": "NY",
+      "fullName": "Breezy Point, NY",
+      "zipCode": "11697"
+    },
+    {
+      "id": "briarcliff-manor-ny",
+      "name": "Briarcliff Manor",
+      "state": "NY",
+      "fullName": "Briarcliff Manor, NY",
+      "zipCode": "10510"
+    },
+    {
+      "id": "cambria-heights-ny",
+      "name": "Cambria Heights",
+      "state": "NY",
+      "fullName": "Cambria Heights, NY",
+      "zipCode": "11411"
+    },
+    {
+      "id": "campbell-hall-ny",
+      "name": "Campbell Hall",
+      "state": "NY",
+      "fullName": "Campbell Hall, NY",
+      "zipCode": "10916"
+    },
+    {
+      "id": "carle-place-ny",
+      "name": "Carle Place",
+      "state": "NY",
+      "fullName": "Carle Place, NY",
+      "zipCode": "11514"
+    },
+    {
+      "id": "castle-creek-ny",
+      "name": "Castle Creek",
+      "state": "NY",
+      "fullName": "Castle Creek, NY",
+      "zipCode": "13744"
+    },
+    {
+      "id": "center-moriches-ny",
+      "name": "Center Moriches",
+      "state": "NY",
+      "fullName": "Center Moriches, NY",
+      "zipCode": "11934"
+    },
+    {
+      "id": "central-islip-ny",
+      "name": "Central Islip",
+      "state": "NY",
+      "fullName": "Central Islip, NY",
+      "zipCode": "11722"
+    },
+    {
+      "id": "central-square-ny",
+      "name": "Central Square",
+      "state": "NY",
+      "fullName": "Central Square, NY",
+      "zipCode": "13036"
+    },
+    {
+      "id": "central-valley-ny",
+      "name": "Central Valley",
+      "state": "NY",
+      "fullName": "Central Valley, NY",
+      "zipCode": "10917"
+    },
+    {
+      "id": "chenango-forks-ny",
+      "name": "Chenango Forks",
+      "state": "NY",
+      "fullName": "Chenango Forks, NY",
+      "zipCode": "13746"
+    },
+    {
+      "id": "clark-mills-ny",
+      "name": "Clark Mills",
+      "state": "NY",
+      "fullName": "Clark Mills, NY",
+      "zipCode": "13321"
+    },
+    {
+      "id": "clifton-springs-ny",
+      "name": "Clifton Springs",
+      "state": "NY",
+      "fullName": "Clifton Springs, NY",
+      "zipCode": "14432"
+    },
+    {
+      "id": "cold-spring-harbor-ny",
+      "name": "Cold Spring Harbor",
+      "state": "NY",
+      "fullName": "Cold Spring Harbor, NY",
+      "zipCode": "11724"
+    },
+    {
+      "id": "college-point-ny",
+      "name": "College Point",
+      "state": "NY",
+      "fullName": "College Point, NY",
+      "zipCode": "11356"
+    },
+    {
+      "id": "cortlandt-manor-ny",
+      "name": "Cortlandt Manor",
+      "state": "NY",
+      "fullName": "Cortlandt Manor, NY",
+      "zipCode": "10567"
+    },
+    {
+      "id": "cross-river-ny",
+      "name": "Cross River",
+      "state": "NY",
+      "fullName": "Cross River, NY",
+      "zipCode": "10518"
+    },
+    {
+      "id": "croton-falls-ny",
+      "name": "Croton Falls",
+      "state": "NY",
+      "fullName": "Croton Falls, NY",
+      "zipCode": "10519"
+    },
+    {
+      "id": "croton-on-hudson-ny",
+      "name": "Croton On Hudson",
+      "state": "NY",
+      "fullName": "Croton On Hudson, NY",
+      "zipCode": "10520"
+    },
+    {
+      "id": "de-ruyter-ny",
+      "name": "De Ruyter",
+      "state": "NY",
+      "fullName": "De Ruyter, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "deer-park-ny",
+      "name": "Deer Park",
+      "state": "NY",
+      "fullName": "Deer Park, NY",
+      "zipCode": "11729"
+    },
+    {
+      "id": "delphi-falls-ny",
+      "name": "Delphi Falls",
+      "state": "NY",
+      "fullName": "Delphi Falls, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "dobbs-ferry-ny",
+      "name": "Dobbs Ferry",
+      "state": "NY",
+      "fullName": "Dobbs Ferry, NY",
+      "zipCode": "10522"
+    },
+    {
+      "id": "east-elmhurst-ny",
+      "name": "East Elmhurst",
+      "state": "NY",
+      "fullName": "East Elmhurst, NY",
+      "zipCode": "11369"
+    },
+    {
+      "id": "east-islip-ny",
+      "name": "East Islip",
+      "state": "NY",
+      "fullName": "East Islip, NY",
+      "zipCode": "11730"
+    },
+    {
+      "id": "east-marion-ny",
+      "name": "East Marion",
+      "state": "NY",
+      "fullName": "East Marion, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "east-meadow-ny",
+      "name": "East Meadow",
+      "state": "NY",
+      "fullName": "East Meadow, NY",
+      "zipCode": "11554"
+    },
+    {
+      "id": "east-meredith-ny",
+      "name": "East Meredith",
+      "state": "NY",
+      "fullName": "East Meredith, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "east-moriches-ny",
+      "name": "East Moriches",
+      "state": "NY",
+      "fullName": "East Moriches, NY",
+      "zipCode": "11940"
+    },
+    {
+      "id": "east-northport-ny",
+      "name": "East Northport",
+      "state": "NY",
+      "fullName": "East Northport, NY",
+      "zipCode": "11731"
+    },
+    {
+      "id": "east-norwich-ny",
+      "name": "East Norwich",
+      "state": "NY",
+      "fullName": "East Norwich, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "east-quogue-ny",
+      "name": "East Quogue",
+      "state": "NY",
+      "fullName": "East Quogue, NY",
+      "zipCode": "11942"
+    },
+    {
+      "id": "east-rochester-ny",
+      "name": "East Rochester",
+      "state": "NY",
+      "fullName": "East Rochester, NY",
+      "zipCode": "14445"
+    },
+    {
+      "id": "east-rockaway-ny",
+      "name": "East Rockaway",
+      "state": "NY",
+      "fullName": "East Rockaway, NY",
+      "zipCode": "11518"
+    },
+    {
+      "id": "east-setauket-ny",
+      "name": "East Setauket",
+      "state": "NY",
+      "fullName": "East Setauket, NY",
+      "zipCode": "11733"
+    },
+    {
+      "id": "east-syracuse-ny",
+      "name": "East Syracuse",
+      "state": "NY",
+      "fullName": "East Syracuse, NY",
+      "zipCode": "13057"
+    },
+    {
+      "id": "far-rockaway-ny",
+      "name": "Far Rockaway",
+      "state": "NY",
+      "fullName": "Far Rockaway, NY",
+      "zipCode": "11691"
+    },
+    {
+      "id": "fishers-island-ny",
+      "name": "Fishers Island",
+      "state": "NY",
+      "fullName": "Fishers Island, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "floral-park-ny",
+      "name": "Floral Park",
+      "state": "NY",
+      "fullName": "Floral Park, NY",
+      "zipCode": "11001"
+    },
+    {
+      "id": "forest-hills-ny",
+      "name": "Forest Hills",
+      "state": "NY",
+      "fullName": "Forest Hills, NY",
+      "zipCode": "11375"
+    },
+    {
+      "id": "franklin-square-ny",
+      "name": "Franklin Square",
+      "state": "NY",
+      "fullName": "Franklin Square, NY",
+      "zipCode": "11010"
+    },
+    {
+      "id": "fresh-meadows-ny",
+      "name": "Fresh Meadows",
+      "state": "NY",
+      "fullName": "Fresh Meadows, NY",
+      "zipCode": "11365"
+    },
+    {
+      "id": "garden-city-ny",
+      "name": "Garden City",
+      "state": "NY",
+      "fullName": "Garden City, NY",
+      "zipCode": "11530"
+    },
+    {
+      "id": "glen-aubrey-ny",
+      "name": "Glen Aubrey",
+      "state": "NY",
+      "fullName": "Glen Aubrey, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "glen-cove-ny",
+      "name": "Glen Cove",
+      "state": "NY",
+      "fullName": "Glen Cove, NY",
+      "zipCode": "11542"
+    },
+    {
+      "id": "glen-head-ny",
+      "name": "Glen Head",
+      "state": "NY",
+      "fullName": "Glen Head, NY",
+      "zipCode": "11545"
+    },
+    {
+      "id": "glen-oaks-ny",
+      "name": "Glen Oaks",
+      "state": "NY",
+      "fullName": "Glen Oaks, NY",
+      "zipCode": "11004"
+    },
+    {
+      "id": "glenwood-landing-ny",
+      "name": "Glenwood Landing",
+      "state": "NY",
+      "fullName": "Glenwood Landing, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "goldens-bridge-ny",
+      "name": "Goldens Bridge",
+      "state": "NY",
+      "fullName": "Goldens Bridge, NY",
+      "zipCode": "10526"
+    },
+    {
+      "id": "granite-springs-ny",
+      "name": "Granite Springs",
+      "state": "NY",
+      "fullName": "Granite Springs, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "great-neck-ny",
+      "name": "Great Neck",
+      "state": "NY",
+      "fullName": "Great Neck, NY",
+      "zipCode": "11021"
+    },
+    {
+      "id": "great-river-ny",
+      "name": "Great River",
+      "state": "NY",
+      "fullName": "Great River, NY",
+      "zipCode": "11739"
+    },
+    {
+      "id": "greenwood-lake-ny",
+      "name": "Greenwood Lake",
+      "state": "NY",
+      "fullName": "Greenwood Lake, NY",
+      "zipCode": "10925"
+    },
+    {
+      "id": "hampton-bays-ny",
+      "name": "Hampton Bays",
+      "state": "NY",
+      "fullName": "Hampton Bays, NY",
+      "zipCode": "11946"
+    },
+    {
+      "id": "hastings-on-hudson-ny",
+      "name": "Hastings On Hudson",
+      "state": "NY",
+      "fullName": "Hastings On Hudson, NY",
+      "zipCode": "10706"
+    },
+    {
+      "id": "highland-mills-ny",
+      "name": "Highland Mills",
+      "state": "NY",
+      "fullName": "Highland Mills, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "holland-patent-ny",
+      "name": "Holland Patent",
+      "state": "NY",
+      "fullName": "Holland Patent, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "howard-beach-ny",
+      "name": "Howard Beach",
+      "state": "NY",
+      "fullName": "Howard Beach, NY",
+      "zipCode": "11414"
+    },
+    {
+      "id": "huntington-station-ny",
+      "name": "Huntington Station",
+      "state": "NY",
+      "fullName": "Huntington Station, NY",
+      "zipCode": "11746"
+    },
+    {
+      "id": "island-park-ny",
+      "name": "Island Park",
+      "state": "NY",
+      "fullName": "Island Park, NY",
+      "zipCode": "11558"
+    },
+    {
+      "id": "islip-terrace-ny",
+      "name": "Islip Terrace",
+      "state": "NY",
+      "fullName": "Islip Terrace, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "jackson-heights-ny",
+      "name": "Jackson Heights",
+      "state": "NY",
+      "fullName": "Jackson Heights, NY",
+      "zipCode": "11372"
+    },
+    {
+      "id": "jefferson-valley-ny",
+      "name": "Jefferson Valley",
+      "state": "NY",
+      "fullName": "Jefferson Valley, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "johnson-city-ny",
+      "name": "Johnson City",
+      "state": "NY",
+      "fullName": "Johnson City, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "kew-gardens-ny",
+      "name": "Kew Gardens",
+      "state": "NY",
+      "fullName": "Kew Gardens, NY",
+      "zipCode": "11415"
+    },
+    {
+      "id": "king-ferry-ny",
+      "name": "King Ferry",
+      "state": "NY",
+      "fullName": "King Ferry, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "kings-park-ny",
+      "name": "Kings Park",
+      "state": "NY",
+      "fullName": "Kings Park, NY",
+      "zipCode": "11754"
+    },
+    {
+      "id": "lake-grove-ny",
+      "name": "Lake Grove",
+      "state": "NY",
+      "fullName": "Lake Grove, NY",
+      "zipCode": "11755"
+    },
+    {
+      "id": "lee-center-ny",
+      "name": "Lee Center",
+      "state": "NY",
+      "fullName": "Lee Center, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "little-neck-ny",
+      "name": "Little Neck",
+      "state": "NY",
+      "fullName": "Little Neck, NY",
+      "zipCode": "11362"
+    },
+    {
+      "id": "little-york-ny",
+      "name": "Little York",
+      "state": "NY",
+      "fullName": "Little York, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "locust-valley-ny",
+      "name": "Locust Valley",
+      "state": "NY",
+      "fullName": "Locust Valley, NY",
+      "zipCode": "11560"
+    },
+    {
+      "id": "long-beach-ny",
+      "name": "Long Beach",
+      "state": "NY",
+      "fullName": "Long Beach, NY",
+      "zipCode": "11561"
+    },
+    {
+      "id": "long-island-city-ny",
+      "name": "Long Island City",
+      "state": "NY",
+      "fullName": "Long Island City, NY",
+      "zipCode": "11101"
+    },
+    {
+      "id": "lyons-falls-ny",
+      "name": "Lyons Falls",
+      "state": "NY",
+      "fullName": "Lyons Falls, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "massapequa-park-ny",
+      "name": "Massapequa Park",
+      "state": "NY",
+      "fullName": "Massapequa Park, NY",
+      "zipCode": "11762"
+    },
+    {
+      "id": "mastic-beach-ny",
+      "name": "Mastic Beach",
+      "state": "NY",
+      "fullName": "Mastic Beach, NY",
+      "zipCode": "11951"
+    },
+    {
+      "id": "mc-graw-ny",
+      "name": "Mc Graw",
+      "state": "NY",
+      "fullName": "Mc Graw, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "middle-island-ny",
+      "name": "Middle Island",
+      "state": "NY",
+      "fullName": "Middle Island, NY",
+      "zipCode": "11953"
+    },
+    {
+      "id": "middle-village-ny",
+      "name": "Middle Village",
+      "state": "NY",
+      "fullName": "Middle Village, NY",
+      "zipCode": "11379"
+    },
+    {
+      "id": "mill-neck-ny",
+      "name": "Mill Neck",
+      "state": "NY",
+      "fullName": "Mill Neck, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "miller-place-ny",
+      "name": "Miller Place",
+      "state": "NY",
+      "fullName": "Miller Place, NY",
+      "zipCode": "11764"
+    },
+    {
+      "id": "mohegan-lake-ny",
+      "name": "Mohegan Lake",
+      "state": "NY",
+      "fullName": "Mohegan Lake, NY",
+      "zipCode": "10547"
+    },
+    {
+      "id": "montour-falls-ny",
+      "name": "Montour Falls",
+      "state": "NY",
+      "fullName": "Montour Falls, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "mount-kisco-ny",
+      "name": "Mount Kisco",
+      "state": "NY",
+      "fullName": "Mount Kisco, NY",
+      "zipCode": "10549"
+    },
+    {
+      "id": "mount-sinai-ny",
+      "name": "Mount Sinai",
+      "state": "NY",
+      "fullName": "Mount Sinai, NY",
+      "zipCode": "11766"
+    },
+    {
+      "id": "mount-upton-ny",
+      "name": "Mount Upton",
+      "state": "NY",
+      "fullName": "Mount Upton, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "mount-vernon-ny",
+      "name": "Mount Vernon",
+      "state": "NY",
+      "fullName": "Mount Vernon, NY",
+      "zipCode": "10550"
+    },
+    {
+      "id": "new-berlin-ny",
+      "name": "New Berlin",
+      "state": "NY",
+      "fullName": "New Berlin, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "new-city-ny",
+      "name": "New City",
+      "state": "NY",
+      "fullName": "New City, NY",
+      "zipCode": "10956"
+    },
+    {
+      "id": "new-hampton-ny",
+      "name": "New Hampton",
+      "state": "NY",
+      "fullName": "New Hampton, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "new-hartford-ny",
+      "name": "New Hartford",
+      "state": "NY",
+      "fullName": "New Hartford, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "new-haven-ny",
+      "name": "New Haven",
+      "state": "NY",
+      "fullName": "New Haven, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "new-hyde-park-ny",
+      "name": "New Hyde Park",
+      "state": "NY",
+      "fullName": "New Hyde Park, NY",
+      "zipCode": "11040"
+    },
+    {
+      "id": "new-lisbon-ny",
+      "name": "New Lisbon",
+      "state": "NY",
+      "fullName": "New Lisbon, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "new-rochelle-ny",
+      "name": "New Rochelle",
+      "state": "NY",
+      "fullName": "New Rochelle, NY",
+      "zipCode": "10801"
+    },
+    {
+      "id": "new-suffolk-ny",
+      "name": "New Suffolk",
+      "state": "NY",
+      "fullName": "New Suffolk, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "new-windsor-ny",
+      "name": "New Windsor",
+      "state": "NY",
+      "fullName": "New Windsor, NY",
+      "zipCode": "12553"
+    },
+    {
+      "id": "new-woodstock-ny",
+      "name": "New Woodstock",
+      "state": "NY",
+      "fullName": "New Woodstock, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "new-york-mills-ny",
+      "name": "New York Mills",
+      "state": "NY",
+      "fullName": "New York Mills, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "newark-valley-ny",
+      "name": "Newark Valley",
+      "state": "NY",
+      "fullName": "Newark Valley, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "north-babylon-ny",
+      "name": "North Babylon",
+      "state": "NY",
+      "fullName": "North Babylon, NY",
+      "zipCode": "11703"
+    },
+    {
+      "id": "north-bay-ny",
+      "name": "North Bay",
+      "state": "NY",
+      "fullName": "North Bay, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "north-brookfield-ny",
+      "name": "North Brookfield",
+      "state": "NY",
+      "fullName": "North Brookfield, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "north-norwich-ny",
+      "name": "North Norwich",
+      "state": "NY",
+      "fullName": "North Norwich, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "north-pitcher-ny",
+      "name": "North Pitcher",
+      "state": "NY",
+      "fullName": "North Pitcher, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "north-rose-ny",
+      "name": "North Rose",
+      "state": "NY",
+      "fullName": "North Rose, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "north-salem-ny",
+      "name": "North Salem",
+      "state": "NY",
+      "fullName": "North Salem, NY",
+      "zipCode": "10560"
+    },
+    {
+      "id": "oakland-gardens-ny",
+      "name": "Oakland Gardens",
+      "state": "NY",
+      "fullName": "Oakland Gardens, NY",
+      "zipCode": "11364"
+    },
+    {
+      "id": "ocean-beach-ny",
+      "name": "Ocean Beach",
+      "state": "NY",
+      "fullName": "Ocean Beach, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "old-bethpage-ny",
+      "name": "Old Bethpage",
+      "state": "NY",
+      "fullName": "Old Bethpage, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "old-westbury-ny",
+      "name": "Old Westbury",
+      "state": "NY",
+      "fullName": "Old Westbury, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "oriskany-falls-ny",
+      "name": "Oriskany Falls",
+      "state": "NY",
+      "fullName": "Oriskany Falls, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "oyster-bay-ny",
+      "name": "Oyster Bay",
+      "state": "NY",
+      "fullName": "Oyster Bay, NY",
+      "zipCode": "11771"
+    },
+    {
+      "id": "ozone-park-ny",
+      "name": "Ozone Park",
+      "state": "NY",
+      "fullName": "Ozone Park, NY",
+      "zipCode": "11416"
+    },
+    {
+      "id": "pearl-river-ny",
+      "name": "Pearl River",
+      "state": "NY",
+      "fullName": "Pearl River, NY",
+      "zipCode": "10965"
+    },
+    {
+      "id": "pierrepont-manor-ny",
+      "name": "Pierrepont Manor",
+      "state": "NY",
+      "fullName": "Pierrepont Manor, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "pine-island-ny",
+      "name": "Pine Island",
+      "state": "NY",
+      "fullName": "Pine Island, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "point-lookout-ny",
+      "name": "Point Lookout",
+      "state": "NY",
+      "fullName": "Point Lookout, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "port-byron-ny",
+      "name": "Port Byron",
+      "state": "NY",
+      "fullName": "Port Byron, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "port-chester-ny",
+      "name": "Port Chester",
+      "state": "NY",
+      "fullName": "Port Chester, NY",
+      "zipCode": "10573"
+    },
+    {
+      "id": "port-crane-ny",
+      "name": "Port Crane",
+      "state": "NY",
+      "fullName": "Port Crane, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "port-gibson-ny",
+      "name": "Port Gibson",
+      "state": "NY",
+      "fullName": "Port Gibson, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "port-jefferson-ny",
+      "name": "Port Jefferson",
+      "state": "NY",
+      "fullName": "Port Jefferson, NY",
+      "zipCode": "11777"
+    },
+    {
+      "id": "port-jefferson-station-ny",
+      "name": "Port Jefferson Station",
+      "state": "NY",
+      "fullName": "Port Jefferson Station, NY",
+      "zipCode": "11776"
+    },
+    {
+      "id": "port-jervis-ny",
+      "name": "Port Jervis",
+      "state": "NY",
+      "fullName": "Port Jervis, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "port-washington-ny",
+      "name": "Port Washington",
+      "state": "NY",
+      "fullName": "Port Washington, NY",
+      "zipCode": "11050"
+    },
+    {
+      "id": "pound-ridge-ny",
+      "name": "Pound Ridge",
+      "state": "NY",
+      "fullName": "Pound Ridge, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "queens-village-ny",
+      "name": "Queens Village",
+      "state": "NY",
+      "fullName": "Queens Village, NY",
+      "zipCode": "11427"
+    },
+    {
+      "id": "red-creek-ny",
+      "name": "Red Creek",
+      "state": "NY",
+      "fullName": "Red Creek, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "rego-park-ny",
+      "name": "Rego Park",
+      "state": "NY",
+      "fullName": "Rego Park, NY",
+      "zipCode": "11374"
+    },
+    {
+      "id": "richmond-hill-ny",
+      "name": "Richmond Hill",
+      "state": "NY",
+      "fullName": "Richmond Hill, NY",
+      "zipCode": "11418"
+    },
+    {
+      "id": "rock-stream-ny",
+      "name": "Rock Stream",
+      "state": "NY",
+      "fullName": "Rock Stream, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "rock-tavern-ny",
+      "name": "Rock Tavern",
+      "state": "NY",
+      "fullName": "Rock Tavern, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "rockaway-park-ny",
+      "name": "Rockaway Park",
+      "state": "NY",
+      "fullName": "Rockaway Park, NY",
+      "zipCode": "11694"
+    },
+    {
+      "id": "rockville-centre-ny",
+      "name": "Rockville Centre",
+      "state": "NY",
+      "fullName": "Rockville Centre, NY",
+      "zipCode": "11570"
+    },
+    {
+      "id": "rocky-point-ny",
+      "name": "Rocky Point",
+      "state": "NY",
+      "fullName": "Rocky Point, NY",
+      "zipCode": "11778"
+    },
+    {
+      "id": "roslyn-heights-ny",
+      "name": "Roslyn Heights",
+      "state": "NY",
+      "fullName": "Roslyn Heights, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "sag-harbor-ny",
+      "name": "Sag Harbor",
+      "state": "NY",
+      "fullName": "Sag Harbor, NY",
+      "zipCode": "11963"
+    },
+    {
+      "id": "saint-albans-ny",
+      "name": "Saint Albans",
+      "state": "NY",
+      "fullName": "Saint Albans, NY",
+      "zipCode": "11412"
+    },
+    {
+      "id": "saint-james-ny",
+      "name": "Saint James",
+      "state": "NY",
+      "fullName": "Saint James, NY",
+      "zipCode": "11780"
+    },
+    {
+      "id": "salisbury-mills-ny",
+      "name": "Salisbury Mills",
+      "state": "NY",
+      "fullName": "Salisbury Mills, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "sandy-creek-ny",
+      "name": "Sandy Creek",
+      "state": "NY",
+      "fullName": "Sandy Creek, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "scipio-center-ny",
+      "name": "Scipio Center",
+      "state": "NY",
+      "fullName": "Scipio Center, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "sea-cliff-ny",
+      "name": "Sea Cliff",
+      "state": "NY",
+      "fullName": "Sea Cliff, NY",
+      "zipCode": "11579"
+    },
+    {
+      "id": "seneca-falls-ny",
+      "name": "Seneca Falls",
+      "state": "NY",
+      "fullName": "Seneca Falls, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "shelter-island-ny",
+      "name": "Shelter Island",
+      "state": "NY",
+      "fullName": "Shelter Island, NY",
+      "zipCode": "11964"
+    },
+    {
+      "id": "shelter-island-heights-ny",
+      "name": "Shelter Island Heights",
+      "state": "NY",
+      "fullName": "Shelter Island Heights, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "shrub-oak-ny",
+      "name": "Shrub Oak",
+      "state": "NY",
+      "fullName": "Shrub Oak, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "sidney-center-ny",
+      "name": "Sidney Center",
+      "state": "NY",
+      "fullName": "Sidney Center, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "skaneateles-falls-ny",
+      "name": "Skaneateles Falls",
+      "state": "NY",
+      "fullName": "Skaneateles Falls, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "slate-hill-ny",
+      "name": "Slate Hill",
+      "state": "NY",
+      "fullName": "Slate Hill, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "slaterville-springs-ny",
+      "name": "Slaterville Springs",
+      "state": "NY",
+      "fullName": "Slaterville Springs, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "smithville-flats-ny",
+      "name": "Smithville Flats",
+      "state": "NY",
+      "fullName": "Smithville Flats, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "sodus-point-ny",
+      "name": "Sodus Point",
+      "state": "NY",
+      "fullName": "Sodus Point, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "sound-beach-ny",
+      "name": "Sound Beach",
+      "state": "NY",
+      "fullName": "Sound Beach, NY",
+      "zipCode": "11789"
+    },
+    {
+      "id": "south-butler-ny",
+      "name": "South Butler",
+      "state": "NY",
+      "fullName": "South Butler, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "south-jamesport-ny",
+      "name": "South Jamesport",
+      "state": "NY",
+      "fullName": "South Jamesport, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "south-new-berlin-ny",
+      "name": "South New Berlin",
+      "state": "NY",
+      "fullName": "South New Berlin, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "south-otselic-ny",
+      "name": "South Otselic",
+      "state": "NY",
+      "fullName": "South Otselic, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "south-ozone-park-ny",
+      "name": "South Ozone Park",
+      "state": "NY",
+      "fullName": "South Ozone Park, NY",
+      "zipCode": "11420"
+    },
+    {
+      "id": "south-plymouth-ny",
+      "name": "South Plymouth",
+      "state": "NY",
+      "fullName": "South Plymouth, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "south-richmond-hill-ny",
+      "name": "South Richmond Hill",
+      "state": "NY",
+      "fullName": "South Richmond Hill, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "south-salem-ny",
+      "name": "South Salem",
+      "state": "NY",
+      "fullName": "South Salem, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "spring-valley-ny",
+      "name": "Spring Valley",
+      "state": "NY",
+      "fullName": "Spring Valley, NY",
+      "zipCode": "10977"
+    },
+    {
+      "id": "springfield-gardens-ny",
+      "name": "Springfield Gardens",
+      "state": "NY",
+      "fullName": "Springfield Gardens, NY",
+      "zipCode": "11413"
+    },
+    {
+      "id": "staten-island-ny",
+      "name": "Staten Island",
+      "state": "NY",
+      "fullName": "Staten Island, NY",
+      "zipCode": "10301"
+    },
+    {
+      "id": "sterling-forest-ny",
+      "name": "Sterling Forest",
+      "state": "NY",
+      "fullName": "Sterling Forest, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "stony-brook-ny",
+      "name": "Stony Brook",
+      "state": "NY",
+      "fullName": "Stony Brook, NY",
+      "zipCode": "11790"
+    },
+    {
+      "id": "stony-point-ny",
+      "name": "Stony Point",
+      "state": "NY",
+      "fullName": "Stony Point, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "sylvan-beach-ny",
+      "name": "Sylvan Beach",
+      "state": "NY",
+      "fullName": "Sylvan Beach, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "tomkins-cove-ny",
+      "name": "Tomkins Cove",
+      "state": "NY",
+      "fullName": "Tomkins Cove, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "trout-creek-ny",
+      "name": "Trout Creek",
+      "state": "NY",
+      "fullName": "Trout Creek, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "tuxedo-park-ny",
+      "name": "Tuxedo Park",
+      "state": "NY",
+      "fullName": "Tuxedo Park, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "union-springs-ny",
+      "name": "Union Springs",
+      "state": "NY",
+      "fullName": "Union Springs, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "valley-cottage-ny",
+      "name": "Valley Cottage",
+      "state": "NY",
+      "fullName": "Valley Cottage, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "valley-stream-ny",
+      "name": "Valley Stream",
+      "state": "NY",
+      "fullName": "Valley Stream, NY",
+      "zipCode": "11580"
+    },
+    {
+      "id": "van-etten-ny",
+      "name": "Van Etten",
+      "state": "NY",
+      "fullName": "Van Etten, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "vernon-center-ny",
+      "name": "Vernon Center",
+      "state": "NY",
+      "fullName": "Vernon Center, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "verona-beach-ny",
+      "name": "Verona Beach",
+      "state": "NY",
+      "fullName": "Verona Beach, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "wading-river-ny",
+      "name": "Wading River",
+      "state": "NY",
+      "fullName": "Wading River, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "water-mill-ny",
+      "name": "Water Mill",
+      "state": "NY",
+      "fullName": "Water Mill, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "wells-bridge-ny",
+      "name": "Wells Bridge",
+      "state": "NY",
+      "fullName": "Wells Bridge, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "west-babylon-ny",
+      "name": "West Babylon",
+      "state": "NY",
+      "fullName": "West Babylon, NY",
+      "zipCode": "11704"
+    },
+    {
+      "id": "west-bloomfield-ny",
+      "name": "West Bloomfield",
+      "state": "NY",
+      "fullName": "West Bloomfield, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "west-burlington-ny",
+      "name": "West Burlington",
+      "state": "NY",
+      "fullName": "West Burlington, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "west-eaton-ny",
+      "name": "West Eaton",
+      "state": "NY",
+      "fullName": "West Eaton, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "west-edmeston-ny",
+      "name": "West Edmeston",
+      "state": "NY",
+      "fullName": "West Edmeston, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "west-harrison-ny",
+      "name": "West Harrison",
+      "state": "NY",
+      "fullName": "West Harrison, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "west-hempstead-ny",
+      "name": "West Hempstead",
+      "state": "NY",
+      "fullName": "West Hempstead, NY",
+      "zipCode": "11552"
+    },
+    {
+      "id": "west-islip-ny",
+      "name": "West Islip",
+      "state": "NY",
+      "fullName": "West Islip, NY",
+      "zipCode": "11795"
+    },
+    {
+      "id": "west-leyden-ny",
+      "name": "West Leyden",
+      "state": "NY",
+      "fullName": "West Leyden, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "west-monroe-ny",
+      "name": "West Monroe",
+      "state": "NY",
+      "fullName": "West Monroe, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "west-nyack-ny",
+      "name": "West Nyack",
+      "state": "NY",
+      "fullName": "West Nyack, NY",
+      "zipCode": "10994"
+    },
+    {
+      "id": "west-oneonta-ny",
+      "name": "West Oneonta",
+      "state": "NY",
+      "fullName": "West Oneonta, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "west-sayville-ny",
+      "name": "West Sayville",
+      "state": "NY",
+      "fullName": "West Sayville, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "westhampton-beach-ny",
+      "name": "Westhampton Beach",
+      "state": "NY",
+      "fullName": "Westhampton Beach, NY",
+      "zipCode": "11978"
+    },
+    {
+      "id": "white-plains-ny",
+      "name": "White Plains",
+      "state": "NY",
+      "fullName": "White Plains, NY",
+      "zipCode": "10601"
+    },
+    {
+      "id": "whitney-point-ny",
+      "name": "Whitney Point",
+      "state": "NY",
+      "fullName": "Whitney Point, NY",
+      "zipCode": ""
+    },
+    {
+      "id": "williston-park-ny",
+      "name": "Williston Park",
+      "state": "NY",
+      "fullName": "Williston Park, NY",
+      "zipCode": "11596"
+    },
+    {
+      "id": "yorktown-heights-ny",
+      "name": "Yorktown Heights",
+      "state": "NY",
+      "fullName": "Yorktown Heights, NY",
+      "zipCode": "10598"
+    }
+  ],
+  "PA": [
+    {
+      "id": "east-mckeesport-pa",
+      "name": "East McKeesport",
+      "state": "PA",
+      "fullName": "East McKeesport, PA",
+      "zipCode": "15035"
+    }
+  ],
+  "AL": [
+    {
+      "id": "hoover-al",
+      "name": "Hoover",
+      "state": "AL",
+      "fullName": "Hoover, AL",
+      "zipCode": "35226"
+    },
+    {
+      "id": "vestavia-hills-al",
+      "name": "Vestavia Hills",
+      "state": "AL",
+      "fullName": "Vestavia Hills, AL",
+      "zipCode": "35216"
+    }
+  ],
+  "FL": [
+    {
+      "id": "st-petersburg-fl",
+      "name": "St. Petersburg",
+      "state": "FL",
+      "fullName": "St. Petersburg, FL",
+      "zipCode": "33701"
+    },
+    {
+      "id": "port-st-lucie-fl",
+      "name": "Port St. Lucie",
+      "state": "FL",
+      "fullName": "Port St. Lucie, FL",
+      "zipCode": "34952"
+    },
+    {
+      "id": "miramar-fl",
+      "name": "Miramar",
+      "state": "FL",
+      "fullName": "Miramar, FL",
+      "zipCode": "33025"
+    },
+    {
+      "id": "davie-fl",
+      "name": "Davie",
+      "state": "FL",
+      "fullName": "Davie, FL",
+      "zipCode": "33314"
+    },
+    {
+      "id": "sunrise-fl",
+      "name": "Sunrise",
+      "state": "FL",
+      "fullName": "Sunrise, FL",
+      "zipCode": "33322"
+    }
+  ],
+  "GA": [
+    {
+      "id": "johns-creek-ga",
+      "name": "Johns Creek",
+      "state": "GA",
+      "fullName": "Johns Creek, GA",
+      "zipCode": "30022"
+    },
+    {
+      "id": "dunwoody-ga",
+      "name": "Dunwoody",
+      "state": "GA",
+      "fullName": "Dunwoody, GA",
+      "zipCode": "30338"
+    }
+  ],
+  "HI": [
+    {
+      "id": "mililani-town-hi",
+      "name": "Mililani Town",
+      "state": "HI",
+      "fullName": "Mililani Town, HI",
+      "zipCode": "96789"
+    },
+    {
+      "id": "ewa-gentry-hi",
+      "name": "Ewa Gentry",
+      "state": "HI",
+      "fullName": "Ewa Gentry, HI",
+      "zipCode": "96706"
+    },
+    {
+      "id": "mililani-mauka-hi",
+      "name": "Mililani Mauka",
+      "state": "HI",
+      "fullName": "Mililani Mauka, HI",
+      "zipCode": ""
+    },
+    {
+      "id": "makakilo-hi",
+      "name": "Makakilo",
+      "state": "HI",
+      "fullName": "Makakilo, HI",
+      "zipCode": "96707"
+    },
+    {
+      "id": "royal-kunia-hi",
+      "name": "Royal Kunia",
+      "state": "HI",
+      "fullName": "Royal Kunia, HI",
+      "zipCode": "96797"
+    },
+    {
+      "id": "halawa-hi",
+      "name": "Halawa",
+      "state": "HI",
+      "fullName": "Halawa, HI",
+      "zipCode": ""
+    },
+    {
+      "id": "waimalu-hi",
+      "name": "Waimalu",
+      "state": "HI",
+      "fullName": "Waimalu, HI",
+      "zipCode": ""
+    }
+  ],
+  "ID": [
+    {
+      "id": "coeur-dalene-id",
+      "name": "Coeur d'Alene",
+      "state": "ID",
+      "fullName": "Coeur d'Alene, ID",
+      "zipCode": "83814"
+    },
+    {
+      "id": "chubbuck-id",
+      "name": "Chubbuck",
+      "state": "ID",
+      "fullName": "Chubbuck, ID",
+      "zipCode": "83202"
+    }
+  ],
+  "KY": [
+    {
+      "id": "jeffersontown-ky",
+      "name": "Jeffersontown",
+      "state": "KY",
+      "fullName": "Jeffersontown, KY",
+      "zipCode": "40299"
+    }
+  ],
+  "LA": [
+    {
+      "id": "laplace-la",
+      "name": "Laplace",
+      "state": "LA",
+      "fullName": "Laplace, LA",
+      "zipCode": "70068"
+    },
+    {
+      "id": "bayou-cane-la",
+      "name": "Bayou Cane",
+      "state": "LA",
+      "fullName": "Bayou Cane, LA",
+      "zipCode": "70360"
+    }
+  ],
+  "MI": [
+    {
+      "id": "farmington-hills-mi",
+      "name": "Farmington Hills",
+      "state": "MI",
+      "fullName": "Farmington Hills, MI",
+      "zipCode": "48334"
+    },
+    {
+      "id": "rochester-hills-mi",
+      "name": "Rochester Hills",
+      "state": "MI",
+      "fullName": "Rochester Hills, MI",
+      "zipCode": "48307"
+    },
+    {
+      "id": "st-clair-shores-mi",
+      "name": "St. Clair Shores",
+      "state": "MI",
+      "fullName": "St. Clair Shores, MI",
+      "zipCode": "48080"
+    }
+  ],
+  "MN": [
+    {
+      "id": "st-paul-mn",
+      "name": "St. Paul",
+      "state": "MN",
+      "fullName": "St. Paul, MN",
+      "zipCode": "55101"
+    },
+    {
+      "id": "brooklyn-park-mn",
+      "name": "Brooklyn Park",
+      "state": "MN",
+      "fullName": "Brooklyn Park, MN",
+      "zipCode": "55443"
+    },
+    {
+      "id": "st-cloud-mn",
+      "name": "St. Cloud",
+      "state": "MN",
+      "fullName": "St. Cloud, MN",
+      "zipCode": "56301"
+    },
+    {
+      "id": "st-louis-park-mn",
+      "name": "St. Louis Park",
+      "state": "MN",
+      "fullName": "St. Louis Park, MN",
+      "zipCode": "55416"
+    },
+    {
+      "id": "brooklyn-center-mn",
+      "name": "Brooklyn Center",
+      "state": "MN",
+      "fullName": "Brooklyn Center, MN",
+      "zipCode": "55430"
+    }
+  ],
+  "MO": [
+    {
+      "id": "st-louis-mo",
+      "name": "St. Louis",
+      "state": "MO",
+      "fullName": "St. Louis, MO",
+      "zipCode": "63101"
+    },
+    {
+      "id": "ofallon-mo",
+      "name": "O'Fallon",
+      "state": "MO",
+      "fullName": "O'Fallon, MO",
+      "zipCode": "63366"
+    },
+    {
+      "id": "st-joseph-mo",
+      "name": "St. Joseph",
+      "state": "MO",
+      "fullName": "St. Joseph, MO",
+      "zipCode": "64501"
+    },
+    {
+      "id": "st-charles-mo",
+      "name": "St. Charles",
+      "state": "MO",
+      "fullName": "St. Charles, MO",
+      "zipCode": "63301"
+    },
+    {
+      "id": "st-peters-mo",
+      "name": "St. Peters",
+      "state": "MO",
+      "fullName": "St. Peters, MO",
+      "zipCode": "63376"
+    },
+    {
+      "id": "university-city-mo",
+      "name": "University City",
+      "state": "MO",
+      "fullName": "University City, MO",
+      "zipCode": "63130"
+    },
+    {
+      "id": "raytown-mo",
+      "name": "Raytown",
+      "state": "MO",
+      "fullName": "Raytown, MO",
+      "zipCode": "64133"
+    },
+    {
+      "id": "mehlville-mo",
+      "name": "Mehlville",
+      "state": "MO",
+      "fullName": "Mehlville, MO",
+      "zipCode": "63125"
+    },
+    {
+      "id": "webster-groves-mo",
+      "name": "Webster Groves",
+      "state": "MO",
+      "fullName": "Webster Groves, MO",
+      "zipCode": "63119"
+    }
+  ],
+  "NE": [
+    {
+      "id": "chalco-ne",
+      "name": "Chalco",
+      "state": "NE",
+      "fullName": "Chalco, NE",
+      "zipCode": "68138"
+    },
+    {
+      "id": "south-valley-ne",
+      "name": "South Valley",
+      "state": "NE",
+      "fullName": "South Valley, NE",
+      "zipCode": "68128"
+    }
+  ],
+  "NC": [
+    {
+      "id": "winston-salem-nc",
+      "name": "Winston-Salem",
+      "state": "NC",
+      "fullName": "Winston-Salem, NC",
+      "zipCode": "27101"
+    }
+  ],
+  "OH": [
+    {
+      "id": "kettering-oh",
+      "name": "Kettering",
+      "state": "OH",
+      "fullName": "Kettering, OH",
+      "zipCode": "45420"
+    },
+    {
+      "id": "cleveland-heights-oh",
+      "name": "Cleveland Heights",
+      "state": "OH",
+      "fullName": "Cleveland Heights, OH",
+      "zipCode": "44118"
+    }
+  ],
+  "OK": [
+    {
+      "id": "midwest-city-ok",
+      "name": "Midwest City",
+      "state": "OK",
+      "fullName": "Midwest City, OK",
+      "zipCode": "73110"
+    },
+    {
+      "id": "del-city-ok",
+      "name": "Del City",
+      "state": "OK",
+      "fullName": "Del City, OK",
+      "zipCode": "73115"
+    }
+  ],
+  "OR": [
+    {
+      "id": "tigard-or",
+      "name": "Tigard",
+      "state": "OR",
+      "fullName": "Tigard, OR",
+      "zipCode": "97223"
+    },
+    {
+      "id": "milwaukie-or",
+      "name": "Milwaukie",
+      "state": "OR",
+      "fullName": "Milwaukie, OR",
+      "zipCode": "97222"
+    }
+  ],
+  "RI": [
+    {
+      "id": "south-kingstown-ri",
+      "name": "South Kingstown",
+      "state": "RI",
+      "fullName": "South Kingstown, RI",
+      "zipCode": "02879"
+    }
+  ],
+  "UT": [
+    {
+      "id": "st-george-ut",
+      "name": "St. George",
+      "state": "UT",
+      "fullName": "St. George, UT",
+      "zipCode": "84770"
+    },
+    {
+      "id": "kearns-ut",
+      "name": "Kearns",
+      "state": "UT",
+      "fullName": "Kearns, UT",
+      "zipCode": "84118"
+    },
+    {
+      "id": "cottonwood-heights-ut",
+      "name": "Cottonwood Heights",
+      "state": "UT",
+      "fullName": "Cottonwood Heights, UT",
+      "zipCode": "84121"
+    }
+  ],
+  "VT": [
+    {
+      "id": "st-albans-vt",
+      "name": "St. Albans",
+      "state": "VT",
+      "fullName": "St. Albans, VT",
+      "zipCode": "05478"
+    },
+    {
+      "id": "st-johnsbury-vt",
+      "name": "St. Johnsbury",
+      "state": "VT",
+      "fullName": "St. Johnsbury, VT",
+      "zipCode": "05819"
+    }
+  ],
+  "WA": [
+    {
+      "id": "spokane-valley-wa",
+      "name": "Spokane Valley",
+      "state": "WA",
+      "fullName": "Spokane Valley, WA",
+      "zipCode": "99206"
+    },
+    {
+      "id": "shoreline-wa",
+      "name": "Shoreline",
+      "state": "WA",
+      "fullName": "Shoreline, WA",
+      "zipCode": "98133"
+    },
+    {
+      "id": "burien-wa",
+      "name": "Burien",
+      "state": "WA",
+      "fullName": "Burien, WA",
+      "zipCode": "98166"
+    }
+  ],
+  "WV": [
+    {
+      "id": "st-albans-wv",
+      "name": "St. Albans",
+      "state": "WV",
+      "fullName": "St. Albans, WV",
+      "zipCode": ""
+    }
+  ],
+  "WI": [
+    {
+      "id": "west-allis-wi",
+      "name": "West Allis",
+      "state": "WI",
+      "fullName": "West Allis, WI",
+      "zipCode": "53214"
+    },
+    {
+      "id": "wauwatosa-wi",
+      "name": "Wauwatosa",
+      "state": "WI",
+      "fullName": "Wauwatosa, WI",
+      "zipCode": "53213"
+    }
+  ],
+  "UN": [
+    {
+      "id": "mc-alisterville-un",
+      "name": "Mc Alisterville",
+      "state": "UN",
+      "fullName": "Mc Alisterville, UN",
+      "zipCode": ""
+    },
+    {
+      "id": "mc-clure-un",
+      "name": "Mc Clure",
+      "state": "UN",
+      "fullName": "Mc Clure, UN",
+      "zipCode": ""
+    },
+    {
+      "id": "mc-elhattan-un",
+      "name": "Mc Elhattan",
+      "state": "UN",
+      "fullName": "Mc Elhattan, UN",
+      "zipCode": ""
+    },
+    {
+      "id": "mc-grann-un",
+      "name": "Mc Grann",
+      "state": "UN",
+      "fullName": "Mc Grann, UN",
+      "zipCode": ""
+    },
+    {
+      "id": "mc-knightstown-un",
+      "name": "Mc Knightstown",
+      "state": "UN",
+      "fullName": "Mc Knightstown, UN",
+      "zipCode": ""
+    },
+    {
+      "id": "mc-sherrystown-un",
+      "name": "Mc Sherrystown",
+      "state": "UN",
+      "fullName": "Mc Sherrystown, UN",
+      "zipCode": ""
+    },
+    {
+      "id": "mc-veytown-un",
+      "name": "Mc Veytown",
+      "state": "UN",
+      "fullName": "Mc Veytown, UN",
+      "zipCode": ""
+    }
+  ]
+}

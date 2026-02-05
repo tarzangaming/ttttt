@@ -1,14 +1,16 @@
 import { NextResponse } from 'next/server';
-import locationsData from '@/data/locations.json';
+import { getAllLocations } from '@/utils/content';
 
 export async function GET() {
   try {
+    // Get all locations using the helper that handles nested state/city structure
+    const allLocations = getAllLocations();
+
     // Extract only the necessary fields for the service areas component
-    const locations = locationsData.locations.map(location => ({
+    const locations = allLocations.map(location => ({
       id: location.id,
       name: location.name,
-      state: location.state,
-      fullName: location.fullName
+      state: location.state
     }));
 
     return NextResponse.json({ locations });
@@ -16,4 +18,4 @@ export async function GET() {
     console.error('Error fetching locations:', error);
     return NextResponse.json({ error: 'Failed to fetch locations' }, { status: 500 });
   }
-} 
+}
