@@ -12,6 +12,7 @@ function AdminLoginForm() {
   const [loading, setLoading] = useState(false);
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/admin';
+  const urlError = searchParams.get('error');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,9 +53,11 @@ function AdminLoginForm() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            {error && (
+            {(error || urlError) && (
               <div className="bg-red-50 text-red-700 px-4 py-3 rounded-lg text-sm">
-                {error}
+                {urlError === 'Configuration'
+                  ? 'Server configuration error. Ensure AUTH_SECRET, ADMIN_EMAIL, and ADMIN_PASSWORD are set in Vercel (without NEXT_PUBLIC_ prefix).'
+                  : error || 'Invalid email or password'}
               </div>
             )}
 

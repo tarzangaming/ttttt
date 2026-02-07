@@ -1,14 +1,16 @@
 import { NextResponse } from 'next/server'
 import { getAllLocations } from '@/utils/content'
 import servicesData from '@/data/services.json'
+import costGuidesData from '@/data/cost-guides.json'
 
 const DOMAIN = 'https://bennettconstructionandroofing.com'
 
 export async function GET() {
   const currentDate = new Date().toISOString()
 
-  // Get all services
+  // Get all services and cost guides
   const services = (servicesData as { services: { slug: string }[] }).services
+  const costGuides = costGuidesData as { slug: string }[]
 
   // Main domain pages
   const mainPages = [
@@ -41,8 +43,36 @@ export async function GET() {
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>`,
+    `  <url>
+    <loc>${DOMAIN}/states</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`,
+    `  <url>
+    <loc>${DOMAIN}/cost-guides</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+    `  <url>
+    <loc>${DOMAIN}/financing</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>`
   ].join('\n')
+
+  // Cost guide pages
+  const costGuidePages = costGuides.map(guide =>
+    `  <url>
+    <loc>${DOMAIN}/cost-guides/${guide.slug}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`
+  ).join('\n')
 
   // Main domain service pages
   const mainServicePages = services.map(service =>
@@ -84,6 +114,7 @@ export async function GET() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${mainPages}
 ${mainServicePages}
+${costGuidePages}
 ${locationPages}
 ${statePages}
 </urlset>`
