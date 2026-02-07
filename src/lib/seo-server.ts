@@ -191,17 +191,25 @@ export function getCostPageSEOFromFile(
   state: string,
   cityState: string,
   serviceTitle: string,
-  serviceSlug: string
+  serviceSlug: string,
+  options?: { host?: string }
 ): PageSEO {
   const seo = readSeoFile();
   const templates = seo.templates as Record<string, SEOTemplate> | undefined;
   const template = templates?.costPage || null;
   const year = new Date().getFullYear();
+  const defaultCanonical = `https://bennettconstructionandroofing.com/${cityState}/${serviceSlug}/cost`;
+  const subdomain = options?.host?.split('.')[0]?.toLowerCase();
+  const shortCanonical = (subdomain && subdomain === cityState.toLowerCase())
+    ? `https://${options!.host}/${serviceSlug}/cost`
+    : null;
+  const canonical = shortCanonical ?? template?.canonical?.replace('{cityState}', cityState)?.replace('{serviceSlug}', serviceSlug) ?? defaultCanonical;
+
   if (!template) {
     return {
       title: `${serviceTitle} Cost in ${cityName}, ${state} (${year} Guide)`,
       description: `How much does ${serviceTitle.toLowerCase()} cost in ${cityName}? Calculate estimated prices for your home size. Local ${year} rates for roofing services.`,
-      canonical: `https://bennettconstructionandroofing.com/${cityState}/${serviceSlug}/cost`,
+      canonical,
     };
   }
   return {
@@ -214,9 +222,7 @@ export function getCostPageSEOFromFile(
       .replace('{serviceTitle}', serviceTitle)
       .replace('{cityName}', cityName)
       .replace('{year}', String(year)),
-    canonical: template.canonical
-      ?.replace('{cityState}', cityState)
-      ?.replace('{serviceSlug}', serviceSlug) || undefined,
+    canonical,
   };
 }
 
@@ -225,17 +231,25 @@ export function getCostCalculatorPageSEOFromFile(
   state: string,
   cityState: string,
   serviceTitle: string,
-  serviceSlug: string
+  serviceSlug: string,
+  options?: { host?: string }
 ): PageSEO {
   const seo = readSeoFile();
   const templates = seo.templates as Record<string, SEOTemplate> | undefined;
   const template = templates?.costCalculatorPage || null;
   const year = new Date().getFullYear();
+  const defaultCanonical = `https://bennettconstructionandroofing.com/${cityState}/${serviceSlug}/cost-calculator`;
+  const subdomain = options?.host?.split('.')[0]?.toLowerCase();
+  const shortCanonical = (subdomain && subdomain === cityState.toLowerCase())
+    ? `https://${options!.host}/${serviceSlug}/cost-calculator`
+    : null;
+  const canonical = shortCanonical ?? template?.canonical?.replace('{cityState}', cityState)?.replace('{serviceSlug}', serviceSlug) ?? defaultCanonical;
+
   if (!template) {
     return {
       title: `${serviceTitle} Cost Calculator in ${cityName}, ${state} (${year})`,
       description: `Free ${serviceTitle.toLowerCase()} cost calculator for ${cityName}. Get low, average, and high estimates. ${year} local roofing rates.`,
-      canonical: `https://bennettconstructionandroofing.com/${cityState}/${serviceSlug}/cost-calculator`,
+      canonical,
     };
   }
   return {
@@ -248,9 +262,7 @@ export function getCostCalculatorPageSEOFromFile(
       .replace('{serviceTitle}', serviceTitle)
       .replace('{cityName}', cityName)
       .replace('{year}', String(year)),
-    canonical: template.canonical
-      ?.replace('{cityState}', cityState)
-      ?.replace('{serviceSlug}', serviceSlug) || undefined,
+    canonical,
   };
 }
 

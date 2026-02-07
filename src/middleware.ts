@@ -160,6 +160,20 @@ export default auth((req) => {
     'exterior-remodeling'
   ];
 
+  const costPages = ['cost-calculator', 'cost'] as const;
+
+  // City subdomain only: redirect long cost URL to short (e.g. /birmingham-al/storm-damage-roof-repair/cost-calculator → /storm-damage-roof-repair/cost-calculator)
+  if (!isStateSubdomain && subdomain && pathSegments.length === 3 && pathSegments[0].toLowerCase() === subdomain.toLowerCase() && serviceSlugs.includes(pathSegments[1]) && costPages.includes(pathSegments[2] as typeof costPages[number])) {
+    const shortPath = `/${pathSegments[1]}/${pathSegments[2]}`;
+    return NextResponse.redirect(new URL(shortPath, request.url), 301);
+  }
+
+  // City subdomain only: rewrite short cost URL to internal long path so [cityState]/[service]/cost-calculator|cost still works
+  if (!isStateSubdomain && subdomain && pathSegments.length === 2 && serviceSlugs.includes(pathSegments[0]) && costPages.includes(pathSegments[1] as typeof costPages[number])) {
+    url.pathname = `/${subdomain}/${pathSegments[0]}/${pathSegments[1]}`;
+    return NextResponse.rewrite(url);
+  }
+
   // If trying to access main domain service page directly on sub-domain, redirect to appropriate version
   if (pathSegments.length === 1 && serviceSlugs.includes(pathSegments[0])) {
     if (isStateSubdomain) {

@@ -136,7 +136,7 @@ ${cityEntries.join('\n')}
   ].join('\n')
   
   // Service pages for this subdomain
-  const servicePages = serviceSlugs.map(service => 
+  const servicePages = serviceSlugs.map(service =>
     `  <url>
     <loc>${baseUrl}/${service}</loc>
     <lastmod>${currentDate}</lastmod>
@@ -144,11 +144,28 @@ ${cityEntries.join('\n')}
     <priority>0.7</priority>
   </url>`
   ).join('\n')
-  
+
+  // Cost and cost-calculator pages (short URLs per service)
+  const costPages = serviceSlugs.flatMap((service) => [
+    `  <url>
+    <loc>${baseUrl}/${service}/cost-calculator</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>`,
+    `  <url>
+    <loc>${baseUrl}/${service}/cost</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>`
+  ]).join('\n')
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${mainPages}
 ${servicePages}
+${costPages}
 </urlset>`
 
   return new NextResponse(sitemap, {

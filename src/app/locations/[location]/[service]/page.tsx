@@ -1,12 +1,13 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import { headers } from 'next/headers';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import servicesData from '@/data/services.json';
 import imagesData from '@/data/images.json';
 import FloatingCTA from '@/components/FloatingCTA';
-import { getLocationById, getLocationZipCodes, getNearbyLocations, getExtendedServiceContent, replacePlaceholders } from '@/utils/content';
+import { getLocationById, getLocationZipCodes, getNearbyLocations, getExtendedServiceContent, replacePlaceholders, getDomain } from '@/utils/content';
 import { buildDynamicHeroHeader, buildDynamicHeroSubtextLines, buildHeroSubtext, buildIntroContent } from '@/lib/heroSubtext';
 import type { Metadata } from 'next';
 import LocationServiceGrid from '@/components/LocationServiceGrid';
@@ -134,6 +135,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
     state: safeLocation.state,
     phone: safeLocation.phone,
   });
+
+  const host = (await headers()).get('host') || '';
+  const subdomain = host.includes('.') ? host.split('.')[0]?.toLowerCase() : '';
+  const isSameCitySubdomain = subdomain === safeLocation.id.toLowerCase();
+  const costCalculatorHref = isSameCitySubdomain
+    ? `/${serviceSlug}/cost-calculator`
+    : `https://${safeLocation.id}.${getDomain()}/${serviceSlug}/cost-calculator`;
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900">
@@ -459,7 +467,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <h3 className="text-2xl font-bold text-[#1e3a5f] mb-4">Planning a Budget?</h3>
           <p className="text-gray-600 mb-8">Get a detailed cost estimate for {serviceInfo.title} in {safeLocation.name} with our interactive calculator.</p>
           <Link
-            href={`/${safeLocation.id}/${serviceSlug}/cost-calculator`}
+            href={costCalculatorHref}
             className="inline-flex items-center font-bold text-[#d97706] hover:text-[#b45309] text-lg hover:underline transition"
           >
             Calculate {serviceInfo.title} Cost in {safeLocation.name} →

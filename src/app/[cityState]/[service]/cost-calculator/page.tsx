@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import { headers } from 'next/headers';
 import { LOCATIONS, getServiceCostConfig, getCityFromSlug } from '@/lib/cost-data';
 import { getCostCalculatorPageSEOFromFile } from '@/lib/seo-server';
+import { getDomain } from '@/utils/content';
 import servicesData from '@/data/services.json';
 import CostCalculator from '@/components/cost/CostCalculator';
 import PriceTierCards from '@/components/cost/PriceTierCards';
@@ -38,12 +40,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     if (!location || !service) return {};
 
+    const host = (await headers()).get('host') || '';
     const seo = getCostCalculatorPageSEOFromFile(
         location.city,
         location.state,
         cityState,
         service.title,
-        serviceSlug
+        serviceSlug,
+        { host }
     );
 
     return {
@@ -62,6 +66,11 @@ export default async function CostPage({ params }: PageProps) {
     if (!location || !service) {
         notFound();
     }
+
+    const host = (await headers()).get('host') || '';
+    const domain = getDomain();
+    const subdomain = host.includes('.') ? host.split('.')[0]?.toLowerCase() : '';
+    const isThisCitySubdomain = subdomain && subdomain === cityState.toLowerCase();
 
     const costConfig = getServiceCostConfig(serviceSlug) ?? {
         baseCostPerSq: { low: 450, high: 850 }
@@ -217,15 +226,20 @@ export default async function CostPage({ params }: PageProps) {
                 <div className="max-w-7xl mx-auto text-center">
                     <p className="text-gray-500 font-bold uppercase tracking-wider text-sm mb-6">Serving All of {location.state}</p>
                     <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
-                        {LOCATIONS.map(l => (
-                            <Link
-                                key={l.slug}
-                                href={`/${l.slug}/${serviceSlug}/cost-calculator`}
-                                className="hover:text-[#d97706] hover:underline transition"
-                            >
-                                {l.city} {service.title} Cost
-                            </Link>
-                        ))}
+                        {LOCATIONS.map(l => {
+                            const href = (isThisCitySubdomain && l.slug === cityState)
+                                ? `/${serviceSlug}/cost-calculator`
+                                : `https://${l.slug}.${domain}/${serviceSlug}/cost-calculator`;
+                            return (
+                                <Link
+                                    key={l.slug}
+                                    href={href}
+                                    className="hover:text-[#d97706] hover:underline transition"
+                                >
+                                    {l.city} {service.title} Cost
+                                </Link>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
