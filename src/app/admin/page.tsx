@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
-import LazyImage from '@/components/LazyImage';
+import AdminImagePlaceholder from '@/components/admin/AdminImagePlaceholder';
 import ServiceImageManager from '@/components/admin/ServiceImageManager';
 import ContentEditor from '@/components/admin/ContentEditor';
 import SEOEditor from '@/components/admin/SEOEditor';
@@ -84,6 +84,11 @@ export default function AdminDashboard() {
     const [newImageCategory, setNewImageCategory] = useState('gallery.projects');
     const [bulkUrls, setBulkUrls] = useState('');
     const [bulkCategory, setBulkCategory] = useState('gallery.projects');
+
+    // Unused images (duplicates) state
+    const [unusedCount, setUnusedCount] = useState<number | null>(null);
+    const [unusedLoading, setUnusedLoading] = useState(false);
+    const [removeUnusedLoading, setRemoveUnusedLoading] = useState(false);
 
     // Service images state
     const [services, setServices] = useState<Service[]>([]);
@@ -680,6 +685,42 @@ export default function AdminDashboard() {
         }
     };
 
+    const checkUnusedImages = async () => {
+        setUnusedLoading(true);
+        setUnusedCount(null);
+        try {
+            const res = await fetch('/api/admin/images/unused');
+            const data = await res.json();
+            if (data.success) setUnusedCount(data.count ?? 0);
+        } catch {
+            setMessage({ type: 'error', text: 'Failed to check for unused images' });
+        } finally {
+            setUnusedLoading(false);
+        }
+    };
+
+    const removeUnusedImages = async () => {
+        if (unusedCount === null || unusedCount === 0) return;
+        if (!confirm(`Remove ${unusedCount} duplicate image(s) from the gallery? This cannot be undone (a backup will be saved).`)) return;
+        setRemoveUnusedLoading(true);
+        setMessage(null);
+        try {
+            const res = await fetch('/api/admin/images/unused', { method: 'POST' });
+            const data = await res.json();
+            if (data.success) {
+                setMessage({ type: 'success', text: data.message || `Removed ${data.removed} image(s).` });
+                setUnusedCount(0);
+                loadImagesData();
+            } else {
+                setMessage({ type: 'error', text: data.error || 'Failed to remove' });
+            }
+        } catch {
+            setMessage({ type: 'error', text: 'Failed to remove unused images' });
+        } finally {
+            setRemoveUnusedLoading(false);
+        }
+    };
+
     // Delete an image from gallery
     const deleteGalleryImage = async (categoryPath: string, imageIndex: number) => {
         if (!confirm('Are you sure you want to delete this image?')) return;
@@ -1044,15 +1085,9 @@ export default function AdminDashboard() {
                             </div>
                             {newImageUrl && (
                                 <div className="mt-4">
-                                    <p className="text-sm text-gray-600 mb-2">Preview:</p>
+                                    <p className="text-sm text-gray-600 mb-2">URL added (no preview to save bandwidth):</p>
                                     <div className="relative w-48 h-32 rounded-lg overflow-hidden border border-gray-200">
-                                        <LazyImage
-                                            src={newImageUrl}
-                                            alt="Preview"
-                                            fill
-                                            className="object-cover"
-                                            priority
-                                        />
+                                        <AdminImagePlaceholder url={newImageUrl} alt="New image" fill />
                                     </div>
                                 </div>
                             )}
@@ -1122,6 +1157,43 @@ export default function AdminDashboard() {
                             </div>
                         </div>
 
+                        {/* Bulk remove unused (duplicate) images */}
+                        <div className="bg-white rounded-xl shadow-md p-6">
+                            <h2 className="text-xl font-bold text-gray-800 mb-2">🧹 Bulk Remove Unused Images</h2>
+                            <p className="text-gray-600 mb-4 text-sm">
+                                Removes duplicate image entries (same URL appearing more than once in Hero Gallery or Gallery categories). No requests are made to the image server; only the JSON is cleaned.
+                            </p>
+                            <div className="flex flex-wrap items-center gap-3">
+                                <button
+                                    type="button"
+                                    onClick={checkUnusedImages}
+                                    disabled={unusedLoading}
+                                    className="bg-gray-700 hover:bg-gray-800 disabled:bg-gray-400 text-white font-medium py-2 px-4 rounded-lg transition"
+                                >
+                                    {unusedLoading ? 'Checking…' : 'Check for duplicates'}
+                                </button>
+                                {unusedCount !== null && (
+                                    <>
+                                        <span className="text-gray-600 text-sm">
+                                            {unusedCount === 0
+                                                ? 'No duplicate images found.'
+                                                : `${unusedCount} duplicate image(s) can be removed.`}
+                                        </span>
+                                        {unusedCount > 0 && (
+                                            <button
+                                                type="button"
+                                                onClick={removeUnusedImages}
+                                                disabled={removeUnusedLoading}
+                                                className="bg-red-600 hover:bg-red-700 disabled:bg-red-400 text-white font-medium py-2 px-4 rounded-lg transition"
+                                            >
+                                                {removeUnusedLoading ? 'Removing…' : `Remove ${unusedCount} unused`}
+                                            </button>
+                                        )}
+                                    </>
+                                )}
+                            </div>
+                        </div>
+
                         {/* Manage Gallery Images */}
                         <div className="bg-white rounded-xl shadow-md p-6">
                             <h2 className="text-xl font-bold text-gray-800 mb-4">🗂️ Manage Gallery Images</h2>
@@ -1133,12 +1205,11 @@ export default function AdminDashboard() {
                                 <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
                                     {((imagesData as { heroGallery?: ImageItem[] })?.heroGallery || []).map((img, idx) => (
                                         <div key={idx} className="relative group aspect-video rounded-lg overflow-hidden border border-gray-200">
-                                            <LazyImage
-                                                src={img.url}
+                                            <AdminImagePlaceholder
+                                                url={img.url}
                                                 alt={img.alt || 'Hero image'}
                                                 fill
-                                                className="object-cover"
-                                                sizes="150px"
+                                                size="sm"
                                             />
                                             <button
                                                 onClick={() => deleteGalleryImage('heroGallery', idx)}
@@ -1158,12 +1229,11 @@ export default function AdminDashboard() {
                                     <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
                                         {section.images.map((img, idx) => (
                                             <div key={idx} className="relative group aspect-video rounded-lg overflow-hidden border border-gray-200">
-                                                <LazyImage
-                                                    src={img.url}
+                                                <AdminImagePlaceholder
+                                                    url={img.url}
                                                     alt={img.alt || 'Gallery image'}
                                                     fill
-                                                    className="object-cover"
-                                                    sizes="150px"
+                                                    size="sm"
                                                 />
                                                 <button
                                                     onClick={() => deleteGalleryImage(section.key, idx)}
@@ -1193,12 +1263,11 @@ export default function AdminDashboard() {
                             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 max-h-64 overflow-y-auto p-2 bg-gray-50 rounded-lg">
                                 {allGalleryImages.map((img, idx) => (
                                     <div key={idx} className="relative aspect-square rounded-lg overflow-hidden border-2 border-gray-200 hover:border-[#d97706] transition cursor-pointer group">
-                                        <LazyImage
-                                            src={img.url}
+                                        <AdminImagePlaceholder
+                                            url={img.url}
                                             alt={img.alt || 'Gallery image'}
                                             fill
-                                            className="object-cover"
-                                            sizes="100px"
+                                            size="sm"
                                         />
                                         <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                                             <span className="text-white text-xs text-center px-1">{img.alt?.substring(0, 30) || 'Image'}</span>
@@ -1217,12 +1286,11 @@ export default function AdminDashboard() {
                                         <div key={imageKey} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                                             <div className="relative aspect-video rounded-lg overflow-hidden mb-3 bg-gray-200">
                                                 {image.url ? (
-                                                    <LazyImage
-                                                        src={image.url}
+                                                    <AdminImagePlaceholder
+                                                        url={image.url}
                                                         alt={image.alt || imageKey}
                                                         fill
-                                                        className="object-cover"
-                                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                                        size="sm"
                                                     />
                                                 ) : (
                                                     <div className="absolute inset-0 flex items-center justify-center text-gray-400">
@@ -1259,12 +1327,11 @@ export default function AdminDashboard() {
                             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                                 {(imagesData as { heroGallery?: ImageItem[] })?.heroGallery?.map((img, idx) => (
                                     <div key={idx} className="relative aspect-video rounded-lg overflow-hidden border-2 border-gray-200">
-                                        <LazyImage
-                                            src={img.url}
+                                        <AdminImagePlaceholder
+                                            url={img.url}
                                             alt={img.alt || `Hero image ${idx + 1}`}
                                             fill
-                                            className="object-cover"
-                                            sizes="200px"
+                                            size="sm"
                                         />
                                         <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-xs p-2 truncate">
                                             {idx + 1}. {img.alt?.substring(0, 25) || 'Hero image'}
@@ -1392,12 +1459,11 @@ export default function AdminDashboard() {
                                         disabled={saving}
                                         className="relative aspect-video rounded-lg overflow-hidden border-2 border-gray-200 hover:border-[#d97706] transition group"
                                     >
-                                        <LazyImage
-                                            src={img.url}
+                                        <AdminImagePlaceholder
+                                            url={img.url}
                                             alt={img.alt || 'Gallery image'}
                                             fill
-                                            className="object-cover"
-                                            sizes="200px"
+                                            size="sm"
                                         />
                                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                                             <span className="bg-[#d97706] text-white px-4 py-2 rounded-lg font-medium">

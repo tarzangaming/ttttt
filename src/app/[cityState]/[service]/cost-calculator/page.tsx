@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { headers } from 'next/headers';
-import { LOCATIONS, getServiceCostConfig, getCityFromSlug } from '@/lib/cost-data';
+import { getServiceCostConfig, getCityFromSlug } from '@/lib/cost-data';
 import { getCostCalculatorPageSEOFromFile } from '@/lib/seo-server';
-import { getDomain } from '@/utils/content';
+import { getDomain, getAllLocations } from '@/utils/content';
 import servicesData from '@/data/services.json';
 import CostCalculator from '@/components/cost/CostCalculator';
 import PriceTierCards from '@/components/cost/PriceTierCards';
@@ -20,17 +20,17 @@ interface PageProps {
     }>;
 }
 
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
-    const paths = [];
-    for (const location of LOCATIONS) {
-        for (const service of servicesData.services) {
-            paths.push({
-                cityState: location.slug,
-                service: service.slug
-            });
+    const locations = getAllLocations();
+    const paths: { cityState: string; service: string }[] = [];
+    for (const loc of locations) {
+        for (const svc of servicesData.services) {
+            paths.push({ cityState: loc.id, service: svc.slug });
         }
     }
-    return paths.slice(0, 50);
+    return paths.slice(0, 200);
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -226,20 +226,23 @@ export default async function CostPage({ params }: PageProps) {
                 <div className="max-w-7xl mx-auto text-center">
                     <p className="text-gray-500 font-bold uppercase tracking-wider text-sm mb-6">Serving All of {location.state}</p>
                     <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
-                        {LOCATIONS.map(l => {
-                            const href = (isThisCitySubdomain && l.slug === cityState)
-                                ? `/${serviceSlug}/cost-calculator`
-                                : `https://${l.slug}.${domain}/${serviceSlug}/cost-calculator`;
-                            return (
-                                <Link
-                                    key={l.slug}
-                                    href={href}
-                                    className="hover:text-[#d97706] hover:underline transition"
-                                >
-                                    {l.city} {service.title} Cost
-                                </Link>
-                            );
-                        })}
+                        {getAllLocations()
+                            .filter(l => l.state === location.state)
+                            .slice(0, 24)
+                            .map(l => {
+                                const href = (isThisCitySubdomain && l.id === cityState)
+                                    ? `/${serviceSlug}/cost-calculator`
+                                    : `https://${l.id}.${domain}/${serviceSlug}/cost-calculator`;
+                                return (
+                                    <Link
+                                        key={l.id}
+                                        href={href}
+                                        className="hover:text-[#d97706] hover:underline transition"
+                                    >
+                                        {l.name} {service.title} Cost
+                                    </Link>
+                                );
+                            })}
                     </div>
                 </div>
             </section>

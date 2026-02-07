@@ -145,27 +145,21 @@ ${cityEntries.join('\n')}
   </url>`
   ).join('\n')
 
-  // Cost and cost-calculator pages (short URLs per service)
-  const costPages = serviceSlugs.flatMap((service) => [
+  // Cost-calculator pages only (short URLs per service)
+  const costCalculatorPages = serviceSlugs.map((service) =>
     `  <url>
     <loc>${baseUrl}/${service}/cost-calculator</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
-  </url>`,
-    `  <url>
-    <loc>${baseUrl}/${service}/cost</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
   </url>`
-  ]).join('\n')
+  ).join('\n')
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${mainPages}
 ${servicePages}
-${costPages}
+${costCalculatorPages}
 </urlset>`
 
   return new NextResponse(sitemap, {

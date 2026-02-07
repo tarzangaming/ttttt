@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import LazyImage from '@/components/LazyImage';
+import AdminImagePlaceholder from '@/components/admin/AdminImagePlaceholder';
 
 interface Service {
     slug: string;
@@ -150,15 +150,14 @@ export default function ServiceImageManager({
                                             </div>
                                         </div>
 
-                                        {/* Current Image Preview */}
+                                        {/* Current image (no preview to save bandwidth) */}
                                         <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-100 mb-3">
                                             {currentImage ? (
-                                                <LazyImage
-                                                    src={currentImage.url}
+                                                <AdminImagePlaceholder
+                                                    url={currentImage.url}
                                                     alt={currentImage.alt}
                                                     fill
-                                                    className="object-cover"
-                                                    sizes="300px"
+                                                    size="sm"
                                                 />
                                             ) : (
                                                 <div className="absolute inset-0 flex items-center justify-center text-gray-400">
@@ -223,12 +222,11 @@ export default function ServiceImageManager({
                                         disabled={saving}
                                         className="relative aspect-video rounded-lg overflow-hidden border-2 border-gray-200 hover:border-[#d97706] transition group disabled:opacity-50"
                                     >
-                                        <LazyImage
-                                            src={img.url}
+                                        <AdminImagePlaceholder
+                                            url={img.url}
                                             alt={img.alt}
                                             fill
-                                            className="object-cover"
-                                            sizes="200px"
+                                            size="sm"
                                         />
                                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition flex items-center justify-center">
                                             <span className="text-white opacity-0 group-hover:opacity-100 font-bold text-sm">
