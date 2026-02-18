@@ -3,6 +3,9 @@ import { headers } from 'next/headers'
 import servicesData from '@/data/services.json'
 import { getDomain, getAllStates, getAllLocations } from '@/utils/content'
 
+// Cache sitemap for 24 hours to reduce requests
+export const revalidate = 86400; // 24 hours
+
 export async function GET() {
   const headersList = await headers()
   const host = headersList.get('host') || ''
@@ -51,6 +54,7 @@ ${stateEntries.join('\n')}
     return new NextResponse(sitemap, {
       headers: {
         'Content-Type': 'application/xml',
+        'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200', // Cache for 24h
       },
     })
   }
@@ -100,6 +104,7 @@ ${cityEntries.join('\n')}
     return new NextResponse(stateSitemap, {
       headers: {
         'Content-Type': 'application/xml',
+        'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200', // Cache for 24h
       },
     })
   }
@@ -145,15 +150,29 @@ ${cityEntries.join('\n')}
   </url>`
   ).join('\n')
 
-  // Cost-calculator pages only (short URLs per service)
-  const costCalculatorPages = serviceSlugs.map((service) =>
-    `  <url>
+  // Cost-calculator pages - only top 10 most important services to reduce sitemap size
+  const topServices = [
+    'roof-installation',
+    'roof-repair',
+    'roof-replacement',
+    'roof-leak-repair',
+    'storm-damage-roof-repair',
+    'emergency-roof-repair',
+    'gutter-installation',
+    'gutter-repair',
+    'siding-installation',
+    'commercial-roofing'
+  ];
+  const costCalculatorPages = serviceSlugs
+    .filter(service => topServices.includes(service))
+    .map((service) =>
+      `  <url>
     <loc>${baseUrl}/${service}/cost-calculator</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>`
-  ).join('\n')
+    ).join('\n')
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

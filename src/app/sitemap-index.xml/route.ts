@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server'
 
+// Cache sitemap index for 24 hours
+export const revalidate = 86400;
+
 export async function GET() {
   const currentDate = new Date().toISOString()
 
@@ -18,6 +21,7 @@ export async function GET() {
   return new NextResponse(sitemapIndex, {
     headers: {
       'Content-Type': 'application/xml',
+      'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200',
     },
   })
 }

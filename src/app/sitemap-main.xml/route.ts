@@ -5,6 +5,9 @@ import costGuidesData from '@/data/cost-guides.json'
 
 const DOMAIN = 'https://bennettconstructionandroofing.com'
 
+// Cache sitemap for 24 hours to reduce requests
+export const revalidate = 86400; // 24 hours
+
 export async function GET() {
   const currentDate = new Date().toISOString()
 
@@ -122,6 +125,7 @@ ${statePages}
   return new NextResponse(sitemap, {
     headers: {
       'Content-Type': 'application/xml',
+      'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200', // Cache for 24h
     },
   })
 }

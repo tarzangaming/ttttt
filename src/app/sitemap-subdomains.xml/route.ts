@@ -3,6 +3,9 @@ import { getAllLocations } from '@/utils/content'
 
 const DOMAIN = 'bennettconstructionandroofing.com'
 
+// Cache subdomains sitemap for 24 hours
+export const revalidate = 86400;
+
 export async function GET() {
   const currentDate = new Date().toISOString()
 
@@ -35,6 +38,7 @@ ${stateSitemaps}
   return new NextResponse(sitemapIndex, {
     headers: {
       'Content-Type': 'application/xml',
+      'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200',
     },
   })
 }
