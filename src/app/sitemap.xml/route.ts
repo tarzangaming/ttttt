@@ -13,7 +13,7 @@ export async function GET() {
   const protocol = headersList.get('x-forwarded-proto') || 'https'
   const baseUrl = `${protocol}://${host}`
 
-  // Main domain: serve competitor-style urlset (homepage + state subdomains)
+  // Main domain: homepage + key internal pages + state subdomains
   if (!host || host.startsWith('www.') || host.split('.').length <= 2) {
     const domain = getDomain()
     const base = `https://${domain}`
@@ -24,6 +24,65 @@ export async function GET() {
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>`
+
+    // Important internal pages on the main domain
+    const mainInternalPages = [
+      `  <url>
+    <loc>${base}/services</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`,
+      `  <url>
+    <loc>${base}/about</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+      `  <url>
+    <loc>${base}/contact</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+      `  <url>
+    <loc>${base}/locations</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`,
+      `  <url>
+    <loc>${base}/states</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`,
+      `  <url>
+    <loc>${base}/cost-guides</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+      `  <url>
+    <loc>${base}/financing</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`,
+    ]
+
+    // Main-domain service detail pages
+    const allServices = (servicesData as { services: { slug: string }[] }).services
+    const mainServicePages = allServices
+      .map(
+        (service) => `  <url>
+    <loc>${base}/services/${service.slug}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+      )
+      .join('\n')
 
     const states = getAllStates()
     const stateEntries = states.flatMap((state) => {
@@ -48,7 +107,9 @@ export async function GET() {
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${mainEntry}
+${mainInternalPages.join('\n')}
 ${stateEntries.join('\n')}
+${mainServicePages}
 </urlset>`
 
     return new NextResponse(sitemap, {
@@ -59,7 +120,7 @@ ${stateEntries.join('\n')}
     })
   }
 
-  // State subdomain: competitor-style urlset (state homepage + cities in state)
+  // State subdomain: state homepage + important internal pages + cities in state
   const domain = getDomain()
   const subdomain = host.split('.')[0]?.toLowerCase() || ''
   const stateCodes = new Set(getAllStates().map((s) => s.code.toLowerCase()))
@@ -72,6 +133,28 @@ ${stateEntries.join('\n')}
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>`
+
+    // State-level internal pages (about, contact, services)
+    const stateMainPages = [
+      `  <url>
+    <loc>${stateBase}/services</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>`,
+      `  <url>
+    <loc>${stateBase}/about</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+      `  <url>
+    <loc>${stateBase}/contact</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+    ]
 
     const allLocations = getAllLocations()
     const citiesInState = allLocations.filter(
@@ -95,10 +178,25 @@ ${stateEntries.join('\n')}
       ]
     })
 
+    // State-level service detail pages (e.g. /roof-repair on the state subdomain)
+    const allServices = (servicesData as { services: { slug: string }[] }).services
+    const stateServicePages = allServices
+      .map(
+        (service) => `  <url>
+    <loc>${stateBase}/${service.slug}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`,
+      )
+      .join('\n')
+
     const stateSitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${stateEntry}
+${stateMainPages.join('\n')}
 ${cityEntries.join('\n')}
+${stateServicePages}
 </urlset>`
 
     return new NextResponse(stateSitemap, {

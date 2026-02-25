@@ -23,17 +23,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const { slug } = await params;
     const guide = guides.find((g) => g.slug === slug);
 
-    if (!guide) {
-        return {
-            title: 'Guide Not Found',
-        };
-    }
+    if (!guide) return {};
 
+        title: seo.title,
+        description: seo.description,
+        title: seo.title,
+        description: seo.description,
+        title: seo.title,
+        description: seo.description,
     const seo = getCostGuideSEOFromFile(slug, guide.title, guide.description);
 
     return {
-        title: seo.title,
-        description: seo.description,
         alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
         openGraph: { title: seo.title, description: seo.description },
     };

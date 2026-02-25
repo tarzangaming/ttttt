@@ -12,19 +12,29 @@ type ServiceImageKey = keyof typeof imagesData.images.services;
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('services');
+
   if (!seo) {
     return {
       title: 'Our Services | Bennett Construction & Roofing',
-      description: 'Explore our full range of roofing, siding, gutter, and construction services.',
-      alternates: { canonical: 'https://bennettconstructionandroofing.com/services' },
+      description:
+        'Explore roofing, exterior, and construction services from Bennett Construction & Roofing.',
+      alternates: {
+        canonical: 'https://bennettconstructionandroofing.com/services',
+      },
     };
   }
+
   return {
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords,
     alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
-    openGraph: { title: seo.title, description: seo.description, type: 'website' },
+    openGraph: {
+      title: seo.title,
+      description: seo.description,
+      type: 'website',
+      url: seo.canonical ?? 'https://bennettconstructionandroofing.com/services',
+    },
   };
 }
 

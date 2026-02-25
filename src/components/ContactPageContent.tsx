@@ -33,11 +33,10 @@ export default function ContactPageContent() {
         </div>
       </section>
 
-      {/* 2. CONTACT GRID */}
+      {/* 2. CONTACT INFO */}
       <section className="py-20 px-4 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16">
-
-          {/* LEFT: INFO */}
+        <div className="grid lg:grid-cols-1 gap-16">
+          {/* INFO */}
           <div>
             <h2 className="text-3xl font-bold text-[#1e3a5f] mb-8">Get In Touch</h2>
 
@@ -73,58 +72,15 @@ export default function ContactPageContent() {
             </div>
 
             <div className="mt-12 bg-gray-50 p-6 rounded-xl border border-gray-200">
-              <h4 className="font-bold text-[#1e3a5f] mb-2">Regional Offices?</h4>
+              <h4 className="font-bold text-[#1e3a5f] mb-2">Prefer to Talk to a Real Person?</h4>
               <p className="text-gray-600 text-sm">
-                We have local project managers in every state we serve. Contact us to be connected with your local team.
+                Call our national service line at{' '}
+                <a href="tel:8662891750" className="font-bold text-[#d97706] hover:underline">
+                  (866) 289-1750
+                </a>{' '}
+                to be connected with your local project manager.
               </p>
             </div>
-          </div>
-
-          {/* RIGHT: FORM */}
-          <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-            <h3 className="text-2xl font-bold text-[#1e3a5f] mb-6">Request Free Estimate</h3>
-            <form className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-1">First Name</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#d97706] outline-none" placeholder="John" />
-                </div>
-                <div>
-                  <label className="block text-sm font-bold text-gray-700 mb-1">Last Name</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#d97706] outline-none" placeholder="Doe" />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1">Phone Number</label>
-                <input type="tel" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#d97706] outline-none" placeholder="(555) 123-4567" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1">Zip Code</label>
-                <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#d97706] outline-none" placeholder="12345" />
-              </div>
-
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1">Service Needed</label>
-                <select className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#d97706] outline-none">
-                  <option>Roof Replacement</option>
-                  <option>Roof Repair</option>
-                  <option>Commercial Roofing</option>
-                  <option>Storm Damage</option>
-                  <option>Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-1">Message (Optional)</label>
-                <textarea className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#d97706] outline-none h-32" placeholder="Tell us about your project..."></textarea>
-              </div>
-
-              <button type="button" className="w-full bg-[#d97706] hover:bg-[#b45309] text-white font-bold py-4 rounded-xl text-lg transition shadow-lg">
-                Get Free Estimate
-              </button>
-            </form>
           </div>
         </div>
       </section>

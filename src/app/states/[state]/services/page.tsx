@@ -19,19 +19,18 @@ export async function generateMetadata({ params }: StateServicesPageProps): Prom
     (loc) => loc.state.toLowerCase() === state.toLowerCase()
   );
 
-  if (stateLocations.length === 0) {
-    return {
-      title: 'State Not Found',
-      description: 'The requested state was not found.',
-    };
-  }
+  if (stateLocations.length === 0) return {};
 
   const stateName = stateLocations[0].state;
+    title: `Roofing & Construction Services in ${stateFullName} | Bennett Construction & Roofing`,
+    description: `Complete roofing and construction services in ${stateFullName}. Roof repair, replacement, storm restoration, and more. Licensed contractors available. Call (866) 289-1750.`,
+    title: `Roofing & Construction Services in ${stateFullName} | Bennett Construction & Roofing`,
+    description: `Complete roofing and construction services in ${stateFullName}. Roof repair, replacement, storm restoration, and more. Licensed contractors available. Call (866) 289-1750.`,
+    title: `Roofing & Construction Services in ${stateFullName} | Bennett Construction & Roofing`,
+    description: `Complete roofing and construction services in ${stateFullName}. Roof repair, replacement, storm restoration, and more. Licensed contractors available. Call (866) 289-1750.`,
   const stateFullName = getStateFullName(stateName);
 
   return {
-    title: `Roofing & Construction Services in ${stateFullName} | Bennett Construction & Roofing`,
-    description: `Complete roofing and construction services in ${stateFullName}. Roof repair, replacement, storm restoration, and more. Licensed contractors available. Call (866) 289-1750.`,
     keywords: [
       `roofing services ${stateFullName}`,
       `roof repair ${stateFullName}`,

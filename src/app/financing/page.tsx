@@ -10,15 +10,15 @@ import imagesData from '@/data/images.json';
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('financing');
   if (!seo) {
-    return {
-      title: 'Roofing Financing Options | Bennett Construction & Roofing',
-      description: 'Get a new roof for as low as $149/month. 0% Interest options available. Call (866) 289-1750.',
-      alternates: { canonical: 'https://bennettconstructionandroofing.com/financing' },
-    };
-  }
-  return {
+    return { alternates: { canonical: 'https://bennettconstructionandroofing.com/financing' } };
     title: seo.title,
     description: seo.description,
+    title: seo.title,
+    description: seo.description,
+    title: seo.title,
+    description: seo.description,
+  }
+  return {
     keywords: seo.keywords,
     alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
     openGraph: { title: seo.title, description: seo.description, type: 'website' },

@@ -1,36 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import imagesData from '@/data/images.json';
 
 export default function FloatingCTA({ phone = '8662891750', locationName = '' }: { phone?: string, locationName?: string }) {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Show CTA only after scrolling down 300px (past hero usually)
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   // Format phone for display
   const displayPhone = `(${phone.slice(0, 3)}) ${phone.slice(3, 6)}-${phone.slice(6)}`;
   const telLink = `tel:${phone.replace(/\D/g, '')}`;
 
   return (
     <>
-      {/* Desktop Floating CTA - Full Banner */}
+      {/* Desktop Floating CTA - Full Banner (always visible) */}
       <div
-        className={`fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-5xl px-4 z-50 hidden md:block transition-all duration-500 ease-in-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'
-          }`}
+        className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-5xl px-4 z-50 hidden md:block transition-all duration-500 ease-in-out translate-y-0 opacity-100"
       >
         <div className="bg-[#d97706] rounded-t-xl shadow-2xl py-4 px-6 flex flex-col sm:flex-row items-center gap-4 text-white border-t border-white/20">
           {/* Left Column - Icon Only */}
@@ -73,10 +55,9 @@ export default function FloatingCTA({ phone = '8662891750', locationName = '' }:
         </div>
       </div>
 
-      {/* Mobile Call Button Only */}
+      {/* Mobile Call Button Only (always visible) */}
       <div
-        className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 w-full px-4 z-50 md:hidden transition-all duration-500 ease-in-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0 pointer-events-none'
-          }`}
+        className="fixed bottom-8 left-1/2 transform -translate-x-1/2 w-full px-4 z-50 md:hidden transition-all duration-500 ease-in-out translate-y-0 opacity-100"
       >
         <div className="flex justify-center">
           <a

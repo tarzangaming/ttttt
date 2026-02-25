@@ -16,6 +16,16 @@ export default auth((req) => {
 
   const hostname = request.headers.get('host') || '';
   const url = request.nextUrl;
+  const requestHeaders = new Headers(request.headers);
+
+  function nextWithPath() {
+    requestHeaders.set('x-pathname', url.pathname);
+    return NextResponse.next({ request: { headers: requestHeaders } });
+  }
+  function rewriteWithPath() {
+    requestHeaders.set('x-pathname', url.pathname);
+    return NextResponse.rewrite(url, { request: { headers: requestHeaders } });
+  }
 
   // Redirect www to non-www (canonical = https://bennettconstructionandroofing.com)
   if (hostname === 'www.bennettconstructionandroofing.com') {
@@ -67,12 +77,12 @@ export default auth((req) => {
 
   // If it's www or the root domain, let it go normally
   if (subdomain === 'www' || subdomain === 'bennettconstructionandroofing' || subdomain === 'localhost') {
-    return NextResponse.next();
+    return nextWithPath();
   }
 
   // If no subdomain found, continue normally
   if (!subdomain) {
-    return NextResponse.next();
+    return nextWithPath();
   }
 
   // Handle homepage (/) - rewrite to appropriate page
@@ -82,7 +92,7 @@ export default auth((req) => {
     } else {
       url.pathname = `/locations/${subdomain}`;
     }
-    return NextResponse.rewrite(url);
+    return rewriteWithPath();
   }
 
   // Handle services page (/services) - rewrite to appropriate services page
@@ -92,7 +102,7 @@ export default auth((req) => {
     } else {
       url.pathname = `/locations/${subdomain}/services`;
     }
-    return NextResponse.rewrite(url);
+    return rewriteWithPath();
   }
 
   // Handle about page (/about) - rewrite to appropriate about page
@@ -102,7 +112,7 @@ export default auth((req) => {
     } else {
       url.pathname = `/locations/${subdomain}/about`;
     }
-    return NextResponse.rewrite(url);
+    return rewriteWithPath();
   }
 
   // Handle contact page (/contact) - rewrite to appropriate contact page
@@ -112,7 +122,7 @@ export default auth((req) => {
     } else {
       url.pathname = `/locations/${subdomain}/contact`;
     }
-    return NextResponse.rewrite(url);
+    return rewriteWithPath();
   }
 
   // Block access to main domain service pages on sub-domains to prevent duplicate content
@@ -125,7 +135,7 @@ export default auth((req) => {
     } else {
       url.pathname = `/locations/${subdomain}/services`;
     }
-    return NextResponse.rewrite(url);
+    return rewriteWithPath();
   }
 
   // Construction/Roofing service slugs (must match services.json for subdomain rewrites)
@@ -169,7 +179,7 @@ export default auth((req) => {
   // City subdomain only: rewrite short cost-calculator URL to internal long path
   if (!isStateSubdomain && subdomain && pathSegments.length === 2 && serviceSlugs.includes(pathSegments[0]) && pathSegments[1] === 'cost-calculator') {
     url.pathname = `/${subdomain}/${pathSegments[0]}/cost-calculator`;
-    return NextResponse.rewrite(url);
+    return rewriteWithPath();
   }
 
   // If trying to access main domain service page directly on sub-domain, redirect to appropriate version
@@ -179,7 +189,7 @@ export default auth((req) => {
     } else {
       url.pathname = `/locations/${subdomain}/${pathSegments[0]}`;
     }
-    return NextResponse.rewrite(url);
+    return rewriteWithPath();
   }
 
   // Block access to other main domain pages on sub-domains to prevent duplicate content
@@ -204,7 +214,7 @@ export default auth((req) => {
   }
 
   // For all other routes, let them go through normally
-  return NextResponse.next();
+  return nextWithPath();
 });
 
 export const config = {

@@ -58,19 +58,18 @@ export async function generateMetadata({ params }: StatePageProps): Promise<Meta
     (loc) => loc.state.toLowerCase() === state.toLowerCase()
   );
 
-  if (stateLocations.length === 0) {
-    return {
-      title: 'State Not Found',
-      description: 'The requested state was not found.',
-    };
-  }
+  if (stateLocations.length === 0) return {};
 
   const stateName = stateLocations[0].state;
+    title: `Roofing & Construction in ${stateFullName} | Bennett Construction & Roofing`,
+    description: `Expert roofing and construction services in ${stateFullName}. Licensed, experienced, and affordable for roof repair, replacement, siding, gutters, and more! Call (866) 289-1750 for a free estimate.`,
+    title: `Roofing & Construction in ${stateFullName} | Bennett Construction & Roofing`,
+    description: `Expert roofing and construction services in ${stateFullName}. Licensed, experienced, and affordable for roof repair, replacement, siding, gutters, and more! Call (866) 289-1750 for a free estimate.`,
+    title: `Roofing & Construction in ${stateFullName} | Bennett Construction & Roofing`,
+    description: `Expert roofing and construction services in ${stateFullName}. Licensed, experienced, and affordable for roof repair, replacement, siding, gutters, and more! Call (866) 289-1750 for a free estimate.`,
   const stateFullName = getStateFullName(stateName);
 
   return {
-    title: `Roofing & Construction in ${stateFullName} | Bennett Construction & Roofing`,
-    description: `Expert roofing and construction services in ${stateFullName}. Licensed, experienced, and affordable for roof repair, replacement, siding, gutters, and more! Call (866) 289-1750 for a free estimate.`,
     keywords: [
       `roofer ${stateFullName}`,
       `roofing services ${stateFullName}`,

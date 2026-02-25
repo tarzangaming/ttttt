@@ -4,20 +4,34 @@ import { getPageSEOFromFile } from '@/lib/seo-server';
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('about');
+
   if (!seo) {
     return {
-      title: 'About Us | Bennett Construction & Roofing',
-      description: 'Learn about Bennett Construction & Roofing - 25+ years of trusted roofing and construction services across the USA.',
-      alternates: { canonical: 'https://bennettconstructionandroofing.com/about' },
+      title: 'About Bennett Construction & Roofing',
+      description:
+        'Learn more about Bennett Construction & Roofing, our experience, values, and commitment to quality roofing and construction services.',
+      alternates: {
+        canonical: 'https://bennettconstructionandroofing.com/about',
+      },
     };
   }
+
   return {
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords,
     alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
-    openGraph: { title: seo.title, description: seo.description, type: 'website' },
-    twitter: { card: 'summary_large_image', title: seo.title, description: seo.description },
+    openGraph: {
+      title: seo.title,
+      description: seo.description,
+      type: 'website',
+      url: seo.canonical ?? 'https://bennettconstructionandroofing.com/about',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: seo.title,
+      description: seo.description,
+    },
   };
 }
 

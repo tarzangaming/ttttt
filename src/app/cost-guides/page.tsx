@@ -11,16 +11,18 @@ const companyInfo = getCompanyInfo();
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('costGuides');
   if (!seo) {
-    return {
-      title: 'Roofing Cost Guides | Price & Budgeting Resources',
-      description: 'Transparent pricing guides for roofing. Learn about costs for tile, shingle, foam, and metal roof replacement.',
-    };
-  }
-  return {
+    return {};
     title: seo.title,
     description: seo.description,
+    title: seo.title,
+    description: seo.description,
+    title: seo.title,
+    description: seo.description,
+  }
+  return {
     keywords: seo.keywords,
     alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
+    openGraph: { title: seo.title, description: seo.description, type: 'website' },
   };
 }
 

@@ -103,15 +103,9 @@ export default function HomePage() {
               >
                 <div className="absolute inset-0 w-full h-full bg-white/20 transform -translate-x-full skew-x-12 group-hover:translate-x-full transition-transform duration-700"></div>
                 <div className="relative flex items-center justify-center gap-2">
-                  {hero.cta?.primary || 'Get Free Estimate'}
+                  Call (866) 289-1750
                 </div>
               </a>
-              <Link
-                href="/services"
-                className="px-8 py-4 bg-transparent border-2 border-white text-white text-lg font-bold rounded-xl hover:bg-white/10 transition backdrop-blur-sm"
-              >
-                {hero.cta?.secondary || 'Our Services'}
-              </Link>
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-6 text-white/90 text-sm font-medium justify-center md:justify-start">
