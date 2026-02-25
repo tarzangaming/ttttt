@@ -12,8 +12,13 @@ export function getRealIP(request: NextRequest): string {
   const xForwardedFor = request.headers.get('x-forwarded-for');
   const xRealIP = request.headers.get('x-real-ip');
   
-  // Return Cloudflare IP first, then fallback to others
-  return cfConnectingIP || xForwardedFor?.split(',')[0].trim() || xRealIP || request.ip || 'unknown';
+  // Return Cloudflare IP first, then fallback to common proxy headers
+  return (
+    cfConnectingIP ||
+    xForwardedFor?.split(',')[0].trim() ||
+    xRealIP ||
+    'unknown'
+  );
 }
 
 /**
