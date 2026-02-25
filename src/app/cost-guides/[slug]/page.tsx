@@ -25,15 +25,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     if (!guide) return {};
 
-        title: seo.title,
-        description: seo.description,
-        title: seo.title,
-        description: seo.description,
-        title: seo.title,
-        description: seo.description,
     const seo = getCostGuideSEOFromFile(slug, guide.title, guide.description);
 
     return {
+        title: seo.title,
+        description: seo.description,
         alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
         openGraph: { title: seo.title, description: seo.description },
     };

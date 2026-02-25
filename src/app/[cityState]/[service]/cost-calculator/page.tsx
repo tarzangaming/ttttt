@@ -48,15 +48,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         service.title,
         serviceSlug,
         { host }
-        title: seo.title,
-        description: seo.description,
-        title: seo.title,
-        description: seo.description,
-        title: seo.title,
-        description: seo.description,
     );
 
     return {
+        title: seo.title,
+        description: seo.description,
         alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
         openGraph: { title: seo.title, description: seo.description },
     };

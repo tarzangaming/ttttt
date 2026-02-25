@@ -10,15 +10,18 @@ import imagesData from '@/data/images.json';
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('financing');
   if (!seo) {
-    return { alternates: { canonical: 'https://bennettconstructionandroofing.com/financing' } };
-    title: seo.title,
-    description: seo.description,
-    title: seo.title,
-    description: seo.description,
-    title: seo.title,
-    description: seo.description,
+    return {
+      title: 'Roof Financing Options | Bennett Construction & Roofing',
+      description:
+        'Explore roof financing options with flexible payment plans to fit your budget.',
+      alternates: {
+        canonical: 'https://bennettconstructionandroofing.com/financing',
+      },
+    };
   }
   return {
+    title: seo.title,
+    description: seo.description,
     keywords: seo.keywords,
     alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
     openGraph: { title: seo.title, description: seo.description, type: 'website' },

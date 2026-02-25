@@ -22,12 +22,6 @@ export async function generateMetadata({ params }: StateServicesPageProps): Prom
   if (stateLocations.length === 0) return {};
 
   const stateName = stateLocations[0].state;
-    title: `Roofing & Construction Services in ${stateFullName} | Bennett Construction & Roofing`,
-    description: `Complete roofing and construction services in ${stateFullName}. Roof repair, replacement, storm restoration, and more. Licensed contractors available. Call (866) 289-1750.`,
-    title: `Roofing & Construction Services in ${stateFullName} | Bennett Construction & Roofing`,
-    description: `Complete roofing and construction services in ${stateFullName}. Roof repair, replacement, storm restoration, and more. Licensed contractors available. Call (866) 289-1750.`,
-    title: `Roofing & Construction Services in ${stateFullName} | Bennett Construction & Roofing`,
-    description: `Complete roofing and construction services in ${stateFullName}. Roof repair, replacement, storm restoration, and more. Licensed contractors available. Call (866) 289-1750.`,
   const stateFullName = getStateFullName(stateName);
 
   return {

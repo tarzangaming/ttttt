@@ -11,15 +11,15 @@ const companyInfo = getCompanyInfo();
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('costGuides');
   if (!seo) {
-    return {};
-    title: seo.title,
-    description: seo.description,
-    title: seo.title,
-    description: seo.description,
-    title: seo.title,
-    description: seo.description,
+    return {
+      title: 'Roofing Cost Guides | Bennett Construction & Roofing',
+      description:
+        'Transparent, up-to-date roofing cost guides to help you budget for your project.',
+    };
   }
   return {
+    title: seo.title,
+    description: seo.description,
     keywords: seo.keywords,
     alternates: seo.canonical ? { canonical: seo.canonical } : undefined,
     openGraph: { title: seo.title, description: seo.description, type: 'website' },
