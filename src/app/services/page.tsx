@@ -15,11 +15,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!seo) {
     return {
-      title: 'Our Services | Dolomiti Steel Roofing',
+      title: 'Our Services | Dolimiti Steel Roofing',
       description:
-        'Explore roofing, exterior, and construction services from Dolomiti Steel Roofing.',
+        'Explore roofing, exterior, and construction services from Dolimiti Steel Roofing.',
       alternates: {
-        canonical: 'https://dolomitisteelroofing.com/services',
+        canonical: 'https://dolimitisteelroofing.com/services',
       },
     };
   }
@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: seo.title,
       description: seo.description,
       type: 'website',
-      url: seo.canonical ?? 'https://dolomitisteelroofing.com/services',
+      url: seo.canonical ?? 'https://dolimitisteelroofing.com/services',
     },
   };
 }
@@ -119,7 +119,7 @@ export default function ServicesPage() {
             Our Services
           </h1>
           <p className="text-xl opacity-90 max-w-3xl mx-auto">
-            From roof repairs to complete home renovations, Dolomiti Steel Roofing delivers quality craftsmanship on every project.
+            From roof repairs to complete home renovations, Dolimiti Steel Roofing delivers quality craftsmanship on every project.
           </p>
         </div>
       </section>

@@ -17,13 +17,13 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
 
   if (!location) {
     return {
-      title: 'Contact Us | Dolomiti Steel Roofing',
+      title: 'Contact Us | Dolimiti Steel Roofing',
       description: 'Need roofing help? Contact our team today for fast, affordable services.'
     };
   }
 
   return {
-    title: `Contact Roofers in ${location.name} | Dolomiti Steel Roofing`,
+    title: `Contact Roofers in ${location.name} | Dolimiti Steel Roofing`,
     description: `Need roofing or construction help in ${location.name}? Contact our team today for free estimates and 24/7 emergency service. Call ${location.phone || '(866) 289-1750'}.`,
     keywords: [
       `contact roofer ${location.name}`,
@@ -34,14 +34,14 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
       `roofing contractor ${location.name}`,
     ],
     openGraph: {
-      title: `Contact Roofers in ${location.name} | Dolomiti Steel Roofing`,
+      title: `Contact Roofers in ${location.name} | Dolimiti Steel Roofing`,
       description: `Need roofing help in ${location.name}? Contact our team today for fast, affordable services.`,
       type: 'website',
       locale: 'en_US',
-      siteName: 'Dolomiti Steel Roofing'
+      siteName: 'Dolimiti Steel Roofing'
     },
     alternates: {
-      canonical: `https://${location.id}.dolomitisteelroofing.com/contact`
+      canonical: `https://${location.id}.dolimitisteelroofing.com/contact`
     }
   };
 }

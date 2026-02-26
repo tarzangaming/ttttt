@@ -28,20 +28,20 @@ export default auth((req) => {
     return NextResponse.rewrite(url, { request: { headers: requestHeaders } });
   }
 
-  // Redirect www to non-www (canonical = https://dolomitisteelroofing.com)
-  if (hostname === 'www.dolomitisteelroofing.com') {
-    url.hostname = 'dolomitisteelroofing.com';
+  // Redirect www to non-www (canonical = https://dolimitisteelroofing.com)
+  if (hostname === 'www.dolimitisteelroofing.com') {
+    url.hostname = 'dolimitisteelroofing.com';
     return NextResponse.redirect(url, 301); // Permanent redirect
   }
 
   // Redirect /locations/[id] and /locations/[id]/* to location subdomain
-  if (hostname === 'dolomitisteelroofing.com') {
+  if (hostname === 'dolimitisteelroofing.com') {
     const pathParts = url.pathname.split('/').filter(Boolean);
     if (pathParts[0] === 'locations' && pathParts[1]) {
       const locationId = pathParts[1];
       if (isValidSubdomain(locationId)) {
         const subPath = pathParts.slice(2).join('/');
-        url.hostname = `${locationId}.dolomitisteelroofing.com`;
+        url.hostname = `${locationId}.dolimitisteelroofing.com`;
         url.pathname = subPath ? `/${subPath}` : '/';
         return NextResponse.redirect(url, 301);
       }
@@ -51,7 +51,7 @@ export default auth((req) => {
       const stateCode = pathParts[1];
       if (isValidStateCode(stateCode)) {
         const subPath = pathParts.slice(2).join('/');
-        url.hostname = `${stateCode.toLowerCase()}.dolomitisteelroofing.com`;
+        url.hostname = `${stateCode.toLowerCase()}.dolimitisteelroofing.com`;
         url.pathname = subPath ? `/${subPath}` : '/';
         return NextResponse.redirect(url, 301);
       }
@@ -61,9 +61,9 @@ export default auth((req) => {
   // Handle different domain patterns
   let subdomain = '';
 
-  // Handle dolomitisteelroofing.com domain
-  if (hostname.includes('.dolomitisteelroofing.com')) {
-    subdomain = hostname.replace('.dolomitisteelroofing.com', '');
+  // Handle dolimitisteelroofing.com domain
+  if (hostname.includes('.dolimitisteelroofing.com')) {
+    subdomain = hostname.replace('.dolimitisteelroofing.com', '');
   } else if (hostname.includes('localhost')) {
     // For local development, extract subdomain from localhost
     const parts = hostname.split('.');
@@ -77,7 +77,7 @@ export default auth((req) => {
   const isStateSubdomain = stateCodes.includes(subdomain.toLowerCase());
 
   // If it's www or the root domain, let it go normally
-  if (subdomain === 'www' || subdomain === 'dolomitisteelroofing' || subdomain === 'localhost') {
+  if (subdomain === 'www' || subdomain === 'dolimitisteelroofing' || subdomain === 'localhost') {
     return nextWithPath();
   }
 
@@ -202,14 +202,14 @@ export default auth((req) => {
 
   if (pathSegments.length > 0 && blockedPaths.includes(pathSegments[0])) {
     // Redirect to main domain (non-www) for blocked paths on sub-domains
-    url.hostname = 'dolomitisteelroofing.com';
+    url.hostname = 'dolimitisteelroofing.com';
     return NextResponse.redirect(url, 301);
   }
 
   // Handle invalid subdomains - redirect to main domain (non-www)
   if (subdomain && !isStateSubdomain) {
     if (!isValidSubdomain(subdomain)) {
-      url.hostname = 'dolomitisteelroofing.com';
+      url.hostname = 'dolimitisteelroofing.com';
       return NextResponse.redirect(url, 301);
     }
   }

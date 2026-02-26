@@ -9,13 +9,13 @@
       },
       "about": {
         "key": "hero-about",
-        "alt": "Dolomiti Steel Roofing team photo",
+        "alt": "Dolimiti Steel Roofing team photo",
         "url": "https://ik.imagekit.io/roofingusa/53_Construction_crew_in_1_2026024_23537.png?updatedAt=1770207690420",
         "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
       },
       "contact": {
         "key": "hero-contact",
-        "alt": "Contact Dolomiti Steel Roofing",
+        "alt": "Contact Dolimiti Steel Roofing",
         "url": "https://ik.imagekit.io/roofingusa/11_Friendly_roofing_con_1_2026024_22526.png?updatedAt=1770207688439",
         "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
       },
@@ -41,7 +41,7 @@
     "about": {
       "team": {
         "key": "about-team",
-        "alt": "Dolomiti Steel Roofing team at work",
+        "alt": "Dolimiti Steel Roofing team at work",
         "url": "https://ik.imagekit.io/roofingusa/14_Construction_company_1_2026024_22611.png?updatedAt=1770207688367",
         "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
       },
@@ -53,7 +53,7 @@
       },
       "truck": {
         "key": "about-truck",
-        "alt": "Dolomiti Steel Roofing work truck",
+        "alt": "Dolimiti Steel Roofing work truck",
         "url": "https://ik.imagekit.io/roofingusa/56_Construction_company_1_2026024_23624.png?updatedAt=1770207688602",
         "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
       }
@@ -62,7 +62,7 @@
       "projects": [
         {
           "key": "project-1",
-          "alt": "Dolomiti Steel Roofing project",
+          "alt": "Dolimiti Steel Roofing project",
           "url": "https://ik.imagekit.io/roofingusa/34_Roofing_company_hero_1_2026024_23055.png?updatedAt=1770207688909"
         },
         {
@@ -436,21 +436,21 @@
     "defaults": {
       "placeholder": {
         "key": "default-placeholder",
-        "alt": "Dolomiti Steel Roofing",
+        "alt": "Dolimiti Steel Roofing",
         "url": "https://ik.imagekit.io/roofingusa/transparent%20logo.png",
         "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
       },
       "logo": {
         "key": "logo",
-        "alt": "Dolomiti Steel Roofing Logo",
+        "alt": "Dolimiti Steel Roofing Logo",
         "url": "https://ik.imagekit.io/nang9yead/dolimitisteelroofinglogo.png",
-        "placeholder": "https://placehold.co/300x80/1e3a5f/ffffff?text=Dolomiti+Logo"
+        "placeholder": "https://placehold.co/300x80/1e3a5f/ffffff?text=Dolimiti+Logo"
       },
       "logoWhite": {
         "key": "logo-white",
-        "alt": "Dolomiti Steel Roofing Logo",
+        "alt": "Dolimiti Steel Roofing Logo",
         "url": "https://ik.imagekit.io/roofingusa/transparent%20logo.png",
-        "placeholder": "https://placehold.co/300x80/ffffff/1e3a5f?text=Dolomiti+Logo"
+        "placeholder": "https://placehold.co/300x80/ffffff/1e3a5f?text=Dolimiti+Logo"
       }
     },
     "services": {

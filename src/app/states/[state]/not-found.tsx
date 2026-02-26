@@ -9,7 +9,7 @@ export default function StateNotFound() {
   const params = useParams();
   const state = params.state as string;
 
-  const redirectUrl = state ? getStateUrl(state) : 'https://dolomitisteelroofing.com';
+  const redirectUrl = state ? getStateUrl(state) : 'https://dolimitisteelroofing.com';
 
   useEffect(() => {
     const timer = setTimeout(() => {

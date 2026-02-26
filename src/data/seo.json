@@ -1,7 +1,7 @@
 {
   "defaults": {
-    "titleSuffix": " | Dolomiti Steel Roofing",
-    "siteName": "Dolomiti Steel Roofing",
+    "titleSuffix": " | Dolimiti Steel Roofing",
+    "siteName": "Dolimiti Steel Roofing",
     "locale": "en_US",
     "type": "website",
     "twitterCard": "summary_large_image"
@@ -9,7 +9,7 @@
   "pages": {
     "home": {
       "title": "Steel Roof Installation Near Me - Find Metal Roofing Services in USA",
-      "description": "Looking for steel roofing services near you? Dolomiti Steel Roofing provides metal roof repair, replacement, and new steel roof installation across the USA.",
+      "description": "Looking for steel roofing services near you? Dolimiti Steel Roofing provides metal roof repair, replacement, and new steel roof installation across the USA.",
       "keywords": [
         "steel roofing contractor",
         "metal roofing company",
@@ -20,32 +20,32 @@
         "commercial metal roofing",
         "residential steel roofing"
       ],
-      "canonical": "https://dolomitisteelroofing.com"
+      "canonical": "https://dolimitisteelroofing.com"
     },
     "about": {
-      "title": "About Us | Dolomiti Steel Roofing",
-      "description": "Learn about Dolomiti Steel Roofing. Trusted metal and steel roofing specialists delivering durable, energy-efficient roofing systems nationwide.",
+      "title": "About Us | Dolimiti Steel Roofing",
+      "description": "Learn about Dolimiti Steel Roofing. Trusted metal and steel roofing specialists delivering durable, energy-efficient roofing systems nationwide.",
       "keywords": [
-        "about Dolomiti Steel Roofing",
+        "about Dolimiti Steel Roofing",
         "metal roofing company",
         "licensed steel roofing contractor",
         "insured roofer"
       ],
-      "canonical": "https://dolomitisteelroofing.com/about"
+      "canonical": "https://dolimitisteelroofing.com/about"
     },
     "contact": {
-      "title": "Contact Us | Dolomiti Steel Roofing",
-      "description": "Contact Dolomiti Steel Roofing for a free steel roofing estimate. Professional metal roofing services available nationwide.",
+      "title": "Contact Us | Dolimiti Steel Roofing",
+      "description": "Contact Dolimiti Steel Roofing for a free steel roofing estimate. Professional metal roofing services available nationwide.",
       "keywords": [
         "contact metal roofer",
         "steel roofing estimate",
         "metal roof quote",
         "emergency roof repair"
       ],
-      "canonical": "https://dolomitisteelroofing.com/contact"
+      "canonical": "https://dolimitisteelroofing.com/contact"
     },
     "services": {
-      "title": "Steel & Metal Roofing Services | Dolomiti Steel Roofing",
+      "title": "Steel & Metal Roofing Services | Dolimiti Steel Roofing",
       "description": "Explore our full range of steel and metal roofing services. Residential and commercial installations, repairs, and replacements.",
       "keywords": [
         "metal roofing services",
@@ -53,21 +53,21 @@
         "standing seam roofing",
         "commercial metal roofing"
       ],
-      "canonical": "https://dolomitisteelroofing.com/services"
+      "canonical": "https://dolimitisteelroofing.com/services"
     },
     "locations": {
       "title": "Nationwide Steel Roofing Contractor | Serving All 50 States",
-      "description": "Dolomiti Steel Roofing is a trusted nationwide metal roofing contractor serving communities coast to coast with professional steel roof installation and repair.",
+      "description": "Dolimiti Steel Roofing is a trusted nationwide metal roofing contractor serving communities coast to coast with professional steel roof installation and repair.",
       "keywords": [
         "steel roofing contractor",
         "metal roofing locations",
         "roof repair",
         "nationwide roofer"
       ],
-      "canonical": "https://dolomitisteelroofing.com/locations"
+      "canonical": "https://dolimitisteelroofing.com/locations"
     },
     "financing": {
-      "title": "Steel Roofing Financing Options | Dolomiti Steel Roofing",
+      "title": "Steel Roofing Financing Options | Dolimiti Steel Roofing",
       "description": "Flexible financing options for new steel and metal roofs. Affordable monthly payment plans available for homeowners.",
       "keywords": [
         "roof financing",
@@ -75,7 +75,7 @@
         "payment plans",
         "0% financing"
       ],
-      "canonical": "https://dolomitisteelroofing.com/financing"
+      "canonical": "https://dolimitisteelroofing.com/financing"
     },
     "costGuides": {
       "title": "Steel Roofing Cost Guides | Metal Roof Pricing Resources",
@@ -85,39 +85,39 @@
         "steel roof price guide",
         "roof budgeting"
       ],
-      "canonical": "https://dolomitisteelroofing.com/cost-guides"
+      "canonical": "https://dolimitisteelroofing.com/cost-guides"
     }
   },
   "templates": {
     "service": {
-      "title": "{serviceTitle} Services | Dolomiti Steel Roofing",
-      "description": "Professional {serviceTitle} services by Dolomiti Steel Roofing. Licensed, insured, and offering free estimates nationwide.",
-      "canonical": "https://dolomitisteelroofing.com/services/{slug}"
+      "title": "{serviceTitle} Services | Dolimiti Steel Roofing",
+      "description": "Professional {serviceTitle} services by Dolimiti Steel Roofing. Licensed, insured, and offering free estimates nationwide.",
+      "canonical": "https://dolimitisteelroofing.com/services/{slug}"
     },
     "location": {
       "title": "Best Steel Roofing Company in {cityName}, {state} - Metal Roof Installation & Repair",
       "description": "Need a steel roofing contractor in {cityName}, {state}? Serving zip codes {zipCodes}. Expert metal roof installation and repair services.",
-      "canonical": "https://dolomitisteelroofing.com/{locationId}"
+      "canonical": "https://dolimitisteelroofing.com/{locationId}"
     },
     "locationService": {
       "title": "{serviceTitle} in {cityName}, {state} Near Me",
-      "description": "Professional {serviceTitle} in {cityName}, {state}. Serving zip codes {zipCodes} by Dolomiti Steel Roofing. Free estimates available.",
-      "canonical": "https://dolomitisteelroofing.com/{locationId}/{slug}"
+      "description": "Professional {serviceTitle} in {cityName}, {state}. Serving zip codes {zipCodes} by Dolimiti Steel Roofing. Free estimates available.",
+      "canonical": "https://dolimitisteelroofing.com/{locationId}/{slug}"
     },
     "costPage": {
       "title": "{serviceTitle} Cost in {cityName}, {state} ({year} Guide)",
       "description": "How much does {serviceTitle} cost in {cityName}? Calculate estimated prices for your property. Local {year} metal roofing rates available.",
-      "canonical": "https://dolomitisteelroofing.com/{cityState}/{serviceSlug}/cost"
+      "canonical": "https://dolimitisteelroofing.com/{cityState}/{serviceSlug}/cost"
     },
     "costCalculatorPage": {
       "title": "{serviceTitle} Cost Calculator in {cityName}, {state} ({year})",
       "description": "Free {serviceTitle} cost calculator for {cityName}. Get low, average, and high estimates using {year} local steel roofing rates.",
-      "canonical": "https://dolomitisteelroofing.com/{cityState}/{serviceSlug}/cost-calculator"
+      "canonical": "https://dolimitisteelroofing.com/{cityState}/{serviceSlug}/cost-calculator"
     },
     "costGuide": {
       "title": "{title}",
       "description": "{description}",
-      "canonical": "https://dolomitisteelroofing.com/cost-guides/{slug}"
+      "canonical": "https://dolimitisteelroofing.com/cost-guides/{slug}"
     }
   }
 }

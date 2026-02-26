@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: StateServicePageProps): Promi
   const serviceName = getServiceName(service);
 
   return {
-    title: `${serviceName} in ${stateFullName} | Dolomiti Steel Roofing`,
+    title: `${serviceName} in ${stateFullName} | Dolimiti Steel Roofing`,
     description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert roofing contractors for ${serviceName.toLowerCase()} with 25+ years of experience. Call (866) 289-1750!`,
     keywords: [
       `${serviceName.toLowerCase()} ${stateFullName}`,
@@ -46,16 +46,16 @@ export async function generateMetadata({ params }: StateServicePageProps): Promi
       `roof installation ${stateFullName}`
     ],
     openGraph: {
-      title: `${serviceName} in ${stateFullName} | Dolomiti Steel Roofing`,
+      title: `${serviceName} in ${stateFullName} | Dolimiti Steel Roofing`,
       description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert roofing contractors for ${serviceName.toLowerCase()} with 25+ years of experience.`,
       url: getStateUrl(state, service),
-      siteName: 'Dolomiti Steel Roofing',
+      siteName: 'Dolimiti Steel Roofing',
       locale: 'en_US',
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${serviceName} in ${stateFullName} | Dolomiti Steel Roofing`,
+      title: `${serviceName} in ${stateFullName} | Dolimiti Steel Roofing`,
       description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert roofing contractors for ${serviceName.toLowerCase()} with 25+ years of experience.`,
     },
     alternates: {
@@ -140,7 +140,7 @@ export default async function StateServicePage({ params }: StateServicePageProps
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Welcome to <span className="font-bold text-[#1e3a5f]">Dolomiti Steel Roofing</span>,
+              Welcome to <span className="font-bold text-[#1e3a5f]">Dolimiti Steel Roofing</span>,
               your trusted local roofing and construction experts delivering durable, high-quality roofing
               solutions across <span className="font-semibold">{stateFullName}</span> for <span className="font-semibold">{serviceName.toLowerCase()}</span>. We believe
               a roof is more than just a structure—it&apos;s your home&apos;s first line of defense against weather,
@@ -156,7 +156,7 @@ export default async function StateServicePage({ params }: StateServicePageProps
             {/* Testimonial Quote */}
             <div className="bg-[#1e3a5f]/5 border-l-4 border-[#d97706] rounded-r-xl p-6 my-8">
               <p className="text-lg italic text-gray-700 mb-4">
-                &quot;Dolomiti Steel Roofing completely upgraded our roof. The quality, workmanship,
+                &quot;Dolimiti Steel Roofing completely upgraded our roof. The quality, workmanship,
                 and reliability exceeded our expectations—it&apos;s built to last.&quot;
               </p>
               <p className="text-sm font-semibold text-[#1e3a5f]">
@@ -171,14 +171,14 @@ export default async function StateServicePage({ params }: StateServicePageProps
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              At <span className="font-bold text-[#1e3a5f]">Dolomiti Steel Roofing</span>, we combine
+              At <span className="font-bold text-[#1e3a5f]">Dolimiti Steel Roofing</span>, we combine
               premium materials, proven techniques, and local expertise to provide roofing systems that are
               durable, energy-efficient, and visually appealing. From storm protection to long-term performance,
               your peace of mind is always our priority.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-8">
-              Choose <span className="font-bold text-[#1e3a5f]">Dolomiti Steel Roofing</span> for
+              Choose <span className="font-bold text-[#1e3a5f]">Dolimiti Steel Roofing</span> for
               reliable roofing services in {stateFullName}—where quality craftsmanship
               meets dependable service.
             </p>

@@ -3,7 +3,7 @@ import { getStateUrl, isValidStateCode, STATE_CODES } from './state-codes';
 
 export { getStateUrl, isValidStateCode, STATE_CODES };
 
-const DOMAIN = 'dolomitisteelroofing.com';
+const DOMAIN = 'dolimitisteelroofing.com';
 
 /** Canonical URL for a location (subdomain format) */
 export function getLocationUrl(locationId: string, path = ''): string {

@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
 
     if (!service) {
         return {
-            title: 'Service Not Found | Dolomiti Steel Roofing',
+            title: 'Service Not Found | Dolimiti Steel Roofing',
             description: 'The requested service page could not be found.'
         };
     }
@@ -85,7 +85,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         CITY: safeLocation.name,
         STATE: safeLocation.state,
         PHONE: safeLocation.phone,
-        COMPANY_NAME: 'Dolomiti Steel Roofing'
+        COMPANY_NAME: 'Dolimiti Steel Roofing'
     };
 
     const extendedContent = getExtendedServiceContent(slug);

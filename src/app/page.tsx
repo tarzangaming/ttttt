@@ -15,8 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
   if (!seo) {
     return {
       title: 'Premier Roofing & Construction Services | Nationwide Coverage',
-      description: 'Dolomiti Steel Roofing provides expert residential and commercial roofing services across the USA. Licensed, bonded, and insured. Call for a free estimate.',
-      alternates: { canonical: 'https://dolomitisteelroofing.com' },
+      description: 'Dolimiti Steel Roofing provides expert residential and commercial roofing services across the USA. Licensed, bonded, and insured. Call for a free estimate.',
+      alternates: { canonical: 'https://dolimitisteelroofing.com' },
     };
   }
   return {
@@ -37,7 +37,7 @@ export default function HomePage() {
   const whyChooseUs = homepage.whyChooseUs || [];
   const coverage = homepage.coverage || {};
   const servicesSection = homepage.servicesSection || {};
-  const whyChooseUsSectionTitle = homepage.whyChooseUsSectionTitle ?? 'The Dolomiti Advantage';
+  const whyChooseUsSectionTitle = homepage.whyChooseUsSectionTitle ?? 'The Dolimiti Advantage';
   const faqSection = homepage.faqSection || {};
   const ctaSection = homepage.ctaSection || {};
   const heroImage = imagesData.images?.hero?.home?.url ?? (imagesData as any).images?.defaults?.placeholder?.url ?? '';
@@ -54,9 +54,9 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "RoofingContractor",
-            "name": "Dolomiti Steel Roofing",
-            "url": "https://dolomitisteelroofing.com",
-            "logo": "https://dolomitisteelroofing.com/logo.png",
+            "name": "Dolimiti Steel Roofing",
+            "url": "https://dolimitisteelroofing.com",
+            "logo": "https://dolimitisteelroofing.com/logo.png",
             "description": "Licensed nationwide roofing contractor specializing in residential and commercial roofing.",
             "address": {
               "@type": "PostalAddress",
@@ -80,7 +80,7 @@ export default function HomePage() {
           {heroImage ? (
             <Image
               src={heroImage}
-              alt="National Steel Roofing Services by Dolomiti Steel Roofing"
+              alt="National Steel Roofing Services by Dolimiti Steel Roofing"
               fill
               priority
               className="object-cover object-top"
@@ -204,7 +204,7 @@ export default function HomePage() {
             <span className="text-[#d97706] font-bold uppercase tracking-wider text-sm">Where We Work</span>
             <h2 className="text-3xl md:text-5xl font-bold mt-2 mb-6">{coverage.title || 'Serving Great Communities Across the USA'}</h2>
             <p className="text-lg opacity-90 mb-8 leading-relaxed">
-              {coverage.subtitle || 'Dolomiti Steel Roofing has established a reputation for reliability in multiple states. Our local teams understand the specific building codes and climate challenges of your region.'}
+              {coverage.subtitle || 'Dolimiti Steel Roofing has established a reputation for reliability in multiple states. Our local teams understand the specific building codes and climate challenges of your region.'}
             </p>
             <div className="grid grid-cols-2 gap-4">
               {/* Group locations by state for display */}
@@ -294,7 +294,7 @@ export default function HomePage() {
           <div className="space-y-6">
             {((faqSection.items && faqSection.items.length > 0) ? faqSection.items : [
               { question: 'Do you service my area?', answer: 'We are a nationwide roofing contractor with local teams in major metropolitan areas across the US. From Texas to New York, Florida to Arizona, we likely have crews near you. Check our Locations page or call us to confirm.' },
-              { question: 'Are you licensed and insured?', answer: 'Yes, absolutely. Dolomiti Steel Roofing carries all necessary state licenses and strictly maintains liability and workers\' compensation insurance to protect our clients and our crews.' },
+              { question: 'Are you licensed and insured?', answer: 'Yes, absolutely. Dolimiti Steel Roofing carries all necessary state licenses and strictly maintains liability and workers\' compensation insurance to protect our clients and our crews.' },
               { question: 'Do you offer financing?', answer: 'Yes! We partner with top lending institutions to offer flexible financing options for roof replacements and major repairs, subject to credit approval.' },
               { question: 'What types of roofs do you install?', answer: 'We work with all major roofing systems including Asphalt Shingles, Metal (Standing Seam), Tile (Clay/Concrete), Flat Roofs (TPO/EPDM/Foam), and more.' },
               { question: 'Do you handle insurance claims?', answer: 'Yes. Our team is experienced in storm damage restoration and can assist you through the insurance claim process, ensuring all damage is documented and covered.' }

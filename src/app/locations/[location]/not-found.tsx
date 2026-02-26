@@ -9,7 +9,7 @@ export default function LocationNotFound() {
   const params = useParams();
   const location = params.location as string;
 
-  const redirectUrl = location ? getLocationUrl(location) : 'https://dolomitisteelroofing.com';
+  const redirectUrl = location ? getLocationUrl(location) : 'https://dolimitisteelroofing.com';
 
   useEffect(() => {
     const timer = setTimeout(() => {

@@ -161,7 +161,7 @@ export default async function CostPage({ params }: PageProps) {
                         A "cheap" quote often cuts corners on <strong>underlayment</strong>—the most critical waterproofing layer.
                     </p>
                     <p className="text-gray-700 leading-relaxed">
-                        At <strong>Dolomiti Steel Roofing</strong>, we use only synthetic underlayment and high-grade sealants rated for desert conditions, ensuring your {service.title.toLowerCase()} investment lasts 25+ years, not just 5.
+                        At <strong>Dolimiti Steel Roofing</strong>, we use only synthetic underlayment and high-grade sealants rated for desert conditions, ensuring your {service.title.toLowerCase()} investment lasts 25+ years, not just 5.
                     </p>
                 </div>
             </section>
@@ -172,7 +172,7 @@ export default async function CostPage({ params }: PageProps) {
                     <div>
                         <h2 className="text-3xl font-bold mb-6">Why Trust Our Estimates?</h2>
                         <p className="text-lg opacity-90 leading-relaxed mb-8">
-                            At Dolomiti Steel Roofing, we value transparency. While many contractors hide their pricing, we believe you should know what to expect before you even make a call.
+                            At Dolimiti Steel Roofing, we value transparency. While many contractors hide their pricing, we believe you should know what to expect before you even make a call.
                         </p>
                         <ul className="space-y-4">
                             <li className="flex gap-3 items-center">

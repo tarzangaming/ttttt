@@ -18,7 +18,7 @@ export default function AboutPageContent() {
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src={imagesData.images.hero.about.url}
-            alt="Dolomiti Steel Roofing Team"
+            alt="Dolimiti Steel Roofing Team"
             fill
             className="object-cover opacity-20"
           />
@@ -29,7 +29,7 @@ export default function AboutPageContent() {
           </span>
           <h1 className="text-4xl md:text-6xl font-bold mb-6">Building Trust Nationwide</h1>
           <p className="text-xl md:text-2xl opacity-90 leading-relaxed font-light">
-            Dolomiti Steel Roofing is a premier contractor serving homeowners and businesses across the United States.
+            Dolimiti Steel Roofing is a premier contractor serving homeowners and businesses across the United States.
           </p>
         </div>
       </section>
@@ -40,7 +40,7 @@ export default function AboutPageContent() {
           <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl skew-y-1">
             <Image
               src={teamImage}
-              alt="The Dolomiti Team"
+              alt="The Dolimiti Team"
               fill
               className="object-cover"
             />
@@ -48,7 +48,7 @@ export default function AboutPageContent() {
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-6">Our Story</h2>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              What started as a small family operation in Arizona has grown into a trusted national brand. Dolomiti Steel Roofing was founded on a simple principle: treat every home like it&apos;s our own.
+              What started as a small family operation in Arizona has grown into a trusted national brand. Dolimiti Steel Roofing was founded on a simple principle: treat every home like it&apos;s our own.
             </p>
             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
               Over the last two decades, we have expanded our reach, bringing our signature quality and customer service to communities across the country. Whether it&apos;s a storm restoration project in the Midwest or a new tile roof in the Southwest, our standards remain the same.
@@ -71,7 +71,7 @@ export default function AboutPageContent() {
       {/* 3. CORE VALUES */}
       <section className="py-20 bg-gray-50 px-4">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-[#1e3a5f] mb-16">The Dolomiti Standard</h2>
+          <h2 className="text-3xl font-bold text-[#1e3a5f] mb-16">The Dolimiti Standard</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-sm border-t-4 border-[#d97706]">
               <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">🤝</div>

@@ -40,16 +40,16 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
 
   if (!location) {
     return {
-      title: 'Construction Services | Dolomiti Steel Roofing',
+      title: 'Construction Services | Dolimiti Steel Roofing',
       description: 'Professional construction and roofing services.'
     };
   }
 
   return {
-    title: `Construction & Roofing Services in ${location.name} | Dolomiti Steel Roofing`,
-    description: `Expert roofing, siding, and remodeling services in ${location.name}, ${location.state}. Residential and commercial solutions by Dolomiti Steel Roofing.`,
+    title: `Construction & Roofing Services in ${location.name} | Dolimiti Steel Roofing`,
+    description: `Expert roofing, siding, and remodeling services in ${location.name}, ${location.state}. Residential and commercial solutions by Dolimiti Steel Roofing.`,
     alternates: {
-      canonical: `https://${location.id}.dolomitisteelroofing.com/services`
+      canonical: `https://${location.id}.dolimitisteelroofing.com/services`
     }
   };
 }
@@ -96,7 +96,7 @@ export default async function ServicesPage({ params }: LocationPageProps) {
         <div className="absolute inset-0">
           <Image
             src={imagesData.images.hero.services.url}
-            alt="Dolomiti Steel Roofing Services"
+            alt="Dolimiti Steel Roofing Services"
             fill
             priority
             className="object-cover"
@@ -214,7 +214,7 @@ export default async function ServicesPage({ params }: LocationPageProps) {
               ((imagesData as any).images?.defaults?.placeholder?.url as string | undefined) ||
               ''
             }
-            alt="Contact Dolomiti Steel Roofing"
+            alt="Contact Dolimiti Steel Roofing"
             fill
             className="object-cover"
             style={{ filter: 'brightness(0.3)' }}

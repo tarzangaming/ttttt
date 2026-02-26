@@ -2,9 +2,9 @@
   "organization": {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Dolomiti Steel Roofing",
-    "url": "https://dolomitisteelroofing.com",
-    "logo": "https://dolomitisteelroofing.com/images/logo.png",
+    "name": "Dolimiti Steel Roofing",
+    "url": "https://dolimitisteelroofing.com",
+    "logo": "https://dolimitisteelroofing.com/images/logo.png",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+1-833-609-0936",
@@ -17,9 +17,9 @@
   "localBusiness": {
     "@context": "https://schema.org",
     "@type": "RoofingContractor",
-    "name": "Dolomiti Steel Roofing",
-    "image": "https://dolomitisteelroofing.com/images/logo.png",
-    "url": "https://dolomitisteelroofing.com",
+    "name": "Dolimiti Steel Roofing",
+    "image": "https://dolimitisteelroofing.com/images/logo.png",
+    "url": "https://dolimitisteelroofing.com",
     "telephone": "+1-833-609-0936",
     "priceRange": "$$",
     "openingHoursSpecification": [
@@ -98,11 +98,11 @@
   "website": {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Dolomiti Steel Roofing",
-    "url": "https://dolomitisteelroofing.com",
+    "name": "Dolimiti Steel Roofing",
+    "url": "https://dolimitisteelroofing.com",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://dolomitisteelroofing.com/search?q={search_term_string}",
+      "target": "https://dolimitisteelroofing.com/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   },
@@ -113,7 +113,7 @@
       "serviceType": "{serviceTitle}",
       "provider": {
         "@type": "RoofingContractor",
-        "name": "Dolomiti Steel Roofing",
+        "name": "Dolimiti Steel Roofing",
         "telephone": "+1-833-609-0936"
       },
       "areaServed": {
@@ -135,9 +135,9 @@
     "localBusinessCity": {
       "@context": "https://schema.org",
       "@type": "RoofingContractor",
-      "name": "Dolomiti Steel Roofing - {cityName}",
-      "image": "https://dolomitisteelroofing.com/images/logo.png",
-      "url": "https://{subdomain}.dolomitisteelroofing.com",
+      "name": "Dolimiti Steel Roofing - {cityName}",
+      "image": "https://dolimitisteelroofing.com/images/logo.png",
+      "url": "https://{subdomain}.dolimitisteelroofing.com",
       "telephone": "+1-833-609-0936",
       "address": {
         "@type": "PostalAddress",

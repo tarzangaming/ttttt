@@ -7,11 +7,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!seo) {
     return {
-      title: 'Contact Dolomiti Steel Roofing',
+      title: 'Contact Dolimiti Steel Roofing',
       description:
-        'Get in touch with Dolomiti Steel Roofing for roofing, siding, gutters, and construction services. Request a free estimate today.',
+        'Get in touch with Dolimiti Steel Roofing for roofing, siding, gutters, and construction services. Request a free estimate today.',
       alternates: {
-        canonical: 'https://dolomitisteelroofing.com/contact',
+        canonical: 'https://dolimitisteelroofing.com/contact',
       },
     };
   }
@@ -25,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: seo.title,
       description: seo.description,
       type: 'website',
-      url: seo.canonical ?? 'https://dolomitisteelroofing.com/contact',
+      url: seo.canonical ?? 'https://dolimitisteelroofing.com/contact',
     },
     twitter: {
       card: 'summary_large_image',

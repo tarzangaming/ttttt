@@ -15,6 +15,6 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 1, // 1 second delay between requests to reduce load
       },
     ],
-    sitemap: 'https://dolomitisteelroofing.com/sitemap-index.xml',
+    sitemap: 'https://dolimitisteelroofing.com/sitemap-index.xml',
   }
 }

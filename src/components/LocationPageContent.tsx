@@ -139,7 +139,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
 
               {/* Additional Description */}
               <p className="text-base sm:text-lg mb-6 opacity-80 leading-relaxed">
-                At Dolomiti Steel Roofing, we&apos;ve been protecting homes and businesses in {location.name}, {location.state} for over 25 years.
+                At Dolimiti Steel Roofing, we&apos;ve been protecting homes and businesses in {location.name}, {location.state} for over 25 years.
                 Whether you need emergency storm damage repair, a complete roof replacement, new siding installation, or seamless gutter systems,
                 our certified technicians deliver exceptional results with premium materials and industry-leading warranties.
                 We understand the unique climate challenges in {location.state} and use specialized techniques to ensure your roof
@@ -220,7 +220,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
             {/* Right Column - Feature Card */}
             <div className="hidden lg:block">
               <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-                <h3 className="text-white text-2xl font-bold mb-6 text-center">Why Choose Dolomiti?</h3>
+                <h3 className="text-white text-2xl font-bold mb-6 text-center">Why Choose Dolimiti?</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4 text-white">
                     <div className="w-12 h-12 bg-[#d97706] rounded-xl flex items-center justify-center shrink-0">
@@ -293,7 +293,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#1e3a5f]">
-            Why {location.name} Homeowners Choose Dolomiti Steel Roofing
+            Why {location.name} Homeowners Choose Dolimiti Steel Roofing
           </h2>
 
           <p className="text-lg text-gray-600 text-center mb-10 max-w-3xl mx-auto">
@@ -303,7 +303,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
 
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10 mb-10">
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Welcome to <span className="font-bold text-[#1e3a5f]">Dolomiti Steel Roofing</span>,
+              Welcome to <span className="font-bold text-[#1e3a5f]">Dolimiti Steel Roofing</span>,
               your trusted local roofing and construction experts delivering durable, high-quality roofing
               solutions across <span className="font-semibold">{location.name}</span>. We believe
               a roof is more than just a structure—it&apos;s your home&apos;s first line of defense against weather,
@@ -312,14 +312,14 @@ export default function LocationPageContent({ location }: LocationPageContentPro
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              At <span className="font-bold text-[#1e3a5f]">Dolomiti Steel Roofing</span>, we combine
+              At <span className="font-bold text-[#1e3a5f]">Dolimiti Steel Roofing</span>, we combine
               premium materials, proven techniques, and local expertise to provide roofing systems that are
               durable, energy-efficient, and visually appealing. From storm protection to long-term performance,
               your peace of mind is always our priority.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Choose <span className="font-bold text-[#1e3a5f]">Dolomiti Steel Roofing</span> for
+              Choose <span className="font-bold text-[#1e3a5f]">Dolimiti Steel Roofing</span> for
               reliable roofing services in {location.name}—where quality craftsmanship
               meets dependable service.
             </p>
@@ -360,7 +360,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">
-            Why Choose Dolomiti Steel Roofing in {location.name}?
+            Why Choose Dolimiti Steel Roofing in {location.name}?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">

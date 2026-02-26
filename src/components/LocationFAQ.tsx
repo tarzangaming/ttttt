@@ -17,7 +17,7 @@ const LocationFAQ: React.FC<LocationFAQProps> = ({
   locationName,
   stateName,
   phone = '(866) 289-1750',
-  companyName = 'Dolomiti Steel Roofing'
+  companyName = 'Dolimiti Steel Roofing'
 }) => {
   const replacePlaceholders = (text: string) => {
     return text

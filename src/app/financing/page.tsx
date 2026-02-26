@@ -11,11 +11,11 @@ export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('financing');
   if (!seo) {
     return {
-      title: 'Roof Financing Options | Dolomiti Steel Roofing',
+      title: 'Roof Financing Options | Dolimiti Steel Roofing',
       description:
         'Explore roof financing options with flexible payment plans to fit your budget.',
       alternates: {
-        canonical: 'https://dolomitisteelroofing.com/financing',
+        canonical: 'https://dolimitisteelroofing.com/financing',
       },
     };
   }

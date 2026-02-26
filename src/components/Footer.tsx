@@ -104,7 +104,7 @@ export default function Footer({ location }: FooterProps) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Company Info */}
             <div>
-              <h3 className="text-xl font-bold mb-4">Dolomiti Steel Roofing</h3>
+              <h3 className="text-xl font-bold mb-4">Dolimiti Steel Roofing</h3>
               <p className="text-gray-300 mb-4">Quality roofing and construction services you can trust. Serving homeowners and businesses for over 25 years.</p>
               <div className="flex space-x-4">
                 <a href="tel:8662891750" className="text-[#d97706] hover:text-[#f59e0b] transition">
@@ -149,7 +149,7 @@ export default function Footer({ location }: FooterProps) {
           </div>
 
           <div className="border-t border-gray-600 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Dolomiti Steel Roofing. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Dolimiti Steel Roofing. All rights reserved.</p>
           </div>
         </div>
       </footer>
