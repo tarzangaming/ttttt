@@ -179,8 +179,15 @@ export default function ServicesPage() {
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={imagesData.images.cta?.banner?.url || imagesData.images.defaults?.placeholder?.url || ''}
-            alt={imagesData.images.cta?.banner?.alt || 'CTA Background'}
+            src={
+              ((imagesData as any).images?.cta?.banner?.url as string | undefined) ||
+              ((imagesData as any).images?.defaults?.placeholder?.url as string | undefined) ||
+              ''
+            }
+            alt={
+              ((imagesData as any).images?.cta?.banner?.alt as string | undefined) ||
+              'CTA Background'
+            }
             fill
             className="object-cover"
             style={{ filter: 'brightness(0.3)' }}
