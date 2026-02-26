@@ -303,9 +303,18 @@ export async function POST(request: NextRequest) {
       backupPath: path.basename(backupPath),
     });
   } catch (error) {
-    console.error('Import error:', error);
+    const msg = error instanceof Error ? error.message : String(error);
+    console.error('Import error:', msg, error);
+
+    if (msg.includes('EROFS') || msg.includes('read-only file system')) {
+      return NextResponse.json(
+        { success: false, error: 'Cannot save on Vercel (read-only filesystem). The admin editor can only save files when running locally (npm run dev). To update content in production, edit locally, commit, and push to redeploy.' },
+        { status: 403 }
+      );
+    }
+
     return NextResponse.json(
-      { success: false, error: 'Failed to import rewritten text' },
+      { success: false, error: `Failed to import rewritten text: ${msg}` },
       { status: 500 }
     );
   }

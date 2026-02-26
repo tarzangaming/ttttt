@@ -1040,8 +1040,17 @@ export default function AdminDashboard() {
         }));
     };
 
+    const isVercel = typeof window !== 'undefined' && window.location.hostname.includes('vercel.app');
+    const isProduction = typeof window !== 'undefined' && !['localhost', '127.0.0.1'].includes(window.location.hostname);
+
     return (
         <div className="min-h-screen bg-gray-100">
+            {/* Read-only warning for production/Vercel */}
+            {isProduction && (
+                <div className="bg-amber-500 text-white px-6 py-3 text-center text-sm font-medium">
+                    ⚠️ Production mode (read-only) — Editing is disabled on Vercel. To make changes, run the site locally with <code className="bg-amber-600 px-2 py-0.5 rounded mx-1">npm run dev</code>, edit content, then commit & push to redeploy.
+                </div>
+            )}
             {/* Header */}
             <header className="bg-[#1e3a5f] text-white py-4 px-6 shadow-lg">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
