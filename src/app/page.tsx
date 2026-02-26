@@ -311,9 +311,9 @@ export default function HomePage() {
       {/* 6. CTA LANDSCAPE */}
       <section className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          {(imagesData.images?.cta as any)?.banner?.url ? (
+          {((imagesData as any).images?.cta?.banner?.url as string | undefined) ? (
             <Image
-              src={(imagesData.images?.cta as any).banner.url}
+              src={((imagesData as any).images?.cta?.banner?.url as string) || ''}
               alt="Contact Us"
               fill
               className="object-cover"
