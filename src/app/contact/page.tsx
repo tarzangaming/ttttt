@@ -7,11 +7,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!seo) {
     return {
-      title: 'Contact Bennett Construction & Roofing',
+      title: 'Contact Dolomiti Steel Roofing',
       description:
-        'Get in touch with Bennett Construction & Roofing for roofing, siding, gutters, and construction services. Request a free estimate today.',
+        'Get in touch with Dolomiti Steel Roofing for roofing, siding, gutters, and construction services. Request a free estimate today.',
       alternates: {
-        canonical: 'https://bennettconstructionandroofing.com/contact',
+        canonical: 'https://dolomitisteelroofing.com/contact',
       },
     };
   }
@@ -25,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: seo.title,
       description: seo.description,
       type: 'website',
-      url: seo.canonical ?? 'https://bennettconstructionandroofing.com/contact',
+      url: seo.canonical ?? 'https://dolomitisteelroofing.com/contact',
     },
     twitter: {
       card: 'summary_large_image',

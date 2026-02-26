@@ -406,7 +406,7 @@ export function buildIntroContent(input: HeroSubtextInput) {
 
     // Generate rich, detailed paragraphs
     const introParagraphs = [
-        `When you need reliable ${serviceName.toLowerCase()} in ${city}, trust the experts at Bennett Construction & Roofing. We bring over 25 years of experience to every project, ensuring quality workmanship and superior customer service.`,
+        `When you need reliable ${serviceName.toLowerCase()} in ${city}, trust the experts at Dolomiti Steel Roofing. We bring over 25 years of experience to every project, ensuring quality workmanship and superior customer service.`,
 
         `Our team understands the specific challenges posed by ${city}'s climate, from intense sun exposure to seasonal storms. We use only premium materials and proven installation techniques to ensure your ${serviceName.toLowerCase()} stands the test of time.`,
 

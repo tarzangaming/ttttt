@@ -39,10 +39,10 @@ export async function generateMetadata({ params }: StateServicesPageProps): Prom
       `construction repair ${stateFullName}`
     ],
     openGraph: {
-      title: `Roofing & Construction Services in ${stateFullName} | Bennett Construction & Roofing`,
+      title: `Roofing & Construction Services in ${stateFullName} | Dolomiti Steel Roofing`,
       description: `Complete roofing and construction services in ${stateFullName}. Roof repair, replacement, storm restoration, and more.`,
       url: getStateUrl(state, 'services'),
-      siteName: 'Bennett Construction & Roofing',
+      siteName: 'Dolomiti Steel Roofing',
       locale: 'en_US',
       type: 'website',
     },
@@ -101,7 +101,7 @@ export default async function StateServicesPage({ params }: StateServicesPagePro
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-4">Complete Solutions for {stateFullName}</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Bennett Construction & Roofing provides specialized services tailored to your local climate.</p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Dolomiti Steel Roofing provides specialized services tailored to your local climate.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -132,7 +132,7 @@ export default async function StateServicesPage({ params }: StateServicesPagePro
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Need Expert Help in {stateFullName}?</h2>
           <p className="text-xl opacity-90 mb-10">
-            Contact Bennett Construction & Roofing today for a free inspection and detailed estimate on any roofing or construction project.
+            Contact Dolomiti Steel Roofing today for a free inspection and detailed estimate on any roofing or construction project.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a

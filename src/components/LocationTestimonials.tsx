@@ -18,7 +18,7 @@ interface LocationTestimonialsProps {
 const LocationTestimonials: React.FC<LocationTestimonialsProps> = ({
   locationName,
   stateName,
-  companyName = 'Bennett Construction & Roofing',
+  companyName = 'Dolomiti Steel Roofing',
   phone = '(866) 289-1750'
 }) => {
   const replacePlaceholders = (text: string) => {

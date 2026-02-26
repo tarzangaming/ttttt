@@ -13,8 +13,8 @@ export default function Header() {
   useEffect(() => {
     // Check if we're on a sub-domain (not main domain - non-www canonical)
     const hostname = window.location.hostname;
-    const isSub = hostname !== 'bennettconstructionandroofing.com' &&
-      hostname.includes('.bennettconstructionandroofing.com');
+    const isSub = hostname !== 'dolomitisteelroofing.com' &&
+      hostname.includes('.dolomitisteelroofing.com');
     setIsSubDomain(isSub);
   }, []);
 
@@ -33,7 +33,7 @@ export default function Header() {
                 <div className="relative h-12 w-40 md:h-14 md:w-48">
                   <Image
                     src={logoImage.url}
-                    alt={logoImage.alt || 'Bennett Construction & Roofing'}
+                    alt={logoImage.alt || 'Dolomiti Steel Roofing'}
                     fill
                     className="object-contain"
                     priority
@@ -48,7 +48,7 @@ export default function Header() {
                     </svg>
                   </div>
                   <div className="hidden sm:block">
-                    <div className="text-[#1e3a5f] font-bold text-lg leading-tight">Bennett</div>
+                    <div className="text-[#1e3a5f] font-bold text-lg leading-tight">Dolomiti</div>
                     <div className="text-[#d97706] text-xs font-semibold">Construction & Roofing</div>
                   </div>
                 </div>

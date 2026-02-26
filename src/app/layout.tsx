@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://bennettconstructionandroofing.com";
+const SITE_URL = "https://dolomitisteelroofing.com";
 
 const homeSeo = getPageSEOFromFile("home");
 
@@ -24,10 +24,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title:
     homeSeo?.title ||
-    "Expert Roofing & Construction Services | Bennett Construction & Roofing",
+    "Expert Roofing & Construction Services | Dolomiti Steel Roofing",
   description:
     homeSeo?.description ||
-    "Bennett Construction & Roofing provides professional roofing, siding, gutters, and construction services.",
+    "Dolomiti Steel Roofing provides professional roofing, siding, gutters, and construction services.",
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
@@ -41,12 +41,12 @@ export const metadata: Metadata = {
   openGraph: {
     title:
       homeSeo?.title ||
-      "Expert Roofing & Construction Services | Bennett Construction & Roofing",
+      "Expert Roofing & Construction Services | Dolomiti Steel Roofing",
     description:
       homeSeo?.description ||
-      "Bennett Construction & Roofing provides professional roofing, siding, gutters, and construction services.",
+      "Dolomiti Steel Roofing provides professional roofing, siding, gutters, and construction services.",
     url: SITE_URL,
-    siteName: "Bennett Construction & Roofing",
+    siteName: "Dolomiti Steel Roofing",
     locale: "en_US",
     type: "website",
   },
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title:
       homeSeo?.title ||
-      "Expert Roofing & Construction Services | Bennett Construction & Roofing",
+      "Expert Roofing & Construction Services | Dolomiti Steel Roofing",
     description:
       homeSeo?.description ||
       "Professional roofing, siding, gutters, and construction services.",
@@ -70,9 +70,9 @@ export default function RootLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Bennett Construction & Roofing",
+    name: "Dolomiti Steel Roofing",
     url: SITE_URL,
-    logo: "https://bennettconstructionandroofing.com/images/logo.png",
+    logo: "https://dolomitisteelroofing.com/images/logo.png",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+1-866-289-1750",
@@ -85,8 +85,8 @@ export default function RootLayout({
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "RoofingContractor",
-    name: "Bennett Construction & Roofing",
-    image: "https://bennettconstructionandroofing.com/images/logo.png",
+    name: "Dolomiti Steel Roofing",
+    image: "https://dolomitisteelroofing.com/images/logo.png",
     url: SITE_URL,
     telephone: "+1-866-289-1750",
     priceRange: "$$",

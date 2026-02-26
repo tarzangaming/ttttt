@@ -1,0 +1,103 @@
+{
+  "images": {
+    "hero": {
+      "home": {
+        "key": "hero-home",
+        "alt": "Professional roofing team working on a residential roof",
+        "url": "https://ik.imagekit.io/roofingusa/200_Professional_contrac_1_2026024_23298.png?updatedAt=1770228180932",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "about": {
+        "key": "hero-about",
+        "alt": "Dolomiti Steel Roofing team photo",
+        "url": "https://ik.imagekit.io/roofingusa/53_Construction_crew_in_1_2026024_23537.png?updatedAt=1770207690420",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "contact": {
+        "key": "hero-contact",
+        "alt": "Contact Dolomiti Steel Roofing",
+        "url": "https://ik.imagekit.io/roofingusa/11_Friendly_roofing_con_1_2026024_22526.png?updatedAt=1770207688439",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "servicePortrait": {
+        "key": "hero-service-portrait",
+        "alt": "Professional roofing contractor portrait",
+        "url": "https://ik.imagekit.io/roofingusa/bannet%20contractor.png",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "services": {
+        "key": "hero-services",
+        "alt": "Our steel roofing services",
+        "url": "https://ik.imagekit.io/roofingusa/26_Construction_team_on_1_2026024_22857.png?updatedAt=1770207688573",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "locations": {
+        "key": "hero-locations",
+        "alt": "Steel roofing services in your area",
+        "url": "https://ik.imagekit.io/roofingusa/10_Luxury_suburban_vill_1_2026024_22511.png?updatedAt=1770207688146",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      }
+    },
+    "about": {
+      "team": {
+        "key": "about-team",
+        "alt": "Dolomiti Steel Roofing team at work",
+        "url": "https://ik.imagekit.io/roofingusa/14_Construction_company_1_2026024_22611.png?updatedAt=1770207688367",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "owner": {
+        "key": "about-owner",
+        "alt": "Company founder",
+        "url": "https://ik.imagekit.io/roofingusa/4_Construction_foreman_1_2026024_22345.png?updatedAt=1770207687225",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "truck": {
+        "key": "about-truck",
+        "alt": "Dolomiti Steel Roofing work truck",
+        "url": "https://ik.imagekit.io/roofingusa/56_Construction_company_1_2026024_23624.png?updatedAt=1770207688602",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      }
+    },
+    "gallery": {
+      "projects": [
+        {
+          "key": "project-1",
+          "alt": "Dolomiti Steel Roofing project",
+          "url": "https://ik.imagekit.io/roofingusa/34_Roofing_company_hero_1_2026024_23055.png?updatedAt=1770207688909"
+        },
+        {
+          "key": "img-1772057601264",
+          "alt": "logo",
+          "url": "https://ik.imagekit.io/nang9yead/dolimitisteelroofinglogo.png",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772089547623",
+          "alt": "New image",
+          "url": "https://ik.imagekit.io/nang9yead/dolimitisteelroofinglogo.png",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        }
+      ]
+    },
+    "defaults": {
+      "placeholder": {
+        "key": "default-placeholder",
+        "alt": "Dolomiti Steel Roofing",
+        "url": "https://ik.imagekit.io/roofingusa/transparent%20logo.png",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "logo": {
+        "key": "logo",
+        "alt": "Dolomiti Steel Roofing Logo",
+        "url": "https://ik.imagekit.io/nang9yead/dolimitisteelroofinglogo.png",
+        "placeholder": "https://placehold.co/300x80/1e3a5f/ffffff?text=Dolomiti+Logo"
+      },
+      "logoWhite": {
+        "key": "logo-white",
+        "alt": "Dolomiti Steel Roofing Logo",
+        "url": "https://ik.imagekit.io/roofingusa/transparent%20logo.png",
+        "placeholder": "https://placehold.co/300x80/ffffff/1e3a5f?text=Dolomiti+Logo"
+      }
+    }
+  }
+}

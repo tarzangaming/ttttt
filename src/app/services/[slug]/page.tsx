@@ -85,7 +85,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
         CITY: safeLocation.name,
         STATE: safeLocation.state,
         PHONE: safeLocation.phone,
-        COMPANY_NAME: 'Bennett Construction & Roofing'
+        COMPANY_NAME: 'Dolomiti Steel Roofing'
     };
 
     const extendedContent = getExtendedServiceContent(slug);

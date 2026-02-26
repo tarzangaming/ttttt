@@ -18,13 +18,13 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
 
   if (!location) {
     return {
-      title: 'About Us | Bennett Construction & Roofing',
+      title: 'About Us | Dolomiti Steel Roofing',
       description: 'Learn about our expert team. We provide reliable, affordable construction and roofing services.'
     };
   }
 
   return {
-    title: `About Bennett Construction & Roofing in ${location.name} | Trusted Local Experts`,
+    title: `About Dolomiti Steel Roofing in ${location.name} | Trusted Local Experts`,
     description: `Learn about our expert team in ${location.name}. We provide reliable, affordable roofing and construction services. Licensed & Insured.`,
     keywords: [
       `about roofer ${location.name}`,
@@ -32,19 +32,19 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
       `local roofer ${location.name}`,
     ],
     openGraph: {
-      title: `About Bennett Construction & Roofing in ${location.name}`,
+      title: `About Dolomiti Steel Roofing in ${location.name}`,
       description: `Learn about our expert team in ${location.name}. Trusted roofing and construction services.`,
       type: 'website',
       locale: 'en_US',
-      siteName: 'Bennett Construction & Roofing'
+      siteName: 'Dolomiti Steel Roofing'
     },
     twitter: {
       card: 'summary_large_image',
-      title: `About Bennett Construction & Roofing in ${location.name}`,
+      title: `About Dolomiti Steel Roofing in ${location.name}`,
       description: `Learn about our expert team in ${location.name}. Trusted roofing and construction services.`
     },
     alternates: {
-      canonical: `https://${location.id}.bennettconstructionandroofing.com/about`
+      canonical: `https://${location.id}.dolomitisteelroofing.com/about`
     }
   };
 }
@@ -82,7 +82,7 @@ export default async function AboutPage({ params }: LocationPageProps) {
 
   const teamMembers = [
     {
-      name: 'John Bennett',
+      name: 'Marco Dolomiti',
       role: 'Founder & Lead Contractor',
       experience: '25+ years',
       specialties: ['Roofing Systems', 'Structural Design', 'Project Management']
@@ -216,7 +216,7 @@ export default async function AboutPage({ params }: LocationPageProps) {
                   <h3 className="text-3xl font-bold text-[#1e3a5f] mb-6">Excellence in {safeLocation.name}, {safeLocation.state}</h3>
                   <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                     <p>
-                      Bennett Construction & Roofing began with a simple mission: to provide honest, reliable roofing and construction services in {safeLocation.name} and surrounding areas. What started as a small operation has grown into one of the most trusted names in the industry throughout {safeLocation.state}.
+                      Dolomiti Steel Roofing began with a simple mission: to provide honest, reliable roofing and construction services in {safeLocation.name} and surrounding areas. What started as a small operation has grown into one of the most trusted names in the industry throughout {safeLocation.state}.
                     </p>
                     <p>
                       Over the years, we&apos;ve witnessed the evolution of construction technology and materials. Through it all, we&apos;ve maintained our commitment to quality, integrity, and customer satisfaction while expanding our reach to serve communities throughout the region.
@@ -344,7 +344,7 @@ export default async function AboutPage({ params }: LocationPageProps) {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Ready to Experience the Bennett Construction Difference?
+              Ready to Experience the Dolomiti Steel Roofing Difference?
             </h2>
             <p className="text-xl text-gray-600">
               Join thousands of satisfied customers in {location.name} who trust us with their roofing needs

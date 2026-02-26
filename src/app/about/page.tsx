@@ -7,11 +7,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (!seo) {
     return {
-      title: 'About Bennett Construction & Roofing',
+      title: 'About Dolomiti Steel Roofing',
       description:
-        'Learn more about Bennett Construction & Roofing, our experience, values, and commitment to quality roofing and construction services.',
+        'Learn more about Dolomiti Steel Roofing, our experience, values, and commitment to quality roofing and construction services.',
       alternates: {
-        canonical: 'https://bennettconstructionandroofing.com/about',
+        canonical: 'https://dolomitisteelroofing.com/about',
       },
     };
   }
@@ -25,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: seo.title,
       description: seo.description,
       type: 'website',
-      url: seo.canonical ?? 'https://bennettconstructionandroofing.com/about',
+      url: seo.canonical ?? 'https://dolomitisteelroofing.com/about',
     },
     twitter: {
       card: 'summary_large_image',

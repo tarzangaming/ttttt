@@ -1,0 +1,549 @@
+{
+  "images": {
+    "hero": {
+      "home": {
+        "key": "hero-home",
+        "alt": "Professional roofing team working on a residential roof",
+        "url": "https://ik.imagekit.io/roofingusa/200_Professional_contrac_1_2026024_23298.png?updatedAt=1770228180932",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "about": {
+        "key": "hero-about",
+        "alt": "Dolomiti Steel Roofing team photo",
+        "url": "https://ik.imagekit.io/roofingusa/53_Construction_crew_in_1_2026024_23537.png?updatedAt=1770207690420",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "contact": {
+        "key": "hero-contact",
+        "alt": "Contact Dolomiti Steel Roofing",
+        "url": "https://ik.imagekit.io/roofingusa/11_Friendly_roofing_con_1_2026024_22526.png?updatedAt=1770207688439",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "servicePortrait": {
+        "key": "hero-service-portrait",
+        "alt": "Professional roofing contractor portrait",
+        "url": "https://ik.imagekit.io/roofingusa/bannet%20contractor.png",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "services": {
+        "key": "hero-services",
+        "alt": "Our steel roofing services",
+        "url": "https://ik.imagekit.io/roofingusa/26_Construction_team_on_1_2026024_22857.png?updatedAt=1770207688573",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "locations": {
+        "key": "hero-locations",
+        "alt": "Steel roofing services in your area",
+        "url": "https://ik.imagekit.io/roofingusa/10_Luxury_suburban_vill_1_2026024_22511.png?updatedAt=1770207688146",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      }
+    },
+    "about": {
+      "team": {
+        "key": "about-team",
+        "alt": "Dolomiti Steel Roofing team at work",
+        "url": "https://ik.imagekit.io/roofingusa/14_Construction_company_1_2026024_22611.png?updatedAt=1770207688367",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "owner": {
+        "key": "about-owner",
+        "alt": "Company founder",
+        "url": "https://ik.imagekit.io/roofingusa/4_Construction_foreman_1_2026024_22345.png?updatedAt=1770207687225",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "truck": {
+        "key": "about-truck",
+        "alt": "Dolomiti Steel Roofing work truck",
+        "url": "https://ik.imagekit.io/roofingusa/56_Construction_company_1_2026024_23624.png?updatedAt=1770207688602",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      }
+    },
+    "gallery": {
+      "projects": [
+        {
+          "key": "project-1",
+          "alt": "Dolomiti Steel Roofing project",
+          "url": "https://ik.imagekit.io/roofingusa/34_Roofing_company_hero_1_2026024_23055.png?updatedAt=1770207688909"
+        },
+        {
+          "key": "img-1772057601264",
+          "alt": "logo",
+          "url": "https://ik.imagekit.io/nang9yead/dolimitisteelroofinglogo.png",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-0",
+          "alt": "Image 1",
+          "url": "https://ik.imagekit.io/roofingusa/39_Drone___Wide_Hero_Sh_1_2026024_23220.png?updatedAt=1770207689689",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-1",
+          "alt": "Image 2",
+          "url": "https://ik.imagekit.io/roofingusa/41_High_altitude_drone__1_2026024_23250.png?updatedAt=1770207689115",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-2",
+          "alt": "Image 3",
+          "url": "https://ik.imagekit.io/roofingusa/44_Top_down_drone_shot__1_2026024_23333.png?updatedAt=1770207689068",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-3",
+          "alt": "Image 4",
+          "url": "https://ik.imagekit.io/roofingusa/43_Aerial_view_of_const_1_2026024_23319.png?updatedAt=1770207688819",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-4",
+          "alt": "Image 5",
+          "url": "https://ik.imagekit.io/roofingusa/42_Wide_panoramic_shot__1_2026024_2334.png?updatedAt=1770207688640",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-5",
+          "alt": "Image 6",
+          "url": "https://ik.imagekit.io/roofingusa/40_Drone_shot_of_reside_1_2026024_23232.png?updatedAt=1770207688784",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-6",
+          "alt": "Image 7",
+          "url": "https://ik.imagekit.io/roofingusa/160_Structural_repair_wo_1_2026024_23200.png?updatedAt=1770228183103",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-7",
+          "alt": "Image 8",
+          "url": "https://ik.imagekit.io/roofingusa/17_New_roof_replacement_1_2026024_224435.png?updatedAt=1770228168212",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-8",
+          "alt": "Image 9",
+          "url": "https://ik.imagekit.io/roofingusa/35_Construction_roof_st_1_2026024_2319.png?updatedAt=1770207688684",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-9",
+          "alt": "Image 10",
+          "url": "https://ik.imagekit.io/roofingusa/54_Storm_damage_repair__1_2026024_22542.png?updatedAt=1770228168157",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-10",
+          "alt": "Image 11",
+          "url": "https://ik.imagekit.io/roofingusa/30_Suburban_home_with_f_1_2026024_2301.png?updatedAt=1770207689106",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-11",
+          "alt": "Image 12",
+          "url": "https://ik.imagekit.io/roofingusa/22_Commercial_roofing_p_1_2026024_2284.png?updatedAt=1770207688788",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-12",
+          "alt": "Image 13",
+          "url": "https://ik.imagekit.io/roofingusa/115_Gutter_installation__1_2026024_2394.png?updatedAt=1770228168818",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-13",
+          "alt": "Image 14",
+          "url": "https://ik.imagekit.io/roofingusa/129_Gutter_repair_on_two_1_2026024_231212.png?updatedAt=1770228179330",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-14",
+          "alt": "Image 15",
+          "url": "https://ik.imagekit.io/roofingusa/143_Siding_installation__1_2026024_231552.png?updatedAt=1770228180760",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-15",
+          "alt": "Image 16",
+          "url": "https://ik.imagekit.io/roofingusa/50_Modern_construction__1_2026024_23452.png?updatedAt=1770207688575",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-16",
+          "alt": "Image 17",
+          "url": "https://ik.imagekit.io/roofingusa/17_Construction_workers_1_2026024_22652.png?updatedAt=1770207688476",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-17",
+          "alt": "Image 18",
+          "url": "https://ik.imagekit.io/roofingusa/54_Residential_construc_1_2026024_23552.png?updatedAt=1770207688909",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-18",
+          "alt": "Image 19",
+          "url": "https://ik.imagekit.io/roofingusa/6_High_end_residential_1_2026024_22415.png?updatedAt=1770207688285",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-19",
+          "alt": "Image 20",
+          "url": "https://ik.imagekit.io/roofingusa/8_Luxury_roofing_and_c_1_2026024_22445.png?updatedAt=1770207688682",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-20",
+          "alt": "Image 21",
+          "url": "https://ik.imagekit.io/roofingusa/38_Storm_clouds_in_back_1_2026024_23150.png?updatedAt=1770207688463",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-21",
+          "alt": "Image 22",
+          "url": "https://ik.imagekit.io/roofingusa/65_Roof_inspection_near_1_2026024_22573.png?updatedAt=1770228168002",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-22",
+          "alt": "Image 23",
+          "url": "https://ik.imagekit.io/roofingusa/49_Simple__clean_reside_1_2026024_23439.png?updatedAt=1770207689572",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-23",
+          "alt": "Image 24",
+          "url": "https://ik.imagekit.io/roofingusa/52_American_suburban_ro_1_2026024_23523.png?updatedAt=1770207689341",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-24",
+          "alt": "Image 25",
+          "url": "https://ik.imagekit.io/roofingusa/121_Repairing_leaking_gu_1_2026024_231024.png?updatedAt=1770228169402",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-25",
+          "alt": "Image 26",
+          "url": "https://ik.imagekit.io/roofingusa/3_Close_up_of_professi_1_2026024_22331.png?updatedAt=1770207687692",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-26",
+          "alt": "Image 27",
+          "url": "https://ik.imagekit.io/roofingusa/93_EPDM_commercial_roof_1_2026024_23357.png?updatedAt=1770228168545",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-27",
+          "alt": "Image 28",
+          "url": "https://ik.imagekit.io/roofingusa/16_Roofer_hammering_shi_1_2026024_22639.png?updatedAt=1770207688314",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-28",
+          "alt": "Image 29",
+          "url": "https://ik.imagekit.io/roofingusa/9_Architectural_detail_1_2026024_22457.png?updatedAt=1770207687159",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-29",
+          "alt": "Image 30",
+          "url": "https://ik.imagekit.io/roofingusa/23_Construction_company_1_2026024_22817.png?updatedAt=1770207690582",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-30",
+          "alt": "Image 31",
+          "url": "https://ik.imagekit.io/roofingusa/95_Commercial_metal_roo_1_2026024_23423.png?updatedAt=1770228167646",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-31",
+          "alt": "Image 32",
+          "url": "https://ik.imagekit.io/roofingusa/163_Construction_tools_o_1_2026024_23215.png?updatedAt=1770228182804",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-32",
+          "alt": "Image 33",
+          "url": "https://ik.imagekit.io/roofingusa/126_Gutter_repair_near_r_1_2026024_231130.png?updatedAt=1770228172726",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-33",
+          "alt": "Image 34",
+          "url": "https://ik.imagekit.io/roofingusa/tsansparent.png",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-34",
+          "alt": "Image 35",
+          "url": "https://ik.imagekit.io/roofingusa/5_Wide_aerial_shot_of__1_2026024_22359.png?updatedAt=1770207688523",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-35",
+          "alt": "Image 36",
+          "url": "https://ik.imagekit.io/roofingusa/32_Modern_family_home_e_1_2026024_23027.png?updatedAt=1770207688577",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-36",
+          "alt": "Image 37",
+          "url": "https://ik.imagekit.io/roofingusa/29_Residential_home_con_1_2026024_22943.png?updatedAt=1770207688497",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-37",
+          "alt": "Image 38",
+          "url": "https://ik.imagekit.io/roofingusa/24_Industrial_warehouse_1_2026024_22831.png?updatedAt=1770207688839",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-38",
+          "alt": "Image 39",
+          "url": "https://ik.imagekit.io/roofingusa/25_Modern_commercial_bu_1_2026024_22843.png?updatedAt=1770207688693",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-39",
+          "alt": "Image 40",
+          "url": "https://ik.imagekit.io/roofingusa/21_Commercial___Industr_1_2026024_22750.png?updatedAt=1770207688512",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-40",
+          "alt": "Image 41",
+          "url": "https://ik.imagekit.io/roofingusa/12_Construction_team_re_1_2026024_22542.png?updatedAt=1770207687578",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-41",
+          "alt": "Image 42",
+          "url": "https://ik.imagekit.io/roofingusa/13_Experienced_roofer_e_1_2026024_22557.png?updatedAt=1770207688854",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-42",
+          "alt": "Image 43",
+          "url": "https://ik.imagekit.io/roofingusa/18_Close_up_hands_insta_1_2026024_2276.png?updatedAt=1770207688731",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-43",
+          "alt": "Image 44",
+          "url": "https://ik.imagekit.io/roofingusa/20_Roofer_using_modern__1_2026024_22736.png?updatedAt=1770207688834",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-44",
+          "alt": "Image 45",
+          "url": "https://ik.imagekit.io/roofingusa/2_Experienced_construc_1_2026024_22313.png?updatedAt=1770207686430",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-45",
+          "alt": "Image 46",
+          "url": "https://ik.imagekit.io/roofingusa/15_Before_and_after_sty_1_2026024_22626.png?updatedAt=1770207687355",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-46",
+          "alt": "Image 47",
+          "url": "https://ik.imagekit.io/roofingusa/19_Time_lapse_style_wid_1_2026024_22721.png?updatedAt=1770207689088",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-47",
+          "alt": "Image 48",
+          "url": "https://ik.imagekit.io/roofingusa/185_Finished_exterior_re_1_2026024_232547.png?updatedAt=1770228184130",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-48",
+          "alt": "Image 49",
+          "url": "https://ik.imagekit.io/roofingusa/178_Exterior_remodeling__1_2026024_232412.png?updatedAt=1770228183190",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-49",
+          "alt": "Image 50",
+          "url": "https://ik.imagekit.io/roofingusa/174_Renovation_materials_1_2026024_232320.png?updatedAt=1770228183078",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-50",
+          "alt": "Image 51",
+          "url": "https://ik.imagekit.io/roofingusa/194_American_suburban_ho_1_2026024_232754.png?updatedAt=1770228181439",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-51",
+          "alt": "Image 52",
+          "url": "https://ik.imagekit.io/roofingusa/182_House_exterior_upgra_1_2026024_23256.png?updatedAt=1770228181688",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-52",
+          "alt": "Image 53",
+          "url": "https://ik.imagekit.io/roofingusa/179_Home_exterior_faceli_1_2026024_232426.png?updatedAt=1770228185182",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-53",
+          "alt": "Image 54",
+          "url": "https://ik.imagekit.io/roofingusa/177_Full_exterior_remode_1_2026024_232359.png?updatedAt=1770228183134",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-54",
+          "alt": "Image 55",
+          "url": "https://ik.imagekit.io/roofingusa/193_Exterior_home_improv_1_2026024_232740.png?updatedAt=1770228183362",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-55",
+          "alt": "Image 56",
+          "url": "https://ik.imagekit.io/roofingusa/197_Storm_resistant_roof_1_2026024_232830.png?updatedAt=1770228183154",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-56",
+          "alt": "Image 57",
+          "url": "https://ik.imagekit.io/roofingusa/161_Construction_crew_me_1_2026024_232016.png?updatedAt=1770228183147",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-57",
+          "alt": "Image 58",
+          "url": "https://ik.imagekit.io/roofingusa/183_Exterior_remodeling__1_2026024_232519.png?updatedAt=1770228183133",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-58",
+          "alt": "Image 59",
+          "url": "https://ik.imagekit.io/roofingusa/195_Home_exterior_protec_1_2026024_23286.png?updatedAt=1770228183020",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        },
+        {
+          "key": "img-1772093072402-59",
+          "alt": "Image 60",
+          "url": "https://ik.imagekit.io/roofingusa/199_Home_exterior_transf_1_2026024_232855.png?updatedAt=1770228183090",
+          "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+        }
+      ]
+    },
+    "defaults": {
+      "placeholder": {
+        "key": "default-placeholder",
+        "alt": "Dolomiti Steel Roofing",
+        "url": "https://ik.imagekit.io/roofingusa/transparent%20logo.png",
+        "placeholder": "https://ik.imagekit.io/roofingusa/default-image.jpg?updatedAt=1770206962678"
+      },
+      "logo": {
+        "key": "logo",
+        "alt": "Dolomiti Steel Roofing Logo",
+        "url": "https://ik.imagekit.io/nang9yead/dolimitisteelroofinglogo.png",
+        "placeholder": "https://placehold.co/300x80/1e3a5f/ffffff?text=Dolomiti+Logo"
+      },
+      "logoWhite": {
+        "key": "logo-white",
+        "alt": "Dolomiti Steel Roofing Logo",
+        "url": "https://ik.imagekit.io/roofingusa/transparent%20logo.png",
+        "placeholder": "https://placehold.co/300x80/ffffff/1e3a5f?text=Dolomiti+Logo"
+      }
+    },
+    "services": {
+      "roof-installation": {
+        "key": "service-roof-installation",
+        "alt": "roof installation service",
+        "url": "https://ik.imagekit.io/roofingusa/115_Gutter_installation__1_2026024_2394.png?updatedAt=1770228168818",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "roof-repair": {
+        "key": "service-roof-repair",
+        "alt": "roof repair service",
+        "url": "https://ik.imagekit.io/roofingusa/160_Structural_repair_wo_1_2026024_23200.png?updatedAt=1770228183103",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "roof-leak-repair": {
+        "key": "service-roof-leak-repair",
+        "alt": "roof leak repair service",
+        "url": "https://ik.imagekit.io/roofingusa/121_Repairing_leaking_gu_1_2026024_231024.png?updatedAt=1770228169402",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "roof-replacement": {
+        "key": "service-roof-replacement",
+        "alt": "roof replacement service",
+        "url": "https://ik.imagekit.io/roofingusa/17_New_roof_replacement_1_2026024_224435.png?updatedAt=1770228168212",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "metal-roofing": {
+        "key": "service-metal-roofing",
+        "alt": "metal roofing service",
+        "url": "https://ik.imagekit.io/roofingusa/95_Commercial_metal_roo_1_2026024_23423.png?updatedAt=1770228167646",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "commercial-roofing": {
+        "key": "service-commercial-roofing",
+        "alt": "commercial roofing service",
+        "url": "https://ik.imagekit.io/roofingusa/22_Commercial_roofing_p_1_2026024_2284.png?updatedAt=1770207688788",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "storm-damage-roof-repair": {
+        "key": "service-storm-damage-roof-repair",
+        "alt": "storm damage roof repair service",
+        "url": "https://ik.imagekit.io/roofingusa/54_Storm_damage_repair__1_2026024_22542.png?updatedAt=1770228168157",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "roof-inspection": {
+        "key": "service-roof-inspection",
+        "alt": "roof inspection service",
+        "url": "https://ik.imagekit.io/roofingusa/54_Storm_damage_repair__1_2026024_22542.png?updatedAt=1770228168157",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "gutter-installation": {
+        "key": "service-gutter-installation",
+        "alt": "gutter installation service",
+        "url": "https://ik.imagekit.io/roofingusa/115_Gutter_installation__1_2026024_2394.png?updatedAt=1770228168818",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "gutter-repair": {
+        "key": "service-gutter-repair",
+        "alt": "gutter repair service",
+        "url": "https://ik.imagekit.io/roofingusa/129_Gutter_repair_on_two_1_2026024_231212.png?updatedAt=1770228179330",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "siding-installation": {
+        "key": "service-siding-installation",
+        "alt": "siding installation service",
+        "url": "https://ik.imagekit.io/roofingusa/143_Siding_installation__1_2026024_231552.png?updatedAt=1770228180760",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "new-roof-installation": {
+        "key": "service-new-roof-installation",
+        "alt": "new-roof-installation service",
+        "url": "https://ik.imagekit.io/roofingusa/15_Before_and_after_sty_1_2026024_22626.png?updatedAt=1770207687355",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "emergency-roof-repair": {
+        "key": "service-emergency-roof-repair",
+        "alt": "emergency-roof-repair service",
+        "url": "https://ik.imagekit.io/roofingusa/95_Commercial_metal_roo_1_2026024_23423.png?updatedAt=1770228167646",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "roof-maintenance-plans": {
+        "key": "service-roof-maintenance-plans",
+        "alt": "roof-maintenance-plans service",
+        "url": "https://ik.imagekit.io/roofingusa/163_Construction_tools_o_1_2026024_23215.png?updatedAt=1770228182804",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      },
+      "skylight-services": {
+        "key": "service-skylight-services",
+        "alt": "skylight-services service",
+        "url": "https://ik.imagekit.io/roofingusa/50_Modern_construction__1_2026024_23452.png?updatedAt=1770207688575",
+        "placeholder": "https://ik.imagekit.io/roofingusa/transparent%20logo.png"
+      }
+    }
+  }
+}

@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
 
   if (!location) {
     return {
-      title: 'Roofing & Construction | Bennett Construction & Roofing',
+      title: 'Roofing & Construction | Dolomiti Steel Roofing',
       description: 'Professional roofing contractor. Licensed, experienced, and affordable.'
     };
   }
@@ -143,11 +143,11 @@ export default async function LocationPage({ params }: LocationPageProps) {
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-8 text-center">
-              Why {city} Homeowners Choose Bennett Construction
+              Why {city} Homeowners Choose Dolomiti Steel Roofing
             </h2>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Welcome to <span className="font-bold text-[#1e3a5f]">Bennett Construction & Roofing</span>,
+              Welcome to <span className="font-bold text-[#1e3a5f]">Dolomiti Steel Roofing</span>,
               your trusted local roofing and construction experts delivering durable, high-quality roofing
               solutions across <span className="font-semibold">{city}</span>. We believe
               a roof is more than just a structure—it&apos;s your home&apos;s first line of defense against weather,
@@ -169,14 +169,14 @@ export default async function LocationPage({ params }: LocationPageProps) {
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              At <span className="font-bold text-[#1e3a5f]">Bennett Construction & Roofing</span>, we combine
+              At <span className="font-bold text-[#1e3a5f]">Dolomiti Steel Roofing</span>, we combine
               premium materials, proven techniques, and local expertise to provide roofing systems that are
               durable, energy-efficient, and visually appealing. From storm protection to long-term performance,
               your peace of mind is always our priority.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Choose <span className="font-bold text-[#1e3a5f]">Bennett Construction & Roofing</span> for
+              Choose <span className="font-bold text-[#1e3a5f]">Dolomiti Steel Roofing</span> for
               reliable roofing services in {city}—where quality craftsmanship
               meets dependable service.
             </p>

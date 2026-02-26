@@ -16,8 +16,8 @@ export async function generateMetadata(): Promise<Metadata> {
   if (!seo) {
     return {
       title: 'Nationwide Roofing Contractor | Serving All 50 States | USA',
-      description: "Bennett Construction & Roofing is America's premier licensed contractor.",
-      alternates: { canonical: 'https://bennettconstructionandroofing.com/locations' },
+      description: "Dolomiti Steel Roofing is America's premier licensed contractor.",
+      alternates: { canonical: 'https://dolomitisteelroofing.com/locations' },
     };
   }
   return {
@@ -172,7 +172,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">Why America Chooses Bennett</h2>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">Why America Chooses Dolomiti</h2>
               <p className="text-xl opacity-90 mb-8 leading-relaxed">
                 From desert heat to snow country, coastal humidity to Midwest storms—we know every climate. We don&apos;t just build roofs; we engineer defense systems for American homes nationwide.
               </p>
@@ -208,7 +208,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-[#1e3a5f] mb-6">Ready to Protect Your Property?</h2>
           <p className="text-gray-600 text-xl mb-10">
-            Schedule a free inspection with your local Bennett Construction team. We are in your neighborhood.
+            Schedule a free inspection with your local Dolomiti Steel Roofing team. We are in your neighborhood.
           </p>
           <a
             href="tel:8662891750"

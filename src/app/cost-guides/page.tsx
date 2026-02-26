@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('costGuides');
   if (!seo) {
     return {
-      title: 'Roofing Cost Guides | Bennett Construction & Roofing',
+      title: 'Roofing Cost Guides | Dolomiti Steel Roofing',
       description:
         'Transparent, up-to-date roofing cost guides to help you budget for your project.',
     };

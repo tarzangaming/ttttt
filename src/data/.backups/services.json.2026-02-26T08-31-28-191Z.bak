@@ -1,0 +1,778 @@
+{
+  "services": [
+    {
+      "slug": "roof-installation",
+      "title": "Roof Installation",
+      "shortTitle": "Roof Install",
+      "category": "roofing",
+      "icon": "🏠",
+      "heroTitle": "Professional Roof Installation",
+      "heroSubtitle": "Expert installation for new and existing homes.",
+      "description": "Top-rated roof installation services. We install high-quality roofing systems designed for durability and aesthetic appeal.",
+      "metaTitle": "Roof Installation Services | Bennett Construction",
+      "metaDescription": "Professional roof installation. Shingle, Tile, Metal, Flat. Licensed & Insured. Call for a free estimate.",
+      "signs": [
+        "New construction",
+        "Severe roof damage",
+        "Old roof replacement"
+      ],
+      "features": [
+        "Expert consultation",
+        "Quality materials",
+        "Warranty protection",
+        "Clean job site"
+      ],
+      "approach": "We follow a strict installation process starting from structural inspection to the final ridge cap, ensuring a leak-proof and long-lasting roof.",
+      "materials": [
+        "Asphalt Shingles",
+        "Tile",
+        "Metal",
+        "Flat Roof Systems"
+      ],
+      "faqs": [
+        {
+          "question": "How long does installation take?",
+          "answer": "Typically 2-5 days depending on the size and complexity of the roof."
+        }
+      ],
+      "relatedServices": [
+        "roof-replacement",
+        "new-roof-installation",
+        "roof-repair"
+      ]
+    },
+    {
+      "slug": "roof-repair",
+      "title": "Roof Repair",
+      "shortTitle": "Roof Repair",
+      "category": "roofing",
+      "icon": "🔧",
+      "heroTitle": "Expert Roof Repair Services",
+      "heroSubtitle": "Fast, reliable patching for leaks, tile breaks, and storm damage.",
+      "description": "Professional roof repair services for all roof types. We tackle leaks, missing shingles, flashing issues, and structural wear before they become costly replacements.",
+      "metaTitle": "Roof Repair Services | Bennett Construction & Roofing",
+      "metaDescription": "Fast roof repair for leaks, broken tiles, and storm damage. Licensed & insured. Same-day emergency service available. Call (866) 289-1750.",
+      "signs": [
+        "Water stains on ceilings",
+        "Missing or damaged shingles",
+        "Granules in gutters",
+        "Visible light in attic",
+        "Sagging roof deck"
+      ],
+      "approach": "We perform a comprehensive leak investigation, tracing moisture back to the source. Our repairs go beyond surface patching—we replace damaged underlayment and seal penetrations to ensure long-term watertightness.",
+      "materials": [
+        "Matching Shingles/Tiles",
+        "Synthetic Underlayment",
+        "Professional Sealants",
+        "New Flashing"
+      ],
+      "commercialNotes": "We offer leak investigation and repair for commercial flat roofs, including drain clearing and membrane patching.",
+      "features": [
+        "Leak detection",
+        "Shingle/Tile replacement",
+        "Flashing repair",
+        "Emergency tarping",
+        "Written warranty"
+      ],
+      "faqs": [
+        {
+          "question": "How long does a repair take?",
+          "answer": "Most residential repairs are completed in 1 day. We arrive fully stocked to fix common issues immediately."
+        },
+        {
+          "question": "Do you offer warranties on repairs?",
+          "answer": "Yes, we guarantee our repair work against leaks for a specific period, depending on the scope of work."
+        }
+      ],
+      "relatedServices": [
+        "roof-replacement",
+        "storm-damage-roof-repair",
+        "roof-inspection"
+      ]
+    },
+    {
+      "slug": "roof-leak-repair",
+      "title": "Roof Leak Repair",
+      "shortTitle": "Leak Repair",
+      "category": "roofing",
+      "icon": "💧",
+      "heroTitle": "Emergency Roof Leak Repair",
+      "heroSubtitle": "Stop the water damage before it spreads.",
+      "description": "Specialized leak detection and repair. We find the source of the leak—whether it's a pipe jack, valley, or missing shingle—and fix it permanently.",
+      "metaTitle": "Roof Leak Repair Services | Bennett Construction",
+      "metaDescription": "Stop roof leaks fast. Expert leak detection and repair. Protect your drywall and insulation. Call now.",
+      "signs": [
+        "Active dripping during rain",
+        "Brown spots on ceiling",
+        "Mold smell in attic",
+        "Peeling paint near ceiling"
+      ],
+      "approach": "We use moisture meters and thermal imaging (where applicable) to trace the leak path. We don't just patch; we resolve the water entry point.",
+      "materials": [
+        "Waterproofing membranes",
+        "Sealants",
+        "Flashing"
+      ],
+      "features": [
+        "Active leak response",
+        "Moisture testing",
+        "Attic inspection",
+        "Drywall assessment"
+      ],
+      "faqs": [
+        {
+          "question": "Is a leaking roof an emergency?",
+          "answer": "Yes. Water spreads quickly, damaging insulation, drywall, and electrical systems. Call us immediately."
+        }
+      ],
+      "relatedServices": [
+        "roof-repair",
+        "emergency-roof-tarping"
+      ]
+    },
+    {
+      "slug": "roof-replacement",
+      "title": "Roof Replacement",
+      "shortTitle": "Roof Replacement",
+      "category": "roofing",
+      "icon": "🏠",
+      "heroTitle": "Complete Roof Replacement",
+      "heroSubtitle": "Premium roofing systems built to last decades.",
+      "description": "Full roof replacement services including tear-off, structural decking inspection, and installation of top-tier materials. We enhance your home's value and protection.",
+      "metaTitle": "Roof Replacement Services | Bennett Construction",
+      "metaDescription": "Complete roof replacement. Shingle, Tile, Metal, Flat. 50-year warranties available. Financing offered. Call for free quote.",
+      "signs": [
+        "Roof is 20+ years old",
+        "Widespread shingle curling",
+        "Frequent leaks",
+        "Granule loss (bald spots)",
+        "Sagging structure"
+      ],
+      "approach": "We strip the roof down to the deck to inspect for rot. We install high-performance underlayment, proper ventilation, and your choice of premium materials, meeting or exceeding local codes.",
+      "materials": [
+        "Architectural Shingles",
+        "Concrete/Clay Tile",
+        "Standing Seam Metal",
+        "Impact Resistant Options"
+      ],
+      "commercialNotes": "We handle large-scale residential and commercial replacements with minimal disruption to your daily operations.",
+      "features": [
+        "Full tear-off",
+        "Decking repair",
+        "Ventilation upgrades",
+        "Code compliance",
+        "Manufacturer warranties"
+      ],
+      "faqs": [
+        {
+          "question": "How long does a replacement take?",
+          "answer": "Average home takes 2-4 days. We clean up the site daily to keep your driveway useable."
+        },
+        {
+          "question": "Do you handle permits?",
+          "answer": "Yes, we pull all necessary city/county permits and schedule inspections."
+        }
+      ],
+      "relatedServices": [
+        "roof-repair",
+        "new-roof-installation",
+        "roof-financing"
+      ]
+    },
+    {
+      "slug": "new-roof-installation",
+      "title": "New Roof Installation",
+      "shortTitle": "New Roof",
+      "category": "roofing",
+      "icon": "🏗️",
+      "heroTitle": "New Construction Roofing",
+      "heroSubtitle": "Partnering with custom builders and developers.",
+      "description": "Expert roofing installation for new custom homes, tract developments, and commercial buildings. We install perfectly to blueprint specs.",
+      "metaTitle": "New Construction Roofing | Bennett Construction",
+      "metaDescription": "New roof installation for builders and developers. Plan-perfect execution. Call (866) 289-1750.",
+      "signs": [
+        "New Home Build",
+        "Home Addition",
+        "Detached Garage Build"
+      ],
+      "features": [
+        "Blueprint extraction",
+        "Budget estimation",
+        "Timely scheduling",
+        "Builder coordination"
+      ],
+      "approach": "We work closely with General Contractors to ensure the roof is dried-in on schedule, protecting the rest of the build.",
+      "materials": [
+        "All major roofing systems"
+      ],
+      "faqs": [
+        {
+          "question": "Do you bid on plans?",
+          "answer": "Yes, send us your PDF plans for a detailed takeoff."
+        }
+      ],
+      "relatedServices": [
+        "general-construction",
+        "roof-replacement"
+      ]
+    },
+    {
+      "slug": "foam-roofing",
+      "title": "Foam Roofing (SPF)",
+      "shortTitle": "Foam Roofing",
+      "category": "roofing-type",
+      "icon": "☁️",
+      "heroTitle": "Spray Polyurethane Foam Roofing",
+      "heroSubtitle": "Seamless, insulating, and lightweight protection.",
+      "description": "SPF (Spray Polyurethane Foam) is a premier solution for flat roofs, offering incredible insulation value and a monolothic, leak-free barrier.",
+      "metaTitle": "Foam Roofing Services | Bennett Construction",
+      "metaDescription": "Expert SPF foam roofing. Seamless, energy efficient flat roof solution. Repair and recoating. Call for quote.",
+      "signs": [
+        "Flat roof with ponding water",
+        "High energy bills",
+        "Existing foam needs recoat",
+        "Leaks in commercial building"
+      ],
+      "approach": "We apply liquid foam that expands to seal every crack and crevice, creating a seamless layer. We top it with a UV-resistant elastomeric coating to protect against the sun.",
+      "materials": [
+        "Closed-Cell Polyurethane Foam",
+        "Acrylic/Silicone Top Coats"
+      ],
+      "features": [
+        "Self-flashing",
+        "High R-Value",
+        "Lightweight",
+        "seamless waterproofing"
+      ],
+      "commercialNotes": "Ideal for commercial buildings to reduce AC loads.",
+      "faqs": [
+        {
+          "question": "Can you walk on a foam roof?",
+          "answer": "Yes, high-density foam is durable enough for regular maintenance foot traffic."
+        },
+        {
+          "question": "How long does foam last?",
+          "answer": "With proper recoating every 5-10 years, a foam roof can last indefinitely."
+        }
+      ],
+      "relatedServices": [
+        "commercial-roofing",
+        "roof-coatings",
+        "flat-roof-repair"
+      ]
+    },
+    {
+      "slug": "tile-roofing",
+      "title": "Tile Roofing",
+      "shortTitle": "Tile Roofing",
+      "category": "roofing-type",
+      "icon": "🏛️",
+      "heroTitle": "Concrete & Clay Tile Roofing",
+      "heroSubtitle": "Timeless beauty and incredible durability.",
+      "description": "Tile roofs are a staple in many regions for their longevity and fire resistance. We install and repair all profiles of concrete and clay tile.",
+      "metaTitle": "Tile Roofing Contractors | Bennett Construction",
+      "metaDescription": "Concrete and clay tile roofing. Repair and replacement specialists. Large selection of styles/colors.",
+      "signs": [
+        "Cracked individual tiles",
+        "Slipped tiles",
+        "Leaking underlayment",
+        "Faded appearance"
+      ],
+      "approach": "Proper tile installation is all about the underlayment and flashing. We use double-layer or synthetic underlayment to ensure the roof is watertight even if a tile breaks.",
+      "materials": [
+        "Concrete Tile",
+        "Clay Tile",
+        "Sandcast",
+        "Slate"
+      ],
+      "features": [
+        "50+ Year Lifespan",
+        "Class A Fire Rating",
+        "High Wind Resistance",
+        "Curb Appeal"
+      ],
+      "faqs": [
+        {
+          "question": "Are tile roofs heavy?",
+          "answer": "Yes. If switching from shingles to tile, we must verify your home's structural engineering."
+        }
+      ],
+      "relatedServices": [
+        "roof-repair",
+        "roof-replacement"
+      ]
+    },
+    {
+      "slug": "metal-roofing",
+      "title": "Metal Roofing",
+      "shortTitle": "Metal Roofing",
+      "category": "roofing-type",
+      "icon": "🔩",
+      "heroTitle": "Standing Seam Metal Roofing",
+      "heroSubtitle": "Modern, durable, and energy efficient.",
+      "description": "Metal roofing is one of the most durable options available. We specialize in standing seam and concealed fastener systems that offer a sleek look and lifetime performance.",
+      "metaTitle": "Metal Roofing Services | Bennett Construction",
+      "metaDescription": "Standing seam metal roofing. Durable, fire-resistant, and stylish. Expert installation.",
+      "signs": [
+        "Desire for longevity",
+        "Modern aesthetic update",
+        "Fire prone area"
+      ],
+      "features": [
+        "Lifetime durability",
+        "Fire resistance",
+        "Energy efficiency",
+        "low maintenance"
+      ],
+      "approach": "We install custom-fabricated panels with concealed fasteners, allowing the metal to expand and contract without loosening screws.",
+      "materials": [
+        "Steel",
+        "Aluminum",
+        "Copper",
+        "Galvalume"
+      ],
+      "faqs": [
+        {
+          "question": "Is metal roofing noisy?",
+          "answer": "Not when installed over solid decking and potential insulation layers. It's comparable to other roof types."
+        }
+      ],
+      "relatedServices": [
+        "roof-replacement",
+        "commercial-roofing"
+      ]
+    },
+    {
+      "slug": "shingle-roofing",
+      "title": "Shingle Roofing",
+      "shortTitle": "Shingles",
+      "category": "roofing-type",
+      "icon": "🛖",
+      "heroTitle": "Asphalt Shingle Roofing",
+      "heroSubtitle": "Affordable, versatile, and reliable protection.",
+      "description": "We install high-quality architectural and impact-resistant shingles. A cost-effective choice that doesn't compromise on style or protection.",
+      "metaTitle": "Shingle Roofing Contractors | Bennett Construction",
+      "metaDescription": "Expert asphalt shingle installation. Owens Corning, GAF, Malarkey. Affordable and durable.",
+      "signs": [
+        "Granule loss",
+        "Wind damage",
+        "Aging roof"
+      ],
+      "materials": [
+        "Architectural Asphalt",
+        "Impact Resistant (Class 4)",
+        "Designer Shingles"
+      ],
+      "features": [
+        "Cost-effective",
+        "Wide color variety",
+        "Quick installation"
+      ],
+      "approach": "We follow manufacturer 'System' guidelines—installing the matching starter strips, hip & ridge caps, and ventilation for a complete warranty.",
+      "faqs": [
+        {
+          "question": "How long do shingles last?",
+          "answer": "Modern architectural shingles typically last 20-30 years."
+        }
+      ],
+      "relatedServices": [
+        "roof-replacement",
+        "roof-repair"
+      ]
+    },
+    {
+      "slug": "flat-roof-repair",
+      "title": "Flat Roof Repair",
+      "shortTitle": "Flat Roof Repair",
+      "category": "commercial",
+      "icon": "🏢",
+      "heroTitle": "Flat Roof Repair Experts",
+      "heroSubtitle": "Solving ponding water and membrane leaks.",
+      "description": "Specialized repair for commercial and residential flat roofs. We fix leaks in Modified Bitumen, TPO, EPDM, and Foam roofs.",
+      "metaTitle": "Flat Roof Repair Services | Bennett Construction",
+      "metaDescription": "Expert flat roof repair. TPO, Foam, Torch down. Fix ponding water and leaks.",
+      "signs": [
+        "Ponding water",
+        "Bubbling membrane",
+        "Seam separation"
+      ],
+      "features": [
+        "Low-slope expertise",
+        "Drain repair",
+        "Coating patches"
+      ],
+      "materials": [
+        "Bitumen",
+        "TPO patches",
+        "Elastomeric cements"
+      ],
+      "approach": "Proper drainage is key. We often repair the leak and suggest cricket installation or drain clearing to prevent recurrence.",
+      "faqs": [
+        {
+          "question": "Why does my flat roof leak?",
+          "answer": "Usually due to poor drainage (ponding water) or sun damage degrading the seams."
+        }
+      ],
+      "relatedServices": [
+        "commercial-roofing",
+        "roof-coatings"
+      ]
+    },
+    {
+      "slug": "flat-roofing-systems",
+      "title": "Flat Roofing Systems",
+      "shortTitle": "Flat Roofing",
+      "category": "commercial",
+      "icon": "🏗️",
+      "heroTitle": "Commercial Flat Roofing Systems",
+      "heroSubtitle": "TPO, EPDM, and Modified Bitumen solutions.",
+      "description": "We install and replace complete flat roof systems for commercial buildings. Energy efficient and built for longevity.",
+      "metaTitle": "Flat Roofing Systems | Bennett Construction",
+      "metaDescription": "Commercial flat roofing. TPO, EPDM, Mod Bit. Licensed commercial roofer.",
+      "features": [
+        "TPO Single Ply",
+        "EPDM Rubber",
+        "Torch Down",
+        "Iso Board Insulation"
+      ],
+      "materials": [
+        "TPO",
+        "EPDM",
+        "Modified Bitumen"
+      ],
+      "approach": "We adhere to strict manufacturer specs for seam welding and fastening to ensure wind uplift resistance.",
+      "commercialNotes": "We specialize in large warehouse reroofs.",
+      "faqs": [],
+      "relatedServices": [
+        "commercial-roofing",
+        "flat-roof-repair"
+      ]
+    },
+    {
+      "slug": "roof-coatings",
+      "title": "Roof Coatings",
+      "shortTitle": "Coatings",
+      "category": "commercial",
+      "icon": "🖌️",
+      "heroTitle": "Restorative Roof Coatings",
+      "heroSubtitle": "Extend your roof's life and lower energy costs.",
+      "description": "Liquid-applied roof coatings (Silicone/Acrylic) can restore an aging roof, stop leaks, and reflect UV heat—often costing half as much as a replacement.",
+      "metaTitle": "Roof Coating Services | Bennett Construction",
+      "metaDescription": "Silicone and Acrylic roof coatings. Extend roof life. Tax deductible maintenance. Call today.",
+      "signs": [
+        "Aging flat roof",
+        "High cooling bills",
+        "Micro-cracking surface"
+      ],
+      "features": [
+        "Seamless barrier",
+        "Reflective white",
+        "Tax benefits",
+        "10-20 year warranties"
+      ],
+      "approach": "We adjust pressure wash the roof, seal seams and penetrations, then apply the coating to the specified millage thickness.",
+      "materials": [
+        "High Solids Silicone",
+        "Elastomeric Acrylic"
+      ],
+      "faqs": [
+        {
+          "question": "Is this a new roof?",
+          "answer": "It is considered maintenance, which often has tax advantages, but provides new-roof performance."
+        }
+      ],
+      "relatedServices": [
+        "commercial-roofing",
+        "flat-roof-repair"
+      ]
+    },
+    {
+      "slug": "commercial-roofing",
+      "title": "Commercial Roofing",
+      "shortTitle": "Commercial",
+      "category": "commercial",
+      "icon": "🏢",
+      "heroTitle": "Commercial Roofing Services",
+      "heroSubtitle": "Reliable roofing for your business assets.",
+      "description": "Comprehensive commercial roofing services. Installation, replacement, and maintenance for office parks, retail centers, and industrial facilities.",
+      "metaTitle": "Commercial Roofing Contractor | Bennett Construction",
+      "metaDescription": "Licensed commercial roofer. TPO, Metal, Foam. Nationwide service capability.",
+      "features": [
+        "Project Management",
+        "Safety Compliance",
+        "Bonded Capability",
+        "Preventive Maintenance"
+      ],
+      "commercialNotes": "We understand business continuity and work to minimize impact on your tenants/operations.",
+      "faqs": [],
+      "relatedServices": [
+        "roof-coatings",
+        "flat-roofing-systems"
+      ]
+    },
+    {
+      "slug": "storm-damage-roof-repair",
+      "title": "Storm Damage Repair",
+      "shortTitle": "Storm Damage",
+      "category": "roofing",
+      "icon": "⛈️",
+      "heroTitle": "Storm Damage Restoration",
+      "heroSubtitle": "Wind, Hail, and Impact repair specialists.",
+      "description": "We specialize in restoring roofs damaged by severe weather. From hail impacts to wind-blown shingles, we work with you to secure your property.",
+      "metaTitle": "Storm Damage Roof Repair | Bennett Construction",
+      "metaDescription": "Emergency storm damage repair. Hail, wind, tree damage. Insurance claim assistance.",
+      "signs": [
+        "Hail dents",
+        "Missing shingles after wind",
+        "Leaking after storm"
+      ],
+      "features": [
+        "Claim Assistance",
+        "Emergency Tarping",
+        "Damage Assessment"
+      ],
+      "approach": "We document all damage meticulously (dates of loss, impact counts) to help you present a clear case to your insurance carrier.",
+      "faqs": [],
+      "relatedServices": [
+        "emergency-tarping",
+        "roof-repair"
+      ]
+    },
+    {
+      "slug": "emergency-roof-repair",
+      "title": "Emergency Roof Repair",
+      "shortTitle": "Emergency Repair",
+      "category": "roofing",
+      "icon": "🚨",
+      "heroTitle": "24/7 Emergency Roof Repair",
+      "heroSubtitle": "Immediate response when you need it most.",
+      "description": "Roof failures don't happen on schedule. Our emergency teams are available 24/7 to stop leaks and secure dangerous situations.",
+      "metaTitle": "Emergency Roof Repair | Bennett Construction",
+      "metaDescription": "24/7 Emergency roofing service. Leaks, collapse, storm damage. Fast response.",
+      "signs": [
+        "Active interior flooding",
+        "Collapsed roof",
+        "Major storm damage"
+      ],
+      "features": [
+        "24/7 Dispatch",
+        "Tarping",
+        "Debris Clearance"
+      ],
+      "faqs": [],
+      "relatedServices": [
+        "roof-repair",
+        "storm-damage-roof-repair"
+      ]
+    },
+    {
+      "slug": "roof-maintenance-plans",
+      "title": "Roof Maintenance Plans",
+      "shortTitle": "Maintenance",
+      "category": "roofing",
+      "icon": "📋",
+      "heroTitle": "Preventive Roof Maintenance",
+      "heroSubtitle": "Extend the life of your roof and prevent leaks.",
+      "description": "Scheduled inspections and maintenance (cleaning, sealing) to catch small problems before they become expensive failures. Protect your warranty.",
+      "metaTitle": "Roof Maintenance Plans | Bennett Construction",
+      "metaDescription": "Annual roof maintenance. Gutter cleaning, resealing, inspection. Extend your roof life.",
+      "features": [
+        "Annual Inspections",
+        "Gutter Cleaning",
+        "Debris Removal",
+        "Sealant Touch-ups"
+      ],
+      "faqs": [],
+      "relatedServices": [
+        "roof-inspection",
+        "gutter-cleaning"
+      ]
+    },
+    {
+      "slug": "roof-inspection",
+      "title": "Roof Inspection",
+      "shortTitle": "Inspection",
+      "category": "roofing",
+      "icon": "🔍",
+      "heroTitle": "Comprehensive Roof Inspections",
+      "heroSubtitle": " detailed reports for buyers, sellers, and owners.",
+      "description": "Thorough visual and physical analysis of your roof system. We identify current issues and estimate remaining lifespan.",
+      "metaTitle": "Roof Inspection Services | Bennett Construction",
+      "metaDescription": "Professional roof inspections. Real estate certifications. Detailed photo reports.",
+      "features": [
+        "Real Estate Certs",
+        "Insurance Inspections",
+        "Photo Reports"
+      ],
+      "faqs": [],
+      "relatedServices": [
+        "roof-maintenance-plans",
+        "roof-repair"
+      ]
+    },
+    {
+      "slug": "gutter-installation",
+      "title": "Gutter Installation",
+      "shortTitle": "Gutters",
+      "category": "exterior",
+      "icon": "🌧️",
+      "heroTitle": "Seamless Gutter Installation",
+      "heroSubtitle": "Protect your foundation with custom drainage.",
+      "description": "We install custom seamless gutters to effectively manage rainwater and protect your landscaping and foundation from erosion.",
+      "metaTitle": "Gutter Installation Services | Bennett Construction",
+      "metaDescription": "Seamless gutter installation. Aluminum, Copper, Steel. 5 and 6 inch K-style.",
+      "features": [
+        "Seamless Aluminum",
+        "Custom Colors",
+        "Proper Slope"
+      ],
+      "materials": [
+        "Aluminum",
+        "Copper",
+        "Steel"
+      ],
+      "faqs": [],
+      "relatedServices": [
+        "gutter-guards",
+        "gutter-repair"
+      ]
+    },
+    {
+      "slug": "gutter-repair",
+      "title": "Gutter Repair",
+      "shortTitle": "Gutter Repair",
+      "category": "exterior",
+      "icon": "🔧",
+      "heroTitle": "Gutter Repair Services",
+      "heroSubtitle": "Fix leaks, sagging, and detachment.",
+      "description": "Repairing damaged gutters to ensure they flow correctly. We fix leaks, re-hang loose sections, and replace damaged downspouts.",
+      "metaTitle": "Gutter Repair Services | Bennett Construction",
+      "metaDescription": "Expert gutter repair. Fix sagging, leaking gutters. Downspout repair.",
+      "relatedServices": [
+        "gutter-installation",
+        "gutter-cleaning"
+      ]
+    },
+    {
+      "slug": "gutter-guards",
+      "title": "Gutter Guards",
+      "shortTitle": "Gutter Guards",
+      "category": "exterior",
+      "icon": "🛡️",
+      "heroTitle": "Gutter Guard Installation",
+      "heroSubtitle": "Keep your gutters flowing freely.",
+      "description": "Install leaf protection systems to prevent clogs and reduce maintenance. We offer mesh, screen, and helmet style guards.",
+      "metaTitle": "Gutter Guard Installation | Bennett Construction",
+      "metaDescription": "Install gutter guards. Prevent clogs and reduce cleaning.",
+      "relatedServices": [
+        "gutter-installation",
+        "gutter-cleaning"
+      ]
+    },
+    {
+      "slug": "gutter-cleaning",
+      "title": "Gutter Cleaning",
+      "shortTitle": "Gutter Cleaning",
+      "category": "exterior",
+      "icon": "🍂",
+      "heroTitle": "Professional Gutter Cleaning",
+      "heroSubtitle": "Remove debris and ensure proper flow.",
+      "description": "Safe, thorough removal of leaves and debris from your gutters and downspouts. Essential maintenance for home protection.",
+      "metaTitle": "Gutter Cleaning Services | Bennett Construction",
+      "metaDescription": "Professional gutter cleaning. Prevent water damage. Safe and affordable.",
+      "relatedServices": [
+        "roof-maintenance-plans",
+        "gutter-repair"
+      ]
+    },
+    {
+      "slug": "general-construction",
+      "title": "General Construction",
+      "shortTitle": "Construction",
+      "category": "construction",
+      "icon": "🏗️",
+      "heroTitle": "General Contracting Services",
+      "heroSubtitle": "Additions, Garages, and Remodeling.",
+      "description": "Licensed general construction for residential and commercial projects. From additions to structural repairs, we handle it all.",
+      "metaTitle": "General Construction Services | Bennett Construction",
+      "metaDescription": "Licensed general contractor. Additions, remodeling, structural repair.",
+      "relatedServices": [
+        "home-remodeling",
+        "exterior-remodeling"
+      ]
+    },
+    {
+      "slug": "siding-installation",
+      "title": "Siding Installation",
+      "shortTitle": "Siding",
+      "category": "exterior",
+      "icon": "🏡",
+      "heroTitle": "Expert Siding Installation",
+      "heroSubtitle": "Enhance your home's curb appeal and protection.",
+      "description": "Professional siding installation and replacement. We offer vinyl, fiber cement, and wood siding options to protect your home and increase energy efficiency.",
+      "metaTitle": "Siding Installation Services | Bennett Construction",
+      "metaDescription": "Top-rated siding installation. Vinyl, James Hardie, and Wood siding. Free estimates. Call (866) 289-1750.",
+      "signs": [
+        "Cracked or warped siding",
+        "High energy bills",
+        "Peeling paint or wallpaper inside",
+        "Mold or mildew growth",
+        "Faded or outdated appearance"
+      ],
+      "features": [
+        "Full replacement",
+        "Repair services",
+        "Insulated siding",
+        "Custom colors"
+      ],
+      "relatedServices": [
+        "gutter-installation",
+        "roof-replacement",
+        "general-construction"
+      ]
+    },
+    {
+      "slug": "skylight-services",
+      "title": "Skylight Installation & Repair",
+      "shortTitle": "Skylight",
+      "category": "roofing",
+      "icon": "☀️",
+      "heroTitle": "Professional Skylight Services",
+      "heroSubtitle": "Bring natural light into your home with expert installation.",
+      "description": "Professional skylight installation and repair to enhance natural light while maintaining waterproof seals and roof integrity.",
+      "metaTitle": "Skylight Installation & Repair | Bennett Construction",
+      "metaDescription": "Expert skylight repair and installation. Velux certified installers. Leak-free guarantee.",
+      "relatedServices": [
+        "roof-repair",
+        "roof-replacement"
+      ]
+    }
+  ],
+  "serviceCategories": [
+    {
+      "id": "roofing",
+      "name": "Core Roofing",
+      "description": "Essential repair and replacement services."
+    },
+    {
+      "id": "roofing-type",
+      "name": "Roofing Systems",
+      "description": "Specialized material installations: Tile, Foam, Metal, Shingle."
+    },
+    {
+      "id": "commercial",
+      "name": "Commercial Solutions",
+      "description": "Flat roofing and industrial coatings."
+    },
+    {
+      "id": "exterior",
+      "name": "Exterior Services",
+      "description": "Gutters and protection."
+    },
+    {
+      "id": "construction",
+      "name": "General Construction",
+      "description": "Remodeling and additions."
+    }
+  ]
+}

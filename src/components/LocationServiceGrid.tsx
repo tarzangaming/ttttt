@@ -16,7 +16,7 @@ const LocationServiceGrid: React.FC<LocationServiceGridProps> = ({
     locationName,
     stateName,
     phone = '(866) 289-1750',
-    companyName = 'Bennett Construction & Roofing'
+    companyName = 'Dolomiti Steel Roofing'
 }) => {
     const replacePlaceholders = (text: string) => {
         return text

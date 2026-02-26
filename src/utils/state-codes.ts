@@ -3,7 +3,7 @@
  * Safe for Edge runtime (middleware) - no imports from content.
  */
 
-const DOMAIN = 'bennettconstructionandroofing.com';
+const DOMAIN = 'dolomitisteelroofing.com';
 
 /** US state codes for state subdomains */
 export const STATE_CODES = [

@@ -11,11 +11,11 @@ export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('financing');
   if (!seo) {
     return {
-      title: 'Roof Financing Options | Bennett Construction & Roofing',
+      title: 'Roof Financing Options | Dolomiti Steel Roofing',
       description:
         'Explore roof financing options with flexible payment plans to fit your budget.',
       alternates: {
-        canonical: 'https://bennettconstructionandroofing.com/financing',
+        canonical: 'https://dolomitisteelroofing.com/financing',
       },
     };
   }

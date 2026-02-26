@@ -16,7 +16,7 @@ export default function ContactPageContent() {
         <div className="absolute inset-0 z-0">
           <Image
             src={imagesData.images.hero.contact.url}
-            alt="Contact Bennett Construction"
+            alt="Contact Dolomiti Steel Roofing"
             fill
             className="object-cover"
             style={{ filter: 'brightness(0.3)' }}

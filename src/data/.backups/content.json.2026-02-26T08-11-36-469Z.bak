@@ -1,0 +1,252 @@
+{
+  "mainWebsite": {
+    "homepage": {
+      "hero": {
+        "title": "Premium Steel Roofing Built to Last",
+        "subtitle": "Dolomiti Steel Roofing delivers high-performance metal roofing systems for residential and commercial properties across the USA.",
+        "badge": "Specialists in Durable Steel Roofing",
+        "cta": {
+          "primary": "Get Free Steel Roof Estimate",
+          "secondary": "Explore Our Services"
+        }
+      },
+      "features": [
+        {
+          "icon": "🏠",
+          "title": "Residential Steel Roofing",
+          "description": "Protect your home with energy-efficient, weather-resistant steel roofing systems engineered for longevity and beauty."
+        },
+        {
+          "icon": "🏢",
+          "title": "Commercial Metal Roofing",
+          "description": "High-performance standing seam and corrugated steel solutions designed for warehouses, offices, and industrial buildings."
+        },
+        {
+          "icon": "⛈️",
+          "title": "Storm & Hail Resistant Roofing",
+          "description": "Impact-rated steel roofing built to withstand hail, high winds, and extreme weather conditions."
+        }
+      ],
+      "whyChooseUs": [
+        {
+          "icon": "🛡️",
+          "title": "Licensed & Insured",
+          "description": "Fully licensed and insured steel roofing specialists."
+        },
+        {
+          "icon": "💰",
+          "title": "Transparent Pricing",
+          "description": "Honest quotes with no hidden costs."
+        },
+        {
+          "icon": "⚙️",
+          "title": "Premium Steel Materials",
+          "description": "We use only high-grade galvanized and coated steel products."
+        },
+        {
+          "icon": "🏆",
+          "title": "Long-Term Warranty",
+          "description": "Industry-leading material and workmanship warranties."
+        }
+      ],
+      "coverage": {
+        "title": "Serving Homeowners & Businesses Nationwide",
+        "subtitle": "Dolomiti Steel Roofing provides expert metal roofing installation tailored to regional climates and building codes across the United States.",
+        "ctaText": "Find Your Local Office"
+      },
+      "servicesSection": {
+        "title": "Comprehensive Roofing Solutions",
+        "subtitle": "We provide specialized roofing systems tailored to your residential and commercial needs.",
+        "ctaText": "View All Services"
+      },
+      "whyChooseUsSectionTitle": "The Bennett Advantage",
+      "faqSection": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Common questions about our roofing and construction services.",
+        "items": [
+          {
+            "question": "Do you service my area?",
+            "answer": "We are a nationwide roofing contractor with local teams in major metropolitan areas across the US. From Texas to New York, Florida to Arizona, we likely have crews near you. Check our Locations page or call us to confirm."
+          },
+          {
+            "question": "Are you licensed and insured?",
+            "answer": "Yes, absolutely. Bennett Construction & Roofing carries all necessary state licenses and strictly maintains liability and workers' compensation insurance to protect our clients and our crews."
+          },
+          {
+            "question": "Do you offer financing?",
+            "answer": "Yes! We partner with top lending institutions to offer flexible financing options for roof replacements and major repairs, subject to credit approval."
+          },
+          {
+            "question": "What types of roofs do you install?",
+            "answer": "We work with all major roofing systems including Asphalt Shingles, Metal (Standing Seam), Tile (Clay/Concrete), Flat Roofs (TPO/EPDM/Foam), and more."
+          },
+          {
+            "question": "Do you handle insurance claims?",
+            "answer": "Yes. Our team is experienced in storm damage restoration and can assist you through the insurance claim process, ensuring all damage is documented and covered."
+          }
+        ]
+      },
+      "ctaSection": {
+        "title": "Ready to Start Your Project?",
+        "subtitle": "Contact us today for a free inspection and detailed estimate.",
+        "primaryButtonText": "Call (866) 289-1750",
+        "secondaryButtonText": "Request Online"
+      }
+    },
+    "about": {
+      "hero": {
+        "title": "Engineered Strength. Trusted Craftsmanship.",
+        "subtitle": "Dolomiti Steel Roofing is a dedicated metal roofing contractor serving residential and commercial clients nationwide.",
+        "badge": "Steel Roofing Experts"
+      },
+      "story": {
+        "title": "Our Story",
+        "paragraphs": [
+          "Dolomiti Steel Roofing was founded with one mission: deliver superior steel roofing systems that outperform traditional roofing materials in durability, efficiency, and lifespan.",
+          "Our team specializes exclusively in metal roofing solutions, combining advanced installation techniques with premium-grade steel materials to ensure unmatched protection and performance."
+        ],
+        "stats": [
+          {
+            "value": "5k+",
+            "label": "Steel Roofs Installed"
+          },
+          {
+            "value": "30+",
+            "label": "States Served"
+          }
+        ]
+      },
+      "values": [
+        {
+          "icon": "🛡️",
+          "title": "Durability",
+          "description": "We build roofing systems designed to last 40+ years with minimal maintenance."
+        },
+        {
+          "icon": "⚡",
+          "title": "Energy Efficiency",
+          "description": "Reflective steel roofing reduces cooling costs and improves building efficiency."
+        },
+        {
+          "icon": "🔒",
+          "title": "Precision & Safety",
+          "description": "Every installation follows strict safety standards and manufacturer specifications."
+        }
+      ]
+    },
+    "contact": {
+      "hero": {
+        "title": "Contact Dolomiti Steel Roofing",
+        "subtitle": "Request a free steel roofing estimate today. We proudly serve customers nationwide."
+      },
+      "info": {
+        "headquarters": {
+          "title": "Main Office",
+          "address": "Nationwide Service Provider\nUnited States"
+        },
+        "phone": {
+          "title": "Phone",
+          "subtitle": "Customer Support Line",
+          "number": "(888) 555-7820"
+        },
+        "hours": {
+          "title": "Hours",
+          "weekdays": "Mon-Fri: 7am - 6pm",
+          "weekends": "Sat: By Appointment | Sun: Closed"
+        }
+      }
+    }
+  },
+  "locationPages": {
+    "hero": {
+      "titleTemplate": "Expert Steel Roofing in {CITY}, {STATE}",
+      "subtitleTemplate": "Your trusted local metal roofing contractor for steel roof installation, replacement, and repair in {CITY}.",
+      "descriptionTemplate": "At Dolomiti Steel Roofing, we provide advanced steel roofing systems for homes and businesses in {CITY}, {STATE}. Our metal roofing solutions are engineered to resist corrosion, wind, hail, and extreme temperatures while delivering long-term energy savings. Whether you need standing seam panels, corrugated steel roofing, or complete metal roof replacement, our certified installers ensure precision craftsmanship and lasting performance.",
+      "badges": [
+        {
+          "icon": "✓",
+          "text": "Licensed & Insured"
+        },
+        {
+          "icon": "⭐",
+          "text": "Top Rated Service"
+        },
+        {
+          "icon": "🏆",
+          "text": "Metal Roofing Specialists"
+        }
+      ],
+      "serviceHighlights": "Steel Roof Installation • Standing Seam Roofing • Corrugated Metal Roofing • Metal Roof Replacement • Hail-Resistant Roofing • Energy-Efficient Roofing • Commercial Steel Roofing",
+      "benefits": [
+        {
+          "title": "Free Estimates",
+          "subtitle": "No obligation consultations"
+        },
+        {
+          "title": "Storm Resistant",
+          "subtitle": "Built for extreme weather"
+        },
+        {
+          "title": "Energy Efficient",
+          "subtitle": "Lower cooling costs"
+        },
+        {
+          "title": "40+ Year Lifespan",
+          "subtitle": "Long-term durability"
+        }
+      ]
+    },
+    "whyChooseUs": {
+      "titleTemplate": "Why {CITY} Homeowners Choose Dolomiti Steel Roofing",
+      "introTemplate": "Weather conditions in {CITY} can put significant stress on traditional roofing materials. Steel roofing offers unmatched durability and resistance against harsh environmental factors.",
+      "paragraphs": [
+        "Dolomiti Steel Roofing specializes exclusively in high-performance metal roofing systems tailored for {CITY}. Our steel roofs are engineered for superior strength, longevity, and minimal maintenance.",
+        "We combine advanced installation techniques with premium-grade coated steel panels to ensure your roof withstands heavy rain, wind, hail, and extreme heat.",
+        "Choose Dolomiti Steel Roofing in {CITY} for a modern, durable, and energy-efficient roofing solution built to last decades."
+      ]
+    },
+    "trustIndicators": {
+      "stats": [
+        {
+          "value": "15+",
+          "label": "Years Metal Roofing Experience"
+        },
+        {
+          "value": "5000+",
+          "label": "Roofs Installed"
+        },
+        {
+          "value": "Free",
+          "label": "Estimates"
+        },
+        {
+          "value": "100%",
+          "label": "Customer Satisfaction"
+        }
+      ]
+    },
+    "features": [
+      {
+        "icon": "🛡️",
+        "title": "Licensed & Insured",
+        "description": "Certified steel roofing professionals."
+      },
+      {
+        "icon": "⚙️",
+        "title": "Metal Roofing Experts",
+        "description": "Specialized exclusively in steel roofing systems."
+      },
+      {
+        "icon": "💵",
+        "title": "Free Estimates",
+        "description": "Clear pricing with no hidden costs."
+      }
+    ],
+    "cta": {
+      "titleTemplate": "Ready for a Stronger Roof?",
+      "subtitleTemplate": "Call us today for a free steel roofing estimate in {CITY}, {STATE}.",
+      "primaryButton": "Call {PHONE}",
+      "secondaryButton": "Request Free Estimate"
+    }
+  }
+}

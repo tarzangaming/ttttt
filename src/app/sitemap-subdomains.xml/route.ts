@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { getAllLocations } from '@/utils/content'
 
-const DOMAIN = 'bennettconstructionandroofing.com'
+const DOMAIN = 'dolomitisteelroofing.com'
 
 // Cache subdomains sitemap for 24 hours
 export const revalidate = 86400;

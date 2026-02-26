@@ -17,13 +17,13 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
 
   if (!location) {
     return {
-      title: 'Contact Us | Bennett Construction & Roofing',
+      title: 'Contact Us | Dolomiti Steel Roofing',
       description: 'Need roofing help? Contact our team today for fast, affordable services.'
     };
   }
 
   return {
-    title: `Contact Roofers in ${location.name} | Bennett Construction & Roofing`,
+    title: `Contact Roofers in ${location.name} | Dolomiti Steel Roofing`,
     description: `Need roofing or construction help in ${location.name}? Contact our team today for free estimates and 24/7 emergency service. Call ${location.phone || '(866) 289-1750'}.`,
     keywords: [
       `contact roofer ${location.name}`,
@@ -34,14 +34,14 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
       `roofing contractor ${location.name}`,
     ],
     openGraph: {
-      title: `Contact Roofers in ${location.name} | Bennett Construction & Roofing`,
+      title: `Contact Roofers in ${location.name} | Dolomiti Steel Roofing`,
       description: `Need roofing help in ${location.name}? Contact our team today for fast, affordable services.`,
       type: 'website',
       locale: 'en_US',
-      siteName: 'Bennett Construction & Roofing'
+      siteName: 'Dolomiti Steel Roofing'
     },
     alternates: {
-      canonical: `https://${location.id}.bennettconstructionandroofing.com/contact`
+      canonical: `https://${location.id}.dolomitisteelroofing.com/contact`
     }
   };
 }
