@@ -25,28 +25,31 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
     };
   }
 
+  const { getLocationAboutSEOFromFile } = await import('@/lib/seo-server');
+  const seo = getLocationAboutSEOFromFile(location.name, location.state, location.id);
+
   return {
-    title: `About ${siteConfig.companyName} in ${location.name} | Trusted Local Experts`,
-    description: `Learn about our expert team in ${location.name}. We provide reliable, affordable roofing and construction services. Licensed & Insured.`,
+    title: seo.title,
+    description: seo.description,
     keywords: [
       `about roofer ${location.name}`,
       `roofing company ${location.name}`,
       `local roofer ${location.name}`,
     ],
     openGraph: {
-      title: `About ${siteConfig.companyName} in ${location.name}`,
-      description: `Learn about our expert team in ${location.name}. Trusted roofing and construction services.`,
+      title: seo.title,
+      description: seo.description,
       type: 'website',
       locale: 'en_US',
       siteName: siteConfig.companyName
     },
     twitter: {
       card: 'summary_large_image',
-      title: `About ${siteConfig.companyName} in ${location.name}`,
-      description: `Learn about our expert team in ${location.name}. Trusted roofing and construction services.`
+      title: seo.title,
+      description: seo.description
     },
     alternates: {
-      canonical: `https://${location.id}.${siteConfig.domain}/about`
+      canonical: seo.canonical
     }
   };
 }

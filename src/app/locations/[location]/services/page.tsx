@@ -47,11 +47,14 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
     };
   }
 
+  const { getLocationServicesSEOFromFile } = await import('@/lib/seo-server');
+  const seo = getLocationServicesSEOFromFile(location.name, location.state, location.id);
+
   return {
-    title: `Construction & Roofing Services in ${location.name} | ${siteConfig.companyName}`,
-    description: `Expert roofing, siding, and remodeling services in ${location.name}, ${location.state}. Residential and commercial solutions by ${siteConfig.companyName}.`,
+    title: seo.title,
+    description: seo.description,
     alternates: {
-      canonical: `https://${location.id}.${siteConfig.domain}/services`
+      canonical: seo.canonical
     }
   };
 }

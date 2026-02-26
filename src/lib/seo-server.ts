@@ -267,6 +267,162 @@ export function getCostCalculatorPageSEOFromFile(
   };
 }
 
+export function getStateTemplateFromFile() {
+  const seo = readSeoFile();
+  const templates = seo.templates as Record<string, SEOTemplate> | undefined;
+  return templates?.state || null;
+}
+
+export function getStateServicesTemplateFromFile() {
+  const seo = readSeoFile();
+  const templates = seo.templates as Record<string, SEOTemplate> | undefined;
+  return templates?.stateServices || null;
+}
+
+export function getStateServiceTemplateFromFile() {
+  const seo = readSeoFile();
+  const templates = seo.templates as Record<string, SEOTemplate> | undefined;
+  return templates?.stateService || null;
+}
+
+export function getLocationAboutTemplateFromFile() {
+  const seo = readSeoFile();
+  const templates = seo.templates as Record<string, SEOTemplate> | undefined;
+  return templates?.locationAbout || null;
+}
+
+export function getLocationContactTemplateFromFile() {
+  const seo = readSeoFile();
+  const templates = seo.templates as Record<string, SEOTemplate> | undefined;
+  return templates?.locationContact || null;
+}
+
+export function getLocationServicesTemplateFromFile() {
+  const seo = readSeoFile();
+  const templates = seo.templates as Record<string, SEOTemplate> | undefined;
+  return templates?.locationServices || null;
+}
+
+function applyReplacements(text: string, replacements: Record<string, string>): string {
+  let result = text;
+  for (const [key, value] of Object.entries(replacements)) {
+    result = result.replace(new RegExp(`\\{${key}\\}`, 'g'), value);
+  }
+  return result;
+}
+
+export function getStateSEOFromFile(stateFullName: string, stateCode: string): PageSEO {
+  const config = readSiteConfigFile();
+  const phone = String(config.phone || '');
+  const template = getStateTemplateFromFile();
+  const replacements = { stateFullName, stateCode: stateCode.toLowerCase(), phone };
+  if (!template) {
+    return {
+      title: `Best Roofing & Construction Company in ${stateFullName} | ${siteConfig.companyName}`,
+      description: `Expert roofing and construction services across ${stateFullName}. Licensed, insured contractors. Call ${phone}!`,
+      canonical: `https://${stateCode.toLowerCase()}.${siteConfig.domain}`,
+    };
+  }
+  return {
+    title: applyReplacements(template.title, replacements),
+    description: applyReplacements(template.description, replacements),
+    canonical: template.canonical ? applyReplacements(template.canonical, replacements) : undefined,
+  };
+}
+
+export function getStateServicesSEOFromFile(stateFullName: string, stateCode: string): PageSEO {
+  const config = readSiteConfigFile();
+  const phone = String(config.phone || '');
+  const template = getStateServicesTemplateFromFile();
+  const replacements = { stateFullName, stateCode: stateCode.toLowerCase(), phone };
+  if (!template) {
+    return {
+      title: `Roofing & Construction Services in ${stateFullName} | ${siteConfig.companyName}`,
+      description: `Complete roofing and construction services across ${stateFullName}. Call ${phone}!`,
+      canonical: `https://${stateCode.toLowerCase()}.${siteConfig.domain}/services`,
+    };
+  }
+  return {
+    title: applyReplacements(template.title, replacements),
+    description: applyReplacements(template.description, replacements),
+    canonical: template.canonical ? applyReplacements(template.canonical, replacements) : undefined,
+  };
+}
+
+export function getStateServiceSEOFromFile(stateFullName: string, stateCode: string, serviceTitle: string, serviceSlug: string): PageSEO {
+  const config = readSiteConfigFile();
+  const phone = String(config.phone || '');
+  const template = getStateServiceTemplateFromFile();
+  const replacements = { stateFullName, stateCode: stateCode.toLowerCase(), serviceTitle, serviceSlug, phone };
+  if (!template) {
+    return {
+      title: `${serviceTitle} in ${stateFullName} | ${siteConfig.companyName}`,
+      description: `Professional ${serviceTitle.toLowerCase()} services in ${stateFullName}. Call ${phone}!`,
+      canonical: `https://${stateCode.toLowerCase()}.${siteConfig.domain}/${serviceSlug}`,
+    };
+  }
+  return {
+    title: applyReplacements(template.title, replacements),
+    description: applyReplacements(template.description, replacements),
+    canonical: template.canonical ? applyReplacements(template.canonical, replacements) : undefined,
+  };
+}
+
+export function getLocationAboutSEOFromFile(cityName: string, state: string, locationId: string): PageSEO {
+  const config = readSiteConfigFile();
+  const phone = String(config.phone || '');
+  const template = getLocationAboutTemplateFromFile();
+  const replacements = { cityName, state, locationId, phone };
+  if (!template) {
+    return {
+      title: `About ${siteConfig.companyName} in ${cityName}, ${state} | Trusted Local Experts`,
+      description: `Learn about our expert team in ${cityName}, ${state}. Licensed & insured. Reliable, affordable roofing and construction.`,
+      canonical: `https://${locationId}.${siteConfig.domain}/about`,
+    };
+  }
+  return {
+    title: applyReplacements(template.title, replacements),
+    description: applyReplacements(template.description, replacements),
+    canonical: template.canonical ? applyReplacements(template.canonical, replacements) : undefined,
+  };
+}
+
+export function getLocationContactSEOFromFile(cityName: string, state: string, locationId: string): PageSEO {
+  const config = readSiteConfigFile();
+  const phone = String(config.phone || '');
+  const template = getLocationContactTemplateFromFile();
+  const replacements = { cityName, state, locationId, phone };
+  if (!template) {
+    return {
+      title: `Contact Roofers in ${cityName}, ${state} | ${siteConfig.companyName}`,
+      description: `Need roofing help in ${cityName}, ${state}? Contact our team for free estimates. Call ${phone}!`,
+      canonical: `https://${locationId}.${siteConfig.domain}/contact`,
+    };
+  }
+  return {
+    title: applyReplacements(template.title, replacements),
+    description: applyReplacements(template.description, replacements),
+    canonical: template.canonical ? applyReplacements(template.canonical, replacements) : undefined,
+  };
+}
+
+export function getLocationServicesSEOFromFile(cityName: string, state: string, locationId: string): PageSEO {
+  const template = getLocationServicesTemplateFromFile();
+  const replacements = { cityName, state, locationId };
+  if (!template) {
+    return {
+      title: `Construction & Roofing Services in ${cityName}, ${state} | ${siteConfig.companyName}`,
+      description: `Expert roofing, siding, and remodeling services in ${cityName}, ${state}. Residential and commercial solutions.`,
+      canonical: `https://${locationId}.${siteConfig.domain}/services`,
+    };
+  }
+  return {
+    title: applyReplacements(template.title, replacements),
+    description: applyReplacements(template.description, replacements),
+    canonical: template.canonical ? applyReplacements(template.canonical, replacements) : undefined,
+  };
+}
+
 export function getCostGuideSEOFromFile(
   slug: string,
   title: string,

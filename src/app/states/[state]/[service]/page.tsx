@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getAllLocations, getLocationZipCodes } from '@/utils/content';
 import { getLocationUrl, getStateUrl } from '@/utils/subdomain';
+import { resolveStateParam } from '@/utils/state-codes';
 import { buildDynamicHeroHeader, buildDynamicHeroSubtextLines } from '@/lib/heroSubtext';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -16,10 +17,12 @@ interface StateServicePageProps {
 
 export async function generateMetadata({ params }: StateServicePageProps): Promise<Metadata> {
   const { state, service } = await params;
+  const resolvedCode = resolveStateParam(state);
+  if (!resolvedCode) return { title: 'State Not Found', description: 'The requested state was not found.' };
   const allLocations = getAllLocations();
 
   const stateLocations = allLocations.filter(
-    (loc) => loc.state.toLowerCase() === state.toLowerCase()
+    (loc) => loc.state.toUpperCase() === resolvedCode
   );
 
   if (stateLocations.length === 0) {
@@ -33,9 +36,12 @@ export async function generateMetadata({ params }: StateServicePageProps): Promi
   const stateFullName = getStateFullName(stateName);
   const serviceName = getServiceName(service);
 
+  const { getStateServiceSEOFromFile } = await import('@/lib/seo-server');
+  const seo = getStateServiceSEOFromFile(stateFullName, stateName, serviceName, service);
+
   return {
-    title: `${serviceName} in ${stateFullName} | ${siteConfig.companyName}`,
-    description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert roofing contractors for ${serviceName.toLowerCase()} with 25+ years of experience. Call ${siteConfig.phone}!`,
+    title: seo.title,
+    description: seo.description,
     keywords: [
       `${serviceName.toLowerCase()} ${stateFullName}`,
       `roofer ${stateFullName}`,
@@ -48,8 +54,8 @@ export async function generateMetadata({ params }: StateServicePageProps): Promi
       `roof installation ${stateFullName}`
     ],
     openGraph: {
-      title: `${serviceName} in ${stateFullName} | ${siteConfig.companyName}`,
-      description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert roofing contractors for ${serviceName.toLowerCase()} with 25+ years of experience.`,
+      title: seo.title,
+      description: seo.description,
       url: getStateUrl(state, service),
       siteName: siteConfig.companyName,
       locale: 'en_US',
@@ -57,22 +63,23 @@ export async function generateMetadata({ params }: StateServicePageProps): Promi
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${serviceName} in ${stateFullName} | ${siteConfig.companyName}`,
-      description: `Professional ${serviceName.toLowerCase()} services in ${stateFullName}. Expert roofing contractors for ${serviceName.toLowerCase()} with 25+ years of experience.`,
+      title: seo.title,
+      description: seo.description,
     },
     alternates: {
-      canonical: getStateUrl(state, service),
+      canonical: seo.canonical || getStateUrl(state, service),
     },
   };
 }
 
 export default async function StateServicePage({ params }: StateServicePageProps) {
   const { state, service } = await params;
+  const resolvedCode = resolveStateParam(state);
+  if (!resolvedCode) notFound();
   const allLocations = getAllLocations();
 
-  // Get all locations for this state
   const stateLocations = allLocations.filter(
-    (loc) => loc.state.toLowerCase() === state.toLowerCase()
+    (loc) => loc.state.toUpperCase() === resolvedCode
   );
 
   if (stateLocations.length === 0) {

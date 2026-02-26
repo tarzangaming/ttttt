@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from 'next/server';
 import { auth } from '@/auth';
-import { isValidStateCode } from './utils/state-codes';
+import { isValidStateCode, SLUG_TO_CODE } from './utils/state-codes';
 import { isValidSubdomain } from './utils/subdomain';
 import { ADMIN_AUTH_DISABLED } from '@/lib/admin-auth';
 
@@ -48,10 +48,11 @@ export default auth((req) => {
     }
     // Redirect /states/[state] and /states/[state]/* to state subdomain
     if (pathParts[0] === 'states' && pathParts[1]) {
-      const stateCode = pathParts[1];
-      if (isValidStateCode(stateCode)) {
+      const stateParam = pathParts[1].toLowerCase();
+      const resolvedCode = isValidStateCode(stateParam) ? stateParam : (SLUG_TO_CODE[stateParam] || null);
+      if (resolvedCode) {
         const subPath = pathParts.slice(2).join('/');
-        url.hostname = `${stateCode.toLowerCase()}.dolimitisteelroofing.com`;
+        url.hostname = `${resolvedCode.toLowerCase()}.dolimitisteelroofing.com`;
         url.pathname = subPath ? `/${subPath}` : '/';
         return NextResponse.redirect(url, 301);
       }

@@ -5,9 +5,9 @@ import imagesData from '@/data/images.json';
 import siteConfig from '@/data/site.config.json';
 
 export default function FloatingCTA({ phone = siteConfig.phoneClean, locationName = '' }: { phone?: string, locationName?: string }) {
-  // Format phone for display
-  const displayPhone = `(${phone.slice(0, 3)}) ${phone.slice(3, 6)}-${phone.slice(6)}`;
-  const telLink = `tel:${phone.replace(/\D/g, '')}`;
+  const digits = phone.replace(/\D/g, '');
+  const displayPhone = `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+  const telLink = `tel:${digits}`;
 
   return (
     <>

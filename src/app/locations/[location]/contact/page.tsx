@@ -24,9 +24,12 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
     };
   }
 
+  const { getLocationContactSEOFromFile } = await import('@/lib/seo-server');
+  const seo = getLocationContactSEOFromFile(location.name, location.state, location.id);
+
   return {
-    title: `Contact Roofers in ${location.name} | ${siteConfig.companyName}`,
-    description: `Need roofing or construction help in ${location.name}? Contact our team today for free estimates and 24/7 emergency service. Call ${location.phone || siteConfig.phone}.`,
+    title: seo.title,
+    description: seo.description,
     keywords: [
       `contact roofer ${location.name}`,
       `roofer near me ${location.name}`,
@@ -36,14 +39,14 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
       `roofing contractor ${location.name}`,
     ],
     openGraph: {
-      title: `Contact Roofers in ${location.name} | ${siteConfig.companyName}`,
-      description: `Need roofing help in ${location.name}? Contact our team today for fast, affordable services.`,
+      title: seo.title,
+      description: seo.description,
       type: 'website',
       locale: 'en_US',
       siteName: siteConfig.companyName
     },
     alternates: {
-      canonical: `https://${location.id}.${siteConfig.domain}/contact`
+      canonical: seo.canonical
     }
   };
 }

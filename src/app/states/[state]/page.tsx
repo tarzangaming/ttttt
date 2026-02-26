@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getAllLocations } from '@/utils/content';
 import { getLocationUrl, getStateUrl } from '@/utils/subdomain';
+import { resolveStateParam } from '@/utils/state-codes';
 import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -54,10 +55,12 @@ const constructionServices = [
 
 export async function generateMetadata({ params }: StatePageProps): Promise<Metadata> {
   const { state } = await params;
+  const resolvedCode = resolveStateParam(state);
+  if (!resolvedCode) return {};
   const allLocations = getAllLocations();
 
   const stateLocations = allLocations.filter(
-    (loc) => loc.state.toLowerCase() === state.toLowerCase()
+    (loc) => loc.state.toUpperCase() === resolvedCode
   );
 
   if (stateLocations.length === 0) return {};
@@ -65,7 +68,12 @@ export async function generateMetadata({ params }: StatePageProps): Promise<Meta
   const stateName = stateLocations[0].state;
   const stateFullName = getStateFullName(stateName);
 
+  const { getStateSEOFromFile } = await import('@/lib/seo-server');
+  const seo = getStateSEOFromFile(stateFullName, stateName);
+
   return {
+    title: seo.title,
+    description: seo.description,
     keywords: [
       `roofer ${stateFullName}`,
       `roofing services ${stateFullName}`,
@@ -81,8 +89,8 @@ export async function generateMetadata({ params }: StatePageProps): Promise<Meta
       `home remodeling ${stateFullName}`
     ],
     openGraph: {
-      title: `Roofing & Construction in ${stateFullName} | ${siteConfig.companyName}`,
-      description: `Expert roofing and construction services in ${stateFullName}. Licensed, experienced, and affordable!`,
+      title: seo.title,
+      description: seo.description,
       url: getStateUrl(state),
       siteName: siteConfig.companyName,
       locale: 'en_US',
@@ -90,22 +98,23 @@ export async function generateMetadata({ params }: StatePageProps): Promise<Meta
     },
     twitter: {
       card: 'summary_large_image',
-      title: `Roofing & Construction in ${stateFullName} | ${siteConfig.companyName}`,
-      description: `Expert roofing and construction services in ${stateFullName}. Licensed, experienced, and affordable!`,
+      title: seo.title,
+      description: seo.description,
     },
     alternates: {
-      canonical: getStateUrl(state),
+      canonical: seo.canonical || getStateUrl(state),
     },
   };
 }
 
 export default async function StatePage({ params }: StatePageProps) {
   const { state } = await params;
+  const resolvedCode = resolveStateParam(state);
+  if (!resolvedCode) notFound();
   const allLocations = getAllLocations();
 
-  // Get all locations for this state
   const stateLocations = allLocations.filter(
-    (loc) => loc.state.toLowerCase() === state.toLowerCase()
+    (loc) => loc.state.toUpperCase() === resolvedCode
   );
 
   if (stateLocations.length === 0) {

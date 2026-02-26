@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getAllLocations } from '@/utils/content';
 import { getStateUrl } from '@/utils/subdomain';
+import { resolveStateParam } from '@/utils/state-codes';
 import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -15,10 +16,12 @@ interface StateServicesPageProps {
 
 export async function generateMetadata({ params }: StateServicesPageProps): Promise<Metadata> {
   const { state } = await params;
+  const resolvedCode = resolveStateParam(state);
+  if (!resolvedCode) return {};
   const allLocations = getAllLocations();
 
   const stateLocations = allLocations.filter(
-    (loc) => loc.state.toLowerCase() === state.toLowerCase()
+    (loc) => loc.state.toUpperCase() === resolvedCode
   );
 
   if (stateLocations.length === 0) return {};
@@ -26,7 +29,12 @@ export async function generateMetadata({ params }: StateServicesPageProps): Prom
   const stateName = stateLocations[0].state;
   const stateFullName = getStateFullName(stateName);
 
+  const { getStateServicesSEOFromFile } = await import('@/lib/seo-server');
+  const seo = getStateServicesSEOFromFile(stateFullName, stateName);
+
   return {
+    title: seo.title,
+    description: seo.description,
     keywords: [
       `roofing services ${stateFullName}`,
       `roof repair ${stateFullName}`,
@@ -41,26 +49,27 @@ export async function generateMetadata({ params }: StateServicesPageProps): Prom
       `construction repair ${stateFullName}`
     ],
     openGraph: {
-      title: `Roofing & Construction Services in ${stateFullName} | ${siteConfig.companyName}`,
-      description: `Complete roofing and construction services in ${stateFullName}. Roof repair, replacement, storm restoration, and more.`,
+      title: seo.title,
+      description: seo.description,
       url: getStateUrl(state, 'services'),
       siteName: siteConfig.companyName,
       locale: 'en_US',
       type: 'website',
     },
     alternates: {
-      canonical: getStateUrl(state, 'services'),
+      canonical: seo.canonical || getStateUrl(state, 'services'),
     },
   };
 }
 
 export default async function StateServicesPage({ params }: StateServicesPageProps) {
   const { state } = await params;
+  const resolvedCode = resolveStateParam(state);
+  if (!resolvedCode) notFound();
   const allLocations = getAllLocations();
 
-  // Get all locations for this state
   const stateLocations = allLocations.filter(
-    (loc) => loc.state.toLowerCase() === state.toLowerCase()
+    (loc) => loc.state.toUpperCase() === resolvedCode
   );
 
   if (stateLocations.length === 0) {
