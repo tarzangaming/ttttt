@@ -242,11 +242,37 @@
         "description": "Clear pricing with no hidden costs."
       }
     ],
+    "process": {
+      "title": "Our {CITY} Roofing Process",
+      "subtitle": "Simple, transparent, and stress-free.",
+      "steps": [
+        {
+          "title": "Inspection",
+          "description": "Detailed roof analysis"
+        },
+        {
+          "title": "Quote",
+          "description": "Upfront pricing, no fees"
+        },
+        {
+          "title": "Installation",
+          "description": "Fast, clean execution"
+        },
+        {
+          "title": "Warranty",
+          "description": "Long-term protection"
+        }
+      ]
+    },
     "cta": {
-      "titleTemplate": "Ready for a Stronger Roof?",
-      "subtitleTemplate": "Call us today for a free steel roofing estimate in {CITY}, {STATE}.",
+      "titleTemplate": "Get Your Free {CITY} Roofing Quote",
+      "subtitleTemplate": "Speak directly with a project manager in {CITY}, not a call center.",
       "primaryButton": "Call {PHONE}",
       "secondaryButton": "Request Free Estimate"
+    },
+    "servicesSection": {
+      "title": "Complete Roofing Services in {CITY}",
+      "serviceCount": 6
     }
   }
 }

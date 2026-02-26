@@ -17,6 +17,7 @@ async function requireAuth() {
 const ALLOWED_FILES = [
     'images.json',
     'services.json',
+    'service-content.json',
     'seo.json',
     'site.config.json',
     'schema.json',
@@ -162,6 +163,7 @@ function getCategoryFromFileName(fileName: string): string {
     const categories: { [key: string]: string } = {
         'images.json': 'Media',
         'services.json': 'Content',
+        'service-content.json': 'Content',
         'seo.json': 'SEO',
         'site.config.json': 'Configuration',
         'schema.json': 'SEO',

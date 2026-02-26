@@ -471,9 +471,9 @@ export function replacePlaceholders(
 // Extended Service Content
 export function getExtendedServiceContent(slug: string) {
   const data = serviceContentData as any;
-  // Fallback to roof-installation if new-roof-installation is used or vice-versa
-  let normalizedSlug = slug;
-  if (slug === 'new-roof-installation') normalizedSlug = 'new-roof-installation';
-  // Keep it simple for now, direct match
-  return data.templates[normalizedSlug] || null;
+  const slugAliases: Record<string, string> = {
+    'roof-installation': 'new-roof-installation',
+  };
+  const normalizedSlug = slugAliases[slug] || slug;
+  return data.templates[normalizedSlug] || data.templates[slug] || null;
 }

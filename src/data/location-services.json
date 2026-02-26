@@ -1,7 +1,7 @@
 {
     "services": [
         {
-            "slug": "roof-installation",
+            "slug": "new-roof-installation",
             "icon": "🏗️",
             "title": "Roof Installation",
             "subtitle": "Professional Roof Installation in {{CITY}}, {{STATE}}",

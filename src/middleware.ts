@@ -72,9 +72,25 @@ export default auth((req) => {
     }
   }
 
-  // Check if this is a state subdomain (2-letter state codes)
+  // Check if this is a state subdomain (2-letter codes OR full state slugs)
   const stateCodes = ['ca', 'ny', 'tx', 'fl', 'il', 'pa', 'oh', 'ga', 'nc', 'mi', 'nj', 'va', 'wa', 'az', 'ma', 'tn', 'in', 'mo', 'md', 'co', 'mn', 'wi', 'sc', 'al', 'la', 'ky', 'or', 'ok', 'ct', 'ut', 'ia', 'nv', 'ar', 'ms', 'ks', 'ne', 'id', 'nh', 'me', 'nm', 'ri', 'hi', 'mt', 'de', 'sd', 'nd', 'ak', 'vt', 'wy', 'wv'];
-  const isStateSubdomain = stateCodes.includes(subdomain.toLowerCase());
+  const stateSlugToCode: Record<string, string> = {
+    'alabama': 'al', 'alaska': 'ak', 'arizona': 'az', 'arkansas': 'ar', 'california': 'ca',
+    'colorado': 'co', 'connecticut': 'ct', 'delaware': 'de', 'florida': 'fl', 'georgia': 'ga',
+    'hawaii': 'hi', 'idaho': 'id', 'illinois': 'il', 'indiana': 'in', 'iowa': 'ia',
+    'kansas': 'ks', 'kentucky': 'ky', 'louisiana': 'la', 'maine': 'me', 'maryland': 'md',
+    'massachusetts': 'ma', 'michigan': 'mi', 'minnesota': 'mn', 'mississippi': 'ms', 'missouri': 'mo',
+    'montana': 'mt', 'nebraska': 'ne', 'nevada': 'nv', 'new-hampshire': 'nh', 'new-jersey': 'nj',
+    'new-mexico': 'nm', 'new-york': 'ny', 'north-carolina': 'nc', 'north-dakota': 'nd', 'ohio': 'oh',
+    'oklahoma': 'ok', 'oregon': 'or', 'pennsylvania': 'pa', 'rhode-island': 'ri', 'south-carolina': 'sc',
+    'south-dakota': 'sd', 'tennessee': 'tn', 'texas': 'tx', 'utah': 'ut', 'vermont': 'vt',
+    'virginia': 'va', 'washington': 'wa', 'west-virginia': 'wv', 'wisconsin': 'wi', 'wyoming': 'wy'
+  };
+  const subLower = subdomain.toLowerCase();
+  const isStateCode = stateCodes.includes(subLower);
+  const isStateSlug = subLower in stateSlugToCode;
+  const isStateSubdomain = isStateCode || isStateSlug;
+  const resolvedStateSlug = isStateCode ? subLower : (stateSlugToCode[subLower] || subLower);
 
   // If it's www or the root domain, let it go normally
   if (subdomain === 'www' || subdomain === 'dolimitisteelroofing' || subdomain === 'localhost') {
@@ -89,7 +105,7 @@ export default auth((req) => {
   // Handle homepage (/) - rewrite to appropriate page
   if (url.pathname === '/') {
     if (isStateSubdomain) {
-      url.pathname = `/states/${subdomain}`;
+      url.pathname = `/states/${resolvedStateSlug}`;
     } else {
       url.pathname = `/locations/${subdomain}`;
     }
@@ -99,7 +115,7 @@ export default auth((req) => {
   // Handle services page (/services) - rewrite to appropriate services page
   if (url.pathname === '/services') {
     if (isStateSubdomain) {
-      url.pathname = `/states/${subdomain}/services`;
+      url.pathname = `/states/${resolvedStateSlug}/services`;
     } else {
       url.pathname = `/locations/${subdomain}/services`;
     }
@@ -109,7 +125,7 @@ export default auth((req) => {
   // Handle about page (/about) - rewrite to appropriate about page
   if (url.pathname === '/about') {
     if (isStateSubdomain) {
-      url.pathname = `/states/${subdomain}/about`;
+      url.pathname = `/states/${resolvedStateSlug}/about`;
     } else {
       url.pathname = `/locations/${subdomain}/about`;
     }
@@ -119,7 +135,7 @@ export default auth((req) => {
   // Handle contact page (/contact) - rewrite to appropriate contact page
   if (url.pathname === '/contact') {
     if (isStateSubdomain) {
-      url.pathname = `/states/${subdomain}/contact`;
+      url.pathname = `/states/${resolvedStateSlug}/contact`;
     } else {
       url.pathname = `/locations/${subdomain}/contact`;
     }
@@ -132,7 +148,7 @@ export default auth((req) => {
   // If trying to access /services/* on sub-domain, redirect to appropriate services page
   if (pathSegments[0] === 'services' && pathSegments.length === 1) {
     if (isStateSubdomain) {
-      url.pathname = `/states/${subdomain}/services`;
+      url.pathname = `/states/${resolvedStateSlug}/services`;
     } else {
       url.pathname = `/locations/${subdomain}/services`;
     }
@@ -186,7 +202,7 @@ export default auth((req) => {
   // If trying to access main domain service page directly on sub-domain, redirect to appropriate version
   if (pathSegments.length === 1 && serviceSlugs.includes(pathSegments[0])) {
     if (isStateSubdomain) {
-      url.pathname = `/states/${subdomain}/${pathSegments[0]}`;
+      url.pathname = `/states/${resolvedStateSlug}/${pathSegments[0]}`;
     } else {
       url.pathname = `/locations/${subdomain}/${pathSegments[0]}`;
     }

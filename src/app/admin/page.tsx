@@ -42,6 +42,7 @@ type TabType =
     | 'add-images'
     | 'service-images'
     | 'service-content'
+    | 'service-templates'
     | 'main-content'
     | 'location-content'
     | 'seo'
@@ -109,6 +110,7 @@ export default function AdminDashboard() {
     const [locationContent, setLocationContent] = useState<any>(null);
     const [seoData, setSeoData] = useState<any>(null);
     const [servicesContent, setServicesContent] = useState<any>(null);
+    const [serviceTemplates, setServiceTemplates] = useState<any>(null);
 
     useEffect(() => {
         fetchFiles();
@@ -116,6 +118,7 @@ export default function AdminDashboard() {
         loadServicesData();
         loadContentData();
         loadSeoData();
+        loadServiceTemplates();
     }, []);
 
     const fetchFiles = async () => {
@@ -223,6 +226,45 @@ export default function AdminDashboard() {
         } catch (error) {
             console.error('Failed to save services content:', error);
             setMessage({ type: 'error', text: 'Failed to save services content' });
+        } finally {
+            setSaving(false);
+        }
+    };
+
+    const loadServiceTemplates = async () => {
+        try {
+            const response = await fetch('/api/admin/json?file=service-content.json');
+            const data = await response.json();
+            if (data.success && data.data) {
+                setServiceTemplates(data.data);
+            } else {
+                setServiceTemplates(null);
+            }
+        } catch (error) {
+            console.error('Failed to load service templates:', error);
+            setServiceTemplates(null);
+        }
+    };
+
+    const saveServiceTemplates = async (updated: any) => {
+        setSaving(true);
+        setMessage(null);
+        try {
+            const response = await fetch('/api/admin/json', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ fileName: 'service-content.json', data: updated })
+            });
+            const result = await response.json();
+            if (result.success) {
+                setMessage({ type: 'success', text: 'Service page templates saved successfully!' });
+                setServiceTemplates(updated);
+            } else {
+                setMessage({ type: 'error', text: result.error });
+            }
+        } catch (error) {
+            console.error('Failed to save service templates:', error);
+            setMessage({ type: 'error', text: 'Failed to save service templates' });
         } finally {
             setSaving(false);
         }
@@ -912,6 +954,15 @@ export default function AdminDashboard() {
                         📚 Service Content
                     </button>
                     <button
+                        onClick={() => setActiveTab('service-templates')}
+                        className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'service-templates'
+                            ? 'bg-[#1e3a5f] text-white'
+                            : 'text-gray-600 hover:bg-gray-100'
+                            }`}
+                    >
+                        📝 Service Page Templates
+                    </button>
+                    <button
                         onClick={() => setActiveTab('main-content')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'main-content'
                             ? 'bg-[#1e3a5f] text-white'
@@ -1018,6 +1069,39 @@ export default function AdminDashboard() {
                                     className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
                                 >
                                     Refresh Services
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                )}
+
+                {/* Service Page Templates Tab (service-content.json) */}
+                {activeTab === 'service-templates' && (
+                    <div className="space-y-6">
+                        <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 mb-6">
+                            <h3 className="font-bold text-purple-900 mb-2">📝 Service Page Templates (service-content.json)</h3>
+                            <p className="text-purple-800 text-sm">
+                                These templates control the detailed content shown on individual service pages (both main URL <code className="bg-purple-100 px-2 py-1 rounded">/services/[slug]</code> and location pages <code className="bg-purple-100 px-2 py-1 rounded">/locations/[location]/[service]</code>).
+                                Each template includes hero text, included services, materials, why choose us, process steps, signs, and FAQs.
+                                Use placeholders like <code className="bg-purple-100 px-2 py-1 rounded">{'{{CITY}}'}</code>, <code className="bg-purple-100 px-2 py-1 rounded">{'{{STATE}}'}</code>, <code className="bg-purple-100 px-2 py-1 rounded">{'{{COMPANY_NAME}}'}</code>, and <code className="bg-purple-100 px-2 py-1 rounded">{'{{PHONE}}'}</code> for dynamic replacement.
+                            </p>
+                        </div>
+                        {serviceTemplates ? (
+                            <ContentEditor
+                                content={serviceTemplates}
+                                onSave={saveServiceTemplates}
+                                saving={saving}
+                                sectionTitle="📝 Service Page Templates (service-content.json)"
+                            />
+                        ) : (
+                            <div className="bg-white rounded-xl shadow-md p-12 text-center">
+                                <h3 className="text-xl font-bold text-gray-800 mb-2">No Service Templates Loaded</h3>
+                                <p className="text-gray-600 mb-6">Load service page templates from service-content.json.</p>
+                                <button
+                                    onClick={loadServiceTemplates}
+                                    className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
+                                >
+                                    Refresh Templates
                                 </button>
                             </div>
                         )}
