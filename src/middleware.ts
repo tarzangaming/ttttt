@@ -2,13 +2,14 @@ import { NextResponse, NextRequest } from 'next/server';
 import { auth } from '@/auth';
 import { isValidStateCode } from './utils/state-codes';
 import { isValidSubdomain } from './utils/subdomain';
+import { ADMIN_AUTH_DISABLED } from '@/lib/admin-auth';
 
 export default auth((req) => {
   const request = req as NextRequest & { auth?: { user?: unknown } };
-  // Protect admin: redirect to login if not authenticated
+  // Protect admin: redirect to login if not authenticated (skip when ADMIN_AUTH_DISABLED)
   const isAdminPage = request.nextUrl.pathname.startsWith('/admin');
   const isLoginPage = request.nextUrl.pathname === '/admin/login';
-  if (isAdminPage && !isLoginPage && !request.auth?.user) {
+  if (!ADMIN_AUTH_DISABLED && isAdminPage && !isLoginPage && !request.auth?.user) {
     const loginUrl = new URL('/admin/login', request.url);
     loginUrl.searchParams.set('callbackUrl', request.nextUrl.pathname);
     return NextResponse.redirect(loginUrl);

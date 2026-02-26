@@ -32,19 +32,25 @@ interface ServicePageProps {
     }>;
 }
 
+function getAllServices(): ServiceItem[] {
+    const byCategory = (servicesData as any).servicesByCategory ?? {};
+    return Object.values(byCategory).flat() as ServiceItem[];
+}
+
 export async function generateStaticParams() {
-    return servicesData.services.map((service) => ({
+    const allServices = getAllServices();
+    return allServices.map((service) => ({
         slug: service.slug,
     }));
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
     const { slug } = await params;
-    const service = servicesData.services.find((s) => s.slug === slug);
+    const service = getAllServices().find((s) => s.slug === slug);
 
     if (!service) {
         return {
-            title: 'Service Not Found | Bennett Construction & Roofing',
+            title: 'Service Not Found | Dolomiti Steel Roofing',
             description: 'The requested service page could not be found.'
         };
     }
@@ -61,7 +67,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
 
 export default async function ServicePage({ params }: ServicePageProps) {
     const { slug } = await params;
-    const serviceInfo = (servicesData as unknown as { services: ServiceItem[] }).services.find((s) => s.slug === slug);
+    const serviceInfo = getAllServices().find((s) => s.slug === slug);
 
     if (!serviceInfo) {
         notFound();
@@ -112,6 +118,18 @@ export default async function ServicePage({ params }: ServicePageProps) {
         phone: safeLocation.phone,
     });
 
+    const heroTitle =
+        (serviceInfo as any).heroTitle ||
+        (extendedContent
+            ? replacePlaceholders(extendedContent.hero.title, replacements)
+            : heroSubtext.line1);
+
+    const heroSubtitle =
+        (serviceInfo as any).heroSubtitle ||
+        (extendedContent
+            ? replacePlaceholders(extendedContent.hero.subheading, replacements)
+            : heroSubtext.line2);
+
     return (
         <div className="bg-white font-sans text-gray-900">
             <Header />
@@ -139,15 +157,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
                             </div>
 
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                                {extendedContent
-                                    ? replacePlaceholders(extendedContent.hero.title, replacements)
-                                    : heroSubtext.line1}
+                                {heroTitle}
                             </h1>
 
                             <p className="text-xl md:text-2xl opacity-95 mb-6 leading-relaxed">
-                                {extendedContent
-                                    ? replacePlaceholders(extendedContent.hero.subheading, replacements)
-                                    : heroSubtext.line2}
+                                {heroSubtitle}
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -356,11 +370,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                {serviceInfo.relatedServices.map((slug: string) => {
-                                    const relatedService = (servicesData as unknown as { services: ServiceItem[] }).services.find(s => s.slug === slug);
+                                {(serviceInfo.relatedServices ?? []).map((slug: string) => {
+                                    const relatedService = getAllServices().find(s => s.slug === slug);
                                     if (!relatedService) return null;
 
-                                    const serviceImage = imagesData.images.services[slug as keyof typeof imagesData.images.services];
+                                    const serviceImage = imagesData.images?.services?.[slug as keyof typeof imagesData.images.services];
 
                                     return (
                                         <Link key={slug} href={`/services/${slug}`} className="block group h-full">

@@ -37,6 +37,7 @@ export default function ServiceImageManager({
     const [selectedService, setSelectedService] = useState<string | null>(null);
     const [showImagePicker, setShowImagePicker] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
+    const [customImageUrl, setCustomImageUrl] = useState('');
 
     const handleSelectImage = async (imageUrl: string) => {
         if (!selectedService) return;
@@ -197,11 +198,38 @@ export default function ServiceImageManager({
                                     onClick={() => {
                                         setShowImagePicker(false);
                                         setSelectedService(null);
+                                        setCustomImageUrl('');
                                     }}
                                     className="text-gray-500 hover:text-gray-700 text-2xl font-bold"
                                 >
                                     ×
                                 </button>
+                            </div>
+                            <div className="mb-4 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                                <h4 className="font-semibold text-gray-800 mb-2">🔗 Set by URL (use your own image)</h4>
+                                <div className="flex flex-col sm:flex-row gap-3">
+                                    <input
+                                        type="url"
+                                        value={customImageUrl}
+                                        onChange={(e) => setCustomImageUrl(e.target.value)}
+                                        placeholder="https://example.com/your-image.png"
+                                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none font-mono text-sm"
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            const url = customImageUrl.trim();
+                                            if (url && selectedService) {
+                                                handleSelectImage(url);
+                                                setCustomImageUrl('');
+                                            }
+                                        }}
+                                        disabled={saving || !customImageUrl.trim()}
+                                        className="bg-[#d97706] hover:bg-[#b45309] disabled:bg-gray-300 text-white font-bold py-2 px-5 rounded-lg transition whitespace-nowrap"
+                                    >
+                                        {saving ? 'Saving...' : 'Save URL'}
+                                    </button>
+                                </div>
                             </div>
                             <input
                                 type="text"

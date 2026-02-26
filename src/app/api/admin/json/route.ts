@@ -2,8 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { auth } from '@/auth';
+import { ADMIN_AUTH_DISABLED } from '@/lib/admin-auth';
 
 async function requireAuth() {
+  if (ADMIN_AUTH_DISABLED) return true;
   const session = await auth();
   if (!session?.user) {
     return false;
@@ -19,7 +21,8 @@ const ALLOWED_FILES = [
     'site.config.json',
     'schema.json',
     'locations.json',
-    'content.json'
+    'content.json',
+    'footer.json'
 ];
 
 const DATA_DIR = path.join(process.cwd(), 'src', 'data');
@@ -163,7 +166,8 @@ function getCategoryFromFileName(fileName: string): string {
         'site.config.json': 'Configuration',
         'schema.json': 'SEO',
         'locations.json': 'Content',
-        'content.json': 'Content'
+        'content.json': 'Content',
+        'footer.json': 'Content'
     };
     return categories[fileName] || 'Other';
 }

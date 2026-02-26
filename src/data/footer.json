@@ -1,0 +1,54 @@
+{
+  "ctaBar": {
+    "heading": "Need a Roofer or Contractor?\nWe're Here to Help!",
+    "label": "CALL FOR FREE ESTIMATE",
+    "phone": "(866) 289-1750",
+    "phoneHref": "tel:8662891750"
+  },
+  "map": {
+    "heading": "Service Area Map"
+  },
+  "bigCta": {
+    "heading": "Ready for Your Free Roofing Estimate?",
+    "buttonText": "(866) 289-1750",
+    "buttonHref": "tel:8662891750",
+    "tagline": "Licensed • Insured • 25+ Years Experience"
+  },
+  "company": {
+    "name": "Bennett Construction & Roofing",
+    "description": "Quality roofing and construction services you can trust. Serving homeowners and businesses for over 25 years."
+  },
+  "columns": {
+    "roofingServices": {
+      "title": "Roofing Services",
+      "links": [
+        { "href": "/services/roof-repair", "label": "Roof Repair" },
+        { "href": "/services/roof-replacement", "label": "Roof Replacement" },
+        { "href": "/services/storm-damage-roof-repair", "label": "Storm Damage" },
+        { "href": "/services/commercial-roofing", "label": "Commercial Roofing" }
+      ]
+    },
+    "moreServices": {
+      "title": "More Services",
+      "links": [
+        { "href": "/services/gutter-installation", "label": "Gutter Installation" },
+        { "href": "/services/siding-installation", "label": "Siding Installation" },
+        { "href": "/services/general-construction", "label": "General Construction" },
+        { "href": "/services/home-remodeling", "label": "Home Remodeling" }
+      ]
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "links": [
+        { "href": "/about", "label": "About Us" },
+        { "href": "/contact", "label": "Contact" },
+        { "href": "/services", "label": "All Services" }
+      ]
+    }
+  },
+  "bottom": {
+    "copyright":
+      "Bennett Construction & Roofing. All rights reserved."
+  }
+}
+

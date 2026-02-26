@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import { ADMIN_AUTH_DISABLED } from '@/lib/admin-auth';
 
 /**
  * Auth.js (NextAuth v5) configuration
@@ -41,6 +42,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
   callbacks: {
     authorized({ auth, request }) {
+      if (ADMIN_AUTH_DISABLED) {
+        return true; // Temporarily allow all routes without auth
+      }
       const isAdmin = request.nextUrl.pathname.startsWith('/admin');
       const isAdminApi = request.nextUrl.pathname.startsWith('/api/admin');
       const isLoginPage = request.nextUrl.pathname === '/admin/login';

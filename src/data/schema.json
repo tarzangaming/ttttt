@@ -1,154 +1,154 @@
 {
-    "organization": {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Bennett Construction & Roofing",
-        "url": "https://bennettconstructionandroofing.com",
-        "logo": "https://bennettconstructionandroofing.com/images/logo.png",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+1-833-609-0936",
-            "contactType": "customer service",
-            "areaServed": "US",
-            "availableLanguage": "English"
-        },
-        "sameAs": []
+  "organization": {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Dolomiti Steel Roofing",
+    "url": "https://dolomitisteelroofing.com",
+    "logo": "https://dolomitisteelroofing.com/images/logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-833-609-0936",
+      "contactType": "customer service",
+      "areaServed": "US",
+      "availableLanguage": "English"
     },
-    "localBusiness": {
-        "@context": "https://schema.org",
-        "@type": "RoofingContractor",
-        "name": "Bennett Construction & Roofing",
-        "image": "https://bennettconstructionandroofing.com/images/logo.png",
-        "url": "https://bennettconstructionandroofing.com",
-        "telephone": "+1-833-609-0936",
-        "priceRange": "$$",
-        "openingHoursSpecification": [
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday"
-                ],
-                "opens": "07:00",
-                "closes": "19:00"
-            },
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Saturday",
-                "opens": "08:00",
-                "closes": "17:00"
-            }
+    "sameAs": []
+  },
+  "localBusiness": {
+    "@context": "https://schema.org",
+    "@type": "RoofingContractor",
+    "name": "Dolomiti Steel Roofing",
+    "image": "https://dolomitisteelroofing.com/images/logo.png",
+    "url": "https://dolomitisteelroofing.com",
+    "telephone": "+1-833-609-0936",
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
         ],
-        "areaServed": {
-            "@type": "Country",
-            "name": "United States"
-        },
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Roofing & Construction Services",
-            "itemListElement": [
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Roof Repair"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Roof Replacement"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Storm Damage Repair"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Gutter Installation"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Siding Installation"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "General Construction"
-                    }
-                }
-            ]
-        }
+        "opens": "07:00",
+        "closes": "19:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "17:00"
+      }
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
     },
-    "website": {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Bennett Construction & Roofing",
-        "url": "https://bennettconstructionandroofing.com",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://bennettconstructionandroofing.com/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
-    },
-    "templates": {
-        "service": {
-            "@context": "https://schema.org",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Steel & Metal Roofing Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
             "@type": "Service",
-            "serviceType": "{serviceTitle}",
-            "provider": {
-                "@type": "RoofingContractor",
-                "name": "Bennett Construction & Roofing",
-                "telephone": "+1-833-609-0936"
-            },
-            "areaServed": {
-                "@type": "Country",
-                "name": "United States"
-            },
-            "description": "{description}"
+            "name": "Steel Roof Installation"
+          }
         },
-        "faqPage": {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": []
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Metal Roof Repair"
+          }
         },
-        "breadcrumb": {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": []
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Steel Roof Replacement"
+          }
         },
-        "localBusinessCity": {
-            "@context": "https://schema.org",
-            "@type": "RoofingContractor",
-            "name": "Bennett Construction & Roofing - {cityName}",
-            "image": "https://bennettconstructionandroofing.com/images/logo.png",
-            "url": "https://{subdomain}.bennettconstructionandroofing.com",
-            "telephone": "+1-833-609-0936",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "{cityName}",
-                "addressRegion": "{state}",
-                "addressCountry": "US"
-            },
-            "areaServed": {
-                "@type": "City",
-                "name": "{cityName}"
-            }
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Storm Damage Roof Repair"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Standing Seam Metal Roofing"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Commercial Metal Roofing"
+          }
         }
+      ]
     }
+  },
+  "website": {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Dolomiti Steel Roofing",
+    "url": "https://dolomitisteelroofing.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://dolomitisteelroofing.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  },
+  "templates": {
+    "service": {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "{serviceTitle}",
+      "provider": {
+        "@type": "RoofingContractor",
+        "name": "Dolomiti Steel Roofing",
+        "telephone": "+1-833-609-0936"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "description": "{description}"
+    },
+    "faqPage": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": []
+    },
+    "breadcrumb": {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": []
+    },
+    "localBusinessCity": {
+      "@context": "https://schema.org",
+      "@type": "RoofingContractor",
+      "name": "Dolomiti Steel Roofing - {cityName}",
+      "image": "https://dolomitisteelroofing.com/images/logo.png",
+      "url": "https://{subdomain}.dolomitisteelroofing.com",
+      "telephone": "+1-833-609-0936",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{cityName}",
+        "addressRegion": "{state}",
+        "addressCountry": "US"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "{cityName}"
+      }
+    }
+  }
 }

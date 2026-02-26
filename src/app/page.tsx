@@ -36,8 +36,15 @@ export default function HomePage() {
   const features = homepage.features || [];
   const whyChooseUs = homepage.whyChooseUs || [];
   const coverage = homepage.coverage || {};
-  const heroImage = imagesData.images.hero.home.url;
-  const recentProjects = (imagesData as any).images.gallery.projects.slice(0, 6);
+  const servicesSection = homepage.servicesSection || {};
+  const whyChooseUsSectionTitle = homepage.whyChooseUsSectionTitle ?? 'The Bennett Advantage';
+  const faqSection = homepage.faqSection || {};
+  const ctaSection = homepage.ctaSection || {};
+  const heroImage = imagesData.images?.hero?.home?.url ?? (imagesData as any).images?.defaults?.placeholder?.url ?? '';
+  const recentProjects = (imagesData as any).images?.gallery?.projects?.slice(0, 6) ?? [];
+
+  const servicesByCategory = (servicesData as any).servicesByCategory || {};
+  const allServices: any[] = Object.values(servicesByCategory).flat();
 
   return (
     <div className="bg-white font-sans text-gray-900">
@@ -70,14 +77,18 @@ export default function HomePage() {
       {/* 1. HERO SECTION - NATIONAL */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image
-            src={heroImage}
-            alt="National Roofing Services by Bennett Construction"
-            fill
-            priority
-            className="object-cover object-top"
-            style={{ filter: 'brightness(0.4)' }}
-          />
+          {heroImage ? (
+            <Image
+              src={heroImage}
+              alt="National Roofing Services by Bennett Construction"
+              fill
+              priority
+              className="object-cover object-top"
+              style={{ filter: 'brightness(0.4)' }}
+            />
+          ) : (
+            <div className="absolute inset-0 bg-[#1e3a5f]" />
+          )}
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
@@ -126,14 +137,14 @@ export default function HomePage() {
       {/* 2. SERVICES OVERVIEW */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-4">Comprehensive Roofing Solutions</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-4">{servicesSection.title ?? 'Comprehensive Roofing Solutions'}</h2>
           <p className="text-xl text-gray-600 mb-16 max-w-3xl mx-auto">
-            We provide specialized roofing systems tailored to your residential and commercial needs.
+            {servicesSection.subtitle ?? 'We provide specialized roofing systems tailored to your residential and commercial needs.'}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {(servicesData as any).services.slice(0, 9).map((service: any) => {
-              const serviceImage = imagesData.images.services[service.slug as keyof typeof imagesData.images.services];
+            {allServices.slice(0, 9).map((service: any) => {
+              const serviceImage = imagesData.images?.services?.[service.slug as string];
               return (
                 <div key={service.slug} className="group relative h-[400px] w-full rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                   <Link href={`/services/${service.slug}`} className="absolute inset-0 z-20" aria-label={`View ${service.title}`} />
@@ -179,7 +190,7 @@ export default function HomePage() {
               href="/services"
               className="inline-block bg-[#1e3a5f] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#0f1f33] transition shadow-lg text-lg"
             >
-              View All Services
+              {servicesSection.ctaText ?? 'View All Services'}
             </Link>
           </div>
         </div>
@@ -228,17 +239,21 @@ export default function HomePage() {
             </div>
             <div className="mt-8">
               <Link href="/locations" className="inline-block bg-white text-[#1e3a5f] font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition">
-                Find Your Local Office
+                {coverage.ctaText ?? 'Find Your Local Office'}
               </Link>
             </div>
           </div>
           <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl skew-x-3 border-4 border-[#d97706]">
-            <Image
-              src={imagesData.images.hero.locations.url}
-              alt="National Service Map"
-              fill
-              className="object-cover"
-            />
+            {(imagesData.images?.hero as any)?.locations?.url ? (
+              <Image
+                src={(imagesData.images?.hero as any).locations.url}
+                alt="National Service Map"
+                fill
+                className="object-cover"
+              />
+            ) : (
+              <div className="absolute inset-0 bg-[#1e3a5f]" />
+            )}
           </div>
         </div>
       </section>
@@ -247,7 +262,7 @@ export default function HomePage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f]">The Bennett Advantage</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f]">{whyChooseUsSectionTitle}</h2>
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
@@ -271,36 +286,21 @@ export default function HomePage() {
       <section className="py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-6">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600">Common questions about our roofing and construction services.</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-6">{faqSection.title ?? 'Frequently Asked Questions'}</h2>
+            <p className="text-xl text-gray-600">{faqSection.subtitle ?? 'Common questions about our roofing and construction services.'}</p>
           </div>
 
           <div className="space-y-6">
-            {[
-              {
-                q: "Do you service my area?",
-                a: "We are a nationwide roofing contractor with local teams in major metropolitan areas across the US. From Texas to New York, Florida to Arizona, we likely have crews near you. Check our Locations page or call us to confirm."
-              },
-              {
-                q: "Are you licensed and insured?",
-                a: "Yes, absolutely. Bennett Construction & Roofing carries all necessary state licenses and strictly maintains liability and workers' compensation insurance to protect our clients and our crews."
-              },
-              {
-                q: "Do you offer financing?",
-                a: "Yes! We partner with top lending institutions to offer flexible financing options for roof replacements and major repairs, subject to credit approval."
-              },
-              {
-                q: "What types of roofs do you install?",
-                a: "We work with all major roofing systems including Asphalt Shingles, Metal (Standing Seam), Tile (Clay/Concrete), Flat Roofs (TPO/EPDM/Foam), and more."
-              },
-              {
-                q: "Do you handle insurance claims?",
-                a: "Yes. Our team is experienced in storm damage restoration and can assist you through the insurance claim process, ensuring all damage is documented and covered."
-              }
-            ].map((faq, index) => (
+            {((faqSection.items && faqSection.items.length > 0) ? faqSection.items : [
+              { question: 'Do you service my area?', answer: 'We are a nationwide roofing contractor with local teams in major metropolitan areas across the US. From Texas to New York, Florida to Arizona, we likely have crews near you. Check our Locations page or call us to confirm.' },
+              { question: 'Are you licensed and insured?', answer: 'Yes, absolutely. Bennett Construction & Roofing carries all necessary state licenses and strictly maintains liability and workers\' compensation insurance to protect our clients and our crews.' },
+              { question: 'Do you offer financing?', answer: 'Yes! We partner with top lending institutions to offer flexible financing options for roof replacements and major repairs, subject to credit approval.' },
+              { question: 'What types of roofs do you install?', answer: 'We work with all major roofing systems including Asphalt Shingles, Metal (Standing Seam), Tile (Clay/Concrete), Flat Roofs (TPO/EPDM/Foam), and more.' },
+              { question: 'Do you handle insurance claims?', answer: 'Yes. Our team is experienced in storm damage restoration and can assist you through the insurance claim process, ensuring all damage is documented and covered.' }
+            ]).map((faq: { question?: string; answer?: string; q?: string; a?: string }, index: number) => (
               <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition">
-                <h3 className="text-xl font-bold text-[#1e3a5f] mb-3">{faq.q}</h3>
-                <p className="text-gray-600 leading-relaxed">{faq.a}</p>
+                <h3 className="text-xl font-bold text-[#1e3a5f] mb-3">{faq.question ?? faq.q}</h3>
+                <p className="text-gray-600 leading-relaxed">{faq.answer ?? faq.a}</p>
               </div>
             ))}
           </div>
@@ -310,31 +310,35 @@ export default function HomePage() {
       {/* 6. CTA LANDSCAPE */}
       <section className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <Image
-            src={imagesData.images.cta.banner.url}
-            alt="Contact Us"
-            fill
-            className="object-cover"
-            style={{ filter: 'brightness(0.25)' }}
-          />
+          {(imagesData.images?.cta as any)?.banner?.url ? (
+            <Image
+              src={(imagesData.images?.cta as any).banner.url}
+              alt="Contact Us"
+              fill
+              className="object-cover"
+              style={{ filter: 'brightness(0.25)' }}
+            />
+          ) : (
+            <div className="absolute inset-0 bg-[#1e3a5f]" />
+          )}
         </div>
         <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">Ready to Start Your Project?</h2>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">{ctaSection.title ?? 'Ready to Start Your Project?'}</h2>
           <p className="text-xl md:text-2xl opacity-90 mb-10">
-            Contact us today for a free inspection and detailed estimate.
+            {ctaSection.subtitle ?? 'Contact us today for a free inspection and detailed estimate.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
               href="tel:8662891750"
               className="bg-[#d97706] text-white font-bold px-10 py-5 rounded-xl text-xl hover:bg-[#b45309] transition shadow-2xl flex items-center justify-center gap-3"
             >
-              Call (866) 289-1750
+              {ctaSection.primaryButtonText ?? 'Call (866) 289-1750'}
             </a>
             <Link
               href="/contact"
               className="bg-white text-[#1e3a5f] font-bold px-10 py-5 rounded-xl text-xl hover:bg-gray-100 transition shadow-xl"
             >
-              Request Online
+              {ctaSection.secondaryButtonText ?? 'Request Online'}
             </Link>
           </div>
         </div>

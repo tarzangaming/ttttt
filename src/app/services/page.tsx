@@ -48,8 +48,8 @@ export default function ServicesPage() {
 
   // Helper function to get service image
   const getServiceImage = (slug: string) => {
-    const serviceImages = imagesData.images.services;
-    return serviceImages[slug as ServiceImageKey] || null;
+    const serviceImages = imagesData.images?.services;
+    return serviceImages?.[slug as ServiceImageKey] || null;
   };
 
   // Service Card Component

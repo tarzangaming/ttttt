@@ -1,122 +1,123 @@
 {
   "defaults": {
-    "titleSuffix": " | Bennett Construction & Roofing",
-    "siteName": "Bennett Construction & Roofing",
+    "titleSuffix": " | Dolomiti Steel Roofing",
+    "siteName": "Dolomiti Steel Roofing",
     "locale": "en_US",
     "type": "website",
     "twitterCard": "summary_large_image"
   },
   "pages": {
     "home": {
-      "title": "Roof installation Near Me  - Find Roofing Service in USA",
-      "description": "Looking for roofing services near you? Bennett Cons & Roofing provides roof repair, roof replacement, and new roof installation across the USA.Call (866) 289-1750.",
+      "title": "Steel Roof Installation Near Me - Find Metal Roofing Services in USA",
+      "description": "Looking for steel roofing services near you? Dolomiti Steel Roofing provides metal roof repair, replacement, and new steel roof installation across the USA.",
       "keywords": [
-        "roofing contractor",
-        "construction company",
+        "steel roofing contractor",
+        "metal roofing company",
         "roof repair",
         "roof replacement",
-        "siding installation",
-        "gutter installation",
-        "general contractor",
-        "home remodeling"
+        "standing seam roofing",
+        "metal roof installation",
+        "commercial metal roofing",
+        "residential steel roofing"
       ],
-      "canonical": "https://bennettconstructionandroofing.com"
+      "canonical": "https://dolomitisteelroofing.com"
     },
     "about": {
-      "title": "About Us | Bennett Construction & Roofing",
-      "description": "Learn about Bennett Construction & Roofing. 25+ years of trusted roofing and construction services. Licensed, insured, and committed to quality craftsmanship.",
+      "title": "About Us | Dolomiti Steel Roofing",
+      "description": "Learn about Dolomiti Steel Roofing. Trusted metal and steel roofing specialists delivering durable, energy-efficient roofing systems nationwide.",
       "keywords": [
-        "about Bennett Construction",
-        "roofing company history",
-        "licensed contractor",
+        "about Dolomiti Steel Roofing",
+        "metal roofing company",
+        "licensed steel roofing contractor",
         "insured roofer"
       ],
-      "canonical": "https://bennettconstructionandroofing.com/about"
+      "canonical": "https://dolomitisteelroofing.com/about"
     },
     "contact": {
-      "title": "Contact Us | Bennett Construction & Roofing",
-      "description": "Contact Bennett Construction & Roofing for a free estimate. Call (866) 289-1750 or fill out our form. Available 24/7 for emergencies.",
+      "title": "Contact Us | Dolomiti Steel Roofing",
+      "description": "Contact Dolomiti Steel Roofing for a free steel roofing estimate. Professional metal roofing services available nationwide.",
       "keywords": [
-        "contact roofer",
-        "roofing estimate",
-        "construction quote",
-        "emergency roofing"
+        "contact metal roofer",
+        "steel roofing estimate",
+        "metal roof quote",
+        "emergency roof repair"
       ],
-      "canonical": "https://bennettconstructionandroofing.com/contact"
+      "canonical": "https://dolomitisteelroofing.com/contact"
     },
     "services": {
-      "title": "Roofing Services in US | Bennett Construction & Roofing",
-      "description": "Explore our full range of roofing, siding, gutter, and construction services. Residential and commercial. Free estimates. Call (866) 289-1750.",
+      "title": "Steel & Metal Roofing Services | Dolomiti Steel Roofing",
+      "description": "Explore our full range of steel and metal roofing services. Residential and commercial installations, repairs, and replacements.",
       "keywords": [
-        "roofing services",
-        "construction services",
-        "siding services",
-        "gutter services"
+        "metal roofing services",
+        "steel roofing contractor",
+        "standing seam roofing",
+        "commercial metal roofing"
       ],
-      "canonical": "https://bennettconstructionandroofing.com/services"
+      "canonical": "https://dolomitisteelroofing.com/services"
     },
     "locations": {
-      "title": "Nationwide Roofing Contractor | Serving All 50 States | USA",
-      "description": "Bennett Construction & Roofing is America's premier licensed contractor. Serving communities coast to coast with professional roofing & construction. Call for a free estimate.",
+      "title": "Nationwide Steel Roofing Contractor | Serving All 50 States",
+      "description": "Dolomiti Steel Roofing is a trusted nationwide metal roofing contractor serving communities coast to coast with professional steel roof installation and repair.",
       "keywords": [
-        "roofing contractor",
-        "locations",
+        "steel roofing contractor",
+        "metal roofing locations",
         "roof repair",
-        "nationwide"
+        "nationwide roofer"
       ],
-      "canonical": "https://bennettconstructionandroofing.com/locations"
+      "canonical": "https://dolomitisteelroofing.com/locations"
     },
     "financing": {
-      "title": "Roofing Financing Options | Bennett Construction & Roofing",
-      "description": "Get a new roof for as low as $149/month. 0% Interest options available. Fast approval for homeowners. Call (866) 289-1750.",
+      "title": "Steel Roofing Financing Options | Dolomiti Steel Roofing",
+      "description": "Flexible financing options for new steel and metal roofs. Affordable monthly payment plans available for homeowners.",
       "keywords": [
-        "roofing financing",
+        "roof financing",
+        "metal roofing financing",
         "payment plans",
         "0% financing"
       ],
-      "canonical": "https://bennettconstructionandroofing.com/financing"
+      "canonical": "https://dolomitisteelroofing.com/financing"
     },
     "costGuides": {
-      "title": "Roofing Cost Guides | Price & Budgeting Resources",
-      "description": "Transparent pricing guides for roofing. Learn about costs for tile, shingle, foam, and metal roof replacement.",
+      "title": "Steel Roofing Cost Guides | Metal Roof Pricing Resources",
+      "description": "Transparent pricing guides for steel and metal roofing. Learn about costs for standing seam, corrugated metal, and flat roofing systems.",
       "keywords": [
-        "roofing costs",
-        "price guide",
-        "budget"
+        "metal roofing costs",
+        "steel roof price guide",
+        "roof budgeting"
       ],
-      "canonical": "https://bennettconstructionandroofing.com/cost-guides"
+      "canonical": "https://dolomitisteelroofing.com/cost-guides"
     }
   },
   "templates": {
     "service": {
-      "title": "{serviceTitle} service in USA | Bennett Construction & Roofing",
-      "description": "Professional {serviceTitle} services by Bennett Construction & Roofing. Licensed, insured, free estimates. Call (866) 289-1750.",
-      "canonical": "https://bennettconstructionandroofing.com/services/{slug}"
+      "title": "{serviceTitle} Services | Dolomiti Steel Roofing",
+      "description": "Professional {serviceTitle} services by Dolomiti Steel Roofing. Licensed, insured, and offering free estimates nationwide.",
+      "canonical": "https://dolomitisteelroofing.com/services/{slug}"
     },
     "location": {
-      "title": " Best Roofing Company in {cityName}, {state} - Roof Repair & Replacement",
-      "description": "Need a roofer in {cityName}, {state}. Serving zip codes {zipCodes}. Expert roofing, siding, and construction services. Licensed, insured Roofing Contractors. Call (866) 289-1750.",
-      "canonical": "https://{locationId}.bennettconstructionandroofing.com"
+      "title": "Best Steel Roofing Company in {cityName}, {state} - Metal Roof Installation & Repair",
+      "description": "Need a steel roofing contractor in {cityName}, {state}? Serving zip codes {zipCodes}. Expert metal roof installation and repair services.",
+      "canonical": "https://dolomitisteelroofing.com/{locationId}"
     },
     "locationService": {
       "title": "{serviceTitle} in {cityName}, {state} Near Me",
-      "description": "Professional {serviceTitle} in {cityName}, {state}. Serving zip codes {zipCodes} by Bennett Construction & Roofing. Licensed contractors, free estimates. Call (866) 289-1750.",
-      "canonical": "https://{locationId}.bennettconstructionandroofing.com/{slug}"
+      "description": "Professional {serviceTitle} in {cityName}, {state}. Serving zip codes {zipCodes} by Dolomiti Steel Roofing. Free estimates available.",
+      "canonical": "https://dolomitisteelroofing.com/{locationId}/{slug}"
     },
     "costPage": {
       "title": "{serviceTitle} Cost in {cityName}, {state} ({year} Guide)",
-      "description": "How much does {serviceTitle} cost in {cityName}? Calculate estimated prices for your home size. Local {year} rates for roofing services. Free quote. Call (866) 289-1750.",
-      "canonical": "https://bennettconstructionandroofing.com/{cityState}/{serviceSlug}/cost"
+      "description": "How much does {serviceTitle} cost in {cityName}? Calculate estimated prices for your property. Local {year} metal roofing rates available.",
+      "canonical": "https://dolomitisteelroofing.com/{cityState}/{serviceSlug}/cost"
     },
     "costCalculatorPage": {
       "title": "{serviceTitle} Cost Calculator in {cityName}, {state} ({year})",
-      "description": "Free {serviceTitle} cost calculator for {cityName}. Get low, average, and high estimates. {year} local roofing rates. Call (866) 289-1750 for exact quote.",
-      "canonical": "https://bennettconstructionandroofing.com/{cityState}/{serviceSlug}/cost-calculator"
+      "description": "Free {serviceTitle} cost calculator for {cityName}. Get low, average, and high estimates using {year} local steel roofing rates.",
+      "canonical": "https://dolomitisteelroofing.com/{cityState}/{serviceSlug}/cost-calculator"
     },
     "costGuide": {
       "title": "{title}",
       "description": "{description}",
-      "canonical": "https://bennettconstructionandroofing.com/cost-guides/{slug}"
+      "canonical": "https://dolomitisteelroofing.com/cost-guides/{slug}"
     }
   }
 }

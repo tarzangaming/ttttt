@@ -1,16 +1,16 @@
 {
-  "companyName": "Bennett Construction & Roofing",
-  "shortName": "Bennett",
-  "serviceMain": "Roofing",
-  "domain": "bennettconstructionandroofing.com",
-  "canonicalBase": "https://bennettconstructionandroofing.com",
-  "phone": "(866) 289-1750",
-  "phoneClean": "8662891750",
-  "email": "info@bennettconstructionandroofing.com",
-  "tagline": "Quality Roofing & Construction You Can Trust",
-  "description": "Bennett Construction & Roofing provides expert roofing, siding, gutters, and general construction services. Licensed, insured, and trusted for over 25 years.",
-  "yearsInBusiness": "25+",
-  "foundedYear": 2000,
+  "companyName": "Dolomiti Steel Roofing",
+  "shortName": "Dolomiti",
+  "serviceMain": "Steel Roofing",
+  "domain": "dolomitisteelroofing.com",
+  "canonicalBase": "https://dolomitisteelroofing.com",
+  "phone": "(888) 555-7820",
+  "phoneClean": "8885557820",
+  "email": "info@dolomitisteelroofing.com",
+  "tagline": "Premium Steel Roofing Built to Last",
+  "description": "Dolomiti Steel Roofing provides expert steel and metal roofing installation, repair, and replacement services. Licensed, insured, and delivering durable, energy-efficient roofing systems nationwide.",
+  "yearsInBusiness": "15+",
+  "foundedYear": 2010,
   "address": {
     "street": "",
     "city": "",
@@ -45,12 +45,12 @@
   "trustBadges": [
     {
       "title": "Licensed & Insured",
-      "description": "Fully licensed, bonded, and insured for your complete peace of mind.",
+      "description": "Fully licensed, bonded, and insured steel roofing specialists.",
       "icon": "shield-check"
     },
     {
-      "title": "25+ Years Experience",
-      "description": "Trusted by thousands of homeowners since 2000.",
+      "title": "Metal Roofing Experts",
+      "description": "Specialized in standing seam and high-performance steel roofing systems.",
       "icon": "clock"
     },
     {
@@ -59,36 +59,36 @@
       "icon": "calculator"
     },
     {
-      "title": "Satisfaction Guaranteed",
-      "description": "We stand behind every project with our workmanship warranty.",
+      "title": "Long-Term Warranty",
+      "description": "We stand behind every steel roof with material and workmanship warranties.",
       "icon": "star"
     }
   ],
   "process": [
     {
       "step": 1,
-      "title": "Free Inspection",
-      "description": "We thoroughly inspect your property and assess your needs."
+      "title": "Free Roof Inspection",
+      "description": "We thoroughly inspect your roof structure and assess your steel roofing needs."
     },
     {
       "step": 2,
-      "title": "Detailed Quote",
-      "description": "Receive a transparent, no-surprise estimate for your project."
+      "title": "Detailed Proposal",
+      "description": "Receive a transparent, no-surprise estimate tailored to your project."
     },
     {
       "step": 3,
-      "title": "Schedule Work",
-      "description": "Pick a time that works for you. We show up on time, every time."
+      "title": "Project Scheduling",
+      "description": "We schedule your installation at a convenient time and arrive prepared."
     },
     {
       "step": 4,
-      "title": "Quality Build",
-      "description": "Our skilled crew completes your project with precision and care."
+      "title": "Precision Installation",
+      "description": "Our certified team installs your steel roofing system with exact manufacturer specifications."
     },
     {
       "step": 5,
-      "title": "Final Walkthrough",
-      "description": "We review the work together to ensure your complete satisfaction."
+      "title": "Final Quality Check",
+      "description": "We conduct a full walkthrough to ensure structural integrity and your complete satisfaction."
     }
   ]
 }

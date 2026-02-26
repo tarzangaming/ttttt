@@ -36,7 +36,16 @@ interface ImageSection {
     images: { imageKey: string; image: ImageItem }[];
 }
 
-type TabType = 'json' | 'images' | 'add-images' | 'service-images' | 'main-content' | 'location-content' | 'seo' | 'rebrand';
+type TabType =
+    | 'json'
+    | 'images'
+    | 'add-images'
+    | 'service-images'
+    | 'service-content'
+    | 'main-content'
+    | 'location-content'
+    | 'seo'
+    | 'rebrand';
 
 interface Service {
     slug: string;
@@ -77,6 +86,7 @@ export default function AdminDashboard() {
     const [selectedImageKey, setSelectedImageKey] = useState<string | null>(null);
     const [showImagePicker, setShowImagePicker] = useState(false);
     const [allGalleryImages, setAllGalleryImages] = useState<ImageItem[]>([]);
+    const [imagePickerCustomUrl, setImagePickerCustomUrl] = useState('');
 
     // Add new image state
     const [newImageUrl, setNewImageUrl] = useState('');
@@ -98,6 +108,7 @@ export default function AdminDashboard() {
     const [mainContent, setMainContent] = useState<any>(null);
     const [locationContent, setLocationContent] = useState<any>(null);
     const [seoData, setSeoData] = useState<any>(null);
+    const [servicesContent, setServicesContent] = useState<any>(null);
 
     useEffect(() => {
         fetchFiles();
@@ -160,13 +171,17 @@ export default function AdminDashboard() {
             const response = await fetch('/api/admin/json?file=services.json');
             const data = await response.json();
             if (data.success) {
-                const servicesList = data.data.services || [];
-                setServices(servicesList.map((s: any) => ({
-                    slug: s.slug,
-                    title: s.title,
-                    icon: s.icon,
-                    category: s.category
-                })));
+                const byCategory = data.data.servicesByCategory || {};
+                const allServices: any[] = Object.values(byCategory).flat();
+                setServices(
+                    allServices.map((s: any) => ({
+                        slug: s.slug,
+                        title: s.title,
+                        icon: s.icon,
+                        category: s.category
+                    }))
+                );
+                setServicesContent(data.data);
             }
         } catch (error) {
             console.error('Failed to load services:', error);
@@ -185,6 +200,31 @@ export default function AdminDashboard() {
         } catch (error) {
             console.error('Failed to load SEO data:', error);
             setSeoData({ defaults: {}, pages: {}, templates: {} });
+        }
+    };
+
+    const saveServicesContent = async (updated: any) => {
+        setSaving(true);
+        setMessage(null);
+        try {
+            const response = await fetch('/api/admin/json', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ fileName: 'services.json', data: updated })
+            });
+            const result = await response.json();
+            if (result.success) {
+                setMessage({ type: 'success', text: 'Services content saved successfully!' });
+                setServicesContent(updated);
+                loadServicesData();
+            } else {
+                setMessage({ type: 'error', text: result.error });
+            }
+        } catch (error) {
+            console.error('Failed to save services content:', error);
+            setMessage({ type: 'error', text: 'Failed to save services content' });
+        } finally {
+            setSaving(false);
         }
     };
 
@@ -863,6 +903,15 @@ export default function AdminDashboard() {
                         🎨 Service Images
                     </button>
                     <button
+                        onClick={() => setActiveTab('service-content')}
+                        className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'service-content'
+                            ? 'bg-[#1e3a5f] text-white'
+                            : 'text-gray-600 hover:bg-gray-100'
+                            }`}
+                    >
+                        📚 Service Content
+                    </button>
+                    <button
                         onClick={() => setActiveTab('main-content')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'main-content'
                             ? 'bg-[#1e3a5f] text-white'
@@ -948,6 +997,31 @@ export default function AdminDashboard() {
                         onBulkImageSelect={saveBulkServiceImages}
                         saving={saving}
                     />
+                )}
+
+                {/* Service Content Tab */}
+                {activeTab === 'service-content' && (
+                    <div className="space-y-6">
+                        {servicesContent ? (
+                            <ContentEditor
+                                content={servicesContent}
+                                onSave={saveServicesContent}
+                                saving={saving}
+                                sectionTitle="📚 Services Configuration (services.json)"
+                            />
+                        ) : (
+                            <div className="bg-white rounded-xl shadow-md p-12 text-center">
+                                <h3 className="text-xl font-bold text-gray-800 mb-2">No Services Content Loaded</h3>
+                                <p className="text-gray-600 mb-6">Load services from services.json or edit via the JSON Editor tab.</p>
+                                <button
+                                    onClick={loadServicesData}
+                                    className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
+                                >
+                                    Refresh Services
+                                </button>
+                            </div>
+                        )}
+                    </div>
                 )}
 
                 {/* Main Content Tab */}
@@ -1308,6 +1382,7 @@ export default function AdminDashboard() {
                                                 onClick={() => {
                                                     setSelectedSection(section.sectionKey);
                                                     setSelectedImageKey(imageKey);
+                                                    setImagePickerCustomUrl('');
                                                     setShowImagePicker(true);
                                                 }}
                                                 className="w-full bg-[#1e3a5f] hover:bg-[#2d5a8a] text-white text-sm py-2 px-4 rounded-lg transition"
@@ -1451,6 +1526,35 @@ export default function AdminDashboard() {
                             </button>
                         </div>
                         <div className="p-4 overflow-y-auto max-h-[70vh]">
+                            {/* Set image by URL - use your own image (e.g. logo) */}
+                            <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                                <h4 className="font-semibold text-gray-800 mb-2">🔗 Set by URL (use your own image)</h4>
+                                <p className="text-sm text-gray-600 mb-3">Paste any image URL to use it for this slot (e.g. logo, hero).</p>
+                                <div className="flex flex-col sm:flex-row gap-3">
+                                    <input
+                                        type="url"
+                                        value={imagePickerCustomUrl}
+                                        onChange={(e) => setImagePickerCustomUrl(e.target.value)}
+                                        placeholder="https://example.com/your-image.png"
+                                        className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none font-mono text-sm"
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            const url = imagePickerCustomUrl.trim();
+                                            if (url) {
+                                                saveImageSelection(selectedSection, selectedImageKey, url);
+                                                setImagePickerCustomUrl('');
+                                            }
+                                        }}
+                                        disabled={saving || !imagePickerCustomUrl.trim()}
+                                        className="bg-[#d97706] hover:bg-[#b45309] disabled:bg-gray-300 text-white font-bold py-3 px-6 rounded-lg transition whitespace-nowrap"
+                                    >
+                                        {saving ? 'Saving...' : 'Save URL'}
+                                    </button>
+                                </div>
+                            </div>
+                            <h4 className="font-semibold text-gray-800 mb-3">Or pick from gallery</h4>
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                                 {allGalleryImages.map((img, idx) => (
                                     <button

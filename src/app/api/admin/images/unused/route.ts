@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { auth } from '@/auth';
+import { ADMIN_AUTH_DISABLED } from '@/lib/admin-auth';
 
 const DATA_DIR = path.join(process.cwd(), 'src', 'data');
 const IMAGES_FILE = path.join(DATA_DIR, 'images.json');
@@ -108,6 +109,7 @@ function removeUnusedFromData(
 }
 
 async function requireAuth() {
+  if (ADMIN_AUTH_DISABLED) return true;
   const session = await auth();
   return !!session?.user;
 }
