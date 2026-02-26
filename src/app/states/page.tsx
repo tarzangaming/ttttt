@@ -48,7 +48,7 @@ export default function StatesPage() {
             style={{ filter: 'brightness(0.35)' }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/70 to-[#0f1f33]/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#4a2c17]/70 to-[#2d1a0e]/50" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             {contentData.mainWebsite.states.hero.title}
@@ -59,13 +59,13 @@ export default function StatesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`tel:${siteConfig.phoneClean}`}
-              className="bg-[#d97706] hover:bg-[#b45309] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+              className="bg-[#c4841d] hover:bg-[#8b5e14] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
             >
               Call {siteConfig.phone}
             </a>
             <a
               href="#states"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#1e3a5f] transition-colors"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#4a2c17] transition-colors"
             >
               View All States
             </a>
@@ -93,16 +93,16 @@ export default function StatesPage() {
                 href={getStateUrl(stateInfo.state)}
                 className="bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 p-6 text-center group"
               >
-                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#d97706] transition-colors mb-2">
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#c4841d] transition-colors mb-2">
                   {stateInfo.fullName}
                 </h3>
-                <p className="text-3xl font-bold text-[#1e3a5f] mb-2">
+                <p className="text-3xl font-bold text-[#4a2c17] mb-2">
                   {stateInfo.cityCount}
                 </p>
                 <p className="text-sm text-gray-600">
                   {stateInfo.cityCount === 1 ? 'City' : 'Cities'} Available
                 </p>
-                <div className="mt-4 text-[#d97706] font-medium group-hover:text-[#b45309] transition-colors">
+                <div className="mt-4 text-[#c4841d] font-medium group-hover:text-[#8b5e14] transition-colors">
                   View Cities →
                 </div>
               </Link>
@@ -122,7 +122,7 @@ export default function StatesPage() {
             style={{ filter: 'brightness(0.25)' }}
           />
         </div>
-        <div className="absolute inset-0 bg-[#1e3a5f]/60" />
+        <div className="absolute inset-0 bg-[#4a2c17]/60" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             {contentData.mainWebsite.states.cta.title.replace(/{PHONE}/g, siteConfig.phone)}
@@ -133,7 +133,7 @@ export default function StatesPage() {
           <div className="flex justify-center">
             <a
               href={`tel:${siteConfig.phoneClean}`}
-              className="bg-[#d97706] hover:bg-[#b45309] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+              className="bg-[#c4841d] hover:bg-[#8b5e14] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
             >
               {contentData.mainWebsite.states.cta.buttonText.replace(/{PHONE}/g, siteConfig.phone)}
             </a>

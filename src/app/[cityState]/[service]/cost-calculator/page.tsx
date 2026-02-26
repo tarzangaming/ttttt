@@ -97,11 +97,11 @@ export default async function CostPage({ params }: PageProps) {
             {/* Hero Section */}
             <section className="bg-white py-16 px-4 border-b border-gray-100">
                 <div className="max-w-4xl mx-auto text-center">
-                    <div className="inline-block bg-blue-50 text-[#1e3a5f] font-bold px-4 py-1.5 rounded-full text-sm mb-6">
+                    <div className="inline-block bg-amber-50 text-[#4a2c17] font-bold px-4 py-1.5 rounded-full text-sm mb-6">
                         Updated for {currentYear}
                     </div>
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#1e3a5f] mb-6 leading-tight">
-                        {service.title} Cost in <span className="text-[#d97706]">{location.city}, {location.state}</span>
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#4a2c17] mb-6 leading-tight">
+                        {service.title} Cost in <span className="text-[#c4841d]">{location.city}, {location.state}</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
                         Planning a project in {location.city}? Use our free calculator to see low, average, and high price ranges based on local {currentYear} market rates.
@@ -122,7 +122,7 @@ export default async function CostPage({ params }: PageProps) {
 
             {/* Breakdown Section with Rich SEO Content */}
             <section className="py-20 px-4 max-w-5xl mx-auto">
-                <h2 className="text-3xl font-bold text-[#1e3a5f] mb-4 text-center">Typical Price Ranges in {location.city}</h2>
+                <h2 className="text-3xl font-bold text-[#4a2c17] mb-4 text-center">Typical Price Ranges in {location.city}</h2>
                 <p className="text-center text-gray-500 mb-12">Based on typical home sizes and material choices</p>
 
                 <PriceTierCards
@@ -132,22 +132,22 @@ export default async function CostPage({ params }: PageProps) {
                 />
 
                 <div className="my-16">
-                    <h3 className="text-2xl font-bold text-[#1e3a5f] mb-6">4 Major Factors affecting {service.title} Costs in {location.city}</h3>
+                    <h3 className="text-2xl font-bold text-[#4a2c17] mb-6">4 Major Factors affecting {service.title} Costs in {location.city}</h3>
                     <div className="grid md:grid-cols-2 gap-8 text-gray-700 leading-relaxed">
                         <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                            <h4 className="font-bold text-[#d97706] mb-2">1. Roof Slope & Complexity</h4>
+                            <h4 className="font-bold text-[#c4841d] mb-2">1. Roof Slope & Complexity</h4>
                             <p>The steeper the roof, the higher the labor cost due to safety requirements. A simple walkable roof in {location.city} is significantly cheaper to service than a multi-story home with complex hips and valleys.</p>
                         </div>
                         <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                            <h4 className="font-bold text-[#d97706] mb-2">2. Material Selection</h4>
+                            <h4 className="font-bold text-[#c4841d] mb-2">2. Material Selection</h4>
                             <p>Materials make up 40-50% of the total quote. While asphalt shingles are budget-friendly, tile and metal roofs common in Arizona cost 2-3x more upfront but offer decades of extra durability against the sun.</p>
                         </div>
                         <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                            <h4 className="font-bold text-[#d97706] mb-2">3. Accessibility</h4>
+                            <h4 className="font-bold text-[#c4841d] mb-2">3. Accessibility</h4>
                             <p>If your home in {location.city} is difficult to access (e.g., tight clearances, narrow streets), materials may need to be hand-carried or craned, adding time and equipment fees to the project.</p>
                         </div>
                         <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-                            <h4 className="font-bold text-[#d97706] mb-2">4. Tears-off & Disposal</h4>
+                            <h4 className="font-bold text-[#c4841d] mb-2">4. Tears-off & Disposal</h4>
                             <p>If you have multiple layers of old roofing (common in older Arizona homes), city codes require complete removal ("tear-off") before new installation. Disposal fees in {location.state} vary by weight.</p>
                         </div>
                     </div>
@@ -155,8 +155,8 @@ export default async function CostPage({ params }: PageProps) {
 
                 <ImpactFactors />
 
-                <div className="mt-16 bg-blue-50/50 p-8 rounded-2xl border border-blue-100">
-                    <h3 className="text-2xl font-bold text-[#1e3a5f] mb-4">Arizona Climate Note: Why Quality Matters</h3>
+                <div className="mt-16 bg-amber-50/50 p-8 rounded-2xl border border-amber-100">
+                    <h3 className="text-2xl font-bold text-[#4a2c17] mb-4">Arizona Climate Note: Why Quality Matters</h3>
                     <p className="text-gray-700 leading-relaxed mb-4">
                         In {location.city}, your roof faces extreme UV radiation, monsoon storms, and rapid thermal expansion (hot days, cool nights).
                         A "cheap" quote often cuts corners on <strong>underlayment</strong>—the most critical waterproofing layer.
@@ -168,7 +168,7 @@ export default async function CostPage({ params }: PageProps) {
             </section>
 
             {/* Trust Section */}
-            <section className="bg-[#1e3a5f] text-white py-16 px-4">
+            <section className="bg-[#4a2c17] text-white py-16 px-4">
                 <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <h2 className="text-3xl font-bold mb-6">Why Trust Our Estimates?</h2>
@@ -177,13 +177,13 @@ export default async function CostPage({ params }: PageProps) {
                         </p>
                         <ul className="space-y-4">
                             <li className="flex gap-3 items-center">
-                                <span className="text-[#d97706] text-xl">✓</span> Licensed & Bonded in {location.state}
+                                <span className="text-[#c4841d] text-xl">✓</span> Licensed & Bonded in {location.state}
                             </li>
                             <li className="flex gap-3 items-center">
-                                <span className="text-[#d97706] text-xl">✓</span> No hidden "trip charges"
+                                <span className="text-[#c4841d] text-xl">✓</span> No hidden "trip charges"
                             </li>
                             <li className="flex gap-3 items-center">
-                                <span className="text-[#d97706] text-xl">✓</span> 20+ Years Local Experience
+                                <span className="text-[#c4841d] text-xl">✓</span> 20+ Years Local Experience
                             </li>
                         </ul>
                     </div>
@@ -192,7 +192,7 @@ export default async function CostPage({ params }: PageProps) {
                         <p className="mb-6 opacity-80">
                             Online calculators are great for planning, but every roof is unique. Get a penny-perfect quote that is good for 30 days.
                         </p>
-                        <a href={`tel:${siteConfig.phoneClean}`} className="block w-full bg-[#d97706] hover:bg-[#b45309] text-white text-center font-bold py-4 rounded-xl shadow-lg transition">
+                        <a href={`tel:${siteConfig.phoneClean}`} className="block w-full bg-[#c4841d] hover:bg-[#8b5e14] text-white text-center font-bold py-4 rounded-xl shadow-lg transition">
                             Call {siteConfig.phone}
                         </a>
                     </div>
@@ -201,30 +201,30 @@ export default async function CostPage({ params }: PageProps) {
 
             {/* FAQ Section */}
             <section className="py-20 px-4 max-w-4xl mx-auto">
-                <h2 className="text-3xl font-bold text-[#1e3a5f] mb-12 text-center">Common Questions regarding {service.title} cost</h2>
+                <h2 className="text-3xl font-bold text-[#4a2c17] mb-12 text-center">Common Questions regarding {service.title} cost</h2>
                 <div className="space-y-4">
                     <details className="group bg-white rounded-xl border border-gray-200 shadow-sm">
-                        <summary className="flex justify-between items-center cursor-pointer p-6 font-bold text-[#1e3a5f] text-lg">
+                        <summary className="flex justify-between items-center cursor-pointer p-6 font-bold text-[#4a2c17] text-lg">
                             Is financing available for {service.title}?
-                            <span className="text-[#d97706] group-open:rotate-180 transition">+</span>
+                            <span className="text-[#c4841d] group-open:rotate-180 transition">+</span>
                         </summary>
                         <div className="px-6 pb-6 text-gray-600 leading-relaxed">
                             Yes, we offer multiple financing options including low-interest monthly payment plans to help make your project affordable.
                         </div>
                     </details>
                     <details className="group bg-white rounded-xl border border-gray-200 shadow-sm">
-                        <summary className="flex justify-between items-center cursor-pointer p-6 font-bold text-[#1e3a5f] text-lg">
+                        <summary className="flex justify-between items-center cursor-pointer p-6 font-bold text-[#4a2c17] text-lg">
                             Does insurance cover {service.title}?
-                            <span className="text-[#d97706] group-open:rotate-180 transition">+</span>
+                            <span className="text-[#c4841d] group-open:rotate-180 transition">+</span>
                         </summary>
                         <div className="px-6 pb-6 text-gray-600 leading-relaxed">
                             If the damage is caused by a covered peril (like storm, wind, or hail), insurance typically covers the cost minus your deductible. We can assist with the claim process.
                         </div>
                     </details>
                     <details className="group bg-white rounded-xl border border-gray-200 shadow-sm">
-                        <summary className="flex justify-between items-center cursor-pointer p-6 font-bold text-[#1e3a5f] text-lg">
+                        <summary className="flex justify-between items-center cursor-pointer p-6 font-bold text-[#4a2c17] text-lg">
                             Do I need a permit in {location.city}?
-                            <span className="text-[#d97706] group-open:rotate-180 transition">+</span>
+                            <span className="text-[#c4841d] group-open:rotate-180 transition">+</span>
                         </summary>
                         <div className="px-6 pb-6 text-gray-600 leading-relaxed">
                             Most structural roofing work in {location.city} does require a permit. We handle all city permitting and inspections as part of our full service.
@@ -249,7 +249,7 @@ export default async function CostPage({ params }: PageProps) {
                                     <Link
                                         key={l.id}
                                         href={href}
-                                        className="hover:text-[#d97706] hover:underline transition"
+                                        className="hover:text-[#c4841d] hover:underline transition"
                                     >
                                         {l.name} {service.title} Cost
                                     </Link>

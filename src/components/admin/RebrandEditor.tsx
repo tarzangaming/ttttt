@@ -118,7 +118,7 @@ export default function RebrandEditor({ onComplete }: RebrandEditorProps) {
               value={form.brandName}
               onChange={(e) => setForm((f) => ({ ...f, brandName: e.target.value }))}
               placeholder="ABC Roofing & Construction"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
             />
           </div>
           <div>
@@ -128,7 +128,7 @@ export default function RebrandEditor({ onComplete }: RebrandEditorProps) {
               value={form.industry}
               onChange={(e) => setForm((f) => ({ ...f, industry: e.target.value }))}
               placeholder="roofing, plumbing, construction..."
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
             />
           </div>
           <div>
@@ -136,7 +136,7 @@ export default function RebrandEditor({ onComplete }: RebrandEditorProps) {
             <select
               value={form.tone}
               onChange={(e) => setForm((f) => ({ ...f, tone: e.target.value as typeof form.tone }))}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
             >
               <option value="professional">Professional</option>
               <option value="bold">Bold</option>
@@ -150,7 +150,7 @@ export default function RebrandEditor({ onComplete }: RebrandEditorProps) {
               value={form.country}
               onChange={(e) => setForm((f) => ({ ...f, country: e.target.value }))}
               placeholder="USA"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
             />
           </div>
           <div className="md:col-span-2">
@@ -158,7 +158,7 @@ export default function RebrandEditor({ onComplete }: RebrandEditorProps) {
             <select
               value={form.scope}
               onChange={(e) => setForm((f) => ({ ...f, scope: e.target.value as typeof form.scope }))}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
             >
               <option value="full">Full Site — All pages (homepage, about, contact, services, SEO, config)</option>
               <option value="homepage">Homepage Only — Hero, features, why choose us, coverage, CTAs</option>
@@ -169,7 +169,7 @@ export default function RebrandEditor({ onComplete }: RebrandEditorProps) {
         <button
           type="button"
           onClick={() => setShowAdvanced((s) => !s)}
-          className="mt-4 text-sm text-[#1e3a5f] hover:underline"
+          className="mt-4 text-sm text-[#4a2c17] hover:underline"
         >
           {showAdvanced ? "− Hide" : "+ Show"} advanced (domain, phone, email, tagline)
         </button>
@@ -183,7 +183,7 @@ export default function RebrandEditor({ onComplete }: RebrandEditorProps) {
                 value={form.shortName}
                 onChange={(e) => setForm((f) => ({ ...f, shortName: e.target.value }))}
                 placeholder="ABC"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
               />
             </div>
             <div>
@@ -193,7 +193,7 @@ export default function RebrandEditor({ onComplete }: RebrandEditorProps) {
                 value={form.domain}
                 onChange={(e) => setForm((f) => ({ ...f, domain: e.target.value }))}
                 placeholder="abcroofing.com"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
               />
             </div>
             <div>
@@ -203,7 +203,7 @@ export default function RebrandEditor({ onComplete }: RebrandEditorProps) {
                 value={form.phone}
                 onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
                 placeholder="(555) 123-4567"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
               />
             </div>
             <div>
@@ -213,7 +213,7 @@ export default function RebrandEditor({ onComplete }: RebrandEditorProps) {
                 value={form.email}
                 onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
                 placeholder="info@example.com"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
               />
             </div>
             <div>
@@ -223,7 +223,7 @@ export default function RebrandEditor({ onComplete }: RebrandEditorProps) {
                 value={form.tagline}
                 onChange={(e) => setForm((f) => ({ ...f, tagline: e.target.value }))}
                 placeholder="Quality Roofing You Can Trust"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
               />
             </div>
             <div>
@@ -233,7 +233,7 @@ export default function RebrandEditor({ onComplete }: RebrandEditorProps) {
                 value={form.yearsInBusiness}
                 onChange={(e) => setForm((f) => ({ ...f, yearsInBusiness: e.target.value }))}
                 placeholder="25+"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
               />
             </div>
           </div>
@@ -250,7 +250,7 @@ export default function RebrandEditor({ onComplete }: RebrandEditorProps) {
           <button
             onClick={() => handleSubmit(true)}
             disabled={loading}
-            className="bg-[#d97706] hover:bg-[#b45309] disabled:bg-gray-300 text-white font-bold py-4 px-8 rounded-lg transition text-lg"
+            className="bg-[#c4841d] hover:bg-[#8b5e14] disabled:bg-gray-300 text-white font-bold py-4 px-8 rounded-lg transition text-lg"
           >
             {loading ? "Processing..." : "🚀 1-Click Rebrand Website"}
           </button>

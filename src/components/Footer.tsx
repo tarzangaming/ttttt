@@ -20,7 +20,7 @@ export default function Footer({ location }: FooterProps) {
   return (
     <>
       {/* 24/7 CTA Banner */}
-      <section className="py-4 px-4 bg-gradient-to-r from-[#1e3a5f] to-[#0f1f33] text-white">
+      <section className="py-4 px-4 bg-gradient-to-r from-[#4a2c17] to-[#2d1a0e] text-white">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="text-center lg:text-left flex-1">
@@ -28,7 +28,7 @@ export default function Footer({ location }: FooterProps) {
                 {footerData.ctaBar.heading}
               </h2>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <div className="bg-[#d97706] rounded-lg p-3">
+                <div className="bg-[#c4841d] rounded-lg p-3">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
@@ -51,7 +51,7 @@ export default function Footer({ location }: FooterProps) {
                     sizes="(max-width: 640px) 192px, (max-width: 1024px) 256px, 320px"
                   />
                 ) : (
-                  <div className="w-full h-full bg-[#2d5a8a]/30 flex items-center justify-center">
+                  <div className="w-full h-full bg-[#6b3d22]/30 flex items-center justify-center">
                     <span className="text-white/50 text-sm">No image set</span>
                   </div>
                 )}
@@ -85,13 +85,13 @@ export default function Footer({ location }: FooterProps) {
       </section>
 
       {/* Big CTA Banner */}
-      <section className="bg-[#d97706] text-white py-16 px-4 mt-auto">
+      <section className="bg-[#c4841d] text-white py-16 px-4 mt-auto">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-8">{footerData.bigCta.heading}</h2>
           <div className="mb-8">
             <a
               href={`tel:${phoneClean}`}
-              className="bg-white text-[#1e3a5f] font-bold px-12 py-6 rounded-xl text-3xl hover:bg-gray-50 transition shadow-lg inline-block"
+              className="bg-white text-[#4a2c17] font-bold px-12 py-6 rounded-xl text-3xl hover:bg-gray-50 transition shadow-lg inline-block"
             >
               {phone}
             </a>
@@ -101,7 +101,7 @@ export default function Footer({ location }: FooterProps) {
       </section>
 
       {/* Footer Links */}
-      <footer className="bg-[#1e3a5f] text-white py-12 px-4">
+      <footer className="bg-[#4a2c17] text-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Company Info */}
@@ -109,7 +109,7 @@ export default function Footer({ location }: FooterProps) {
               <h3 className="text-xl font-bold mb-4">{footerData.company.name}</h3>
               <p className="text-gray-300 mb-4">{footerData.company.description}</p>
               <div className="flex space-x-4">
-                <a href={`tel:${phoneClean}`} className="text-[#d97706] hover:text-[#f59e0b] transition">
+                <a href={`tel:${phoneClean}`} className="text-[#c4841d] hover:text-[#d4a24c] transition">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
@@ -122,7 +122,7 @@ export default function Footer({ location }: FooterProps) {
               <h3 className="text-xl font-bold mb-4">{footerData.columns.roofingServices.title}</h3>
               <ul className="space-y-2 text-gray-300">
                 {footerData.columns.roofingServices.links.map((link) => (
-                  <li key={link.href}><Link href={link.href} className="hover:text-[#d97706] transition">{link.label}</Link></li>
+                  <li key={link.href}><Link href={link.href} className="hover:text-[#c4841d] transition">{link.label}</Link></li>
                 ))}
               </ul>
             </div>
@@ -132,7 +132,7 @@ export default function Footer({ location }: FooterProps) {
               <h3 className="text-xl font-bold mb-4">{footerData.columns.moreServices.title}</h3>
               <ul className="space-y-2 text-gray-300">
                 {footerData.columns.moreServices.links.map((link) => (
-                  <li key={link.href}><Link href={link.href} className="hover:text-[#d97706] transition">{link.label}</Link></li>
+                  <li key={link.href}><Link href={link.href} className="hover:text-[#c4841d] transition">{link.label}</Link></li>
                 ))}
               </ul>
             </div>
@@ -142,7 +142,7 @@ export default function Footer({ location }: FooterProps) {
               <h3 className="text-xl font-bold mb-4">{footerData.columns.quickLinks.title}</h3>
               <ul className="space-y-2 text-gray-300">
                 {footerData.columns.quickLinks.links.map((link) => (
-                  <li key={link.href}><Link href={link.href} className="hover:text-[#d97706] transition">{link.label}</Link></li>
+                  <li key={link.href}><Link href={link.href} className="hover:text-[#c4841d] transition">{link.label}</Link></li>
                 ))}
               </ul>
             </div>

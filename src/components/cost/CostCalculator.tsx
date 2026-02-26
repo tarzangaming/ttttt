@@ -75,7 +75,7 @@ export default function CostCalculator({ serviceSlug, city, config }: CostCalcul
         <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden flex flex-col w-full">
             {/* Input Section - Top - Horizontal Grid */}
             <div className="p-8 bg-gray-50/50 border-b border-gray-100 w-full">
-                <h3 className="text-xl font-bold text-[#1e3a5f] mb-6 flex items-center gap-2">
+                <h3 className="text-xl font-bold text-[#4a2c17] mb-6 flex items-center gap-2">
                     <span>🧮</span> Calculate Your Estimate
                 </h3>
 
@@ -89,7 +89,7 @@ export default function CostCalculator({ serviceSlug, city, config }: CostCalcul
                             {field.type === 'number' && (
                                 <div className="relative">
                                     <div className="flex justify-between items-center bg-white border border-gray-300 rounded-lg px-3 py-2 mb-2">
-                                        <span className="font-bold text-[#1e3a5f]">
+                                        <span className="font-bold text-[#4a2c17]">
                                             {(values[field.name] || field.defaultValue).toLocaleString()}
                                         </span>
                                         <span className="text-gray-500 text-sm">{field.suffix}</span>
@@ -101,7 +101,7 @@ export default function CostCalculator({ serviceSlug, city, config }: CostCalcul
                                         step={field.step}
                                         value={values[field.name] || field.defaultValue}
                                         onChange={(e) => handleChange(field.name, Number(e.target.value))}
-                                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#d97706]"
+                                        className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#c4841d]"
                                     />
                                 </div>
                             )}
@@ -111,7 +111,7 @@ export default function CostCalculator({ serviceSlug, city, config }: CostCalcul
                                     <select
                                         value={values[field.name] || field.defaultValue}
                                         onChange={(e) => handleChange(field.name, e.target.value)}
-                                        className="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-gray-700 font-medium focus:ring-2 focus:ring-[#1e3a5f] focus:border-[#1e3a5f] outline-none transition shadow-sm appearance-none"
+                                        className="w-full px-4 py-2.5 rounded-lg border border-gray-300 bg-white text-gray-700 font-medium focus:ring-2 focus:ring-[#4a2c17] focus:border-[#4a2c17] outline-none transition shadow-sm appearance-none"
                                         style={{ backgroundImage: 'none' }}
                                     >
                                         {field.options?.map((opt) => (
@@ -131,9 +131,9 @@ export default function CostCalculator({ serviceSlug, city, config }: CostCalcul
             </div>
 
             {/* Result Section - Bottom - Full Width Bar */}
-            <div className="p-8 bg-[#1e3a5f] text-white flex flex-col justify-center relative overflow-hidden min-h-[auto] py-12">
-                <div className="absolute top-0 right-0 w-80 h-80 bg-[#d97706]/20 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
+            <div className="p-8 bg-[#4a2c17] text-white flex flex-col justify-center relative overflow-hidden min-h-[auto] py-12">
+                <div className="absolute top-0 right-0 w-80 h-80 bg-[#c4841d]/20 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none"></div>
 
                 <div className="relative z-10 max-w-6xl mx-auto w-full">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
@@ -144,7 +144,7 @@ export default function CostCalculator({ serviceSlug, city, config }: CostCalcul
                                 <span className="text-5xl md:text-6xl font-extrabold text-white tracking-tight">
                                     ${estimatedCost?.low.toLocaleString()}
                                 </span>
-                                <span className="text-3xl md:text-4xl text-[#d97706] font-bold">
+                                <span className="text-3xl md:text-4xl text-[#c4841d] font-bold">
                                     - ${estimatedCost?.high.toLocaleString()}
                                 </span>
                             </div>
@@ -154,10 +154,10 @@ export default function CostCalculator({ serviceSlug, city, config }: CostCalcul
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto shrink-0">
-                            <a href={`tel:${siteConfig.phoneClean}`} className="bg-[#d97706] hover:bg-[#b45309] text-white font-bold py-4 px-8 rounded-xl shadow-lg transition transform hover:scale-[1.02] text-center whitespace-nowrap min-w-[200px]">
+                            <a href={`tel:${siteConfig.phoneClean}`} className="bg-[#c4841d] hover:bg-[#8b5e14] text-white font-bold py-4 px-8 rounded-xl shadow-lg transition transform hover:scale-[1.02] text-center whitespace-nowrap min-w-[200px]">
                                 Get Exact Quote
                             </a>
-                            <button className="bg-white text-[#1e3a5f] font-bold py-4 px-8 rounded-xl hover:bg-gray-50 transition shadow-lg whitespace-nowrap min-w-[200px]">
+                            <button className="bg-white text-[#4a2c17] font-bold py-4 px-8 rounded-xl hover:bg-gray-50 transition shadow-lg whitespace-nowrap min-w-[200px]">
                                 Request Inspection
                             </button>
                         </div>

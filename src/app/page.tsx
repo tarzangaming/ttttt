@@ -88,20 +88,20 @@ export default function HomePage() {
               style={{ filter: 'brightness(0.4)' }}
             />
           ) : (
-            <div className="absolute inset-0 bg-[#1e3a5f]" />
+            <div className="absolute inset-0 bg-[#4a2c17]" />
           )}
         </div>
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
           <div className="md:max-w-3xl">
-            <span className="inline-block bg-[#d97706] text-white font-bold px-4 py-1.5 rounded-full text-sm mb-6 uppercase tracking-wider">
+            <span className="inline-block bg-[#c4841d] text-white font-bold px-4 py-1.5 rounded-full text-sm mb-6 uppercase tracking-wider">
               {hero.badge || 'Serving Communities Nationwide'}
             </span>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
               {(() => {
                 const t = hero.title || 'Quality Roofing You Can Trust';
                 const match = t.match(/^(.+?)(\s+You Can Trust)$/);
-                return match ? <><>{match[1]}</> <br /><span className="text-[#d97706]">{match[2].trim()}</span></> : t;
+                return match ? <><>{match[1]}</> <br /><span className="text-[#c4841d]">{match[2].trim()}</span></> : t;
               })()}
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed font-light">
@@ -111,7 +111,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <a
                 href={`tel:${siteConfig.phoneClean}`}
-                className="group relative px-8 py-4 bg-[#d97706] text-white text-lg font-bold rounded-xl shadow-xl hover:bg-[#b45309] transition-all transform hover:-translate-y-1 overflow-hidden"
+                className="group relative px-8 py-4 bg-[#c4841d] text-white text-lg font-bold rounded-xl shadow-xl hover:bg-[#8b5e14] transition-all transform hover:-translate-y-1 overflow-hidden"
               >
                 <div className="absolute inset-0 w-full h-full bg-white/20 transform -translate-x-full skew-x-12 group-hover:translate-x-full transition-transform duration-700"></div>
                 <div className="relative flex items-center justify-center gap-2">
@@ -122,13 +122,13 @@ export default function HomePage() {
 
             <div className="mt-10 flex flex-wrap items-center gap-6 text-white/90 text-sm font-medium justify-center md:justify-start">
               <div className="flex items-center gap-2">
-                <span className="text-[#d97706] text-xl">✓</span> Licensed & Insured
+                <span className="text-[#c4841d] text-xl">✓</span> Licensed & Insured
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-[#d97706] text-xl">✓</span> 25+ Years Experience
+                <span className="text-[#c4841d] text-xl">✓</span> 25+ Years Experience
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-[#d97706] text-xl">✓</span> Nationwide Network
+                <span className="text-[#c4841d] text-xl">✓</span> Nationwide Network
               </div>
             </div>
           </div>
@@ -138,7 +138,7 @@ export default function HomePage() {
       {/* 2. SERVICES OVERVIEW */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-4">{servicesSection.title ?? 'Comprehensive Roofing Solutions'}</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#4a2c17] mb-4">{servicesSection.title ?? 'Comprehensive Roofing Solutions'}</h2>
           <p className="text-xl text-gray-600 mb-16 max-w-3xl mx-auto">
             {servicesSection.subtitle ?? 'We provide specialized roofing systems tailored to your residential and commercial needs.'}
           </p>
@@ -165,7 +165,7 @@ export default function HomePage() {
                   )}
 
                   {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f] via-[#1e3a5f]/60 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-95" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#4a2c17] via-[#4a2c17]/60 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-95" />
 
                   {/* Content */}
                   <div className="absolute inset-0 p-8 flex flex-col justify-end text-white z-10">
@@ -177,7 +177,7 @@ export default function HomePage() {
                       <p className="text-gray-200 line-clamp-2 mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 absolute bottom-0 transform translate-y-full group-hover:translate-y-0 relative">
                         {service.description}
                       </p>
-                      <span className="inline-flex items-center text-[#d97706] font-bold uppercase tracking-wider text-sm mt-2 group-hover:text-white transition-colors">
+                      <span className="inline-flex items-center text-[#c4841d] font-bold uppercase tracking-wider text-sm mt-2 group-hover:text-white transition-colors">
                         Learn More <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                       </span>
                     </div>
@@ -190,7 +190,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <Link
               href="/services"
-              className="inline-block bg-[#1e3a5f] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#0f1f33] transition shadow-lg text-lg"
+              className="inline-block bg-[#4a2c17] text-white font-bold px-8 py-4 rounded-xl hover:bg-[#2d1a0e] transition shadow-lg text-lg"
             >
               {servicesSection.ctaText ?? 'View All Services'}
             </Link>
@@ -199,10 +199,10 @@ export default function HomePage() {
       </section>
 
       {/* 3. NATIONAL COVERAGE */}
-      <section className="py-20 bg-[#1e3a5f] text-white">
+      <section className="py-20 bg-[#4a2c17] text-white">
         <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="text-[#d97706] font-bold uppercase tracking-wider text-sm">Where We Work</span>
+            <span className="text-[#c4841d] font-bold uppercase tracking-wider text-sm">Where We Work</span>
             <h2 className="text-3xl md:text-5xl font-bold mt-2 mb-6">{coverage.title || 'Serving Great Communities Across the USA'}</h2>
             <p className="text-lg opacity-90 mb-8 leading-relaxed">
               {coverage.subtitle || 'Dolimiti Steel Roofing has established a reputation for reliability in multiple states. Our local teams understand the specific building codes and climate challenges of your region.'}
@@ -216,7 +216,7 @@ export default function HomePage() {
 
                 return (
                   <div key={stateCode}>
-                    <h4 className="font-bold text-lg mb-2 text-[#d97706]">{stateCode} Region</h4>
+                    <h4 className="font-bold text-lg mb-2 text-[#c4841d]">{stateCode} Region</h4>
                     <ul className="space-y-1 text-sm opacity-80">
                       {stateLocations.slice(0, 4).map((loc: any) => (
                         <li key={loc.id}>{loc.name}</li>
@@ -230,7 +230,7 @@ export default function HomePage() {
               {/* Fallback for "Other Regions" if we have more than 2 states or just to show nationwide capability */}
               {(locationsData as any).locations.length > 0 && (
                 <div>
-                  <h4 className="font-bold text-lg mb-2 text-[#d97706]">Nationwide</h4>
+                  <h4 className="font-bold text-lg mb-2 text-[#c4841d]">Nationwide</h4>
                   <ul className="space-y-1 text-sm opacity-80">
                     <li>Commercial Projects</li>
                     <li>Select Residential</li>
@@ -240,12 +240,12 @@ export default function HomePage() {
               )}
             </div>
             <div className="mt-8">
-              <Link href="/locations" className="inline-block bg-white text-[#1e3a5f] font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition">
+              <Link href="/locations" className="inline-block bg-white text-[#4a2c17] font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition">
                 {coverage.ctaText ?? 'Find Your Local Office'}
               </Link>
             </div>
           </div>
-          <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl skew-x-3 border-4 border-[#d97706]">
+          <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl skew-x-3 border-4 border-[#c4841d]">
             {(imagesData.images?.hero as any)?.locations?.url ? (
               <Image
                 src={(imagesData.images?.hero as any).locations.url}
@@ -254,7 +254,7 @@ export default function HomePage() {
                 className="object-cover"
               />
             ) : (
-              <div className="absolute inset-0 bg-[#1e3a5f]" />
+              <div className="absolute inset-0 bg-[#4a2c17]" />
             )}
           </div>
         </div>
@@ -264,7 +264,7 @@ export default function HomePage() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f]">{whyChooseUsSectionTitle}</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#4a2c17]">{whyChooseUsSectionTitle}</h2>
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
@@ -276,7 +276,7 @@ export default function HomePage() {
             ]).map((item: any, i: number) => (
               <div key={i} className="text-center p-6 border border-gray-100 rounded-xl hover:shadow-lg transition">
                 <div className="text-4xl mb-4">{item.icon}</div>
-                <h3 className="font-bold text-lg text-[#1e3a5f] mb-2">{item.title}</h3>
+                <h3 className="font-bold text-lg text-[#4a2c17] mb-2">{item.title}</h3>
                 <p className="text-sm text-gray-600">{item.description || item.desc}</p>
               </div>
             ))}
@@ -288,7 +288,7 @@ export default function HomePage() {
       <section className="py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-6">{faqSection.title ?? 'Frequently Asked Questions'}</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#4a2c17] mb-6">{faqSection.title ?? 'Frequently Asked Questions'}</h2>
             <p className="text-xl text-gray-600">{faqSection.subtitle ?? 'Common questions about our roofing and construction services.'}</p>
           </div>
 
@@ -301,7 +301,7 @@ export default function HomePage() {
               { question: 'Do you handle insurance claims?', answer: 'Yes. Our team is experienced in storm damage restoration and can assist you through the insurance claim process, ensuring all damage is documented and covered.' }
             ]).map((faq: { question?: string; answer?: string; q?: string; a?: string }, index: number) => (
               <div key={index} className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition">
-                <h3 className="text-xl font-bold text-[#1e3a5f] mb-3">{faq.question ?? faq.q}</h3>
+                <h3 className="text-xl font-bold text-[#4a2c17] mb-3">{faq.question ?? faq.q}</h3>
                 <p className="text-gray-600 leading-relaxed">{faq.answer ?? faq.a}</p>
               </div>
             ))}
@@ -321,7 +321,7 @@ export default function HomePage() {
               style={{ filter: 'brightness(0.25)' }}
             />
           ) : (
-            <div className="absolute inset-0 bg-[#1e3a5f]" />
+            <div className="absolute inset-0 bg-[#4a2c17]" />
           )}
         </div>
         <div className="relative z-10 max-w-4xl mx-auto text-center text-white">
@@ -332,13 +332,13 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
               href={`tel:${siteConfig.phoneClean}`}
-              className="bg-[#d97706] text-white font-bold px-10 py-5 rounded-xl text-xl hover:bg-[#b45309] transition shadow-2xl flex items-center justify-center gap-3"
+              className="bg-[#c4841d] text-white font-bold px-10 py-5 rounded-xl text-xl hover:bg-[#8b5e14] transition shadow-2xl flex items-center justify-center gap-3"
             >
               {ctaSection.primaryButtonText ?? `Call ${siteConfig.phone}`}
             </a>
             <Link
               href="/contact"
-              className="bg-white text-[#1e3a5f] font-bold px-10 py-5 rounded-xl text-xl hover:bg-gray-100 transition shadow-xl"
+              className="bg-white text-[#4a2c17] font-bold px-10 py-5 rounded-xl text-xl hover:bg-gray-100 transition shadow-xl"
             >
               {ctaSection.secondaryButtonText ?? 'Request Online'}
             </Link>

@@ -21,6 +21,15 @@ export function isValidStateCode(code: string): boolean {
 
 export function getStateUrl(stateCode: string, path = ''): string {
   const state = stateCode.toLowerCase();
+  const isLocal = typeof window !== 'undefined'
+    ? window.location.hostname === 'localhost'
+    : process.env.NODE_ENV === 'development';
+
+  if (isLocal) {
+    const base = `/states/${state}`;
+    return path ? `${base}/${path.replace(/^\//, '')}` : base;
+  }
+
   const base = `https://${state}.${DOMAIN}`;
   return path ? `${base}/${path.replace(/^\//, '')}` : base;
 }

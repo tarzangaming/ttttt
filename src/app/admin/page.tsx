@@ -8,6 +8,8 @@ import ServiceImageManager from '@/components/admin/ServiceImageManager';
 import ContentEditor from '@/components/admin/ContentEditor';
 import SEOEditor from '@/components/admin/SEOEditor';
 import RebrandEditor from '@/components/admin/RebrandEditor';
+import ServicePageEditor from '@/components/admin/ServicePageEditor';
+import GlobalSettingsEditor from '@/components/admin/GlobalSettingsEditor';
 
 interface JsonFile {
     name: string;
@@ -43,6 +45,7 @@ type TabType =
     | 'service-images'
     | 'service-content'
     | 'service-templates'
+    | 'service-pages'
     | 'main-content'
     | 'location-content'
     | 'hero-templates'
@@ -50,6 +53,7 @@ type TabType =
     | 'service-grid'
     | 'seo'
     | 'rebrand'
+    | 'global-settings'
     | 'chatgpt-rewrite';
 
 interface Service {
@@ -121,10 +125,11 @@ export default function AdminDashboard() {
 
     // ChatGPT Rewrite state
     const [rewriteFile, setRewriteFile] = useState<string>('content.json');
-    const [rewriteExportData, setRewriteExportData] = useState<{textBlock: string; totalEntries: number; instructions: string[]} | null>(null);
+    const [rewriteExportData, setRewriteExportData] = useState<{textBlock: string; totalEntries: number; instructions: string[]; mode?: string; fileSummary?: any[]} | null>(null);
     const [rewriteImportText, setRewriteImportText] = useState('');
     const [rewriteLoading, setRewriteLoading] = useState(false);
     const [rewriteStep, setRewriteStep] = useState<'export' | 'import'>('export');
+    const [rewriteSmart, setRewriteSmart] = useState(true);
 
     useEffect(() => {
         fetchFiles();
@@ -433,15 +438,15 @@ export default function AdminDashboard() {
             const response = await fetch('/api/admin/json?file=content.json');
             const data = await response.json();
             if (data.success && data.data) {
-                setMainContent(data.data.mainWebsite ?? { homepage: {}, about: {}, contact: {} });
+                setMainContent(data.data.mainWebsite ?? { homepage: {}, about: {}, contact: {}, services: {}, locations: {}, states: {} });
                 setLocationContent(data.data.locationPages ?? { hero: {}, whyChooseUs: {}, features: [], cta: {} });
             } else {
-                setMainContent({ homepage: {}, about: {}, contact: {} });
+                setMainContent({ homepage: {}, about: {}, contact: {}, services: {}, locations: {}, states: {} });
                 setLocationContent({ hero: {}, whyChooseUs: {}, features: [], cta: {} });
             }
         } catch (error) {
             console.error('Failed to load content:', error);
-            setMainContent({ homepage: {}, about: {}, contact: {} });
+            setMainContent({ homepage: {}, about: {}, contact: {}, services: {}, locations: {}, states: {} });
             setLocationContent({ hero: {}, whyChooseUs: {}, features: [], cta: {} });
         }
     };
@@ -1052,7 +1057,7 @@ export default function AdminDashboard() {
                 </div>
             )}
             {/* Header */}
-            <header className="bg-[#1e3a5f] text-white py-4 px-6 shadow-lg">
+            <header className="bg-[#4a2c17] text-white py-4 px-6 shadow-lg">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <div>
                         <h1 className="text-2xl font-bold">Admin Dashboard</h1>
@@ -1079,9 +1084,18 @@ export default function AdminDashboard() {
             <div className="max-w-7xl mx-auto px-6 pt-6">
                 <div className="flex gap-2 bg-white rounded-lg p-1 shadow-md inline-flex">
                     <button
+                        onClick={() => setActiveTab('global-settings')}
+                        className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'global-settings'
+                            ? 'bg-[#c4841d] text-white'
+                            : 'text-gray-600 hover:bg-gray-100'
+                            }`}
+                    >
+                        ⚡ Global Settings
+                    </button>
+                    <button
                         onClick={() => setActiveTab('service-images')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'service-images'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -1090,7 +1104,7 @@ export default function AdminDashboard() {
                     <button
                         onClick={() => setActiveTab('service-content')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'service-content'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -1099,16 +1113,25 @@ export default function AdminDashboard() {
                     <button
                         onClick={() => setActiveTab('service-templates')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'service-templates'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
                         📝 Service Page Templates
                     </button>
                     <button
+                        onClick={() => setActiveTab('service-pages')}
+                        className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'service-pages'
+                            ? 'bg-[#4a2c17] text-white'
+                            : 'text-gray-600 hover:bg-gray-100'
+                            }`}
+                    >
+                        🔧 Service Pages
+                    </button>
+                    <button
                         onClick={() => setActiveTab('main-content')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'main-content'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -1117,7 +1140,7 @@ export default function AdminDashboard() {
                     <button
                         onClick={() => setActiveTab('location-content')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'location-content'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -1126,7 +1149,7 @@ export default function AdminDashboard() {
                     <button
                         onClick={() => setActiveTab('hero-templates')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'hero-templates'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -1135,7 +1158,7 @@ export default function AdminDashboard() {
                     <button
                         onClick={() => setActiveTab('testimonials-faqs')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'testimonials-faqs'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -1144,7 +1167,7 @@ export default function AdminDashboard() {
                     <button
                         onClick={() => setActiveTab('service-grid')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'service-grid'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -1153,7 +1176,7 @@ export default function AdminDashboard() {
                     <button
                         onClick={() => setActiveTab('seo')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'seo'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -1162,7 +1185,7 @@ export default function AdminDashboard() {
                     <button
                         onClick={() => setActiveTab('images')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'images'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -1171,7 +1194,7 @@ export default function AdminDashboard() {
                     <button
                         onClick={() => setActiveTab('add-images')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'add-images'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -1180,7 +1203,7 @@ export default function AdminDashboard() {
                     <button
                         onClick={() => setActiveTab('json')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'json'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -1189,7 +1212,7 @@ export default function AdminDashboard() {
                     <button
                         onClick={() => setActiveTab('chatgpt-rewrite')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'chatgpt-rewrite'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -1198,7 +1221,7 @@ export default function AdminDashboard() {
                     <button
                         onClick={() => setActiveTab('rebrand')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'rebrand'
-                            ? 'bg-[#1e3a5f] text-white'
+                            ? 'bg-[#4a2c17] text-white'
                             : 'text-gray-600 hover:bg-gray-100'
                             }`}
                     >
@@ -1217,6 +1240,11 @@ export default function AdminDashboard() {
             )}
 
             <div className="max-w-7xl mx-auto p-6">
+                {/* Global Settings Tab */}
+                {activeTab === 'global-settings' && (
+                    <GlobalSettingsEditor onSaved={() => { loadContentData(); loadSeoData(); fetchFiles(); }} />
+                )}
+
                 {/* Service Images Tab */}
                 {activeTab === 'service-images' && (
                     <ServiceImageManager
@@ -1245,7 +1273,7 @@ export default function AdminDashboard() {
                                 <p className="text-gray-600 mb-6">Load services from services.json or edit via the JSON Editor tab.</p>
                                 <button
                                     onClick={loadServicesData}
-                                    className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
+                                    className="bg-[#4a2c17] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#6b3d22] transition"
                                 >
                                     Refresh Services
                                 </button>
@@ -1278,13 +1306,18 @@ export default function AdminDashboard() {
                                 <p className="text-gray-600 mb-6">Load service page templates from service-content.json.</p>
                                 <button
                                     onClick={loadServiceTemplates}
-                                    className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
+                                    className="bg-[#4a2c17] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#6b3d22] transition"
                                 >
                                     Refresh Templates
                                 </button>
                             </div>
                         )}
                     </div>
+                )}
+
+                {/* Service Pages Tab - Per-service editor */}
+                {activeTab === 'service-pages' && (
+                    <ServicePageEditor saving={saving} />
                 )}
 
                 {/* Main Content Tab */}
@@ -1310,6 +1343,24 @@ export default function AdminDashboard() {
                             saving={saving}
                             sectionTitle="📞 Contact Page Content"
                         />
+                        <ContentEditor
+                            content={mainContent.services || {}}
+                            onSave={(updated) => saveContent('mainWebsite', { ...mainContent, services: updated })}
+                            saving={saving}
+                            sectionTitle="🔧 Services Page Content (/services)"
+                        />
+                        <ContentEditor
+                            content={mainContent.locations || {}}
+                            onSave={(updated) => saveContent('mainWebsite', { ...mainContent, locations: updated })}
+                            saving={saving}
+                            sectionTitle="📍 Locations Page Content (/locations)"
+                        />
+                        <ContentEditor
+                            content={mainContent.states || {}}
+                            onSave={(updated) => saveContent('mainWebsite', { ...mainContent, states: updated })}
+                            saving={saving}
+                            sectionTitle="🗺️ States Page Content (/states)"
+                        />
                         </>
                         ) : (
                             <div className="bg-white rounded-xl shadow-md p-12 text-center">
@@ -1317,7 +1368,7 @@ export default function AdminDashboard() {
                                 <p className="text-gray-600 mb-6">Load content from content.json or edit via the JSON Editor tab.</p>
                                 <button
                                     onClick={loadContentData}
-                                    className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
+                                    className="bg-[#4a2c17] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#6b3d22] transition"
                                 >
                                     Refresh Content
                                 </button>
@@ -1362,7 +1413,7 @@ export default function AdminDashboard() {
                                 <p className="text-gray-600 mb-6">Load content from content.json or edit via the JSON Editor tab.</p>
                                 <button
                                     onClick={loadContentData}
-                                    className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
+                                    className="bg-[#4a2c17] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#6b3d22] transition"
                                 >
                                     Refresh Content
                                 </button>
@@ -1394,7 +1445,7 @@ export default function AdminDashboard() {
                                 <p className="text-gray-600 mb-6">Load hero-content.json to manage hero and intro templates.</p>
                                 <button
                                     onClick={loadHeroTemplates}
-                                    className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
+                                    className="bg-[#4a2c17] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#6b3d22] transition"
                                 >
                                     Load Hero Templates
                                 </button>
@@ -1426,7 +1477,7 @@ export default function AdminDashboard() {
                                 <p className="text-gray-600 mb-6">Load location-extras.json to manage testimonials and FAQs.</p>
                                 <button
                                     onClick={loadTestimonialsFaqs}
-                                    className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
+                                    className="bg-[#4a2c17] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#6b3d22] transition"
                                 >
                                     Load Testimonials & FAQs
                                 </button>
@@ -1458,7 +1509,7 @@ export default function AdminDashboard() {
                                 <p className="text-gray-600 mb-6">Load location-services.json to manage the service grid.</p>
                                 <button
                                     onClick={loadServiceGrid}
-                                    className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
+                                    className="bg-[#4a2c17] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#6b3d22] transition"
                                 >
                                     Load Service Grid
                                 </button>
@@ -1471,17 +1522,17 @@ export default function AdminDashboard() {
                 {activeTab === 'chatgpt-rewrite' && (
                     <div className="space-y-6">
                         <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-xl p-6">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-2">🤖 Safe ChatGPT Rewrite Tool</h2>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-2">🤖 ChatGPT Content Rewrite Tool</h2>
                             <p className="text-gray-600">
-                                Safely export text content from your JSON files, rewrite it with ChatGPT, then import it back without breaking the JSON structure.
-                                Placeholders like <code className="bg-purple-100 px-2 py-1 rounded text-sm">{'{CITY}'}</code>, <code className="bg-purple-100 px-2 py-1 rounded text-sm">{'{STATE}'}</code>, <code className="bg-purple-100 px-2 py-1 rounded text-sm">{'{PHONE}'}</code> are validated on import.
+                                Export text content from your JSON files, rewrite with ChatGPT, then import back safely.
+                                Placeholders like <code className="bg-purple-100 px-2 py-1 rounded text-sm">{'{CITY}'}</code>, <code className="bg-purple-100 px-2 py-1 rounded text-sm">{'{{STATE}}'}</code>, <code className="bg-purple-100 px-2 py-1 rounded text-sm">{'{PHONE}'}</code> are validated on import.
                             </p>
                         </div>
 
                         {/* Step 1: Choose file and export */}
                         <div className="bg-white rounded-xl shadow-md p-6">
                             <div className="flex items-center gap-3 mb-4">
-                                <span className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${rewriteStep === 'export' ? 'bg-[#1e3a5f] text-white' : 'bg-green-500 text-white'}`}>1</span>
+                                <span className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${rewriteStep === 'export' ? 'bg-[#4a2c17] text-white' : 'bg-green-500 text-white'}`}>1</span>
                                 <h3 className="text-xl font-bold text-gray-800">Export Text for ChatGPT</h3>
                             </div>
 
@@ -1491,96 +1542,137 @@ export default function AdminDashboard() {
                                     <select
                                         value={rewriteFile}
                                         onChange={(e) => { setRewriteFile(e.target.value); setRewriteExportData(null); setRewriteImportText(''); setRewriteStep('export'); }}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
                                     >
+                                        <option value="__ALL__">📦 ALL FILES (mega-export for full rewrite)</option>
+                                        <option disabled>──────────────</option>
                                         <option value="content.json">content.json (Main + Location page text)</option>
-                                        <option value="services.json">services.json (Service names & descriptions)</option>
+                                        <option value="services.json">services.json (Service names &amp; descriptions)</option>
                                         <option value="service-content.json">service-content.json (Service page templates)</option>
-                                        <option value="seo.json">seo.json (SEO titles & descriptions)</option>
-                                        <option value="site.config.json">site.config.json (Company info & config)</option>
-                                        <option value="hero-content.json">hero-content.json (Hero & intro templates)</option>
-                                        <option value="location-extras.json">location-extras.json (Testimonials & FAQs)</option>
+                                        <option value="seo.json">seo.json (SEO titles &amp; descriptions)</option>
+                                        <option value="site.config.json">site.config.json (Company info &amp; config)</option>
+                                        <option value="hero-content.json">hero-content.json (Hero &amp; intro templates)</option>
+                                        <option value="location-extras.json">location-extras.json (Testimonials &amp; FAQs)</option>
                                         <option value="location-services.json">location-services.json (Location service grid)</option>
                                         <option value="footer.json">footer.json (Footer content)</option>
                                     </select>
                                 </div>
-                                <div className="flex items-end">
+                                <div className="flex items-end gap-4">
+                                    <label className="flex items-center gap-2 cursor-pointer pb-1">
+                                        <input type="checkbox" checked={rewriteSmart} onChange={e => setRewriteSmart(e.target.checked)} className="w-4 h-4 rounded accent-[#c4841d]" />
+                                        <span className="text-sm font-medium text-gray-700">Smart Export</span>
+                                        <span className="text-xs text-gray-400">(SEO content only)</span>
+                                    </label>
                                     <button
                                         onClick={async () => {
                                             setRewriteLoading(true);
                                             setMessage(null);
                                             try {
-                                                const res = await fetch(`/api/admin/chatgpt-rewrite?file=${rewriteFile}`);
+                                                const smartParam = rewriteSmart ? '&smart=true' : '';
+                                                const url = rewriteFile === '__ALL__'
+                                                    ? `/api/admin/chatgpt-rewrite?mode=all${smartParam}`
+                                                    : `/api/admin/chatgpt-rewrite?file=${rewriteFile}${smartParam}`;
+                                                const res = await fetch(url);
                                                 const data = await res.json();
                                                 if (data.success) {
-                                                    setRewriteExportData({ textBlock: data.textBlock, totalEntries: data.totalEntries, instructions: data.instructions });
+                                                    setRewriteExportData({
+                                                        textBlock: data.textBlock,
+                                                        totalEntries: data.totalEntries,
+                                                        instructions: data.instructions,
+                                                        mode: data.mode || 'single',
+                                                        fileSummary: data.fileSummary || null,
+                                                    });
                                                     setRewriteStep('export');
-                                                    setMessage({ type: 'success', text: `Exported ${data.totalEntries} text entries from ${rewriteFile}` });
+                                                    const label = rewriteFile === '__ALL__' ? `all files (${data.totalFiles} files)` : rewriteFile;
+                                                    setMessage({ type: 'success', text: `Exported ${data.totalEntries} text entries from ${label}` });
                                                 } else {
                                                     setMessage({ type: 'error', text: data.error });
                                                 }
                                             } catch {
-                                                setMessage({ type: 'error', text: 'Failed to export file' });
+                                                setMessage({ type: 'error', text: 'Failed to export' });
                                             } finally {
                                                 setRewriteLoading(false);
                                             }
                                         }}
                                         disabled={rewriteLoading}
-                                        className="bg-[#1e3a5f] hover:bg-[#2d5a8a] disabled:bg-gray-300 text-white font-bold py-3 px-8 rounded-lg transition whitespace-nowrap"
+                                        className="bg-[#4a2c17] hover:bg-[#6b3d22] disabled:bg-gray-300 text-white font-bold py-3 px-8 rounded-lg transition whitespace-nowrap"
                                     >
-                                        {rewriteLoading ? 'Exporting...' : 'Export Text'}
+                                        {rewriteLoading ? 'Exporting...' : (rewriteFile === '__ALL__' ? 'Export All Files' : 'Export Text')}
                                     </button>
                                 </div>
                             </div>
 
                             {rewriteExportData && (
                                 <div className="space-y-4">
+                                    {/* File summary for mega-export */}
+                                    {rewriteExportData.fileSummary && (
+                                        <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                                            <h4 className="font-bold text-purple-900 mb-2">Files Included ({rewriteExportData.fileSummary.length} files, {rewriteExportData.totalEntries} total entries):</h4>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                                {rewriteExportData.fileSummary.map((f: any, i: number) => (
+                                                    <div key={i} className="bg-white rounded px-3 py-2 text-sm flex justify-between border border-purple-100">
+                                                        <span className="font-medium text-purple-900">{f.file}</span>
+                                                        <span className="text-purple-600">{f.entries} entries [{f.startLine}-{f.endLine}]</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+
                                     <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                                         <h4 className="font-bold text-blue-900 mb-2">Instructions for ChatGPT:</h4>
                                         <ol className="list-decimal list-inside text-blue-800 text-sm space-y-1">
-                                            {rewriteExportData.instructions.map((inst, i) => (
+                                            {rewriteExportData.instructions.map((inst: string, i: number) => (
                                                 <li key={i}>{inst}</li>
                                             ))}
                                         </ol>
                                     </div>
 
-                                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-                                        <h4 className="font-bold text-amber-900 mb-2">Suggested ChatGPT Prompt:</h4>
-                                        <div className="bg-white rounded-lg p-3 font-mono text-xs text-gray-700 border border-amber-300">
-                                            <p>Rewrite the following text entries to be more engaging and professional. Keep the exact same numbering format [1], [2], etc. Do NOT add or remove any lines. Keep all placeholders like {'{CITY}'}, {'{STATE}'}, {'{PHONE}'}, {'{COMPANY}'}, {'{COMPANY_NAME}'}, {'{{CITY}}'}, {'{{STATE}}'} exactly as they are. Only change the actual text content:</p>
-                                        </div>
+                                    <div className="flex flex-wrap gap-3">
                                         <button
                                             onClick={() => {
-                                                const prompt = `Rewrite the following text entries to be more engaging and professional. Keep the exact same numbering format [1], [2], etc. Do NOT add or remove any lines. Keep all placeholders like {CITY}, {STATE}, {PHONE}, {COMPANY}, {COMPANY_NAME}, {{CITY}}, {{STATE}} exactly as they are. Only change the actual text content:\n\n${rewriteExportData.textBlock}`;
+                                                const prompt = `Rewrite the following text entries to be more engaging, professional, and SEO-optimized. Keep the exact same numbering format [1], [2], etc. Do NOT add or remove any lines. Keep ALL placeholders like {CITY}, {STATE}, {PHONE}, {COMPANY}, {COMPANY_NAME}, {{CITY}}, {{STATE}}, {{COMPANY_NAME}}, {{PHONE}} EXACTLY as they are — do not modify, translate, or remove them. Only change the actual text content:\n\n${rewriteExportData.textBlock}`;
                                                 navigator.clipboard.writeText(prompt);
-                                                setMessage({ type: 'success', text: 'Prompt + text copied to clipboard! Paste it into ChatGPT.' });
+                                                setMessage({ type: 'success', text: 'Prompt + text copied! Paste into ChatGPT.' });
                                             }}
-                                            className="mt-3 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg transition text-sm"
+                                            className="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2.5 px-6 rounded-lg transition text-sm"
                                         >
-                                            Copy Prompt + Text to Clipboard
+                                            📋 Copy Prompt + Text
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                navigator.clipboard.writeText(rewriteExportData.textBlock);
+                                                setMessage({ type: 'success', text: 'Text block copied!' });
+                                            }}
+                                            className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2.5 px-6 rounded-lg transition text-sm"
+                                        >
+                                            📋 Copy Text Only
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                const blob = new Blob([rewriteExportData.textBlock], { type: 'text/plain' });
+                                                const url = URL.createObjectURL(blob);
+                                                const a = document.createElement('a');
+                                                a.href = url;
+                                                a.download = rewriteFile === '__ALL__' ? 'all-content-export.txt' : `${rewriteFile.replace('.json', '')}-export.txt`;
+                                                a.click();
+                                                URL.revokeObjectURL(url);
+                                            }}
+                                            className="bg-[#4a2c17] hover:bg-[#6b3d22] text-white font-bold py-2.5 px-6 rounded-lg transition text-sm"
+                                        >
+                                            💾 Download as .txt
                                         </button>
                                     </div>
 
                                     <div>
-                                        <div className="flex justify-between items-center mb-2">
-                                            <label className="block text-sm font-medium text-gray-700">
-                                                Exported Text ({rewriteExportData.totalEntries} entries)
-                                            </label>
-                                            <button
-                                                onClick={() => {
-                                                    navigator.clipboard.writeText(rewriteExportData.textBlock);
-                                                    setMessage({ type: 'success', text: 'Text block copied to clipboard!' });
-                                                }}
-                                                className="text-sm text-[#1e3a5f] hover:text-[#2d5a8a] font-medium"
-                                            >
-                                                Copy Text Only
-                                            </button>
-                                        </div>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Exported Text ({rewriteExportData.totalEntries} entries)
+                                        </label>
                                         <textarea
                                             value={rewriteExportData.textBlock}
                                             readOnly
-                                            rows={15}
-                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 font-mono text-sm focus:outline-none"
+                                            rows={18}
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 font-mono text-xs focus:outline-none"
                                         />
                                     </div>
 
@@ -1589,7 +1681,7 @@ export default function AdminDashboard() {
                                             onClick={() => setRewriteStep('import')}
                                             className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition"
                                         >
-                                            I&apos;ve rewritten the text, proceed to Import →
+                                            I&apos;ve rewritten the text → Proceed to Import
                                         </button>
                                     </div>
                                 </div>
@@ -1600,7 +1692,7 @@ export default function AdminDashboard() {
                         {rewriteExportData && rewriteStep === 'import' && (
                             <div className="bg-white rounded-xl shadow-md p-6">
                                 <div className="flex items-center gap-3 mb-4">
-                                    <span className="w-8 h-8 rounded-full bg-[#1e3a5f] text-white flex items-center justify-center font-bold text-sm">2</span>
+                                    <span className="w-8 h-8 rounded-full bg-[#4a2c17] text-white flex items-center justify-center font-bold text-sm">2</span>
                                     <h3 className="text-xl font-bold text-gray-800">Import Rewritten Text</h3>
                                 </div>
 
@@ -1609,8 +1701,11 @@ export default function AdminDashboard() {
                                     <ul className="list-disc list-inside text-red-800 text-sm space-y-1">
                                         <li>Make sure there are exactly <strong>{rewriteExportData.totalEntries}</strong> numbered entries</li>
                                         <li>Each line must start with <code className="bg-red-100 px-1 rounded">[N]</code> where N is the entry number</li>
-                                        <li>All placeholders ({'{CITY}'}, {'{STATE}'}, etc.) must be preserved exactly</li>
-                                        <li>A backup of the original file will be created automatically</li>
+                                        <li>All placeholders ({'{CITY}'}, {'{STATE}'}, {'{{COMPANY_NAME}}'} etc.) must be preserved exactly</li>
+                                        <li>Backups are created automatically before any changes</li>
+                                        {rewriteExportData.mode === 'all' && (
+                                            <li><strong>This is a mega-import — all files will be updated at once</strong></li>
+                                        )}
                                     </ul>
                                 </div>
 
@@ -1622,8 +1717,8 @@ export default function AdminDashboard() {
                                         value={rewriteImportText}
                                         onChange={(e) => setRewriteImportText(e.target.value)}
                                         placeholder={`Paste the rewritten text from ChatGPT here...\n\nExample format:\n[1] New rewritten text for entry 1\n[2] New rewritten text for entry 2\n[3] New rewritten text for entry 3\n...`}
-                                        rows={20}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg font-mono text-sm focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                                        rows={22}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg font-mono text-xs focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
                                     />
                                 </div>
 
@@ -1634,7 +1729,7 @@ export default function AdminDashboard() {
                                             <span className="font-medium text-gray-700">Import Preview</span>
                                         </div>
                                         <p className="text-sm text-gray-600">
-                                            Detected <strong className="text-[#1e3a5f]">
+                                            Detected <strong className="text-[#4a2c17]">
                                                 {rewriteImportText.split('\n').filter(l => l.trim().match(/^\[\d+\]/)).length}
                                             </strong> numbered entries (expected: <strong>{rewriteExportData.totalEntries}</strong>)
                                         </p>
@@ -1659,18 +1754,26 @@ export default function AdminDashboard() {
                                                 setMessage({ type: 'error', text: 'Please paste the rewritten text' });
                                                 return;
                                             }
-                                            if (!confirm(`This will update "${rewriteFile}" with the rewritten text. A backup will be saved. Continue?`)) return;
+                                            const isAll = rewriteExportData.mode === 'all';
+                                            const label = isAll ? 'ALL JSON files' : `"${rewriteFile}"`;
+                                            if (!confirm(`This will update ${label} with the rewritten text. Backups will be saved. Continue?`)) return;
                                             setRewriteLoading(true);
                                             setMessage(null);
                                             try {
+                                                const payload: any = { rewrittenText: rewriteImportText };
+                                                if (isAll) {
+                                                    payload.mode = 'all';
+                                                } else {
+                                                    payload.fileName = rewriteFile;
+                                                }
                                                 const res = await fetch('/api/admin/chatgpt-rewrite', {
                                                     method: 'POST',
                                                     headers: { 'Content-Type': 'application/json' },
-                                                    body: JSON.stringify({ fileName: rewriteFile, rewrittenText: rewriteImportText })
+                                                    body: JSON.stringify(payload)
                                                 });
                                                 const data = await res.json();
                                                 if (data.success) {
-                                                    setMessage({ type: 'success', text: `${data.message} Backup: ${data.backupPath}` });
+                                                    setMessage({ type: 'success', text: data.message });
                                                     setRewriteExportData(null);
                                                     setRewriteImportText('');
                                                     setRewriteStep('export');
@@ -1684,7 +1787,7 @@ export default function AdminDashboard() {
                                                 } else {
                                                     let errorMsg = data.error;
                                                     if (data.details) {
-                                                        errorMsg += '\n' + data.details.join('\n');
+                                                        errorMsg += '\n' + data.details.slice(0, 10).join('\n');
                                                     }
                                                     setMessage({ type: 'error', text: errorMsg });
                                                 }
@@ -1697,7 +1800,7 @@ export default function AdminDashboard() {
                                         disabled={rewriteLoading || !rewriteImportText.trim()}
                                         className="flex-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 text-white font-bold py-3 px-8 rounded-lg transition"
                                     >
-                                        {rewriteLoading ? 'Importing & Validating...' : 'Import & Save Rewritten Text'}
+                                        {rewriteLoading ? 'Importing & Validating...' : (rewriteExportData.mode === 'all' ? 'Import All Files' : 'Import & Save')}
                                     </button>
                                 </div>
                             </div>
@@ -1719,7 +1822,7 @@ export default function AdminDashboard() {
                                         value={newImageUrl}
                                         onChange={(e) => setNewImageUrl(e.target.value)}
                                         placeholder="https://ik.imagekit.io/..."
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
                                     />
                                 </div>
                                 <div>
@@ -1729,7 +1832,7 @@ export default function AdminDashboard() {
                                         value={newImageAlt}
                                         onChange={(e) => setNewImageAlt(e.target.value)}
                                         placeholder="Describe the image"
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
                                     />
                                 </div>
                                 <div>
@@ -1737,7 +1840,7 @@ export default function AdminDashboard() {
                                     <select
                                         value={newImageCategory}
                                         onChange={(e) => setNewImageCategory(e.target.value)}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
                                     >
                                         {IMAGE_CATEGORIES.map((cat) => (
                                             <option key={cat.value} value={cat.value}>{cat.label}</option>
@@ -1748,7 +1851,7 @@ export default function AdminDashboard() {
                                     <button
                                         onClick={addNewImage}
                                         disabled={saving || !newImageUrl.trim()}
-                                        className="w-full bg-[#d97706] hover:bg-[#b45309] disabled:bg-gray-300 text-white font-bold py-3 px-6 rounded-lg transition"
+                                        className="w-full bg-[#c4841d] hover:bg-[#8b5e14] disabled:bg-gray-300 text-white font-bold py-3 px-6 rounded-lg transition"
                                     >
                                         {saving ? 'Adding...' : 'Add Image'}
                                     </button>
@@ -1779,7 +1882,7 @@ export default function AdminDashboard() {
                                         onChange={(e) => setBulkUrls(e.target.value)}
                                         placeholder="Paste anything here! Can be:&#10;- URLs one per line&#10;- HTML with image sources&#10;- JSON data&#10;- Any text containing image URLs&#10;&#10;Example:&#10;https://ik.imagekit.io/image1.png&#10;Check out this image: https://example.com/photo.jpg"
                                         rows={10}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none font-mono text-sm"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none font-mono text-sm"
                                     />
                                 </div>
                                 <div>
@@ -1787,7 +1890,7 @@ export default function AdminDashboard() {
                                     <select
                                         value={bulkCategory}
                                         onChange={(e) => setBulkCategory(e.target.value)}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none mb-4"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none mb-4"
                                     >
                                         {IMAGE_CATEGORIES.map((cat) => (
                                             <option key={cat.value} value={cat.value}>{cat.label}</option>
@@ -1803,7 +1906,7 @@ export default function AdminDashboard() {
                                         <p className="text-sm text-gray-600">
                                             {bulkUrls.trim() ? (
                                                 <>
-                                                    <span className="font-bold text-[#1e3a5f]">
+                                                    <span className="font-bold text-[#4a2c17]">
                                                         {extractUrlsFromText(bulkUrls).length}
                                                     </span>
                                                     {' '}image URL{extractUrlsFromText(bulkUrls).length !== 1 ? 's' : ''} detected
@@ -1820,7 +1923,7 @@ export default function AdminDashboard() {
                                     <button
                                         onClick={addBulkImages}
                                         disabled={saving || !bulkUrls.trim()}
-                                        className="w-full bg-[#1e3a5f] hover:bg-[#2d5a8a] disabled:bg-gray-300 text-white font-bold py-3 px-6 rounded-lg transition"
+                                        className="w-full bg-[#4a2c17] hover:bg-[#6b3d22] disabled:bg-gray-300 text-white font-bold py-3 px-6 rounded-lg transition"
                                     >
                                         {saving ? 'Adding...' : 'Add All New Images'}
                                     </button>
@@ -1872,7 +1975,7 @@ export default function AdminDashboard() {
 
                             {/* Hero Gallery */}
                             <div className="mb-8">
-                                <h3 className="text-lg font-semibold text-[#1e3a5f] mb-3">Hero Gallery</h3>
+                                <h3 className="text-lg font-semibold text-[#4a2c17] mb-3">Hero Gallery</h3>
                                 <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
                                     {((imagesData as { heroGallery?: ImageItem[] })?.heroGallery || []).map((img, idx) => (
                                         <div key={idx} className="relative group aspect-video rounded-lg overflow-hidden border border-gray-200">
@@ -1896,7 +1999,7 @@ export default function AdminDashboard() {
                             {/* Other Gallery Categories */}
                             {getGallerySections().map((section) => (
                                 <div key={section.key} className="mb-8">
-                                    <h3 className="text-lg font-semibold text-[#1e3a5f] mb-3">{section.name}</h3>
+                                    <h3 className="text-lg font-semibold text-[#4a2c17] mb-3">{section.name}</h3>
                                     <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3">
                                         {section.images.map((img, idx) => (
                                             <div key={idx} className="relative group aspect-video rounded-lg overflow-hidden border border-gray-200">
@@ -1933,7 +2036,7 @@ export default function AdminDashboard() {
                             <p className="text-gray-600 mb-4 text-sm">Browse all images in your gallery. Click on a section below to change its image.</p>
                             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 max-h-64 overflow-y-auto p-2 bg-gray-50 rounded-lg">
                                 {allGalleryImages.map((img, idx) => (
-                                    <div key={idx} className="relative aspect-square rounded-lg overflow-hidden border-2 border-gray-200 hover:border-[#d97706] transition cursor-pointer group">
+                                    <div key={idx} className="relative aspect-square rounded-lg overflow-hidden border-2 border-gray-200 hover:border-[#c4841d] transition cursor-pointer group">
                                         <AdminImagePlaceholder
                                             url={img.url}
                                             alt={img.alt || 'Gallery image'}
@@ -1982,7 +2085,7 @@ export default function AdminDashboard() {
                                                     setImagePickerCustomUrl('');
                                                     setShowImagePicker(true);
                                                 }}
-                                                className="w-full bg-[#1e3a5f] hover:bg-[#2d5a8a] text-white text-sm py-2 px-4 rounded-lg transition"
+                                                className="w-full bg-[#4a2c17] hover:bg-[#6b3d22] text-white text-sm py-2 px-4 rounded-lg transition"
                                             >
                                                 Change Image
                                             </button>
@@ -2032,7 +2135,7 @@ export default function AdminDashboard() {
                                                 key={file.name}
                                                 onClick={() => loadFile(file.name)}
                                                 className={`w-full text-left p-3 rounded-lg transition ${selectedFile === file.name
-                                                    ? 'bg-[#1e3a5f] text-white'
+                                                    ? 'bg-[#4a2c17] text-white'
                                                     : 'bg-gray-50 hover:bg-gray-100 text-gray-800'
                                                     }`}
                                             >
@@ -2072,7 +2175,7 @@ export default function AdminDashboard() {
                                                 disabled={saving || !isValidJson}
                                                 className={`px-6 py-2 rounded-lg font-bold transition ${saving || !isValidJson
                                                     ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                                                    : 'bg-[#d97706] hover:bg-[#b45309] text-white'
+                                                    : 'bg-[#c4841d] hover:bg-[#8b5e14] text-white'
                                                     }`}
                                             >
                                                 {saving ? 'Saving...' : 'Save Changes'}
@@ -2086,7 +2189,7 @@ export default function AdminDashboard() {
                                             value={editContent}
                                             onChange={(e) => handleContentChange(e.target.value)}
                                             className={`w-full h-[600px] font-mono text-sm p-4 border rounded-lg focus:outline-none focus:ring-2 ${isValidJson
-                                                ? 'border-gray-300 focus:ring-[#1e3a5f]'
+                                                ? 'border-gray-300 focus:ring-[#4a2c17]'
                                                 : 'border-red-500 focus:ring-red-500 bg-red-50'
                                                 }`}
                                             spellCheck={false}
@@ -2113,7 +2216,7 @@ export default function AdminDashboard() {
                     <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
                         <div className="p-4 border-b border-gray-200 flex justify-between items-center">
                             <h3 className="text-xl font-bold text-gray-800">
-                                Select Image for: <span className="text-[#d97706] capitalize">{selectedImageKey.replace(/-/g, ' ')}</span>
+                                Select Image for: <span className="text-[#c4841d] capitalize">{selectedImageKey.replace(/-/g, ' ')}</span>
                             </h3>
                             <button
                                 onClick={() => setShowImagePicker(false)}
@@ -2133,7 +2236,7 @@ export default function AdminDashboard() {
                                         value={imagePickerCustomUrl}
                                         onChange={(e) => setImagePickerCustomUrl(e.target.value)}
                                         placeholder="https://example.com/your-image.png"
-                                        className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none font-mono text-sm"
+                                        className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none font-mono text-sm"
                                     />
                                     <button
                                         type="button"
@@ -2145,7 +2248,7 @@ export default function AdminDashboard() {
                                             }
                                         }}
                                         disabled={saving || !imagePickerCustomUrl.trim()}
-                                        className="bg-[#d97706] hover:bg-[#b45309] disabled:bg-gray-300 text-white font-bold py-3 px-6 rounded-lg transition whitespace-nowrap"
+                                        className="bg-[#c4841d] hover:bg-[#8b5e14] disabled:bg-gray-300 text-white font-bold py-3 px-6 rounded-lg transition whitespace-nowrap"
                                     >
                                         {saving ? 'Saving...' : 'Save URL'}
                                     </button>
@@ -2158,7 +2261,7 @@ export default function AdminDashboard() {
                                         key={idx}
                                         onClick={() => saveImageSelection(selectedSection, selectedImageKey, img.url)}
                                         disabled={saving}
-                                        className="relative aspect-video rounded-lg overflow-hidden border-2 border-gray-200 hover:border-[#d97706] transition group"
+                                        className="relative aspect-video rounded-lg overflow-hidden border-2 border-gray-200 hover:border-[#c4841d] transition group"
                                     >
                                         <AdminImagePlaceholder
                                             url={img.url}
@@ -2167,7 +2270,7 @@ export default function AdminDashboard() {
                                             size="sm"
                                         />
                                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                                            <span className="bg-[#d97706] text-white px-4 py-2 rounded-lg font-medium">
+                                            <span className="bg-[#c4841d] text-white px-4 py-2 rounded-lg font-medium">
                                                 Select
                                             </span>
                                         </div>

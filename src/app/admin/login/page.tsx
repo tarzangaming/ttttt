@@ -44,11 +44,11 @@ function AdminLoginForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#1e3a5f] px-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#4a2c17] px-4">
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-[#1e3a5f]">Admin Login</h1>
+            <h1 className="text-2xl font-bold text-[#4a2c17]">Admin Login</h1>
             <p className="text-gray-500 mt-1">Sign in to manage site content</p>
           </div>
 
@@ -72,7 +72,7 @@ function AdminLoginForm() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:border-[#1e3a5f] outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:border-[#4a2c17] outline-none"
                 placeholder="admin@example.com"
               />
             </div>
@@ -88,7 +88,7 @@ function AdminLoginForm() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 autoComplete="current-password"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:border-[#1e3a5f] outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:border-[#4a2c17] outline-none"
                 placeholder="••••••••"
               />
             </div>
@@ -96,14 +96,14 @@ function AdminLoginForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#1e3a5f] hover:bg-[#2d5a8a] disabled:bg-gray-400 text-white font-bold py-3 px-4 rounded-lg transition"
+              className="w-full bg-[#4a2c17] hover:bg-[#6b3d22] disabled:bg-gray-400 text-white font-bold py-3 px-4 rounded-lg transition"
             >
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
 
           <p className="mt-6 text-center text-sm text-gray-500">
-            <Link href="/" className="text-[#1e3a5f] hover:underline">
+            <Link href="/" className="text-[#4a2c17] hover:underline">
               ← Back to site
             </Link>
           </p>
@@ -116,7 +116,7 @@ function AdminLoginForm() {
 export default function AdminLoginPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-[#1e3a5f]">
+      <div className="min-h-screen flex items-center justify-center bg-[#4a2c17]">
         <div className="text-white">Loading...</div>
       </div>
     }>

@@ -93,13 +93,13 @@ export default async function AboutPage({ params }: LocationPageProps) {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 lg:py-32 px-4 overflow-hidden bg-gradient-to-r from-[#1e3a5f] to-[#0f1f33]">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] via-[#2d5a8a] to-[#0f1f33] opacity-90" />
+      <section className="relative py-20 md:py-28 lg:py-32 px-4 overflow-hidden bg-gradient-to-r from-[#4a2c17] to-[#2d1a0e]">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#4a2c17] via-[#6b3d22] to-[#2d1a0e] opacity-90" />
 
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="max-w-4xl text-white">
               <div className="flex flex-wrap gap-3 mb-6">
-                <span className="bg-[#d97706] text-white text-xs font-bold px-3 py-1.5 rounded-full">Licensed & Insured</span>
+                <span className="bg-[#c4841d] text-white text-xs font-bold px-3 py-1.5 rounded-full">Licensed & Insured</span>
                 <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Top Rated in {safeLocation.name}</span>
                 <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Free Estimates</span>
               </div>
@@ -114,7 +114,7 @@ export default async function AboutPage({ params }: LocationPageProps) {
               <div className="flex flex-wrap gap-4">
                 <a
                   href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
-                  className="bg-[#d97706] hover:bg-[#b45309] text-white font-bold px-8 py-4 rounded-xl text-lg transition shadow-lg inline-flex items-center gap-3 transform hover:-translate-y-1"
+                  className="bg-[#c4841d] hover:bg-[#8b5e14] text-white font-bold px-8 py-4 rounded-xl text-lg transition shadow-lg inline-flex items-center gap-3 transform hover:-translate-y-1"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -138,7 +138,7 @@ export default async function AboutPage({ params }: LocationPageProps) {
             {aboutData.stats.map((stat, index) => (
               <div key={index} className="text-center group">
                 <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                  <div className="text-4xl md:text-5xl font-bold mb-2 text-[#1e3a5f]">{stat.value}</div>
+                  <div className="text-4xl md:text-5xl font-bold mb-2 text-[#4a2c17]">{stat.value}</div>
                   <div className="text-sm md:text-base text-gray-600">{stat.label}</div>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export default async function AboutPage({ params }: LocationPageProps) {
             <div className="p-8 md:p-12">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                  <h3 className="text-3xl font-bold text-[#1e3a5f] mb-6">{rp(aboutData.storyTitle)}</h3>
+                  <h3 className="text-3xl font-bold text-[#4a2c17] mb-6">{rp(aboutData.storyTitle)}</h3>
                   <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                     {aboutData.storyParagraphs.map((paragraph, index) => (
                       <p key={index}>{rp(paragraph)}</p>
@@ -169,7 +169,7 @@ export default async function AboutPage({ params }: LocationPageProps) {
                   </div>
                 </div>
                 <div className="relative h-full min-h-[400px]">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#2d5a8a] rounded-2xl flex items-center justify-center text-white">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#4a2c17] to-[#6b3d22] rounded-2xl flex items-center justify-center text-white">
                     <div className="text-center p-8">
                       <span className="text-6xl mb-4 block">🏗️</span>
                       <h4 className="text-2xl font-bold">Building Dreams in {safeLocation.name}</h4>
@@ -197,7 +197,7 @@ export default async function AboutPage({ params }: LocationPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             {aboutData.trackRecord.items.map((item, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
-                <div className="text-4xl font-bold text-blue-700 mb-2">{item.value}</div>
+                <div className="text-4xl font-bold text-amber-900 mb-2">{item.value}</div>
                 <div className="text-gray-600">{item.label}</div>
               </div>
             ))}
@@ -220,15 +220,15 @@ export default async function AboutPage({ params }: LocationPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <div key={index} className="bg-gray-50 rounded-lg p-6 text-center">
-                <div className="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-24 h-24 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl">👨‍🔧</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                <p className="text-blue-700 font-semibold mb-2">{member.role}</p>
+                <p className="text-amber-900 font-semibold mb-2">{member.role}</p>
                 <p className="text-gray-600 mb-4">{member.experience} Experience</p>
                 <div className="space-y-1">
                   {member.specialties.map((specialty, idx) => (
-                    <span key={idx} className="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full mr-2 mb-2">
+                    <span key={idx} className="inline-block bg-amber-100 text-amber-950 text-sm px-3 py-1 rounded-full mr-2 mb-2">
                       {specialty}
                     </span>
                   ))}
@@ -282,7 +282,7 @@ export default async function AboutPage({ params }: LocationPageProps) {
             </p>
           </div>
 
-          <div className="bg-blue-50 rounded-lg p-8 text-center">
+          <div className="bg-amber-50 rounded-lg p-8 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               {rp(aboutData.cta.bodyTitle)}
             </h3>
@@ -291,7 +291,7 @@ export default async function AboutPage({ params }: LocationPageProps) {
             </p>
             <a
               href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
-              className="bg-[#d97706] text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-[#b45309] transition inline-block"
+              className="bg-[#c4841d] text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-[#8b5e14] transition inline-block"
             >
               Call {safeLocation.phone}
             </a>

@@ -170,12 +170,12 @@ export default async function ServicePage({ params }: ServicePageProps) {
             style={{ filter: 'brightness(0.25)' }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/90 to-[#0f1f33]/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#4a2c17]/90 to-[#2d1a0e]/70" />
 
         <div className="relative max-w-7xl mx-auto">
           <div className="max-w-4xl text-white">
               <div className="flex flex-wrap gap-3 mb-6">
-                <span className="bg-[#d97706] text-white text-xs font-bold px-3 py-1.5 rounded-full">Licensed & Insured</span>
+                <span className="bg-[#c4841d] text-white text-xs font-bold px-3 py-1.5 rounded-full">Licensed & Insured</span>
                 <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Top Rated in {safeLocation.name}</span>
                 <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Free Estimates</span>
               </div>
@@ -193,7 +193,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <a
                   href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
-                  className="inline-flex items-center justify-center bg-[#d97706] hover:bg-[#b45309] text-white font-bold px-8 py-4 rounded-lg text-lg transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center bg-[#c4841d] hover:bg-[#8b5e14] text-white font-bold px-8 py-4 rounded-lg text-lg transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -202,7 +202,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                 </a>
                 <a
                   href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
-                  className="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-[#1e3a5f] font-bold px-8 py-4 rounded-lg text-lg transition shadow-lg"
+                  className="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-[#4a2c17] font-bold px-8 py-4 rounded-lg text-lg transition shadow-lg"
                 >
                   Get Free Estimate
                 </a>
@@ -222,7 +222,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <section className="py-16 px-4 bg-white relative">
         <div className="max-w-4xl mx-auto">
           <div className="prose prose-lg max-w-none text-gray-700 mb-16 text-center">
-            <h1 className="text-3xl font-bold text-[#1e3a5f] mb-6">{introContent.headline}</h1>
+            <h1 className="text-3xl font-bold text-[#4a2c17] mb-6">{introContent.headline}</h1>
             {introContent.paragraphs.map((para, i) => (
               <p key={i} className={i === 0 ? "lead text-xl mb-6" : "text-lg mb-6"}>
                 {para}
@@ -233,13 +233,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
           {/* SECTION 2: WHAT OUR SERVICE INCLUDES */}
           {extendedContent && (
             <div className="mb-20">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-8 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#4a2c17] mb-8 text-center">
                 {replacePlaceholders(extendedContent.includes.title, replacements)}
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {extendedContent.includes.items.map((item: string, idx: number) => (
                   <div key={idx} className="flex items-start bg-gray-50 p-6 rounded-xl border border-gray-100 shadow-sm">
-                    <span className="text-[#d97706] text-xl mr-4 mt-1 font-bold">✓</span>
+                    <span className="text-[#c4841d] text-xl mr-4 mt-1 font-bold">✓</span>
                     <span className="font-medium text-gray-800">{replacePlaceholders(item, replacements)}</span>
                   </div>
                 ))}
@@ -249,14 +249,14 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
           {/* SECTION 3: MATERIAL OPTIONS */}
           {extendedContent && extendedContent.materials && (
-            <div className="mb-20 bg-[#1e3a5f]/5 p-8 md:p-12 rounded-3xl">
-              <h2 className="text-3xl font-bold text-[#1e3a5f] mb-10 text-center">
+            <div className="mb-20 bg-[#4a2c17]/5 p-8 md:p-12 rounded-3xl">
+              <h2 className="text-3xl font-bold text-[#4a2c17] mb-10 text-center">
                 {replacePlaceholders(extendedContent.materials.title, replacements)}
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 {extendedContent.materials.items.map((item: any, idx: number) => (
                   <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-3">{replacePlaceholders(item.name, replacements)}</h3>
+                    <h3 className="text-xl font-bold text-[#4a2c17] mb-3">{replacePlaceholders(item.name, replacements)}</h3>
                     <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                       {replacePlaceholders(item.description, replacements)}
                     </p>
@@ -268,7 +268,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
           {/* Dynamic Service Grid (Section for SEO connectivity) */}
           <div className="mb-20">
-            <h2 className="text-3xl font-bold text-center text-[#1e3a5f] mb-12">Complete Exterior Solutions in {safeLocation.name}</h2>
+            <h2 className="text-3xl font-bold text-center text-[#4a2c17] mb-12">Complete Exterior Solutions in {safeLocation.name}</h2>
             <LocationServiceGrid
               locationId={safeLocation.id}
               locationName={safeLocation.name}
@@ -280,16 +280,16 @@ export default async function ServicePage({ params }: ServicePageProps) {
           {/* SECTION 4: WHY CHOOSE US FOR [SERVICE] */}
           {extendedContent && (
             <div className="mb-20">
-              <h2 className="text-3xl font-bold text-[#1e3a5f] mb-10 text-center">
+              <h2 className="text-3xl font-bold text-[#4a2c17] mb-10 text-center">
                 {replacePlaceholders(extendedContent.whyChooseUs.title, replacements)}
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {extendedContent.whyChooseUs.items.map((item: string, idx: number) => (
-                  <div key={idx} className="relative group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-blue-50/50">
+                  <div key={idx} className="relative group bg-white p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-amber-50/50">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-gray-50 rounded-bl-full -mr-8 -mt-8 -z-0 group-hover:bg-orange-50 transition-colors duration-500" />
 
                     <div className="relative z-10">
-                      <div className="w-14 h-14 bg-[#1e3a5f] rounded-xl flex items-center justify-center text-white text-xl font-bold mb-6 shadow-lg shadow-blue-900/30 group-hover:bg-[#d97706] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                      <div className="w-14 h-14 bg-[#4a2c17] rounded-xl flex items-center justify-center text-white text-xl font-bold mb-6 shadow-lg shadow-stone-900/30 group-hover:bg-[#c4841d] group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                         {idx + 1}
                       </div>
                       <p className="text-xl text-gray-700 font-medium leading-relaxed group-hover:text-gray-900 transition-colors">
@@ -305,7 +305,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           {/* SECTION 5: SERVICE PROCESS */}
           {extendedContent && (
             <div className="mb-20">
-              <h2 className="text-3xl font-bold text-[#1e3a5f] mb-12 text-center">
+              <h2 className="text-3xl font-bold text-[#4a2c17] mb-12 text-center">
                 {replacePlaceholders(extendedContent.process.title, replacements)}
               </h2>
               <div className="space-y-8 max-w-3xl mx-auto">
@@ -314,11 +314,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
                     {idx < extendedContent.process.items.length - 1 && (
                       <div className="absolute left-[23px] top-[50px] bottom-[-30px] w-0.5 bg-gray-200" />
                     )}
-                    <div className="w-12 h-12 rounded-full bg-[#1e3a5f] flex items-center justify-center text-white font-bold shrink-0 z-10">
+                    <div className="w-12 h-12 rounded-full bg-[#4a2c17] flex items-center justify-center text-white font-bold shrink-0 z-10">
                       {idx + 1}
                     </div>
                     <div className="pb-8">
-                      <h4 className="text-xl font-bold text-[#1e3a5f] mb-2">{replacePlaceholders(item.step, replacements)}</h4>
+                      <h4 className="text-xl font-bold text-[#4a2c17] mb-2">{replacePlaceholders(item.step, replacements)}</h4>
                       <p className="text-gray-600">{replacePlaceholders(item.description, replacements)}</p>
                     </div>
                   </div>
@@ -330,7 +330,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           {/* SECTION 6: SIGNS YOU NEED SERVICE */}
           {extendedContent && (
             <div className="mb-20 bg-orange-50 border border-orange-200 p-8 md:p-12 rounded-3xl">
-              <h2 className="text-3xl font-bold text-[#1e3a5f] mb-6 text-center">
+              <h2 className="text-3xl font-bold text-[#4a2c17] mb-6 text-center">
                 {replacePlaceholders(extendedContent.signs.title, replacements)}
               </h2>
               <p className="text-center text-lg text-gray-700 mb-8">
@@ -344,7 +344,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
                   </div>
                 ))}
               </div>
-              <p className="text-center font-bold text-[#1e3a5f] text-xl">
+              <p className="text-center font-bold text-[#4a2c17] text-xl">
                 {replacePlaceholders(extendedContent.signs.outro, replacements)}
               </p>
             </div>
@@ -360,13 +360,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
           {/* SECTION 9: MINI FAQ (Service-Specific) */}
           {extendedContent && extendedContent.faqs && extendedContent.faqs.items && extendedContent.faqs.items.length > 0 && (
             <div className="mt-20">
-              <h2 className="text-3xl font-bold text-[#1e3a5f] mb-10 text-center">
+              <h2 className="text-3xl font-bold text-[#4a2c17] mb-10 text-center">
                 {replacePlaceholders(extendedContent.faqs.title, replacements)}
               </h2>
               <div className="space-y-6 max-w-3xl mx-auto">
                 {extendedContent.faqs.items.map((faq: any, idx: number) => (
                   <div key={idx} className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-                    <h3 className="text-lg font-bold text-[#1e3a5f] mb-3">{replacePlaceholders(faq.question, replacements)}</h3>
+                    <h3 className="text-lg font-bold text-[#4a2c17] mb-3">{replacePlaceholders(faq.question, replacements)}</h3>
                     <p className="text-gray-600 leading-relaxed">{replacePlaceholders(faq.answer, replacements)}</p>
                   </div>
                 ))}
@@ -391,7 +391,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <section className="py-16 px-4 bg-gray-50 border-t border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-[#1e3a5f] mb-4">
+                <h2 className="text-3xl font-bold text-[#4a2c17] mb-4">
                   More Services in {safeLocation.name}
                 </h2>
                 <p className="text-gray-600">Expert exterior care for every part of your home.</p>
@@ -416,9 +416,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw"
                           />
                         ) : (
-                          <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#0f1f33]" />
+                          <div className="absolute inset-0 bg-gradient-to-br from-[#4a2c17] to-[#2d1a0e]" />
                         )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/90 via-[#1e3a5f]/40 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#4a2c17]/90 via-[#4a2c17]/40 to-transparent" />
                         <div className="absolute inset-x-0 bottom-0 p-6">
                           <div className="flex items-center gap-3">
                             <span className="text-2xl">{relatedService.icon}</span>
@@ -442,7 +442,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
       />
 
       {/* SECTION 8: CTA (Bottom Conversion) */}
-      <section className="bg-[#d97706] text-white py-20 px-4 relative overflow-hidden">
+      <section className="bg-[#c4841d] text-white py-20 px-4 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full filter blur-3xl translate-x-1/2 -translate-y-1/2" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -456,7 +456,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
-              className="bg-white text-[#d97706] font-bold px-10 py-5 rounded-xl text-2xl hover:bg-gray-50 transition shadow-xl flex items-center gap-4 transform hover:scale-105 duration-300"
+              className="bg-white text-[#c4841d] font-bold px-10 py-5 rounded-xl text-2xl hover:bg-gray-50 transition shadow-xl flex items-center gap-4 transform hover:scale-105 duration-300"
             >
               <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -475,11 +475,11 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
       <section className="bg-white py-12 px-4 border-t border-gray-100">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl font-bold text-[#1e3a5f] mb-4">Planning a Budget?</h3>
+          <h3 className="text-2xl font-bold text-[#4a2c17] mb-4">Planning a Budget?</h3>
           <p className="text-gray-600 mb-8">Get a detailed cost estimate for {serviceInfo.title} in {safeLocation.name} with our interactive calculator.</p>
           <Link
             href={costCalculatorHref}
-            className="inline-flex items-center font-bold text-[#d97706] hover:text-[#b45309] text-lg hover:underline transition"
+            className="inline-flex items-center font-bold text-[#c4841d] hover:text-[#8b5e14] text-lg hover:underline transition"
           >
             Calculate {serviceInfo.title} Cost in {safeLocation.name} →
           </Link>

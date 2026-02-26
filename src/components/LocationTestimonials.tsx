@@ -45,7 +45,7 @@ const LocationTestimonials: React.FC<LocationTestimonialsProps> = ({
     <section className="py-20 px-4 bg-gray-50 overflow-hidden" id="testimonials">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#4a2c17] mb-6">
             What {locationName} Homeowners Say About {companyName}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -74,10 +74,10 @@ const LocationTestimonials: React.FC<LocationTestimonialsProps> = ({
 
               <div className="mt-6 pt-6 border-t border-gray-50 flex items-center justify-between">
                 <div>
-                  <h4 className="font-bold text-[#1e3a5f]">{t.name}</h4>
+                  <h4 className="font-bold text-[#4a2c17]">{t.name}</h4>
                   <p className="text-sm text-gray-500">{locationName}, {stateName}</p>
                 </div>
-                <span className="bg-[#1e3a5f]/5 text-[#1e3a5f] text-xs font-bold px-3 py-1 rounded-full">
+                <span className="bg-[#4a2c17]/5 text-[#4a2c17] text-xs font-bold px-3 py-1 rounded-full">
                   {t.type}
                 </span>
               </div>
@@ -85,7 +85,7 @@ const LocationTestimonials: React.FC<LocationTestimonialsProps> = ({
           ))}
         </div>
 
-        <div className="mt-16 bg-[#1e3a5f] rounded-3xl p-10 text-center text-white shadow-2xl">
+        <div className="mt-16 bg-[#4a2c17] rounded-3xl p-10 text-center text-white shadow-2xl">
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to start your roofing project in {locationName}, {stateName}?
           </h3>
@@ -95,13 +95,13 @@ const LocationTestimonials: React.FC<LocationTestimonialsProps> = ({
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`tel:${phone.replace(/\D/g, '')}`}
-              className="bg-[#d97706] hover:bg-[#b45309] text-white font-bold px-10 py-4 rounded-xl text-lg transition shadow-xl"
+              className="bg-[#c4841d] hover:bg-[#8b5e14] text-white font-bold px-10 py-4 rounded-xl text-lg transition shadow-xl"
             >
               Call {phone}
             </a>
             <a
               href="/contact"
-              className="bg-white text-[#1e3a5f] hover:bg-gray-100 font-bold px-10 py-4 rounded-xl text-lg transition shadow-xl"
+              className="bg-white text-[#4a2c17] hover:bg-gray-100 font-bold px-10 py-4 rounded-xl text-lg transition shadow-xl"
             >
               Get Free Quote
             </a>

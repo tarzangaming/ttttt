@@ -36,7 +36,7 @@ export default function CostGuidesIndexPage() {
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900" />
                 </div>
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-                    <span className="inline-block py-1 px-3 rounded-full bg-blue-600/30 border border-blue-500/50 text-blue-200 text-sm font-semibold mb-6">
+                    <span className="inline-block py-1 px-3 rounded-full bg-amber-800/30 border border-amber-700/50 text-amber-200 text-sm font-semibold mb-6">
                         Arizona Pricing Resources
                     </span>
                     <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -65,7 +65,7 @@ export default function CostGuidesIndexPage() {
                                     </div>
                                 </div>
                                 <div className="p-8 flex-1 flex flex-col">
-                                    <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                                    <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-amber-800 transition-colors">
                                         {guide.title}
                                     </h2>
                                     <p className="text-slate-600 mb-6 flex-1 line-clamp-3">
@@ -75,7 +75,7 @@ export default function CostGuidesIndexPage() {
                                         <span className="text-sm font-semibold text-slate-500">
                                             Avg: ${guide.averageCost.toLocaleString()}
                                         </span>
-                                        <span className="text-blue-600 font-bold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                                        <span className="text-amber-800 font-bold text-sm group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
                                             Read Guide
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                                         </span>
@@ -97,13 +97,13 @@ export default function CostGuidesIndexPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
                             href={`tel:${companyInfo.phoneClean}`}
-                            className="px-8 py-4 bg-blue-600 text-white font-bold rounded-xl shadow-lg hover:bg-blue-700 transition"
+                            className="px-8 py-4 bg-amber-800 text-white font-bold rounded-xl shadow-lg hover:bg-amber-900 transition"
                         >
                             Call {companyInfo.phone}
                         </a>
                         <Link
                             href="/contact"
-                            className="px-8 py-4 bg-white text-slate-900 border-2 border-slate-200 font-bold rounded-xl hover:border-blue-600 hover:text-blue-600 transition"
+                            className="px-8 py-4 bg-white text-slate-900 border-2 border-slate-200 font-bold rounded-xl hover:border-amber-800 hover:text-amber-800 transition"
                         >
                             Request Online
                         </Link>

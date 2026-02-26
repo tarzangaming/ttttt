@@ -40,7 +40,7 @@ export default function NeighborhoodsAccordion({ neighborhoods, cityName, stateN
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(neighborhood + ' , ' + cityName + '-' + stateName.toLowerCase() + ',')}`}
                   rel="noopener noreferrer"
                 >
-                  <p className="border bg-[#1c7bc8] px-2 py-1 text-white duration-100 ease-in-out hover:text-gray-200 rounded-sm">
+                  <p className="border bg-[#4a2c17] px-2 py-1 text-white duration-100 ease-in-out hover:text-gray-200 rounded-sm">
                     {neighborhood}
                   </p>
                 </a>
@@ -54,7 +54,7 @@ export default function NeighborhoodsAccordion({ neighborhoods, cityName, stateN
       <div className="text-center mt-4">
         <button
           onClick={toggleAccordion}
-          className="bg-[#1c7bc8] text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+          className="bg-[#4a2c17] text-white px-6 py-2 rounded-lg hover:bg-[#6b3d22] transition-colors duration-200"
         >
           {isOpen ? 'Hide Neighborhoods' : 'Show Neighborhoods'}
         </button>

@@ -32,19 +32,19 @@ export default function SEOEditor({ seoData, onSave, saving }: SEOEditorProps) {
       <div className="flex gap-2 border-b border-gray-200 pb-4">
         <button
           onClick={() => setActiveSection('defaults')}
-          className={`px-4 py-2 rounded-lg font-medium transition ${activeSection === 'defaults' ? 'bg-[#1e3a5f] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+          className={`px-4 py-2 rounded-lg font-medium transition ${activeSection === 'defaults' ? 'bg-[#4a2c17] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
         >
           Global Defaults
         </button>
         <button
           onClick={() => setActiveSection('pages')}
-          className={`px-4 py-2 rounded-lg font-medium transition ${activeSection === 'pages' ? 'bg-[#1e3a5f] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+          className={`px-4 py-2 rounded-lg font-medium transition ${activeSection === 'pages' ? 'bg-[#4a2c17] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
         >
           Static Pages
         </button>
         <button
           onClick={() => setActiveSection('templates')}
-          className={`px-4 py-2 rounded-lg font-medium transition ${activeSection === 'templates' ? 'bg-[#1e3a5f] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+          className={`px-4 py-2 rounded-lg font-medium transition ${activeSection === 'templates' ? 'bg-[#4a2c17] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
         >
           Dynamic Templates
         </button>

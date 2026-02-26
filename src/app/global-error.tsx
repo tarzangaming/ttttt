@@ -34,7 +34,7 @@ export default function GlobalError({
         <div className="space-y-4">
           <button
             onClick={() => (window.location.href = '/')}
-            className="inline-block w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            className="inline-block w-full bg-amber-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-amber-900 transition-colors"
           >
             Go to Homepage
           </button>

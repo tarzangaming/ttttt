@@ -29,7 +29,7 @@ export default function NearbyAreasSection({
             <Link
               key={loc.id}
               href={getLocationUrl(loc.id)}
-              className="block bg-white rounded-lg shadow-sm hover:shadow-md transition py-4 px-4 text-center font-medium text-gray-800 hover:text-[#d97706] border border-gray-100"
+              className="block bg-white rounded-lg shadow-sm hover:shadow-md transition py-4 px-4 text-center font-medium text-gray-800 hover:text-[#c4841d] border border-gray-100"
             >
               {loc.name}
             </Link>

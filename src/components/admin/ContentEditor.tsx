@@ -60,21 +60,21 @@ export default function ContentEditor({
                             type="checkbox"
                             checked={value}
                             onChange={(e) => updateValue(currentPath, e.target.checked)}
-                            className="w-4 h-4 text-[#1e3a5f] border-gray-300 rounded focus:ring-[#1e3a5f]"
+                            className="w-4 h-4 text-[#4a2c17] border-gray-300 rounded focus:ring-[#4a2c17]"
                         />
                     ) : typeof value === 'string' && value.length > 100 ? (
                         <textarea
                             value={value}
                             onChange={(e) => updateValue(currentPath, e.target.value)}
                             rows={4}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
                         />
                     ) : (
                         <input
                             type={typeof value === 'number' ? 'number' : 'text'}
                             value={value}
                             onChange={(e) => updateValue(currentPath, typeof value === 'number' ? Number(e.target.value) : e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
                         />
                     )}
                 </div>
@@ -144,7 +144,7 @@ export default function ContentEditor({
                 <button
                     onClick={() => onSave(editedContent)}
                     disabled={saving}
-                    className="bg-[#d97706] hover:bg-[#b45309] disabled:bg-gray-300 text-white font-bold py-2 px-6 rounded-lg transition"
+                    className="bg-[#c4841d] hover:bg-[#8b5e14] disabled:bg-gray-300 text-white font-bold py-2 px-6 rounded-lg transition"
                 >
                     {saving ? 'Saving...' : 'Save Changes'}
                 </button>

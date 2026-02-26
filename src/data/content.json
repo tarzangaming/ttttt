@@ -2,229 +2,250 @@
   "mainWebsite": {
     "homepage": {
       "hero": {
-        "title": "Premium Steel Roofing Built to Lastl",
-        "subtitle": "Dolimiti Steel Roofing delivers high-performance metal roofing systems for residential and commercial properties across the USA.",
-        "badge": "Specialists in Durable Steel Roofing",
+        "title": "Premium steel roofing built to protect your home for decades.",
+        "subtitle": "Dolimiti Steel Roofing installs high-performance metal roofing systems for residential and commercial properties throughout the United States. Call (866) 289-1750 for expert service.",
+        "badge": "Leaders in Long-Lasting Steel Roofing Solutions",
         "cta": {
           "primary": "Get Free Steel Roof Estimate",
-          "secondary": "Explore Our Services"
+          "secondary": "Discover Our Roofing Services"
         }
       },
       "features": [
         {
           "icon": "🏠",
-          "title": "Residential Steel Roofing",
-          "description": "Protect your home with energy-efficient, weather-resistant steel roofing systems engineered for longevity and beauty."
+          "title": "Residential Steel Roofing Solutions",
+          "description": "Safeguard your home with energy-efficient, weather-resistant steel roofing systems designed for exceptional durability and curb appeal."
         },
         {
           "icon": "🏢",
-          "title": "Commercial Metal Roofing",
-          "description": "High-performance standing seam and corrugated steel solutions designed for warehouses, offices, and industrial buildings."
+          "title": "Commercial Metal Roofing Systems",
+          "description": "Advanced standing seam and corrugated steel roofing engineered for warehouses, offices, retail spaces, and industrial facilities."
         },
         {
           "icon": "⛈️",
-          "title": "Storm & Hail Resistant Roofing",
-          "description": "Impact-rated steel roofing built to withstand hail, high winds, and extreme weather conditions."
+          "title": "Storm & Hail-Resistant Roofing",
+          "description": "Impact-rated steel roofing systems built to withstand hail, high winds, heavy rain, and extreme weather events."
         }
       ],
       "whyChooseUs": [
         {
           "icon": "🛡️",
-          "title": "Licensed & Insured",
-          "description": "Fully licensed and insured steel roofing specialists."
+          "title": "Licensed & Fully Insured",
+          "description": "Certified, licensed, and insured steel roofing professionals committed to safety and compliance."
         },
         {
           "icon": "💰",
-          "title": "Transparent Pricing",
-          "description": "Honest quotes with no hidden costs."
+          "title": "Honest, Transparent Pricing",
+          "description": "Clear, upfront estimates with zero hidden fees or surprise costs."
         },
         {
           "icon": "⚙️",
-          "title": "Premium Steel Materials",
-          "description": "We use only high-grade galvanized and coated steel products."
+          "title": "Premium-Grade Steel Materials",
+          "description": "We install top-tier galvanized and coated steel products for maximum strength and corrosion resistance."
         },
         {
           "icon": "🏆",
-          "title": "Long-Term Warranty",
-          "description": "Industry-leading material and workmanship warranties."
+          "title": "Long-Term Protection Warranty",
+          "description": "Industry-leading warranties covering both materials and expert workmanship."
         }
       ],
       "coverage": {
-        "title": "Serving Homeowners & Businesses Nationwide",
-        "subtitle": "Dolimiti Steel Roofing provides expert metal roofing installation tailored to regional climates and building codes across the United States.",
-        "ctaText": "Find Your Local Office"
+        "title": "Serving Residential & Commercial Clients Nationwide",
+        "subtitle": "Dolimiti Steel Roofing delivers professional metal roofing installation customized to regional climates, codes, and structural requirements across the U.S.",
+        "ctaText": "Locate Your Nearest Office"
       },
       "servicesSection": {
-        "title": "Comprehensive Roofing Solutions",
-        "subtitle": "We provide specialized roofing systems tailored to your residential and commercial needs.",
-        "ctaText": "View All Services"
+        "title": "Complete Roofing System Solutions",
+        "subtitle": "We design and install advanced roofing systems tailored to residential and commercial property needs.",
+        "ctaText": "Explore All Roofing Services"
       },
-      "whyChooseUsSectionTitle": "The Dolimiti Steel Roofing Advantage",
+      "whyChooseUsSectionTitle": "The Dolimiti Steel Roofing Difference",
       "faqSection": {
         "title": "Frequently Asked Questions",
-        "subtitle": "Common questions about our roofing and construction services.",
+        "subtitle": "Answers to common questions about our roofing and construction expertise.",
         "items": [
           {
-            "question": "Do you service my area?",
-            "answer": "We are a nationwide roofing contractor with local teams in major metropolitan areas across the US. From Texas to New York, Florida to Arizona, we likely have crews near you. Check our Locations page or call us to confirm."
+            "question": "Do you provide service in my area?",
+            "answer": "As a nationwide roofing contractor, we operate local crews in major metropolitan regions across the U.S. From Texas to New York and Florida to Arizona, our teams are positioned to serve you. Visit our Locations page or call us to confirm availability."
           },
           {
-            "question": "Are you licensed and insured?",
-            "answer": "Yes, absolutely. Dolimiti Steel Roofing carries all necessary state licenses and strictly maintains liability and workers' compensation insurance to protect our clients and our crews."
+            "question": "Are you properly licensed and insured?",
+            "answer": "Absolutely. Dolimiti Steel Roofing maintains all required state licenses and carries comprehensive liability and workers’ compensation insurance for your protection."
           },
           {
-            "question": "Do you offer financing?",
-            "answer": "Yes! We partner with top lending institutions to offer flexible financing options for roof replacements and major repairs, subject to credit approval."
+            "question": "Do you provide financing options?",
+            "answer": "Yes! We collaborate with reputable lending partners to offer flexible financing solutions for roof replacements and large-scale repairs, subject to credit approval."
           },
           {
-            "question": "What types of roofs do you install?",
-            "answer": "We work with all major roofing systems including Asphalt Shingles, Metal (Standing Seam), Tile (Clay/Concrete), Flat Roofs (TPO/EPDM/Foam), and more."
+            "question": "What roofing systems do you install?",
+            "answer": "We install a full range of roofing systems, including Asphalt Shingles, Standing Seam Metal, Clay & Concrete Tile, and Flat Roofing systems such as TPO, EPDM, and Foam."
           },
           {
-            "question": "Do you handle insurance claims?",
-            "answer": "Yes. Our team is experienced in storm damage restoration and can assist you through the insurance claim process, ensuring all damage is documented and covered."
+            "question": "Do you assist with insurance claims?",
+            "answer": "Yes. Our storm restoration specialists guide you through the insurance claim process, ensuring accurate damage documentation and proper coverage."
           }
         ]
       },
       "ctaSection": {
-        "title": "Ready to Start Your Project?",
-        "subtitle": "Contact us today for a free inspection and detailed estimate.",
+        "title": "Ready to Begin Your Roofing Project?",
+        "subtitle": "Schedule your free roof inspection and detailed estimate today.",
         "primaryButtonText": "Call {PHONE}",
-        "secondaryButtonText": "Request Online"
+        "secondaryButtonText": "Request Service Online"
       }
     },
     "about": {
       "hero": {
-        "title": "Engineered Strength. Trusted Craftsmanship.",
-        "subtitle": "Dolimiti Steel Roofing is a dedicated metal roofing contractor serving residential and commercial clients nationwide.",
-        "badge": "Steel Roofing Experts"
+        "title": "Engineered for Strength. Built on Trust.",
+        "subtitle": "Dolimiti Steel Roofing is a specialized metal roofing contractor serving homeowners and businesses nationwide.",
+        "badge": "Trusted Steel Roofing Specialists"
       },
       "story": {
-        "title": "Our Story",
+        "title": "Our Company Story",
         "paragraphs": [
-          "Dolimiti Steel Roofing was founded with one mission: deliver superior steel roofing systems that outperform traditional roofing materials in durability, efficiency, and lifespan.",
-          "Our team specializes exclusively in metal roofing solutions, combining advanced installation techniques with premium-grade steel materials to ensure unmatched protection and performance."
+          "Dolimiti Steel Roofing was founded with a clear mission: to deliver advanced steel roofing systems that outperform traditional materials in durability, efficiency, and lifespan.",
+          "Our team focuses exclusively on metal roofing, combining innovative installation methods with premium steel materials to provide superior protection and long-term performance."
         ],
         "stats": [
           {
             "value": "5k+",
-            "label": "Steel Roofs Installed"
+            "label": "Steel Roofing Systems Installed"
           },
           {
             "value": "30+",
-            "label": "States Served"
+            "label": "States Proudly Served"
           }
         ]
       },
       "values": [
         {
           "icon": "🛡️",
-          "title": "Durability",
-          "description": "We build roofing systems designed to last 40+ years with minimal maintenance."
+          "title": "Built for Extreme Durability",
+          "description": "We construct roofing systems engineered to perform for 40+ years with minimal maintenance requirements."
         },
         {
           "icon": "⚡",
-          "title": "Energy Efficiency",
-          "description": "Reflective steel roofing reduces cooling costs and improves building efficiency."
+          "title": "Enhanced Energy Efficiency",
+          "description": "Reflective steel roofing systems help reduce cooling expenses and improve overall building efficiency."
         },
         {
           "icon": "🔒",
-          "title": "Precision & Safety",
-          "description": "Every installation follows strict safety standards and manufacturer specifications."
+          "title": "Precision Installation & Safety",
+          "description": "Every project adheres to strict safety protocols and manufacturer-certified installation standards."
         }
       ]
     },
     "contact": {
       "hero": {
-        "title": "Contact Dolimiti Steel Roofing",
-        "subtitle": "Request a free steel roofing estimate today. We proudly serve customers nationwide."
+        "title": "Contact Dolimiti Steel Roofing Today",
+        "subtitle": "Request your free steel roofing consultation and estimate. Proudly serving clients nationwide."
       },
       "info": {
         "headquarters": {
-          "title": "Main Office",
-          "address": "Nationwide Service Provider\nUnited States"
+          "title": "Corporate Headquarters",
+          "address": "Nationwide Service Provider"
         },
         "phone": {
           "title": "Phone",
-          "subtitle": "Customer Support Line",
-          "number": "(888) 555-7820"
+          "subtitle": "Dedicated Customer Support",
+          "number": "(866) 289-1750"
         },
         "hours": {
-          "title": "Hours",
-          "weekdays": "Mon-Fri: 7am - 6pm",
-          "weekends": "Sat: By Appointment | Sun: Closed"
+          "title": "Business Hours",
+          "weekdays": "Monday–Friday: 7am – 6pm",
+          "weekends": "Saturday: By Appointment | Sunday: Closed"
         }
       }
     },
     "services": {
       "hero": {
-        "title": "Our Services",
-        "subtitle": "From roof repairs to complete home renovations, {COMPANY} delivers quality craftsmanship on every project."
+        "title": "Our Roofing & Construction Services",
+        "subtitle": "From roof repairs to full-scale renovations, {COMPANY} delivers expert craftsmanship and reliable results on every project.",
+        "badge": "Full-Service Construction Experts"
       },
       "categories": {
         "roofing": {
-          "label": "Professional Roofing",
-          "title": "Roofing Services"
+          "label": "Professional Roofing Specialists",
+          "title": "Complete Roofing Services"
+        },
+        "roofing-type": {
+          "label": "Advanced Roofing Systems",
+          "title": "Premium Roofing Material Systems"
+        },
+        "commercial": {
+          "label": "Commercial Roofing Solutions",
+          "title": "Commercial Roofing & Maintenance Services"
         },
         "exterior": {
-          "label": "Home Exterior",
-          "title": "Exterior Services"
+          "label": "Residential Exterior Services",
+          "title": "Comprehensive Exterior Upgrades"
         },
         "construction": {
-          "label": "Build & Renovate",
-          "title": "Construction & Remodeling"
+          "label": "Build, Restore & Renovate",
+          "title": "Construction & Remodeling Solutions"
         }
       },
+      "processSection": {
+        "label": "Our Process",
+        "title": "A Proven Step-by-Step Approach",
+        "subtitle": "From your first call to final inspection, we ensure a smooth, transparent project experience."
+      },
+      "trustSection": {
+        "title": "Why Choose {COMPANY}"
+      },
+      "faqSection": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Learn more about our roofing and construction services."
+      },
       "cta": {
-        "title": "Ready to Get Started?",
-        "subtitle": "Contact us today for a free estimate on your next project.",
+        "title": "Ready to Move Forward?",
+        "subtitle": "Contact us today for a free, no-obligation estimate.",
         "primaryButton": "Call {PHONE}",
-        "secondaryButton": "Request Free Estimate"
+        "secondaryButton": "Get Your Free Estimate"
       }
     },
     "locations": {
       "hero": {
-        "badge": "Nationwide Service",
-        "title": "America's Premier Roofing Contractor",
-        "titleHighlight": "Roofing Contractor",
-        "subtitle": "From coast to coast, we protect American homes and businesses with quality craftsmanship. Serving all 50 states with trusted local teams."
+        "badge": "Nationwide Roofing Service",
+        "title": "America’s Trusted Roofing Contractor",
+        "titleHighlight": "Professional Roofing Contractor",
+        "subtitle": "Coast to coast, we protect homes and businesses with precision craftsmanship and dependable service in all 50 states."
       },
-      "areasTitle": "Areas We Serve",
-      "areasSubtitle": "Our crews are stationed throughout the country to ensure fast response times for emergency repairs, inspections, and installations.",
+      "areasTitle": "Service Areas",
+      "areasSubtitle": "Our strategically located crews ensure rapid response for inspections, emergency repairs, and installations nationwide.",
       "statesTitle": "States We Serve",
       "valueProp": {
-        "title": "Why America Chooses {COMPANY}",
-        "subtitle": "From desert heat to snow country, coastal humidity to Midwest storms—we know every climate. We don't just build roofs; we engineer defense systems for American homes nationwide.",
+        "title": "Why America Trusts {COMPANY}",
+        "subtitle": "From desert heat to snowy climates and coastal humidity to Midwest storms, we engineer roofing systems built to withstand every environment.",
         "items": [
-          "Licensed in All 50 States",
-          "Climate-Specific Materials",
-          "24/7 Storm Emergency Response"
+          "Licensed Across All 50 States",
+          "Climate-Engineered Materials",
+          "24/7 Emergency Storm Response"
         ]
       },
       "cta": {
-        "title": "Ready to Protect Your Property?",
-        "subtitle": "Schedule a free inspection with your local {COMPANY} team. We are in your neighborhood.",
-        "buttonText": "Get My Free Estimate"
+        "title": "Ready to Safeguard Your Property?",
+        "subtitle": "Book a free inspection with your local {COMPANY} professionals today. We’re right in your neighborhood.",
+        "buttonText": "Claim My Free Estimate"
       }
     },
     "states": {
       "hero": {
-        "badge": "Nationwide Service",
+        "badge": "Nationwide Coverage",
         "title": "Roofing Services by State",
-        "subtitle": "Find expert roofing contractors in your state. Licensed, insured, and serving communities coast to coast."
+        "subtitle": "Connect with licensed, insured roofing professionals serving communities across the country."
       },
       "cta": {
-        "title": "Need Roofing Help in Your State?",
-        "subtitle": "Our local teams are ready to assist. Call for a free estimate today.",
+        "title": "Need Roofing Assistance in Your State?",
+        "subtitle": "Our local experts are standing by—call today for a complimentary estimate.",
         "buttonText": "Call {PHONE}"
       }
     }
   },
   "locationPages": {
     "hero": {
-      "titleTemplate": "Expert Steel Roofing in {CITY}, {STATE}",
-      "subtitleTemplate": "Your trusted local metal roofing contractor for steel roof installation, replacement, and repair in {CITY}.",
-      "descriptionTemplate": "At Dolimiti Steel Roofing, we provide advanced steel roofing systems for homes and businesses in {CITY}, {STATE}. Our metal roofing solutions are engineered to resist corrosion, wind, hail, and extreme temperatures while delivering long-term energy savings. Whether you need standing seam panels, corrugated steel roofing, or complete metal roof replacement, our certified installers ensure precision craftsmanship and lasting performance.",
+      "titleTemplate": "Professional Steel Roofing Services in {CITY}, {STATE}",
+      "subtitleTemplate": "Your dependable local contractor for steel roof installation, replacement, and repair in {CITY}.",
+      "descriptionTemplate": "Dolimiti Steel Roofing provides advanced steel roofing systems for residential and commercial properties in {CITY}, {STATE}. Our corrosion-resistant metal roofing is engineered to withstand wind, hail, heavy rain, and temperature extremes while delivering long-term energy savings. From standing seam panels to full metal roof replacement, our certified installers ensure precise craftsmanship and superior performance.",
       "badges": [
         {
           "icon": "✓",
@@ -239,52 +260,52 @@
           "text": "Metal Roofing Specialists"
         }
       ],
-      "serviceHighlights": "Steel Roof Installation • Standing Seam Roofing • Corrugated Metal Roofing • Metal Roof Replacement • Hail-Resistant Roofing • Energy-Efficient Roofing • Commercial Steel Roofing",
+      "serviceHighlights": "Steel Roof Installation • Standing Seam Roofing • Corrugated Metal Panels • Metal Roof Replacement • Hail-Resistant Roofing • Energy-Efficient Roofing • Commercial Steel Roofing",
       "benefits": [
         {
-          "title": "Free Estimates",
-          "subtitle": "No obligation consultations"
+          "title": "Complimentary Estimates",
+          "subtitle": "No-obligation roofing consultations"
         },
         {
-          "title": "Storm Resistant",
-          "subtitle": "Built for extreme weather"
+          "title": "Storm-Resistant Construction",
+          "subtitle": "Designed for severe weather protection"
         },
         {
-          "title": "Energy Efficient",
-          "subtitle": "Lower cooling costs"
+          "title": "Energy-Saving Roofing",
+          "subtitle": "Reduce cooling and energy expenses"
         },
         {
-          "title": "40+ Year Lifespan",
-          "subtitle": "Long-term durability"
+          "title": "40+ Year Roof Lifespan",
+          "subtitle": "Built for decades of performance"
         }
       ]
     },
     "whyChooseUs": {
-      "titleTemplate": "Why {CITY} Homeowners Choose Dolimiti Steel Roofing",
-      "introTemplate": "Weather conditions in {CITY} can put significant stress on traditional roofing materials. Steel roofing offers unmatched durability and resistance against harsh environmental factors.",
+      "titleTemplate": "Why {CITY} Homeowners Trust Dolimiti Steel Roofing",
+      "introTemplate": "The climate in {CITY} can challenge traditional roofing materials. Steel roofing delivers unmatched durability and environmental resistance.",
       "paragraphs": [
-        "Dolimiti Steel Roofing specializes exclusively in high-performance metal roofing systems tailored for {CITY}. Our steel roofs are engineered for superior strength, longevity, and minimal maintenance.",
-        "We combine advanced installation techniques with premium-grade coated steel panels to ensure your roof withstands heavy rain, wind, hail, and extreme heat.",
-        "Choose Dolimiti Steel Roofing in {CITY} for a modern, durable, and energy-efficient roofing solution built to last decades."
+        "Dolimiti Steel Roofing focuses exclusively on premium metal roofing systems engineered specifically for properties in {CITY}.",
+        "Our advanced installation methods and high-grade coated steel panels ensure maximum protection from wind, rain, hail, and heat.",
+        "Choose Dolimiti Steel Roofing in {CITY} for a sleek, durable, and energy-efficient roofing investment built to last."
       ]
     },
     "trustIndicators": {
       "stats": [
         {
           "value": "15+",
-          "label": "Years Metal Roofing Experience"
+          "label": "Years of Metal Roofing Expertise"
         },
         {
           "value": "5000+",
-          "label": "Roofs Installed"
+          "label": "Roofing Systems Installed"
         },
         {
           "value": "Free",
-          "label": "Estimates"
+          "label": "Roofing Estimates"
         },
         {
           "value": "100%",
-          "label": "Customer Satisfaction"
+          "label": "Customer Satisfaction Commitment"
         }
       ]
     },
@@ -292,93 +313,93 @@
       {
         "icon": "🛡️",
         "title": "Licensed & Insured",
-        "description": "Certified steel roofing professionals."
+        "description": "Certified steel roofing specialists."
       },
       {
         "icon": "⚙️",
-        "title": "Metal Roofing Experts",
-        "description": "Specialized exclusively in steel roofing systems."
+        "title": "Metal Roofing Authorities",
+        "description": "Dedicated exclusively to advanced steel roofing systems."
       },
       {
         "icon": "💵",
         "title": "Free Estimates",
-        "description": "Clear pricing with no hidden costs."
+        "description": "Transparent quotes with no hidden charges."
       }
     ],
     "process": {
-      "title": "Our {CITY} Roofing Process",
-      "subtitle": "Simple, transparent, and stress-free.",
+      "title": "Our Proven {CITY} Roofing Process",
+      "subtitle": "Straightforward, transparent, and hassle-free.",
       "steps": [
         {
           "title": "Inspection",
-          "description": "Detailed roof analysis"
+          "description": "Comprehensive roof assessment"
         },
         {
-          "title": "Quote",
-          "description": "Upfront pricing, no fees"
+          "title": "Detailed Quote",
+          "description": "Clear, upfront pricing"
         },
         {
           "title": "Installation",
-          "description": "Fast, clean execution"
+          "description": "Efficient and professional execution"
         },
         {
-          "title": "Warranty",
-          "description": "Long-term protection"
+          "title": "Warranty Coverage",
+          "description": "Long-term material and labor protection"
         }
       ]
     },
     "cta": {
-      "titleTemplate": "Get Your Free {CITY} Roofing Quote",
-      "subtitleTemplate": "Speak directly with a project manager in {CITY}, not a call center.",
+      "titleTemplate": "Request Your Free {CITY} Roofing Estimate",
+      "subtitleTemplate": "Speak directly with a dedicated project manager in {CITY}.",
       "primaryButton": "Call {PHONE}",
       "secondaryButton": "Request Free Estimate"
     },
     "servicesSection": {
-      "title": "Complete Roofing Services in {CITY}",
+      "title": "Full-Service Roofing in {CITY}",
       "serviceCount": 6
     },
     "about": {
-      "sectionTitle": "Our Story & Values",
-      "sectionSubtitle": "Discover the journey that made us the most trusted name in roofing and construction in {CITY}",
-      "storyTitle": "Excellence in {CITY}, {STATE}",
+      "sectionTitle": "Our Story & Core Values",
+      "sectionSubtitle": "Learn how we became a trusted leader in roofing and construction in {CITY}.",
+      "storyTitle": "Committed to Excellence in {CITY}, {STATE}",
       "storyParagraphs": [
-        "{COMPANY} began with a simple mission: to provide honest, reliable roofing and construction services in {CITY} and surrounding areas. What started as a small operation has grown into one of the most trusted names in the industry throughout {STATE}.",
-        "Over the years, we've witnessed the evolution of construction technology and materials. Through it all, we've maintained our commitment to quality, integrity, and customer satisfaction while expanding our reach to serve communities throughout the region.",
-        "Today, we serve residential and commercial customers in {CITY} with a team of licensed professionals, quality materials, and unwavering dedication to excellence in every project we undertake."
+        "{COMPANY} was founded to deliver honest, dependable roofing and construction services throughout {CITY} and nearby communities. Today, we’re recognized as a trusted industry leader across {STATE}.",
+        "As construction technology has evolved, we’ve remained committed to innovation, integrity, and outstanding customer satisfaction.",
+        "We proudly serve residential and commercial clients in {CITY} with licensed professionals, premium materials, and a commitment to excellence on every project."
       ],
       "stats": [
         {
           "value": "25+",
-          "label": "Years of Experience"
+          "label": "Years of Industry Experience"
         },
         {
           "value": "50+",
-          "label": "Expert Contractors"
+          "label": "Skilled Contractors"
         },
         {
           "value": "10k+",
-          "label": "Happy Customers"
+          "label": "Satisfied Clients"
         },
         {
           "value": "100%",
-          "label": "Satisfaction Guaranteed"
+          "label": "Satisfaction Guarantee"
         }
       ],
       "trackRecord": {
-        "title": "Our Track Record in {CITY}",
-        "subtitle": "Numbers that speak to our commitment and expertise",
+        "title": "Our Performance in {CITY}",
+        "subtitle": "Results that reflect our expertise and dedication",
         "items": [
           {
             "value": "50+",
-            "label": "Years in Business"
+            "label": "Years in Operation"
           },
           {
             "value": "1000+",
-            "label": "Happy Customers"
+            "label": "Local Customers Served"
           },
           {
             "value": "24/7",
-            "label": "Emergency Service"
+            "label": "Emergency Response Availability"
           },
           {
             "value": "100%",
@@ -387,94 +408,94 @@
         ]
       },
       "team": {
-        "title": "Meet Our Expert Team",
-        "subtitle": "Licensed professionals dedicated to serving {CITY}",
+        "title": "Meet Our Leadership Team",
+        "subtitle": "Licensed professionals serving {CITY} with excellence",
         "members": [
           {
             "name": "Marco Dolimiti",
-            "role": "Founder & Lead Contractor",
+            "role": "Founder & Lead Roofing Contractor",
             "experience": "25+ years",
             "specialties": [
-              "Roofing Systems",
-              "Structural Design",
-              "Project Management"
+              "Advanced Roofing Systems",
+              "Structural Engineering",
+              "Project Oversight"
             ]
           },
           {
             "name": "Michael Rodriguez",
-            "role": "Senior Project Manager",
+            "role": "Senior Project Director",
             "experience": "18+ years",
             "specialties": [
-              "Commercial Roofing",
-              "Safety Compliance",
-              "Team Leadership"
+              "Commercial Roofing Systems",
+              "Safety & Compliance",
+              "Operations Management"
             ]
           },
           {
             "name": "Sarah Thomas",
-            "role": "Customer Success Manager",
+            "role": "Client Success Director",
             "experience": "12+ years",
             "specialties": [
-              "Client Relations",
+              "Customer Relations",
               "Project Coordination",
-              "Warranty Services"
+              "Warranty Administration"
             ]
           }
         ]
       },
       "values": {
-        "title": "Our Core Values",
-        "subtitle": "What drives us to provide exceptional service in {CITY}",
+        "title": "Our Core Principles",
+        "subtitle": "The values guiding our service excellence in {CITY}",
         "items": [
           {
-            "title": "Quality Craftsmanship",
-            "description": "We take pride in delivering high-quality work that stands the test of time.",
+            "title": "Superior Craftsmanship",
+            "description": "We deliver durable, precision-built roofing solutions designed to stand the test of time.",
             "icon": "🔨"
           },
           {
-            "title": "Customer Satisfaction",
-            "description": "Your satisfaction is our top priority. We go above and beyond to exceed your expectations.",
+            "title": "Customer-First Approach",
+            "description": "Your satisfaction drives everything we do—we strive to exceed expectations.",
             "icon": "😊"
           },
           {
-            "title": "Reliability",
-            "description": "Count on us to be there when you need us most, with prompt and dependable service.",
+            "title": "Dependability",
+            "description": "Prompt, reliable service when you need it most.",
             "icon": "⏰"
           },
           {
             "title": "Integrity",
-            "description": "We provide honest, upfront pricing with no hidden fees or surprise charges.",
+            "description": "Transparent pricing and honest communication on every project.",
             "icon": "🤝"
           }
         ]
       },
       "cta": {
-        "title": "Ready to Experience the {COMPANY} Difference?",
-        "subtitle": "Join thousands of satisfied customers in {CITY} who trust us with their roofing needs",
-        "bodyTitle": "From emergency repairs to new installations, we're here to help",
-        "bodyText": "Contact us today for reliable, professional services in {CITY}, {STATE}. We're available 24/7 for emergency calls and scheduled appointments."
+        "title": "Experience the {COMPANY} Advantage",
+        "subtitle": "Join thousands of satisfied clients in {CITY} who rely on us for roofing excellence.",
+        "bodyTitle": "From urgent repairs to complete roof installations, we’re ready to serve.",
+        "bodyText": "Contact us for professional roofing services in {CITY}, {STATE}. Emergency and scheduled service available."
       }
     },
     "contact": {
-      "sectionTitle": "Get in Touch with Our {CITY} Team",
-      "sectionSubtitle": "Multiple ways to reach us for all your roofing and construction needs",
+      "sectionTitle": "Connect with Our {CITY} Team",
+      "sectionSubtitle": "Reach us easily for all your roofing and construction needs.",
       "methods": [
         {
-          "title": "Call Us Now",
-          "description": "Speak directly with our experts",
+          "title": "Call Us Today",
+          "description": "Speak directly with a roofing specialist",
           "icon": "📞",
           "highlight": true
         },
         {
-          "title": "Emergency Service",
-          "description": "24/7 emergency roofing available",
-          "contactText": "Available 24/7",
+          "title": "Emergency Services",
+          "description": "24/7 roofing emergency response",
+          "contactText": "Available Around the Clock",
           "icon": "🚨",
           "highlight": true
         },
         {
-          "title": "Service Area",
-          "description": "Serving the greater area",
+          "title": "Service Coverage Area",
+          "description": "Serving the surrounding region",
           "icon": "📍",
           "highlight": false
         }
@@ -482,62 +503,62 @@
       "servicesList": [
         "Roof Repair & Replacement",
         "Storm Damage Restoration",
-        "Gutter Installation",
-        "Siding Installation",
-        "Emergency Roofing",
-        "Leak Detection",
-        "Commercial Roofing",
-        "General Construction"
+        "Gutter System Installation",
+        "Professional Siding Installation",
+        "Emergency Roof Repairs",
+        "Advanced Leak Detection",
+        "Commercial Roofing Solutions",
+        "General Construction Services"
       ],
-      "servicesTitle": "Services We Offer in {CITY}",
-      "servicesSubtitle": "Comprehensive solutions for residential and commercial properties",
+      "servicesTitle": "Roofing & Construction Services in {CITY}",
+      "servicesSubtitle": "Complete solutions for homes and businesses",
       "cta": {
-        "title": "Ready to Schedule Your Estimate?",
-        "subtitle": "Contact our {CITY} team today for reliable, professional service. We're here to help."
+        "title": "Ready to Book Your Estimate?",
+        "subtitle": "Contact our {CITY} professionals today for dependable, expert service."
       }
     },
     "services": {
-      "gridTitle": "Premium Construction Services",
-      "gridLabel": "What We Do",
-      "gridSubtitle": "From minor repairs to major renovations, we deliver excellence on every project.",
+      "gridTitle": "Premium Construction & Roofing Services",
+      "gridLabel": "Our Expertise",
+      "gridSubtitle": "From small repairs to full-scale renovations, we deliver exceptional results every time.",
       "cta": {
-        "title": "Ready to Start Your Project in {CITY}?",
-        "subtitle": "Contact us today for a free estimate on your next roofing or construction project."
+        "title": "Ready to Begin Your {CITY} Project?",
+        "subtitle": "Request your free estimate today for roofing or construction services."
       }
     },
     "servicePage": {
       "heroBadges": [
-        "Licensed & Insured",
-        "Top Rated in {CITY}",
-        "Free Estimates"
+        "Licensed & Insured Professionals",
+        "Highly Rated in {CITY}",
+        "Free, No-Obligation Estimates"
       ],
       "trustBadges": [
-        "✓ Licensed ROC",
-        "✓ Fully Insured",
-        "✓ A+ Rating"
+        "✓ Licensed ROC Certified",
+        "✓ Fully Insured & Bonded",
+        "✓ A+ Accredited Rating"
       ],
-      "exteriorSolutionsTitle": "Complete Exterior Solutions in {CITY}",
-      "relatedServicesTitle": "More Services in {CITY}",
-      "relatedServicesSubtitle": "Expert exterior care for every part of your home.",
-      "ctaText": "Protect your home or business with a professionally installed {SERVICE}. Expert service since 2000.",
-      "budgetTitle": "Planning a Budget?",
-      "budgetText": "Get a detailed cost estimate for {SERVICE} in {CITY} with our interactive calculator.",
+      "exteriorSolutionsTitle": "Complete Exterior Services in {CITY}",
+      "relatedServicesTitle": "Additional Services in {CITY}",
+      "relatedServicesSubtitle": "Professional exterior solutions for total property protection.",
+      "ctaText": "Protect your property with expert installation of {SERVICE}. Trusted craftsmanship since 2000.",
+      "budgetTitle": "Budget Planning Made Easy",
+      "budgetText": "Receive a detailed, accurate cost estimate for {SERVICE} in {CITY} using our interactive pricing calculator.",
       "budgetCta": "Calculate {SERVICE} Cost in {CITY} →"
     }
   },
   "statePages": {
     "hero": {
-      "titleTemplate": "Roofing Services in {STATE_NAME}",
-      "subtitleTemplate": "Professional roofing installation, repair, and maintenance across {STATE_NAME}. Licensed, insured, and locally operated."
+      "titleTemplate": "Roofing Services Throughout {STATE_NAME}",
+      "subtitleTemplate": "Professional roof installation, repair, and maintenance services across {STATE_NAME}. Licensed, insured, and locally operated."
     },
-    "introTemplate": "Looking for trusted roofing professionals in {STATE_NAME}? {COMPANY} provides expert residential and commercial roofing services throughout the state. Our licensed local crews deliver quality craftsmanship built for {STATE_NAME}'s specific climate conditions.",
+    "introTemplate": "Searching for reliable roofing experts in {STATE_NAME}? {COMPANY} provides trusted residential and commercial roofing solutions statewide, engineered for {STATE_NAME}'s climate conditions.",
     "servicesPage": {
-      "titleTemplate": "Our Roofing Services in {STATE_NAME}",
-      "subtitleTemplate": "Complete roofing and construction solutions available across {STATE_NAME}."
+      "titleTemplate": "Our Roofing Solutions in {STATE_NAME}",
+      "subtitleTemplate": "Comprehensive roofing and construction services available across {STATE_NAME}."
     },
     "cta": {
-      "title": "Get a Free Roofing Quote in {STATE_NAME}",
-      "subtitle": "Connect with our local {STATE_NAME} team for expert roofing services.",
+      "title": "Request Your Free Roofing Estimate in {STATE_NAME}",
+      "subtitle": "Connect with our local {STATE_NAME} specialists for professional roofing services.",
       "buttonText": "Call {PHONE}"
     }
   }

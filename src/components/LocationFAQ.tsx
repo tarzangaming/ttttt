@@ -45,12 +45,12 @@ const LocationFAQ: React.FC<LocationFAQProps> = ({
     <section className="py-20 px-4 bg-white" id="faq">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-[#1e3a5f] mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#4a2c17] mb-6">
             Roofing FAQs in {locationName}, {stateName}
           </h2>
           <p className="text-xl text-gray-600">
             Common questions about roof repair, replacement, pricing, and materials in {locationName}.
-            If you still have questions, call <span className="font-bold text-[#d97706]">{phone}</span>—we’ll help.
+            If you still have questions, call <span className="font-bold text-[#c4841d]">{phone}</span>—we’ll help.
           </p>
         </div>
 
@@ -58,15 +58,15 @@ const LocationFAQ: React.FC<LocationFAQProps> = ({
           {selectedFAQs.map((faq, idx) => (
             <details
               key={idx}
-              className="group bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 hover:border-[#d97706] hover:shadow-md"
+              className="group bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 hover:border-[#c4841d] hover:shadow-md"
             >
               <summary className="flex items-center justify-between p-6 cursor-pointer list-none list-inside">
-                <h3 className="text-lg md:text-xl font-bold text-[#1e3a5f] pr-8 group-open:text-[#d97706] transition-colors">
+                <h3 className="text-lg md:text-xl font-bold text-[#4a2c17] pr-8 group-open:text-[#c4841d] transition-colors">
                   {replacePlaceholders(faq.question)}
                 </h3>
                 <span className="relative flex-shrink-0 ml-4">
                   <svg
-                    className="w-6 h-6 text-[#d97706] transform transition-transform duration-300 group-open:rotate-180"
+                    className="w-6 h-6 text-[#c4841d] transform transition-transform duration-300 group-open:rotate-180"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

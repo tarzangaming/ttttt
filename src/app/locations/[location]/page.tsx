@@ -126,13 +126,13 @@ export default async function LocationPage({ params }: LocationPageProps) {
           <div className="text-white max-w-4xl pb-16">
             <div className="flex flex-wrap gap-3 mb-6">
               {heroBadges.map((badge: any, i: number) => (
-                <span key={i} className={`${i === 0 ? 'bg-[#d97706]' : 'bg-white/20 backdrop-blur-sm'} text-white text-xs font-bold px-3 py-1.5 rounded-full`}>
+                <span key={i} className={`${i === 0 ? 'bg-[#c4841d]' : 'bg-white/20 backdrop-blur-sm'} text-white text-xs font-bold px-3 py-1.5 rounded-full`}>
                   {r(badge.text)}
                 </span>
               ))}
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
-              {dynamicHeroHeader.split(' in ')[0]} <span className="text-[#d97706]">in {dynamicHeroHeader.split(' in ')[1]}</span>
+              {dynamicHeroHeader.split(' in ')[0]} <span className="text-[#c4841d]">in {dynamicHeroHeader.split(' in ')[1]}</span>
             </h1>
             <div className="text-xl opacity-90 mb-8 leading-relaxed font-light text-gray-100 space-y-2">
               <p>{dynamicSubtextLines.line1}</p>
@@ -143,7 +143,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href={`tel:${phoneClean}`}
-                className="bg-[#d97706] hover:bg-[#b45309] text-white font-bold px-8 py-4 rounded-xl text-lg transition shadow-xl flex items-center justify-center gap-3"
+                className="bg-[#c4841d] hover:bg-[#8b5e14] text-white font-bold px-8 py-4 rounded-xl text-lg transition shadow-xl flex items-center justify-center gap-3"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" /></svg>
                 {phone}
@@ -171,7 +171,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
       <section className="py-20 px-4 max-w-5xl mx-auto">
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-gray-100">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#4a2c17] mb-8 text-center">
               {r(whyChooseUs.titleTemplate || `Why {CITY} Homeowners Choose Dolimiti Steel Roofing`)}
             </h2>
 
@@ -200,7 +200,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
       {/* FULL SERVICES LIST */}
       <section id="services" className="py-20 px-4 max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-center text-[#1e3a5f] mb-12">
+        <h2 className="text-3xl font-bold text-center text-[#4a2c17] mb-12">
           {r(locServices.title)}
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
@@ -212,7 +212,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
             >
               <span className="text-3xl bg-gray-50 p-3 rounded-lg group-hover:bg-orange-50 transition">{service.icon}</span>
               <div>
-                <h3 className="font-bold text-[#1e3a5f] group-hover:text-[#d97706] transition">{service.title}</h3>
+                <h3 className="font-bold text-[#4a2c17] group-hover:text-[#c4841d] transition">{service.title}</h3>
                 <p className="text-sm text-gray-500 mt-2 line-clamp-2">{service.description}</p>
               </div>
             </Link>
@@ -224,7 +224,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
       <section className="py-20 bg-gray-50 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-[#1e3a5f]">{r(processData.title)}</h2>
+            <h2 className="text-3xl font-bold text-[#4a2c17]">{r(processData.title)}</h2>
             <p className="text-gray-600 mt-4">{r(processData.subtitle)}</p>
           </div>
 
@@ -232,10 +232,10 @@ export default async function LocationPage({ params }: LocationPageProps) {
             <div className="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-gray-200 -z-10"></div>
             {(processData.steps || []).map((step: any, i: number) => (
               <div key={i} className="bg-white p-6 rounded-xl shadow-sm text-center relative">
-                <div className="w-12 h-12 bg-[#1e3a5f] text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 border-4 border-gray-50">
+                <div className="w-12 h-12 bg-[#4a2c17] text-white rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 border-4 border-gray-50">
                   {i + 1}
                 </div>
-                <h3 className="font-bold text-lg text-[#1e3a5f] mb-2">{r(step.title)}</h3>
+                <h3 className="font-bold text-lg text-[#4a2c17] mb-2">{r(step.title)}</h3>
                 <p className="text-gray-600 text-sm">{r(step.description)}</p>
               </div>
             ))}
@@ -262,7 +262,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
       />
 
       {/* CTA */}
-      <section className="bg-[#d97706] py-16 px-4 text-center text-white">
+      <section className="bg-[#c4841d] py-16 px-4 text-center text-white">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             {r(ctaData.titleTemplate || `Get Your Free {CITY} Roofing Quote`)}
@@ -272,7 +272,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
           </p>
           <a
             href={`tel:${phoneClean}`}
-            className="inline-flex items-center bg-white text-[#d97706] font-bold px-10 py-5 rounded-full text-xl hover:bg-gray-100 transition shadow-xl"
+            className="inline-flex items-center bg-white text-[#c4841d] font-bold px-10 py-5 rounded-full text-xl hover:bg-gray-100 transition shadow-xl"
           >
             {r(ctaData.primaryButton || `Call {PHONE}`)}
           </a>

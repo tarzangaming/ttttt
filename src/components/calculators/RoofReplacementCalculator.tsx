@@ -71,7 +71,7 @@ export default function RoofReplacementCalculator({ city, state, stateName, regi
 
     return (
         <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
-            <h2 className="text-2xl font-bold text-[#1e3a5f] mb-6">
+            <h2 className="text-2xl font-bold text-[#4a2c17] mb-6">
                 Roof Replacement Cost Calculator for {city}, {state}
             </h2>
 
@@ -85,7 +85,7 @@ export default function RoofReplacementCalculator({ city, state, stateName, regi
                         type="number"
                         value={roofSize}
                         onChange={(e) => setRoofSize(Number(e.target.value))}
-                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#d97706] focus:border-transparent"
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#c4841d] focus:border-transparent"
                         min="100"
                         max="50000"
                     />
@@ -99,7 +99,7 @@ export default function RoofReplacementCalculator({ city, state, stateName, regi
                     <select
                         value={roofType}
                         onChange={(e) => setRoofType(e.target.value)}
-                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#d97706] focus:border-transparent"
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#c4841d] focus:border-transparent"
                     >
                         {roofTypes.map(type => (
                             <option key={type.value} value={type.value}>{type.label}</option>
@@ -115,7 +115,7 @@ export default function RoofReplacementCalculator({ city, state, stateName, regi
                     <select
                         value={stories}
                         onChange={(e) => setStories(Number(e.target.value))}
-                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#d97706] focus:border-transparent"
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#c4841d] focus:border-transparent"
                     >
                         <option value={1}>1 Story</option>
                         <option value={2}>2 Stories</option>
@@ -131,7 +131,7 @@ export default function RoofReplacementCalculator({ city, state, stateName, regi
                     <select
                         value={complexity}
                         onChange={(e) => setComplexity(e.target.value)}
-                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#d97706] focus:border-transparent"
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-[#c4841d] focus:border-transparent"
                     >
                         <option value="simple">Simple (few angles)</option>
                         <option value="standard">Standard</option>
@@ -147,7 +147,7 @@ export default function RoofReplacementCalculator({ city, state, stateName, regi
                             type="checkbox"
                             checked={tearOff}
                             onChange={(e) => setTearOff(e.target.checked)}
-                            className="w-5 h-5 rounded border-gray-300 text-[#d97706] focus:ring-[#d97706]"
+                            className="w-5 h-5 rounded border-gray-300 text-[#c4841d] focus:ring-[#c4841d]"
                         />
                         <span className="text-gray-700">
                             Include tear-off of existing roof (adds ~$1.50/sq ft)
@@ -158,7 +158,7 @@ export default function RoofReplacementCalculator({ city, state, stateName, regi
 
             <button
                 onClick={calculateEstimate}
-                className="w-full bg-[#d97706] hover:bg-[#b45309] text-white font-bold py-4 rounded-xl text-lg transition"
+                className="w-full bg-[#c4841d] hover:bg-[#8b5e14] text-white font-bold py-4 rounded-xl text-lg transition"
             >
                 Calculate Estimate
             </button>
@@ -166,7 +166,7 @@ export default function RoofReplacementCalculator({ city, state, stateName, regi
             {/* Results */}
             {estimate && (
                 <div className="mt-8 p-6 bg-gray-50 rounded-xl">
-                    <h3 className="text-xl font-bold text-[#1e3a5f] mb-4">
+                    <h3 className="text-xl font-bold text-[#4a2c17] mb-4">
                         Estimated Cost in {city}, {stateName}
                     </h3>
                     <div className="grid md:grid-cols-3 gap-4 mb-6">
@@ -174,13 +174,13 @@ export default function RoofReplacementCalculator({ city, state, stateName, regi
                             <p className="text-sm text-gray-500 mb-1">Budget</p>
                             <p className="text-2xl font-bold text-green-600">{formatCurrency(estimate.low)}</p>
                         </div>
-                        <div className="bg-white p-4 rounded-lg text-center border-2 border-[#d97706]">
+                        <div className="bg-white p-4 rounded-lg text-center border-2 border-[#c4841d]">
                             <p className="text-sm text-gray-500 mb-1">Average</p>
-                            <p className="text-3xl font-bold text-[#1e3a5f]">{formatCurrency(estimate.mid)}</p>
+                            <p className="text-3xl font-bold text-[#4a2c17]">{formatCurrency(estimate.mid)}</p>
                         </div>
                         <div className="bg-white p-4 rounded-lg text-center border border-gray-200">
                             <p className="text-sm text-gray-500 mb-1">Premium</p>
-                            <p className="text-2xl font-bold text-[#1e3a5f]">{formatCurrency(estimate.high)}</p>
+                            <p className="text-2xl font-bold text-[#4a2c17]">{formatCurrency(estimate.high)}</p>
                         </div>
                     </div>
 
@@ -195,7 +195,7 @@ export default function RoofReplacementCalculator({ city, state, stateName, regi
                     <div className="mt-6 text-center">
                         <a
                             href={`tel:${siteConfig.phoneClean}`}
-                            className="inline-flex items-center bg-[#1e3a5f] hover:bg-[#0f1f33] text-white font-bold px-8 py-4 rounded-xl text-lg transition"
+                            className="inline-flex items-center bg-[#4a2c17] hover:bg-[#2d1a0e] text-white font-bold px-8 py-4 rounded-xl text-lg transition"
                         >
                             Get Accurate Quote: {siteConfig.phone}
                         </a>

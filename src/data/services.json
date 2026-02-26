@@ -2,28 +2,28 @@
   "serviceCategories": {
     "roofing": {
       "id": "roofing",
-      "name": "Core Roofing",
-      "description": "Essential residential roofing repair, replacement, and maintenance services."
+      "name": "Core Roofing Services",
+      "description": "Essential residential roofing repair, replacement, and maintenance to keep your home protected year-round."
     },
     "roofing-type": {
       "id": "roofing-type",
       "name": "Roofing Systems",
-      "description": "Material-specific roofing systems and installations."
+      "description": "Material-specific roofing systems and expert installations tailored to performance, style, and climate."
     },
     "commercial": {
       "id": "commercial",
       "name": "Commercial Solutions",
-      "description": "Flat roofing, coatings, and large-scale commercial systems."
+      "description": "Flat roofing, protective coatings, and large-scale commercial roofing systems built for long-term reliability."
     },
     "exterior": {
       "id": "exterior",
       "name": "Exterior Services",
-      "description": "Gutters, siding, and exterior protection services."
+      "description": "Gutters, siding, and exterior protection services designed to prevent water damage and improve curb appeal."
     },
     "construction": {
       "id": "construction",
       "name": "General Construction",
-      "description": "Additions, remodeling, and general contracting."
+      "description": "Additions, remodeling, and dependable general contracting for residential and commercial projects."
     }
   },
   "servicesByCategory": {
@@ -33,11 +33,11 @@
         "title": "New Roof Installation",
         "shortTitle": "New Roof",
         "icon": "🏠",
-        "heroTitle": "Professional Roof Installation",
-        "heroSubtitle": "Expert installation for new and existing homes.",
-        "description": "Top-rated new roof installation services from Dolimiti Steel Roofing. We install high-quality steel and metal roofing systems designed for durability and long-term performance.",
+        "heroTitle": "Professional New Roof Installation",
+        "heroSubtitle": "Expert installation for new builds and existing homes, completed with precision and care.",
+        "description": "Top-rated new roof installation from Dolimiti Steel Roofing. We install premium steel and metal roofing systems engineered for durability, efficiency, and long-term performance.",
         "metaTitle": "New Roof Installation Services | Dolimiti Steel Roofing",
-        "metaDescription": "Professional new roof installation by Dolimiti Steel Roofing. Steel, Metal, Shingle, Flat. Licensed & insured. Call today for a free estimate.",
+        "metaDescription": "Professional new roof installation by Dolimiti Steel Roofing. Steel, metal, shingle, and flat systems. Licensed & insured—call today for a free estimate.",
         "signs": [
           "New construction",
           "Severe roof damage",
@@ -49,7 +49,7 @@
           "Warranty protection",
           "Clean job site"
         ],
-        "approach": "We follow a strict installation process starting from structural inspection to the final ridge cap, ensuring a leak-proof and long-lasting roof.",
+        "approach": "We follow a proven installation process—from structural inspection through final ridge cap—to deliver a leak-resistant roof built to last.",
         "materials": [
           "Asphalt Shingles",
           "Tile",
@@ -59,7 +59,7 @@
         "faqs": [
           {
             "question": "How long does installation take?",
-            "answer": "Typically 2-5 days depending on the size and complexity of the roof."
+            "answer": "Typically 2–5 days, depending on roof size, materials, and overall project complexity."
           }
         ],
         "relatedServices": [
@@ -74,8 +74,8 @@
         "shortTitle": "Roof Repair",
         "icon": "🔧",
         "heroTitle": "Expert Roof Repair Services",
-        "heroSubtitle": "Fast, reliable patching for leaks, tile breaks, and storm damage.",
-        "description": "Professional roof repair services from Dolimiti Steel Roofing for steel, metal, shingle, and flat roofs.",
+        "heroSubtitle": "Fast, dependable repairs for leaks, broken tiles, missing shingles, and storm-related damage.",
+        "description": "Professional roof repair by Dolimiti Steel Roofing for steel, metal, shingle, and flat roofing systems—done right the first time.",
         "metaTitle": "Roof Repair Services | Dolimiti Steel Roofing",
         "metaDescription": "Fast roof repair by Dolimiti Steel Roofing for leaks, storm damage, and metal roofing issues. Licensed & insured.",
         "signs": [
@@ -96,7 +96,7 @@
         "faqs": [
           {
             "question": "How long does a repair take?",
-            "answer": "Most residential repairs are completed in 1 day."
+            "answer": "Most residential roof repairs are completed in 1 day, depending on access and the extent of damage."
           }
         ],
         "relatedServices": [
@@ -111,10 +111,10 @@
         "shortTitle": "Replacement",
         "icon": "🏠",
         "heroTitle": "Complete Roof Replacement",
-        "heroSubtitle": "Premium roofing systems built to last decades.",
-        "description": "Full roof replacement from Dolimiti Steel Roofing including tear-off, decking inspection, and premium steel or shingle installation.",
+        "heroSubtitle": "Premium roofing systems designed for decades of protection and dependable performance.",
+        "description": "Full roof replacement from Dolimiti Steel Roofing, including tear-off, decking inspection, and premium steel or shingle installation.",
         "metaTitle": "Roof Replacement Services | Dolimiti Steel Roofing",
-        "metaDescription": "Complete roof replacement by Dolimiti Steel Roofing with long-term material and workmanship warranties.",
+        "metaDescription": "Complete roof replacement by Dolimiti Steel Roofing, backed by long-term material and workmanship warranties.",
         "features": [
           "Full tear-off",
           "Deck repair",
@@ -129,7 +129,7 @@
         "faqs": [
           {
             "question": "Do you handle permits?",
-            "answer": "Yes, we manage all permits and inspections."
+            "answer": "Yes, we take care of required permits and coordinate all inspections for a smooth, compliant project."
           }
         ],
         "relatedServices": [
@@ -143,8 +143,8 @@
         "shortTitle": "Leak Repair",
         "icon": "💧",
         "heroTitle": "Emergency Roof Leak Repair",
-        "heroSubtitle": "Stop leaks fast with expert diagnosis and repair.",
-        "description": "Specialized roof leak detection and repair by Dolimiti Steel Roofing. We find the source and fix it right the first time.",
+        "heroSubtitle": "Stop leaks quickly with accurate diagnosis and professional repairs.",
+        "description": "Specialized roof leak detection and repair by Dolimiti Steel Roofing. We pinpoint the source and deliver a lasting fix—not a temporary patch.",
         "metaTitle": "Roof Leak Repair Services | Dolimiti Steel Roofing",
         "metaDescription": "Fast roof leak repair by Dolimiti Steel Roofing. Expert leak detection and permanent fixes. Licensed & insured.",
         "signs": [
@@ -165,7 +165,7 @@
         "faqs": [
           {
             "question": "Can you find hidden leaks?",
-            "answer": "Yes, we use advanced detection methods to trace leaks to their source."
+            "answer": "Yes, we use advanced detection techniques to trace hidden leaks to the true source—so the repair lasts."
           }
         ],
         "relatedServices": [
@@ -180,10 +180,10 @@
         "shortTitle": "Inspection",
         "icon": "🔍",
         "heroTitle": "Professional Roof Inspections",
-        "heroSubtitle": "Comprehensive assessments to protect your investment.",
-        "description": "Thorough roof inspection services from Dolimiti Steel Roofing. We evaluate structural integrity, identify damage, and provide detailed reports.",
+        "heroSubtitle": "Detailed evaluations that help prevent costly repairs and protect your property value.",
+        "description": "Thorough roof inspection services from Dolimiti Steel Roofing. We assess structural integrity, identify damage, and provide clear, detailed reports.",
         "metaTitle": "Roof Inspection Services | Dolimiti Steel Roofing",
-        "metaDescription": "Professional roof inspections by Dolimiti Steel Roofing. Detailed reports for insurance, real estate, and preventive maintenance.",
+        "metaDescription": "Professional roof inspections by Dolimiti Steel Roofing, with detailed reports for insurance claims, real estate transactions, and preventive maintenance.",
         "signs": [
           "Buying or selling a home",
           "After a major storm",
@@ -197,7 +197,7 @@
         "faqs": [
           {
             "question": "How often should I get my roof inspected?",
-            "answer": "At least once a year and after any major storm event."
+            "answer": "At least once per year, and after any major storm or high-wind event."
           }
         ],
         "relatedServices": [
@@ -211,10 +211,10 @@
         "shortTitle": "Storm Damage",
         "icon": "⛈️",
         "heroTitle": "Storm Damage Roof Repair",
-        "heroSubtitle": "Fast response for hail, wind, and weather damage.",
-        "description": "Expert storm damage roof repair from Dolimiti Steel Roofing. We handle insurance claims and restore your roof quickly after severe weather.",
+        "heroSubtitle": "Rapid response for hail, wind, and severe weather damage.",
+        "description": "Expert storm damage roof repair from Dolimiti Steel Roofing. We assist with insurance claims and restore your roof quickly after extreme weather.",
         "metaTitle": "Storm Damage Roof Repair | Dolimiti Steel Roofing",
-        "metaDescription": "Storm damage roof repair by Dolimiti Steel Roofing. Insurance claim assistance, hail and wind damage restoration.",
+        "metaDescription": "Storm damage roof repair by Dolimiti Steel Roofing. Insurance claim support, hail and wind damage restoration.",
         "signs": [
           "Hail dents on shingles or metal",
           "Blown-off shingles or flashing",
@@ -228,7 +228,7 @@
         "faqs": [
           {
             "question": "Do you work with insurance companies?",
-            "answer": "Yes, we handle the insurance process from documentation to final payment."
+            "answer": "Yes, we manage the insurance process from documentation through final payment to keep things simple for you."
           }
         ],
         "relatedServices": [
@@ -243,8 +243,8 @@
         "shortTitle": "Emergency",
         "icon": "🚨",
         "heroTitle": "24/7 Emergency Roof Repair",
-        "heroSubtitle": "Immediate response when you need it most.",
-        "description": "Around-the-clock emergency roof repair services from Dolimiti Steel Roofing. We respond fast to minimize damage and protect your property.",
+        "heroSubtitle": "Immediate help when your roof can’t wait.",
+        "description": "24/7 emergency roof repair from Dolimiti Steel Roofing. We respond quickly to reduce damage and secure your property.",
         "metaTitle": "Emergency Roof Repair | Dolimiti Steel Roofing",
         "metaDescription": "24/7 emergency roof repair by Dolimiti Steel Roofing. Fast response for storm damage, leaks, and structural failures.",
         "signs": [
@@ -260,7 +260,7 @@
         "faqs": [
           {
             "question": "How quickly can you respond?",
-            "answer": "We aim to be on-site within hours of your call for emergency situations."
+            "answer": "We strive to be on-site within hours of your call for urgent emergency situations."
           }
         ],
         "relatedServices": [
@@ -275,10 +275,10 @@
         "shortTitle": "Maintenance",
         "icon": "📋",
         "heroTitle": "Preventive Roof Maintenance Plans",
-        "heroSubtitle": "Extend your roof's lifespan with regular care.",
-        "description": "Scheduled roof maintenance plans from Dolimiti Steel Roofing. Regular inspections and upkeep to prevent costly repairs.",
+        "heroSubtitle": "Extend your roof’s lifespan and reduce unexpected repair costs with proactive care.",
+        "description": "Scheduled roof maintenance plans from Dolimiti Steel Roofing. Routine inspections and upkeep designed to prevent expensive repairs.",
         "metaTitle": "Roof Maintenance Plans | Dolimiti Steel Roofing",
-        "metaDescription": "Preventive roof maintenance plans by Dolimiti Steel Roofing. Scheduled inspections, cleaning, and minor repairs included.",
+        "metaDescription": "Preventive roof maintenance plans by Dolimiti Steel Roofing, including scheduled inspections, cleaning, and minor repairs.",
         "features": [
           "Scheduled inspections",
           "Gutter cleaning",
@@ -288,7 +288,7 @@
         "faqs": [
           {
             "question": "What does a maintenance plan include?",
-            "answer": "Annual inspections, debris removal, gutter cleaning, minor repairs, and priority scheduling for any issues."
+            "answer": "Annual inspections, debris removal, gutter cleaning, minor repairs, and priority scheduling when issues come up."
           }
         ],
         "relatedServices": [
@@ -305,10 +305,10 @@
         "shortTitle": "Metal",
         "icon": "🔩",
         "heroTitle": "Standing Seam Metal Roofing",
-        "heroSubtitle": "Modern, durable, and energy efficient.",
-        "description": "Standing seam and concealed fastener metal roofing systems installed by Dolimiti Steel Roofing.",
+        "heroSubtitle": "Sleek, durable, and energy-efficient protection for modern homes and buildings.",
+        "description": "Standing seam and concealed-fastener metal roofing systems professionally installed by Dolimiti Steel Roofing.",
         "metaTitle": "Metal Roofing Services | Dolimiti Steel Roofing",
-        "metaDescription": "Durable standing seam metal roofing installation from Dolimiti Steel Roofing.",
+        "metaDescription": "Durable standing seam metal roofing installation from Dolimiti Steel Roofing for long-term performance.",
         "materials": [
           "Steel",
           "Aluminum",
@@ -318,7 +318,7 @@
         "faqs": [
           {
             "question": "Is metal roofing noisy?",
-            "answer": "No, when properly installed over solid decking."
+            "answer": "No—when properly installed over solid decking with the right underlayment, it remains quiet and comfortable."
           }
         ],
         "relatedServices": [
@@ -332,10 +332,10 @@
         "shortTitle": "Shingles",
         "icon": "🛖",
         "heroTitle": "Asphalt Shingle Roofing",
-        "heroSubtitle": "Affordable and reliable roofing protection.",
-        "description": "Architectural and impact-resistant asphalt shingles installed by Dolimiti Steel Roofing.",
+        "heroSubtitle": "Cost-effective, dependable roofing protection for a wide range of home styles.",
+        "description": "Architectural and impact-resistant asphalt shingles expertly installed by Dolimiti Steel Roofing.",
         "metaTitle": "Shingle Roofing Contractors | Dolimiti Steel Roofing",
-        "metaDescription": "Expert asphalt shingle roofing installation from Dolimiti Steel Roofing.",
+        "metaDescription": "Expert asphalt shingle roofing installation from Dolimiti Steel Roofing for reliable protection and curb appeal.",
         "materials": [
           "Architectural Shingles",
           "Class 4 Impact Shingles"
@@ -343,7 +343,7 @@
         "faqs": [
           {
             "question": "How long do shingles last?",
-            "answer": "20-30 years on average."
+            "answer": "Most asphalt shingles last 20–30 years on average, depending on ventilation, climate, and maintenance."
           }
         ],
         "relatedServices": [
@@ -357,10 +357,10 @@
         "shortTitle": "Tile",
         "icon": "🏛️",
         "heroTitle": "Clay & Concrete Tile Roofing",
-        "heroSubtitle": "Timeless beauty with exceptional durability.",
-        "description": "Premium clay and concrete tile roofing installation by Dolimiti Steel Roofing. Elegant and long-lasting protection for your home.",
+        "heroSubtitle": "Classic style paired with exceptional durability and long-term value.",
+        "description": "Premium clay and concrete tile roofing installation by Dolimiti Steel Roofing for elegant, long-lasting protection.",
         "metaTitle": "Tile Roofing Installation | Dolimiti Steel Roofing",
-        "metaDescription": "Clay and concrete tile roofing by Dolimiti Steel Roofing. Beautiful, durable, and weather-resistant.",
+        "metaDescription": "Clay and concrete tile roofing by Dolimiti Steel Roofing—beautiful, durable, and weather-resistant.",
         "materials": [
           "Clay Tiles",
           "Concrete Tiles",
@@ -369,7 +369,7 @@
         "faqs": [
           {
             "question": "How long does tile roofing last?",
-            "answer": "Tile roofs can last 50-100 years with proper maintenance."
+            "answer": "Tile roofs can last 50–100 years with proper installation, ventilation, and routine maintenance."
           }
         ],
         "relatedServices": [
@@ -383,8 +383,8 @@
         "shortTitle": "Foam",
         "icon": "☁️",
         "heroTitle": "Spray Foam Roofing Systems",
-        "heroSubtitle": "Seamless insulation and waterproofing in one.",
-        "description": "Spray polyurethane foam (SPF) roofing systems from Dolimiti Steel Roofing. Energy-efficient and seamless waterproofing for flat and low-slope roofs.",
+        "heroSubtitle": "Seamless insulation and waterproofing in a single high-performance system.",
+        "description": "Spray polyurethane foam (SPF) roofing systems from Dolimiti Steel Roofing—energy-efficient, seamless, and ideal for flat and low-slope roofs.",
         "metaTitle": "Foam Roofing Installation | Dolimiti Steel Roofing",
         "metaDescription": "SPF foam roofing installation by Dolimiti Steel Roofing. Energy-efficient, seamless, and durable.",
         "materials": [
@@ -395,7 +395,7 @@
         "faqs": [
           {
             "question": "Is foam roofing energy efficient?",
-            "answer": "Yes, foam roofing provides excellent insulation, reducing heating and cooling costs significantly."
+            "answer": "Yes—foam roofing delivers outstanding insulation value, significantly reducing heating and cooling costs."
           }
         ],
         "relatedServices": [
@@ -412,10 +412,10 @@
         "shortTitle": "Commercial",
         "icon": "🏢",
         "heroTitle": "Commercial Roofing Services",
-        "heroSubtitle": "Protecting business assets with precision.",
-        "description": "Installation, replacement, and maintenance for commercial properties by Dolimiti Steel Roofing.",
+        "heroSubtitle": "Protecting your business with precision planning and proven systems.",
+        "description": "Commercial roof installation, replacement, and maintenance by Dolimiti Steel Roofing for dependable long-term performance.",
         "metaTitle": "Commercial Roofing Contractor | Dolimiti Steel Roofing",
-        "metaDescription": "Licensed commercial roofing contractor offering TPO, metal, and flat roofing systems.",
+        "metaDescription": "Licensed commercial roofing contractor providing TPO, metal, and flat roofing systems for businesses.",
         "features": [
           "Project management",
           "Safety compliance",
@@ -432,8 +432,8 @@
         "shortTitle": "Flat Roof",
         "icon": "🔲",
         "heroTitle": "Flat Roofing Systems",
-        "heroSubtitle": "TPO, EPDM, PVC, and modified bitumen solutions.",
-        "description": "Complete flat roofing installation and replacement by Dolimiti Steel Roofing for commercial and residential low-slope buildings.",
+        "heroSubtitle": "TPO, EPDM, PVC, and modified bitumen options for flat and low-slope roofs.",
+        "description": "Complete flat roof installation and replacement by Dolimiti Steel Roofing for commercial and residential low-slope properties.",
         "metaTitle": "Flat Roofing Systems | Dolimiti Steel Roofing",
         "metaDescription": "Flat roof installation by Dolimiti Steel Roofing. TPO, EPDM, PVC, and more for commercial buildings.",
         "materials": [
@@ -445,7 +445,7 @@
         "faqs": [
           {
             "question": "Which flat roof material is best?",
-            "answer": "It depends on your building and budget. TPO and PVC are popular for energy efficiency, while EPDM is cost-effective."
+            "answer": "It depends on your building, budget, and performance goals. TPO and PVC are popular for energy efficiency, while EPDM is a cost-effective, proven option."
           }
         ],
         "relatedServices": [
@@ -460,8 +460,8 @@
         "shortTitle": "Flat Repair",
         "icon": "🔧",
         "heroTitle": "Flat Roof Repair Services",
-        "heroSubtitle": "Expert repairs for ponding, leaks, and membrane damage.",
-        "description": "Specialized flat roof repair from Dolimiti Steel Roofing. We fix ponding water, membrane tears, seam failures, and flashing issues.",
+        "heroSubtitle": "Targeted repairs for ponding water, leaks, punctures, and membrane failure.",
+        "description": "Specialized flat roof repair from Dolimiti Steel Roofing. We resolve ponding water, membrane tears, seam failures, and flashing issues with lasting solutions.",
         "metaTitle": "Flat Roof Repair | Dolimiti Steel Roofing",
         "metaDescription": "Flat roof repair by Dolimiti Steel Roofing. Fix leaks, ponding, and membrane damage. Licensed & insured.",
         "signs": [
@@ -477,7 +477,7 @@
         "faqs": [
           {
             "question": "Can flat roofs be repaired instead of replaced?",
-            "answer": "Yes, many flat roof issues can be resolved with targeted repairs and coatings."
+            "answer": "Yes—many flat roof problems can be solved with targeted repairs, seam work, and protective coatings instead of full replacement."
           }
         ],
         "relatedServices": [
@@ -492,10 +492,10 @@
         "shortTitle": "Coatings",
         "icon": "🎨",
         "heroTitle": "Roof Coating Systems",
-        "heroSubtitle": "Extend your roof's life with protective coatings.",
-        "description": "Professional roof coating application by Dolimiti Steel Roofing. Silicone, acrylic, and elastomeric coatings to waterproof and extend roof life.",
+        "heroSubtitle": "Add a protective layer that helps extend roof life and improve waterproofing.",
+        "description": "Professional roof coating application by Dolimiti Steel Roofing. Silicone, acrylic, and elastomeric coatings to seal, waterproof, and extend roof life.",
         "metaTitle": "Roof Coatings | Dolimiti Steel Roofing",
-        "metaDescription": "Roof coating services by Dolimiti Steel Roofing. Silicone, acrylic, and elastomeric coatings for commercial and flat roofs.",
+        "metaDescription": "Roof coating services by Dolimiti Steel Roofing. Silicone, acrylic, and elastomeric coatings for commercial and flat roofing systems.",
         "materials": [
           "Silicone Coating",
           "Acrylic Coating",
@@ -504,7 +504,7 @@
         "faqs": [
           {
             "question": "How long do roof coatings last?",
-            "answer": "10-20 years depending on the material and application method."
+            "answer": "Typically 10–20 years, depending on coating type, prep work, and application quality."
           }
         ],
         "relatedServices": [
@@ -521,10 +521,10 @@
         "shortTitle": "Gutters",
         "icon": "🌧️",
         "heroTitle": "Seamless Gutter Installation",
-        "heroSubtitle": "Protect your foundation and landscaping.",
-        "description": "Custom seamless gutter systems from Dolimiti Steel Roofing for effective drainage and foundation protection.",
+        "heroSubtitle": "Direct water safely away to protect your foundation and landscaping.",
+        "description": "Custom seamless gutter systems from Dolimiti Steel Roofing designed for reliable drainage and long-term foundation protection.",
         "metaTitle": "Gutter Installation Services | Dolimiti Steel Roofing",
-        "metaDescription": "Seamless aluminum, copper, and steel gutter installation by Dolimiti Steel Roofing.",
+        "metaDescription": "Seamless aluminum, copper, and steel gutter installation by Dolimiti Steel Roofing for clean lines and dependable flow.",
         "materials": [
           "Aluminum",
           "Copper",
@@ -542,8 +542,8 @@
         "shortTitle": "Gutter Repair",
         "icon": "🔧",
         "heroTitle": "Gutter Repair Services",
-        "heroSubtitle": "Fix leaks, sagging, and overflow issues.",
-        "description": "Professional gutter repair by Dolimiti Steel Roofing. We fix leaking joints, sagging sections, and damaged downspouts.",
+        "heroSubtitle": "Fix leaks, sagging sections, and overflow to restore proper drainage.",
+        "description": "Professional gutter repair by Dolimiti Steel Roofing. We repair leaking joints, sagging runs, damaged downspouts, and drainage issues.",
         "metaTitle": "Gutter Repair Services | Dolimiti Steel Roofing",
         "metaDescription": "Gutter repair by Dolimiti Steel Roofing. Fix leaks, sagging, and overflow. Licensed & insured.",
         "signs": [
@@ -559,7 +559,7 @@
         "faqs": [
           {
             "question": "Is it better to repair or replace gutters?",
-            "answer": "Minor damage can be repaired, but if gutters are extensively damaged or very old, replacement is more cost-effective."
+            "answer": "Minor issues can often be repaired, but heavily damaged or aging gutters are usually more cost-effective to replace for long-term performance."
           }
         ],
         "relatedServices": [
@@ -574,8 +574,8 @@
         "shortTitle": "Guards",
         "icon": "🛡️",
         "heroTitle": "Gutter Guard Installation",
-        "heroSubtitle": "Keep debris out and water flowing.",
-        "description": "Professional gutter guard installation by Dolimiti Steel Roofing. Prevent clogs and reduce gutter maintenance.",
+        "heroSubtitle": "Block debris while keeping water flowing smoothly.",
+        "description": "Professional gutter guard installation by Dolimiti Steel Roofing to prevent clogs, reduce maintenance, and protect your drainage system.",
         "metaTitle": "Gutter Guard Installation | Dolimiti Steel Roofing",
         "metaDescription": "Gutter guard installation by Dolimiti Steel Roofing. Prevent clogs, reduce maintenance, and protect your home.",
         "materials": [
@@ -586,7 +586,7 @@
         "faqs": [
           {
             "question": "Do gutter guards really work?",
-            "answer": "Yes, quality gutter guards significantly reduce debris buildup and the need for frequent cleaning."
+            "answer": "Yes—high-quality gutter guards dramatically reduce debris buildup and help maintain consistent water flow."
           }
         ],
         "relatedServices": [
@@ -601,8 +601,8 @@
         "shortTitle": "Cleaning",
         "icon": "🧹",
         "heroTitle": "Professional Gutter Cleaning",
-        "heroSubtitle": "Prevent water damage with clean gutters.",
-        "description": "Thorough gutter cleaning services from Dolimiti Steel Roofing. Remove debris, check for damage, and ensure proper drainage.",
+        "heroSubtitle": "Prevent water damage and overflow with clean, properly flowing gutters.",
+        "description": "Complete gutter cleaning services from Dolimiti Steel Roofing. We remove debris, flush downspouts, and check for damage.",
         "metaTitle": "Gutter Cleaning Services | Dolimiti Steel Roofing",
         "metaDescription": "Professional gutter cleaning by Dolimiti Steel Roofing. Prevent overflow, ice dams, and foundation damage.",
         "features": [
@@ -613,7 +613,7 @@
         "faqs": [
           {
             "question": "How often should gutters be cleaned?",
-            "answer": "At least twice a year, in spring and fall, or more often if you have many trees nearby."
+            "answer": "At least twice a year—spring and fall—or more frequently if your home is surrounded by trees."
           }
         ],
         "relatedServices": [
@@ -628,8 +628,8 @@
         "shortTitle": "Siding",
         "icon": "🏡",
         "heroTitle": "Professional Siding Installation",
-        "heroSubtitle": "Protect and beautify your home's exterior.",
-        "description": "Quality siding installation from Dolimiti Steel Roofing. Vinyl, fiber cement, and metal siding options for lasting curb appeal and protection.",
+        "heroSubtitle": "Strengthen and enhance your home’s exterior with durable, beautiful siding.",
+        "description": "Quality siding installation from Dolimiti Steel Roofing. Vinyl, fiber cement, and metal siding options built for long-term curb appeal and protection.",
         "metaTitle": "Siding Installation Services | Dolimiti Steel Roofing",
         "metaDescription": "Professional siding installation by Dolimiti Steel Roofing. Vinyl, fiber cement, and metal options available.",
         "materials": [
@@ -641,7 +641,7 @@
         "faqs": [
           {
             "question": "What type of siding is best?",
-            "answer": "Fiber cement is the most durable, while vinyl is the most cost-effective. We help you choose based on your budget and climate."
+            "answer": "Fiber cement is the most durable, while vinyl is the most budget-friendly. We’ll recommend the best option based on your goals, climate, and budget."
           }
         ],
         "relatedServices": [
@@ -657,8 +657,8 @@
         "shortTitle": "Construction",
         "icon": "🏗️",
         "heroTitle": "General Contracting Services",
-        "heroSubtitle": "Additions, garages, and remodeling.",
-        "description": "Licensed general construction services from Dolimiti Steel Roofing for residential and commercial projects.",
+        "heroSubtitle": "Additions, garages, and remodeling built with dependable workmanship.",
+        "description": "Licensed general construction services from Dolimiti Steel Roofing for residential and commercial projects of all sizes.",
         "metaTitle": "General Construction Services | Dolimiti Steel Roofing",
         "metaDescription": "Licensed general contractor for remodeling and additions under the Dolimiti Steel Roofing brand.",
         "relatedServices": [

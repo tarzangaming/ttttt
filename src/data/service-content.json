@@ -2,7 +2,7 @@
   "templates": {
     "new-roof-installation": {
       "hero": {
-        "title": "Professional Roof Installationn in {{CITY}}, {{STATE}}",
+        "title": "Professional Roof Installationnn in {{CITY}}, {{STATE}}",
         "subheading": "High-quality roof installation using durable materials designed to withstand {{CITY}}’s climate and protect your property long-term.",
         "intro": "At {{COMPANY_NAME}}, we provide professional roof installation services in {{CITY}}, {{STATE}} for residential and commercial properties. Whether you are building a new home or replacing an outdated roofing system, our experienced team installs roofs that are strong, energy-efficient, and built to handle local weather conditions.\n\nFrom material selection to final inspection, every roof installation is completed with precision, safety, and long-term performance in mind."
       },
@@ -82,6 +82,10 @@
           "Structural concerns or sagging rooflines"
         ],
         "outro": "If unsure, call {{PHONE}} for a professional evaluation."
+      },
+      "faqs": {
+        "title": "",
+        "items": []
       }
     },
     "roof-replacement": {

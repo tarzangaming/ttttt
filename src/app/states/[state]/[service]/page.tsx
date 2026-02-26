@@ -105,10 +105,10 @@ export default async function StateServicePage({ params }: StateServicePageProps
     <div className="min-h-screen bg-white">
       <Header />
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#1e3a5f] to-[#0f1f33] text-white py-20">
+      <section className="bg-gradient-to-r from-[#4a2c17] to-[#2d1a0e] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex flex-wrap gap-3 justify-center mb-6">
-            <span className="bg-[#d97706] text-white text-xs font-bold px-3 py-1.5 rounded-full">Licensed & Insured</span>
+            <span className="bg-[#c4841d] text-white text-xs font-bold px-3 py-1.5 rounded-full">Licensed & Insured</span>
             <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Top Rated in {stateFullName}</span>
             <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Free Estimates</span>
           </div>
@@ -123,13 +123,13 @@ export default async function StateServicePage({ params }: StateServicePageProps
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`tel:${siteConfig.phoneClean}`}
-              className="bg-[#d97706] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#b45309] transition-colors"
+              className="bg-[#c4841d] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#8b5e14] transition-colors"
             >
               Call {siteConfig.phone}
             </a>
             <a
               href="#cities"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#1e3a5f] transition-colors"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#4a2c17] transition-colors"
             >
               View Cities
             </a>
@@ -142,7 +142,7 @@ export default async function StateServicePage({ params }: StateServicePageProps
         <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Welcome to <span className="font-bold text-[#1e3a5f]">{siteConfig.companyName}</span>,
+              Welcome to <span className="font-bold text-[#4a2c17]">{siteConfig.companyName}</span>,
               your trusted local roofing and construction experts delivering durable, high-quality roofing
               solutions across <span className="font-semibold">{stateFullName}</span> for <span className="font-semibold">{serviceName.toLowerCase()}</span>. We believe
               a roof is more than just a structure—it&apos;s your home&apos;s first line of defense against weather,
@@ -156,12 +156,12 @@ export default async function StateServicePage({ params }: StateServicePageProps
             </p>
 
             {/* Testimonial Quote */}
-            <div className="bg-[#1e3a5f]/5 border-l-4 border-[#d97706] rounded-r-xl p-6 my-8">
+            <div className="bg-[#4a2c17]/5 border-l-4 border-[#c4841d] rounded-r-xl p-6 my-8">
               <p className="text-lg italic text-gray-700 mb-4">
                 &quot;{siteConfig.companyName} completely upgraded our roof. The quality, workmanship,
                 and reliability exceeded our expectations—it&apos;s built to last.&quot;
               </p>
-              <p className="text-sm font-semibold text-[#1e3a5f]">
+              <p className="text-sm font-semibold text-[#4a2c17]">
                 — Satisfied Homeowner
               </p>
             </div>
@@ -173,14 +173,14 @@ export default async function StateServicePage({ params }: StateServicePageProps
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              At <span className="font-bold text-[#1e3a5f]">{siteConfig.companyName}</span>, we combine
+              At <span className="font-bold text-[#4a2c17]">{siteConfig.companyName}</span>, we combine
               premium materials, proven techniques, and local expertise to provide roofing systems that are
               durable, energy-efficient, and visually appealing. From storm protection to long-term performance,
               your peace of mind is always our priority.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-8">
-              Choose <span className="font-bold text-[#1e3a5f]">{siteConfig.companyName}</span> for
+              Choose <span className="font-bold text-[#4a2c17]">{siteConfig.companyName}</span> for
               reliable roofing services in {stateFullName}—where quality craftsmanship
               meets dependable service.
             </p>
@@ -188,7 +188,7 @@ export default async function StateServicePage({ params }: StateServicePageProps
             <div className="text-center">
               <a
                 href={`tel:${siteConfig.phoneClean}`}
-                className="inline-flex items-center bg-[#1e3a5f] hover:bg-[#2e4a6f] text-white font-bold px-8 py-3 rounded-lg text-lg transition"
+                className="inline-flex items-center bg-[#4a2c17] hover:bg-[#2e4a6f] text-white font-bold px-8 py-3 rounded-lg text-lg transition"
               >
                 <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" />
@@ -244,7 +244,7 @@ export default async function StateServicePage({ params }: StateServicePageProps
       </section>
 
       {/* CTA Section */}
-      <section className="bg-[#d97706] text-white py-16">
+      <section className="bg-[#c4841d] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Need {serviceName} Services in {stateFullName}?
@@ -256,7 +256,7 @@ export default async function StateServicePage({ params }: StateServicePageProps
           <div className="flex justify-center">
             <a
               href={`tel:${siteConfig.phoneClean}`}
-              className="bg-[#1e3a5f] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#2d5a8a] transition-colors"
+              className="bg-[#4a2c17] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#6b3d22] transition-colors"
             >
               {contentData.statePages.cta.buttonText.replace(/{STATE_NAME}/g, stateFullName).replace(/{COMPANY}/g, siteConfig.companyName).replace(/{PHONE}/g, siteConfig.phone)}
             </a>

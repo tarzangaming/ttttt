@@ -2,14 +2,14 @@
 
 :root {
   /* Dolimiti Steel Roofing Colors */
-  --color-primary: #1e3a5f;
-  --color-primary-light: #2d5a8a;
-  --color-primary-dark: #0f1f33;
-  --color-accent: #d97706;
-  --color-accent-light: #f59e0b;
-  --color-accent-dark: #b45309;
+  --color-primary: #4a2c17;
+  --color-primary-light: #6b3d22;
+  --color-primary-dark: #2d1a0e;
+  --color-accent: #c4841d;
+  --color-accent-light: #d4a24c;
+  --color-accent-dark: #8b5e14;
   --color-background: #ffffff;
-  --color-background-alt: #f8fafc;
+  --color-background-alt: #faf6f1;
   --color-foreground: #1f2937;
   --color-foreground-light: #6b7280;
 }

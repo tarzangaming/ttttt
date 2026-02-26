@@ -6,8 +6,17 @@ export { getStateUrl, isValidStateCode, STATE_CODES };
 
 const DOMAIN = siteConfig.domain;
 
-/** Canonical URL for a location (subdomain format) */
+/** URL for a location — path-based on localhost, subdomain on production */
 export function getLocationUrl(locationId: string, path = ''): string {
+  const isLocal = typeof window !== 'undefined'
+    ? window.location.hostname === 'localhost'
+    : process.env.NODE_ENV === 'development';
+
+  if (isLocal) {
+    const base = `/locations/${locationId}`;
+    return path ? `${base}/${path.replace(/^\//, '')}` : base;
+  }
+
   const base = `https://${locationId}.${DOMAIN}`;
   return path ? `${base}/${path.replace(/^\//, '')}` : base;
 }

@@ -99,13 +99,13 @@ export default async function ContactPage({ params }: LocationPageProps) {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 lg:py-32 px-4 overflow-hidden bg-gradient-to-r from-[#1e3a5f] to-[#0f1f33]">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] via-[#2d5a8a] to-[#0f1f33] opacity-90" />
+      <section className="relative py-20 md:py-28 lg:py-32 px-4 overflow-hidden bg-gradient-to-r from-[#4a2c17] to-[#2d1a0e]">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#4a2c17] via-[#6b3d22] to-[#2d1a0e] opacity-90" />
 
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="max-w-4xl text-white">
               <div className="flex flex-wrap gap-3 mb-6">
-                <span className="bg-[#d97706] text-white text-xs font-bold px-3 py-1.5 rounded-full">Licensed & Insured</span>
+                <span className="bg-[#c4841d] text-white text-xs font-bold px-3 py-1.5 rounded-full">Licensed & Insured</span>
                 <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Top Rated in {safeLocation.name}</span>
                 <span className="bg-white/20 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm">Free Estimates</span>
               </div>
@@ -120,7 +120,7 @@ export default async function ContactPage({ params }: LocationPageProps) {
               <div className="flex flex-wrap gap-4">
                 <a
                   href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
-                  className="bg-[#d97706] hover:bg-[#b45309] text-white font-bold px-8 py-4 rounded-xl text-lg transition shadow-lg inline-flex items-center gap-3 transform hover:-translate-y-1"
+                  className="bg-[#c4841d] hover:bg-[#8b5e14] text-white font-bold px-8 py-4 rounded-xl text-lg transition shadow-lg inline-flex items-center gap-3 transform hover:-translate-y-1"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -141,7 +141,7 @@ export default async function ContactPage({ params }: LocationPageProps) {
       <section id="contact" className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#4a2c17] mb-4">
               {rp(contactContent.sectionTitle)}
             </h2>
             <p className="text-xl text-gray-600">
@@ -151,19 +151,19 @@ export default async function ContactPage({ params }: LocationPageProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {contactMethods.map((method, index) => (
-              <div key={index} className={`text-center p-8 rounded-xl transition-all duration-300 ${method.highlight ? 'bg-blue-50/50 border-2 border-blue-100 hover:border-blue-300' : 'bg-gray-50 hover:bg-gray-100'}`}>
+              <div key={index} className={`text-center p-8 rounded-xl transition-all duration-300 ${method.highlight ? 'bg-amber-50/50 border-2 border-amber-100 hover:border-amber-300' : 'bg-gray-50 hover:bg-gray-100'}`}>
                 <div className="text-4xl mb-4">{method.icon}</div>
-                <h3 className="text-xl font-bold text-[#1e3a5f] mb-2">{method.title}</h3>
+                <h3 className="text-xl font-bold text-[#4a2c17] mb-2">{method.title}</h3>
                 <p className="text-gray-600 mb-4">{method.description}</p>
                 {method.action !== '#' ? (
                   <a
                     href={method.action}
-                    className={`font-bold text-lg ${method.highlight ? 'text-[#d97706] hover:text-[#b45309]' : 'text-gray-700 hover:text-gray-900'} transition`}
+                    className={`font-bold text-lg ${method.highlight ? 'text-[#c4841d] hover:text-[#8b5e14]' : 'text-gray-700 hover:text-gray-900'} transition`}
                   >
                     {method.contact}
                   </a>
                 ) : (
-                  <span className={`font-bold text-lg ${method.highlight ? 'text-[#d97706]' : 'text-gray-700'}`}>
+                  <span className={`font-bold text-lg ${method.highlight ? 'text-[#c4841d]' : 'text-gray-700'}`}>
                     {method.contact}
                   </span>
                 )}
@@ -177,7 +177,7 @@ export default async function ContactPage({ params }: LocationPageProps) {
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#4a2c17] mb-4">
               {rp(contactContent.servicesTitle)}
             </h2>
             <p className="text-xl text-gray-600">
@@ -188,7 +188,7 @@ export default async function ContactPage({ params }: LocationPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {services.map((service, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition text-center sm:text-left">
-                <span className="text-[#d97706] font-bold block mb-1">✓</span>
+                <span className="text-[#c4841d] font-bold block mb-1">✓</span>
                 <span className="text-gray-800 font-medium">{service}</span>
               </div>
             ))}
@@ -203,7 +203,7 @@ export default async function ContactPage({ params }: LocationPageProps) {
       />
 
       {/* Regular CTA Section */}
-      <section className="py-16 px-4 bg-[#1e3a5f] text-white">
+      <section className="py-16 px-4 bg-[#4a2c17] text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {rp(contactContent.cta.title)}
@@ -213,7 +213,7 @@ export default async function ContactPage({ params }: LocationPageProps) {
           </p>
           <a
             href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}
-            className="bg-[#d97706] text-white font-bold px-8 py-4 rounded-xl text-lg hover:bg-[#b45309] transition inline-block shadow-lg"
+            className="bg-[#c4841d] text-white font-bold px-8 py-4 rounded-xl text-lg hover:bg-[#8b5e14] transition inline-block shadow-lg"
           >
             Call {safeLocation.phone}
           </a>

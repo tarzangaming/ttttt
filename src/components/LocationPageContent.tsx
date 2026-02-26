@@ -107,7 +107,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
             style={{ filter: 'brightness(0.25)' }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1e3a5f]/80 to-[#0f1f33]/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#4a2c17]/80 to-[#2d1a0e]/60" />
 
         <div className="relative z-10 max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -115,7 +115,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
             <div className="text-center lg:text-left text-white">
               {/* Trust Badges */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-6">
-                <span className="bg-[#d97706] text-white px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center gap-2">
+                <span className="bg-[#c4841d] text-white px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center gap-2">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
                   Licensed & Insured
                 </span>
@@ -129,7 +129,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">
                 Expert Roofing & Construction in{' '}
-                <span className="text-[#d97706]">{location.name}</span>, {location.state}
+                <span className="text-[#c4841d]">{location.name}</span>, {location.state}
               </h1>
 
               <p className="text-lg sm:text-xl lg:text-2xl mb-4 opacity-90 leading-relaxed">
@@ -149,7 +149,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
               {/* Service Highlights */}
               <div className="bg-white/5 backdrop-blur-sm rounded-xl p-4 mb-8 border border-white/10">
                 <p className="text-sm sm:text-base opacity-90 text-center">
-                  <span className="font-bold text-[#d97706]">Comprehensive Services:</span> Roof Repair • Roof Replacement • Storm Damage • Tile Roofing •
+                  <span className="font-bold text-[#c4841d]">Comprehensive Services:</span> Roof Repair • Roof Replacement • Storm Damage • Tile Roofing •
                   Metal Roofing • Shingle Roofing • Flat Roofs • Siding • Gutters • General Construction
                 </p>
               </div>
@@ -157,8 +157,8 @@ export default function LocationPageContent({ location }: LocationPageContentPro
               {/* Key Benefits */}
               <div className="grid grid-cols-2 gap-4 mb-8 text-left">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-[#d97706]/20 rounded-full flex items-center justify-center shrink-0 mt-1">
-                    <svg className="w-5 h-5 text-[#d97706]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                  <div className="w-10 h-10 bg-[#c4841d]/20 rounded-full flex items-center justify-center shrink-0 mt-1">
+                    <svg className="w-5 h-5 text-[#c4841d]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   </div>
                   <div>
                     <span className="font-bold text-sm lg:text-base block">Free Estimates</span>
@@ -166,8 +166,8 @@ export default function LocationPageContent({ location }: LocationPageContentPro
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-[#d97706]/20 rounded-full flex items-center justify-center shrink-0 mt-1">
-                    <svg className="w-5 h-5 text-[#d97706]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                  <div className="w-10 h-10 bg-[#c4841d]/20 rounded-full flex items-center justify-center shrink-0 mt-1">
+                    <svg className="w-5 h-5 text-[#c4841d]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   </div>
                   <div>
                     <span className="font-bold text-sm lg:text-base block">24/7 Emergency</span>
@@ -175,8 +175,8 @@ export default function LocationPageContent({ location }: LocationPageContentPro
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-[#d97706]/20 rounded-full flex items-center justify-center shrink-0 mt-1">
-                    <svg className="w-5 h-5 text-[#d97706]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                  <div className="w-10 h-10 bg-[#c4841d]/20 rounded-full flex items-center justify-center shrink-0 mt-1">
+                    <svg className="w-5 h-5 text-[#c4841d]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   </div>
                   <div>
                     <span className="font-bold text-sm lg:text-base block">0% Financing</span>
@@ -184,8 +184,8 @@ export default function LocationPageContent({ location }: LocationPageContentPro
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-[#d97706]/20 rounded-full flex items-center justify-center shrink-0 mt-1">
-                    <svg className="w-5 h-5 text-[#d97706]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                  <div className="w-10 h-10 bg-[#c4841d]/20 rounded-full flex items-center justify-center shrink-0 mt-1">
+                    <svg className="w-5 h-5 text-[#c4841d]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                   </div>
                   <div>
                     <span className="font-bold text-sm lg:text-base block">Lifetime Warranty</span>
@@ -198,7 +198,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <a
                   href={`tel:${location.phone.replace(/\D/g, '')}`}
-                  className="bg-[#d97706] hover:bg-[#b45309] text-white font-bold px-8 py-4 rounded-xl text-lg transition shadow-lg inline-flex items-center justify-center gap-3"
+                  className="bg-[#c4841d] hover:bg-[#8b5e14] text-white font-bold px-8 py-4 rounded-xl text-lg transition shadow-lg inline-flex items-center justify-center gap-3"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -223,7 +223,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
                 <h3 className="text-white text-2xl font-bold mb-6 text-center">Why Choose Dolimiti?</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4 text-white">
-                    <div className="w-12 h-12 bg-[#d97706] rounded-xl flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 bg-[#c4841d] rounded-xl flex items-center justify-center shrink-0">
                       <span className="text-2xl">🏠</span>
                     </div>
                     <div>
@@ -232,7 +232,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
                     </div>
                   </div>
                   <div className="flex items-start gap-4 text-white">
-                    <div className="w-12 h-12 bg-[#d97706] rounded-xl flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 bg-[#c4841d] rounded-xl flex items-center justify-center shrink-0">
                       <span className="text-2xl">⚡</span>
                     </div>
                     <div>
@@ -241,7 +241,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
                     </div>
                   </div>
                   <div className="flex items-start gap-4 text-white">
-                    <div className="w-12 h-12 bg-[#d97706] rounded-xl flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 bg-[#c4841d] rounded-xl flex items-center justify-center shrink-0">
                       <span className="text-2xl">💰</span>
                     </div>
                     <div>
@@ -250,7 +250,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
                     </div>
                   </div>
                   <div className="flex items-start gap-4 text-white">
-                    <div className="w-12 h-12 bg-[#d97706] rounded-xl flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 bg-[#c4841d] rounded-xl flex items-center justify-center shrink-0">
                       <span className="text-2xl">🛡️</span>
                     </div>
                     <div>
@@ -270,19 +270,19 @@ export default function LocationPageContent({ location }: LocationPageContentPro
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-[#d97706] mb-2">25+</div>
+              <div className="text-3xl font-bold text-[#c4841d] mb-2">25+</div>
               <div className="text-gray-600 text-sm">Years Experience</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-[#d97706] mb-2">1000+</div>
+              <div className="text-3xl font-bold text-[#c4841d] mb-2">1000+</div>
               <div className="text-gray-600 text-sm">Happy Customers</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-[#d97706] mb-2">Free</div>
+              <div className="text-3xl font-bold text-[#c4841d] mb-2">Free</div>
               <div className="text-gray-600 text-sm">Estimates</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-[#d97706] mb-2">100%</div>
+              <div className="text-3xl font-bold text-[#c4841d] mb-2">100%</div>
               <div className="text-gray-600 text-sm">Satisfaction Guaranteed</div>
             </div>
           </div>
@@ -292,7 +292,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
       {/* Why Choose Us Section */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#1e3a5f]">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-[#4a2c17]">
             Why {location.name} Homeowners Choose Dolimiti Steel Roofing
           </h2>
 
@@ -303,7 +303,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
 
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10 mb-10">
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Welcome to <span className="font-bold text-[#1e3a5f]">Dolimiti Steel Roofing</span>,
+              Welcome to <span className="font-bold text-[#4a2c17]">Dolimiti Steel Roofing</span>,
               your trusted local roofing and construction experts delivering durable, high-quality roofing
               solutions across <span className="font-semibold">{location.name}</span>. We believe
               a roof is more than just a structure—it&apos;s your home&apos;s first line of defense against weather,
@@ -312,14 +312,14 @@ export default function LocationPageContent({ location }: LocationPageContentPro
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              At <span className="font-bold text-[#1e3a5f]">Dolimiti Steel Roofing</span>, we combine
+              At <span className="font-bold text-[#4a2c17]">Dolimiti Steel Roofing</span>, we combine
               premium materials, proven techniques, and local expertise to provide roofing systems that are
               durable, energy-efficient, and visually appealing. From storm protection to long-term performance,
               your peace of mind is always our priority.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed">
-              Choose <span className="font-bold text-[#1e3a5f]">Dolimiti Steel Roofing</span> for
+              Choose <span className="font-bold text-[#4a2c17]">Dolimiti Steel Roofing</span> for
               reliable roofing services in {location.name}—where quality craftsmanship
               meets dependable service.
             </p>
@@ -364,7 +364,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="bg-[#d97706]/10 text-[#d97706] rounded-full p-4 mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+              <div className="bg-[#c4841d]/10 text-[#c4841d] rounded-full p-4 mb-4 mx-auto w-16 h-16 flex items-center justify-center">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
@@ -373,7 +373,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
               <p className="text-gray-600">Fully licensed, bonded, and insured for your protection.</p>
             </div>
             <div className="text-center">
-              <div className="bg-[#d97706]/10 text-[#d97706] rounded-full p-4 mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+              <div className="bg-[#c4841d]/10 text-[#c4841d] rounded-full p-4 mb-4 mx-auto w-16 h-16 flex items-center justify-center">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -382,7 +382,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
               <p className="text-gray-600">Trusted by thousands of homeowners since 2000.</p>
             </div>
             <div className="text-center">
-              <div className="bg-[#d97706]/10 text-[#d97706] rounded-full p-4 mb-4 mx-auto w-16 h-16 flex items-center justify-center">
+              <div className="bg-[#c4841d]/10 text-[#c4841d] rounded-full p-4 mb-4 mx-auto w-16 h-16 flex items-center justify-center">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                 </svg>
@@ -407,14 +407,14 @@ export default function LocationPageContent({ location }: LocationPageContentPro
       />
 
       {/* CTA Section */}
-      <section className="bg-[#d97706] text-white py-16 px-4">
+      <section className="bg-[#c4841d] text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
           <p className="text-xl mb-8">Call us now for a free estimate on your roofing or construction project in {location.fullName || `${location.name}, ${location.state}`}.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`tel:${location.phone.replace(/\D/g, '')}`}
-              className="bg-[#1e3a5f] hover:bg-[#2d5a8a] text-white font-bold px-8 py-4 rounded-lg text-lg transition inline-flex items-center justify-center gap-2"
+              className="bg-[#4a2c17] hover:bg-[#6b3d22] text-white font-bold px-8 py-4 rounded-lg text-lg transition inline-flex items-center justify-center gap-2"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -423,7 +423,7 @@ export default function LocationPageContent({ location }: LocationPageContentPro
             </a>
             <Link
               href="/contact"
-              className="bg-white text-[#1e3a5f] font-bold px-8 py-4 rounded-lg text-lg hover:bg-gray-100 transition"
+              className="bg-white text-[#4a2c17] font-bold px-8 py-4 rounded-lg text-lg hover:bg-gray-100 transition"
             >
               Request Free Estimate
             </Link>

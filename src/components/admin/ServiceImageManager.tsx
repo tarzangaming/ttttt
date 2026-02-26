@@ -132,7 +132,7 @@ export default function ServiceImageManager({
 
                 {Object.entries(groupedServices).map(([category, categoryServices]) => (
                     <div key={category} className="mb-8">
-                        <h3 className="text-lg font-semibold text-[#1e3a5f] mb-4">
+                        <h3 className="text-lg font-semibold text-[#4a2c17] mb-4">
                             {categoryLabels[category] || category}
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -172,7 +172,7 @@ export default function ServiceImageManager({
                                                 setSelectedService(service.slug);
                                                 setShowImagePicker(true);
                                             }}
-                                            className="w-full bg-[#1e3a5f] hover:bg-[#2d5a8a] text-white font-medium py-2 px-4 rounded-lg transition text-sm"
+                                            className="w-full bg-[#4a2c17] hover:bg-[#6b3d22] text-white font-medium py-2 px-4 rounded-lg transition text-sm"
                                         >
                                             {currentImage ? 'Change Image' : 'Select Image'}
                                         </button>
@@ -213,7 +213,7 @@ export default function ServiceImageManager({
                                         value={customImageUrl}
                                         onChange={(e) => setCustomImageUrl(e.target.value)}
                                         placeholder="https://example.com/your-image.png"
-                                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none font-mono text-sm"
+                                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none font-mono text-sm"
                                     />
                                     <button
                                         type="button"
@@ -225,7 +225,7 @@ export default function ServiceImageManager({
                                             }
                                         }}
                                         disabled={saving || !customImageUrl.trim()}
-                                        className="bg-[#d97706] hover:bg-[#b45309] disabled:bg-gray-300 text-white font-bold py-2 px-5 rounded-lg transition whitespace-nowrap"
+                                        className="bg-[#c4841d] hover:bg-[#8b5e14] disabled:bg-gray-300 text-white font-bold py-2 px-5 rounded-lg transition whitespace-nowrap"
                                     >
                                         {saving ? 'Saving...' : 'Save URL'}
                                     </button>
@@ -236,7 +236,7 @@ export default function ServiceImageManager({
                                 placeholder="Search images..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4a2c17] focus:outline-none"
                             />
                         </div>
 
@@ -248,7 +248,7 @@ export default function ServiceImageManager({
                                         key={idx}
                                         onClick={() => handleSelectImage(img.url)}
                                         disabled={saving}
-                                        className="relative aspect-video rounded-lg overflow-hidden border-2 border-gray-200 hover:border-[#d97706] transition group disabled:opacity-50"
+                                        className="relative aspect-video rounded-lg overflow-hidden border-2 border-gray-200 hover:border-[#c4841d] transition group disabled:opacity-50"
                                     >
                                         <AdminImagePlaceholder
                                             url={img.url}

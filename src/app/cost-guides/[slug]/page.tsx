@@ -48,7 +48,7 @@ export default async function CostGuidePage(props: PageProps) {
             {/* Hero Header */}
             <section className="bg-slate-900 text-white py-20 lg:py-24">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <Link href="/cost-guides" className="inline-flex items-center text-blue-300 hover:text-blue-200 mb-8 transition-colors">
+                    <Link href="/cost-guides" className="inline-flex items-center text-amber-300 hover:text-amber-200 mb-8 transition-colors">
                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
                         Back to Cost Guides
                     </Link>
@@ -66,15 +66,15 @@ export default async function CostGuidePage(props: PageProps) {
                 <div className="lg:col-span-8">
 
                     {/* Quick Summary Card */}
-                    <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 mb-12">
-                        <h3 className="text-xl font-bold text-blue-900 mb-4">Arizona Cost Summary</h3>
+                    <div className="bg-amber-50 border border-amber-100 rounded-2xl p-8 mb-12">
+                        <h3 className="text-xl font-bold text-stone-900 mb-4">Arizona Cost Summary</h3>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                             <div className="bg-white p-4 rounded-xl shadow-sm">
                                 <span className="block text-sm text-slate-500 uppercase tracking-wide">Lowest</span>
                                 <span className="block text-2xl font-bold text-slate-900">${guide.minCost.toLocaleString()}</span>
                             </div>
-                            <div className="bg-blue-600 p-4 rounded-xl shadow-md transform scale-105">
-                                <span className="block text-sm text-blue-100 uppercase tracking-wide">Average</span>
+                            <div className="bg-amber-800 p-4 rounded-xl shadow-md transform scale-105">
+                                <span className="block text-sm text-amber-100 uppercase tracking-wide">Average</span>
                                 <span className="block text-3xl font-extrabold text-white">${guide.averageCost.toLocaleString()}</span>
                             </div>
                             <div className="bg-white p-4 rounded-xl shadow-sm">
@@ -82,7 +82,7 @@ export default async function CostGuidePage(props: PageProps) {
                                 <span className="block text-2xl font-bold text-slate-900">${guide.maxCost.toLocaleString()}</span>
                             </div>
                         </div>
-                        <p className="text-sm text-center text-blue-700 mt-6">
+                        <p className="text-sm text-center text-amber-900 mt-6">
                             *Estimates based on typical residential projects in Arizona. Actual costs vary.
                         </p>
                     </div>
@@ -142,7 +142,7 @@ export default async function CostGuidePage(props: PageProps) {
                             Stop guessing. Our estimates are free, detailed, and come with no obligation.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a href={`tel:${companyInfo.phoneClean}`} className="bg-[#d97706] hover:bg-[#b45309] text-white px-8 py-3 rounded-xl font-bold transition">
+                            <a href={`tel:${companyInfo.phoneClean}`} className="bg-[#c4841d] hover:bg-[#8b5e14] text-white px-8 py-3 rounded-xl font-bold transition">
                                 Call {companyInfo.phone}
                             </a>
                             <Link href="/contact" className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-8 py-3 rounded-xl font-bold transition">
@@ -164,7 +164,7 @@ export default async function CostGuidePage(props: PageProps) {
                             </p>
                             <a
                                 href={`tel:${companyInfo.phoneClean}`}
-                                className="flex items-center justify-center w-full py-3 bg-[#d97706] text-white font-bold rounded-lg hover:bg-[#b45309] transition mb-3"
+                                className="flex items-center justify-center w-full py-3 bg-[#c4841d] text-white font-bold rounded-lg hover:bg-[#8b5e14] transition mb-3"
                             >
                                 Call {companyInfo.phone}
                             </a>
@@ -182,8 +182,8 @@ export default async function CostGuidePage(props: PageProps) {
                             <ul className="space-y-3">
                                 {guides.filter(g => g.slug !== guide.slug).map(g => (
                                     <li key={g.slug}>
-                                        <Link href={`/cost-guides/${g.slug}`} className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center group">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mr-2 group-hover:scale-125 transition"></span>
+                                        <Link href={`/cost-guides/${g.slug}`} className="text-amber-800 hover:text-amber-950 text-sm font-medium flex items-center group">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 mr-2 group-hover:scale-125 transition"></span>
                                             {g.title}
                                         </Link>
                                     </li>

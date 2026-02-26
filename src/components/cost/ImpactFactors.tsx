@@ -12,7 +12,7 @@ export default function ImpactFactors() {
 
     return (
         <div className="py-12">
-            <h3 className="text-2xl font-bold text-[#1e3a5f] mb-8 text-center">What Affects Your Quote?</h3>
+            <h3 className="text-2xl font-bold text-[#4a2c17] mb-8 text-center">What Affects Your Quote?</h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {factors.map((f, i) => (
                     <div key={i} className="flex gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
@@ -20,7 +20,7 @@ export default function ImpactFactors() {
                             {f.icon}
                         </div>
                         <div>
-                            <h4 className="font-bold text-[#1e3a5f]">{f.title}</h4>
+                            <h4 className="font-bold text-[#4a2c17]">{f.title}</h4>
                             <p className="text-sm text-gray-600 leading-snug">{f.desc}</p>
                         </div>
                     </div>

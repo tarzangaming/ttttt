@@ -18,7 +18,7 @@ export default function PriceTierCards({ serviceName, low, high }: PriceTierCard
             name: 'Standard / Recommended',
             range: `${Math.round(low * 1.2).toLocaleString()} - ${Math.round(high * 0.9).toLocaleString()}`,
             desc: 'Architectural shingles with 30-50yr warranty. Best value for most homeowners.',
-            color: 'border-[#d97706] ring-1 ring-[#d97706] shadow-lg scale-105 z-10'
+            color: 'border-[#c4841d] ring-1 ring-[#c4841d] shadow-lg scale-105 z-10'
         },
         {
             name: 'Premium / High-End',
@@ -32,8 +32,8 @@ export default function PriceTierCards({ serviceName, low, high }: PriceTierCard
         <div className="grid md:grid-cols-3 gap-6 py-12">
             {tiers.map((tier, idx) => (
                 <div key={idx} className={`bg-white rounded-xl p-6 border ${tier.color} flex flex-col`}>
-                    <h4 className="text-lg font-bold text-[#1e3a5f] mb-2">{tier.name}</h4>
-                    <div className="text-2xl font-extrabold text-[#d97706] mb-4">${tier.range}</div>
+                    <h4 className="text-lg font-bold text-[#4a2c17] mb-2">{tier.name}</h4>
+                    <div className="text-2xl font-extrabold text-[#c4841d] mb-4">${tier.range}</div>
                     <p className="text-gray-600 text-sm mb-4 flex-grow">{tier.desc}</p>
                     <ul className="space-y-2 text-xs text-gray-500 mb-0">
                         <li className="flex gap-2"><span>✓</span> Material Warranty</li>
