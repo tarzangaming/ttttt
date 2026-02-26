@@ -2,7 +2,7 @@
   "mainWebsite": {
     "homepage": {
       "hero": {
-        "title": "Premium Steel Roofing Built to Lastl",
+        "title": "Premium Steel Roofing Built to Last",
         "subtitle": "Dolimiti Steel Roofing delivers high-performance metal roofing systems for residential and commercial properties across the USA.",
         "badge": "Specialists in Durable Steel Roofing",
         "cta": {
@@ -106,14 +106,8 @@
           "Our team specializes exclusively in metal roofing solutions, combining advanced installation techniques with premium-grade steel materials to ensure unmatched protection and performance."
         ],
         "stats": [
-          {
-            "value": "5k+",
-            "label": "Steel Roofs Installed"
-          },
-          {
-            "value": "30+",
-            "label": "States Served"
-          }
+          { "value": "5k+", "label": "Steel Roofs Installed" },
+          { "value": "30+", "label": "States Served" }
         ]
       },
       "values": [
@@ -162,18 +156,9 @@
         "subtitle": "From roof repairs to complete home renovations, {COMPANY} delivers quality craftsmanship on every project."
       },
       "categories": {
-        "roofing": {
-          "label": "Professional Roofing",
-          "title": "Roofing Services"
-        },
-        "exterior": {
-          "label": "Home Exterior",
-          "title": "Exterior Services"
-        },
-        "construction": {
-          "label": "Build & Renovate",
-          "title": "Construction & Remodeling"
-        }
+        "roofing": { "label": "Professional Roofing", "title": "Roofing Services" },
+        "exterior": { "label": "Home Exterior", "title": "Exterior Services" },
+        "construction": { "label": "Build & Renovate", "title": "Construction & Remodeling" }
       },
       "cta": {
         "title": "Ready to Get Started?",
@@ -226,37 +211,16 @@
       "subtitleTemplate": "Your trusted local metal roofing contractor for steel roof installation, replacement, and repair in {CITY}.",
       "descriptionTemplate": "At Dolimiti Steel Roofing, we provide advanced steel roofing systems for homes and businesses in {CITY}, {STATE}. Our metal roofing solutions are engineered to resist corrosion, wind, hail, and extreme temperatures while delivering long-term energy savings. Whether you need standing seam panels, corrugated steel roofing, or complete metal roof replacement, our certified installers ensure precision craftsmanship and lasting performance.",
       "badges": [
-        {
-          "icon": "✓",
-          "text": "Licensed & Insured"
-        },
-        {
-          "icon": "⭐",
-          "text": "Top Rated Service"
-        },
-        {
-          "icon": "🏆",
-          "text": "Metal Roofing Specialists"
-        }
+        { "icon": "✓", "text": "Licensed & Insured" },
+        { "icon": "⭐", "text": "Top Rated Service" },
+        { "icon": "🏆", "text": "Metal Roofing Specialists" }
       ],
       "serviceHighlights": "Steel Roof Installation • Standing Seam Roofing • Corrugated Metal Roofing • Metal Roof Replacement • Hail-Resistant Roofing • Energy-Efficient Roofing • Commercial Steel Roofing",
       "benefits": [
-        {
-          "title": "Free Estimates",
-          "subtitle": "No obligation consultations"
-        },
-        {
-          "title": "Storm Resistant",
-          "subtitle": "Built for extreme weather"
-        },
-        {
-          "title": "Energy Efficient",
-          "subtitle": "Lower cooling costs"
-        },
-        {
-          "title": "40+ Year Lifespan",
-          "subtitle": "Long-term durability"
-        }
+        { "title": "Free Estimates", "subtitle": "No obligation consultations" },
+        { "title": "Storm Resistant", "subtitle": "Built for extreme weather" },
+        { "title": "Energy Efficient", "subtitle": "Lower cooling costs" },
+        { "title": "40+ Year Lifespan", "subtitle": "Long-term durability" }
       ]
     },
     "whyChooseUs": {
@@ -270,61 +234,25 @@
     },
     "trustIndicators": {
       "stats": [
-        {
-          "value": "15+",
-          "label": "Years Metal Roofing Experience"
-        },
-        {
-          "value": "5000+",
-          "label": "Roofs Installed"
-        },
-        {
-          "value": "Free",
-          "label": "Estimates"
-        },
-        {
-          "value": "100%",
-          "label": "Customer Satisfaction"
-        }
+        { "value": "15+", "label": "Years Metal Roofing Experience" },
+        { "value": "5000+", "label": "Roofs Installed" },
+        { "value": "Free", "label": "Estimates" },
+        { "value": "100%", "label": "Customer Satisfaction" }
       ]
     },
     "features": [
-      {
-        "icon": "🛡️",
-        "title": "Licensed & Insured",
-        "description": "Certified steel roofing professionals."
-      },
-      {
-        "icon": "⚙️",
-        "title": "Metal Roofing Experts",
-        "description": "Specialized exclusively in steel roofing systems."
-      },
-      {
-        "icon": "💵",
-        "title": "Free Estimates",
-        "description": "Clear pricing with no hidden costs."
-      }
+      { "icon": "🛡️", "title": "Licensed & Insured", "description": "Certified steel roofing professionals." },
+      { "icon": "⚙️", "title": "Metal Roofing Experts", "description": "Specialized exclusively in steel roofing systems." },
+      { "icon": "💵", "title": "Free Estimates", "description": "Clear pricing with no hidden costs." }
     ],
     "process": {
       "title": "Our {CITY} Roofing Process",
       "subtitle": "Simple, transparent, and stress-free.",
       "steps": [
-        {
-          "title": "Inspection",
-          "description": "Detailed roof analysis"
-        },
-        {
-          "title": "Quote",
-          "description": "Upfront pricing, no fees"
-        },
-        {
-          "title": "Installation",
-          "description": "Fast, clean execution"
-        },
-        {
-          "title": "Warranty",
-          "description": "Long-term protection"
-        }
+        { "title": "Inspection", "description": "Detailed roof analysis" },
+        { "title": "Quote", "description": "Upfront pricing, no fees" },
+        { "title": "Installation", "description": "Fast, clean execution" },
+        { "title": "Warranty", "description": "Long-term protection" }
       ]
     },
     "cta": {
@@ -347,43 +275,19 @@
         "Today, we serve residential and commercial customers in {CITY} with a team of licensed professionals, quality materials, and unwavering dedication to excellence in every project we undertake."
       ],
       "stats": [
-        {
-          "value": "25+",
-          "label": "Years of Experience"
-        },
-        {
-          "value": "50+",
-          "label": "Expert Contractors"
-        },
-        {
-          "value": "10k+",
-          "label": "Happy Customers"
-        },
-        {
-          "value": "100%",
-          "label": "Satisfaction Guaranteed"
-        }
+        { "value": "25+", "label": "Years of Experience" },
+        { "value": "50+", "label": "Expert Contractors" },
+        { "value": "10k+", "label": "Happy Customers" },
+        { "value": "100%", "label": "Satisfaction Guaranteed" }
       ],
       "trackRecord": {
         "title": "Our Track Record in {CITY}",
         "subtitle": "Numbers that speak to our commitment and expertise",
         "items": [
-          {
-            "value": "50+",
-            "label": "Years in Business"
-          },
-          {
-            "value": "1000+",
-            "label": "Happy Customers"
-          },
-          {
-            "value": "24/7",
-            "label": "Emergency Service"
-          },
-          {
-            "value": "100%",
-            "label": "Satisfaction Guaranteed"
-          }
+          { "value": "50+", "label": "Years in Business" },
+          { "value": "1000+", "label": "Happy Customers" },
+          { "value": "24/7", "label": "Emergency Service" },
+          { "value": "100%", "label": "Satisfaction Guaranteed" }
         ]
       },
       "team": {
@@ -394,31 +298,19 @@
             "name": "Marco Dolimiti",
             "role": "Founder & Lead Contractor",
             "experience": "25+ years",
-            "specialties": [
-              "Roofing Systems",
-              "Structural Design",
-              "Project Management"
-            ]
+            "specialties": ["Roofing Systems", "Structural Design", "Project Management"]
           },
           {
             "name": "Michael Rodriguez",
             "role": "Senior Project Manager",
             "experience": "18+ years",
-            "specialties": [
-              "Commercial Roofing",
-              "Safety Compliance",
-              "Team Leadership"
-            ]
+            "specialties": ["Commercial Roofing", "Safety Compliance", "Team Leadership"]
           },
           {
             "name": "Sarah Thomas",
             "role": "Customer Success Manager",
             "experience": "12+ years",
-            "specialties": [
-              "Client Relations",
-              "Project Coordination",
-              "Warranty Services"
-            ]
+            "specialties": ["Client Relations", "Project Coordination", "Warranty Services"]
           }
         ]
       },
@@ -426,26 +318,10 @@
         "title": "Our Core Values",
         "subtitle": "What drives us to provide exceptional service in {CITY}",
         "items": [
-          {
-            "title": "Quality Craftsmanship",
-            "description": "We take pride in delivering high-quality work that stands the test of time.",
-            "icon": "🔨"
-          },
-          {
-            "title": "Customer Satisfaction",
-            "description": "Your satisfaction is our top priority. We go above and beyond to exceed your expectations.",
-            "icon": "😊"
-          },
-          {
-            "title": "Reliability",
-            "description": "Count on us to be there when you need us most, with prompt and dependable service.",
-            "icon": "⏰"
-          },
-          {
-            "title": "Integrity",
-            "description": "We provide honest, upfront pricing with no hidden fees or surprise charges.",
-            "icon": "🤝"
-          }
+          { "title": "Quality Craftsmanship", "description": "We take pride in delivering high-quality work that stands the test of time.", "icon": "🔨" },
+          { "title": "Customer Satisfaction", "description": "Your satisfaction is our top priority. We go above and beyond to exceed your expectations.", "icon": "😊" },
+          { "title": "Reliability", "description": "Count on us to be there when you need us most, with prompt and dependable service.", "icon": "⏰" },
+          { "title": "Integrity", "description": "We provide honest, upfront pricing with no hidden fees or surprise charges.", "icon": "🤝" }
         ]
       },
       "cta": {
@@ -459,25 +335,9 @@
       "sectionTitle": "Get in Touch with Our {CITY} Team",
       "sectionSubtitle": "Multiple ways to reach us for all your roofing and construction needs",
       "methods": [
-        {
-          "title": "Call Us Now",
-          "description": "Speak directly with our experts",
-          "icon": "📞",
-          "highlight": true
-        },
-        {
-          "title": "Emergency Service",
-          "description": "24/7 emergency roofing available",
-          "contactText": "Available 24/7",
-          "icon": "🚨",
-          "highlight": true
-        },
-        {
-          "title": "Service Area",
-          "description": "Serving the greater area",
-          "icon": "📍",
-          "highlight": false
-        }
+        { "title": "Call Us Now", "description": "Speak directly with our experts", "icon": "📞", "highlight": true },
+        { "title": "Emergency Service", "description": "24/7 emergency roofing available", "contactText": "Available 24/7", "icon": "🚨", "highlight": true },
+        { "title": "Service Area", "description": "Serving the greater area", "icon": "📍", "highlight": false }
       ],
       "servicesList": [
         "Roof Repair & Replacement",
@@ -506,16 +366,8 @@
       }
     },
     "servicePage": {
-      "heroBadges": [
-        "Licensed & Insured",
-        "Top Rated in {CITY}",
-        "Free Estimates"
-      ],
-      "trustBadges": [
-        "✓ Licensed ROC",
-        "✓ Fully Insured",
-        "✓ A+ Rating"
-      ],
+      "heroBadges": ["Licensed & Insured", "Top Rated in {CITY}", "Free Estimates"],
+      "trustBadges": ["✓ Licensed ROC", "✓ Fully Insured", "✓ A+ Rating"],
       "exteriorSolutionsTitle": "Complete Exterior Solutions in {CITY}",
       "relatedServicesTitle": "More Services in {CITY}",
       "relatedServicesSubtitle": "Expert exterior care for every part of your home.",

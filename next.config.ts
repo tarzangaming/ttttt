@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  serverActions: {
+    bodySizeLimit: '50mb',
+  },
+  experimental: {
+    proxyClientMaxBodySize: '50mb',
+  },
   // Configure external images (ImageKit CDN) with caching
   images: {
     remotePatterns: [

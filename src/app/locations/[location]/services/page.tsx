@@ -155,7 +155,7 @@ export default async function ServicesPage({ params }: LocationPageProps) {
               const serviceImage = imagesData.images.services[service.slug as keyof typeof imagesData.images.services];
 
               return (
-                <Link key={service.slug} href={`/${service.slug}`} className="block group h-full">
+                <Link key={service.slug} href={`/locations/${safeLocation.id}/${service.slug}`} className="block group h-full">
                   <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 group">
                     {/* Background Image */}
                     {serviceImage?.url ? (

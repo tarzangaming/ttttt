@@ -207,7 +207,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
           {allServices.slice(0, locServices.serviceCount || 6).map((service: any) => (
             <Link
               key={service.slug}
-              href={`/${service.slug}`}
+              href={`/locations/${safeLocation.id}/${service.slug}`}
               className="group bg-white rounded-xl shadow-sm hover:shadow-lg transition border border-gray-100 p-6 flex items-start gap-4"
             >
               <span className="text-3xl bg-gray-50 p-3 rounded-lg group-hover:bg-orange-50 transition">{service.icon}</span>

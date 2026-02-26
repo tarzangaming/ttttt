@@ -49,7 +49,8 @@ type TabType =
     | 'testimonials-faqs'
     | 'service-grid'
     | 'seo'
-    | 'rebrand';
+    | 'rebrand'
+    | 'chatgpt-rewrite';
 
 interface Service {
     slug: string;
@@ -117,6 +118,13 @@ export default function AdminDashboard() {
     const [heroTemplates, setHeroTemplates] = useState<any>(null);
     const [testimonialsFaqs, setTestimonialsFaqs] = useState<any>(null);
     const [serviceGridData, setServiceGridData] = useState<any>(null);
+
+    // ChatGPT Rewrite state
+    const [rewriteFile, setRewriteFile] = useState<string>('content.json');
+    const [rewriteExportData, setRewriteExportData] = useState<{textBlock: string; totalEntries: number; instructions: string[]} | null>(null);
+    const [rewriteImportText, setRewriteImportText] = useState('');
+    const [rewriteLoading, setRewriteLoading] = useState(false);
+    const [rewriteStep, setRewriteStep] = useState<'export' | 'import'>('export');
 
     useEffect(() => {
         fetchFiles();
@@ -1170,6 +1178,15 @@ export default function AdminDashboard() {
                         📝 JSON Editor
                     </button>
                     <button
+                        onClick={() => setActiveTab('chatgpt-rewrite')}
+                        className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'chatgpt-rewrite'
+                            ? 'bg-[#1e3a5f] text-white'
+                            : 'text-gray-600 hover:bg-gray-100'
+                            }`}
+                    >
+                        🤖 ChatGPT Rewrite
+                    </button>
+                    <button
                         onClick={() => setActiveTab('rebrand')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'rebrand'
                             ? 'bg-[#1e3a5f] text-white'
@@ -1436,6 +1453,244 @@ export default function AdminDashboard() {
                                 >
                                     Load Service Grid
                                 </button>
+                            </div>
+                        )}
+                    </div>
+                )}
+
+                {/* ChatGPT Rewrite Tab */}
+                {activeTab === 'chatgpt-rewrite' && (
+                    <div className="space-y-6">
+                        <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-xl p-6">
+                            <h2 className="text-2xl font-bold text-gray-800 mb-2">🤖 Safe ChatGPT Rewrite Tool</h2>
+                            <p className="text-gray-600">
+                                Safely export text content from your JSON files, rewrite it with ChatGPT, then import it back without breaking the JSON structure.
+                                Placeholders like <code className="bg-purple-100 px-2 py-1 rounded text-sm">{'{CITY}'}</code>, <code className="bg-purple-100 px-2 py-1 rounded text-sm">{'{STATE}'}</code>, <code className="bg-purple-100 px-2 py-1 rounded text-sm">{'{PHONE}'}</code> are validated on import.
+                            </p>
+                        </div>
+
+                        {/* Step 1: Choose file and export */}
+                        <div className="bg-white rounded-xl shadow-md p-6">
+                            <div className="flex items-center gap-3 mb-4">
+                                <span className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${rewriteStep === 'export' ? 'bg-[#1e3a5f] text-white' : 'bg-green-500 text-white'}`}>1</span>
+                                <h3 className="text-xl font-bold text-gray-800">Export Text for ChatGPT</h3>
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row gap-4 mb-4">
+                                <div className="flex-1">
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">Select JSON File</label>
+                                    <select
+                                        value={rewriteFile}
+                                        onChange={(e) => { setRewriteFile(e.target.value); setRewriteExportData(null); setRewriteImportText(''); setRewriteStep('export'); }}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                                    >
+                                        <option value="content.json">content.json (Main + Location page text)</option>
+                                        <option value="services.json">services.json (Service names & descriptions)</option>
+                                        <option value="service-content.json">service-content.json (Service page templates)</option>
+                                        <option value="seo.json">seo.json (SEO titles & descriptions)</option>
+                                        <option value="site.config.json">site.config.json (Company info & config)</option>
+                                        <option value="hero-content.json">hero-content.json (Hero & intro templates)</option>
+                                        <option value="location-extras.json">location-extras.json (Testimonials & FAQs)</option>
+                                        <option value="location-services.json">location-services.json (Location service grid)</option>
+                                        <option value="footer.json">footer.json (Footer content)</option>
+                                    </select>
+                                </div>
+                                <div className="flex items-end">
+                                    <button
+                                        onClick={async () => {
+                                            setRewriteLoading(true);
+                                            setMessage(null);
+                                            try {
+                                                const res = await fetch(`/api/admin/chatgpt-rewrite?file=${rewriteFile}`);
+                                                const data = await res.json();
+                                                if (data.success) {
+                                                    setRewriteExportData({ textBlock: data.textBlock, totalEntries: data.totalEntries, instructions: data.instructions });
+                                                    setRewriteStep('export');
+                                                    setMessage({ type: 'success', text: `Exported ${data.totalEntries} text entries from ${rewriteFile}` });
+                                                } else {
+                                                    setMessage({ type: 'error', text: data.error });
+                                                }
+                                            } catch {
+                                                setMessage({ type: 'error', text: 'Failed to export file' });
+                                            } finally {
+                                                setRewriteLoading(false);
+                                            }
+                                        }}
+                                        disabled={rewriteLoading}
+                                        className="bg-[#1e3a5f] hover:bg-[#2d5a8a] disabled:bg-gray-300 text-white font-bold py-3 px-8 rounded-lg transition whitespace-nowrap"
+                                    >
+                                        {rewriteLoading ? 'Exporting...' : 'Export Text'}
+                                    </button>
+                                </div>
+                            </div>
+
+                            {rewriteExportData && (
+                                <div className="space-y-4">
+                                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                                        <h4 className="font-bold text-blue-900 mb-2">Instructions for ChatGPT:</h4>
+                                        <ol className="list-decimal list-inside text-blue-800 text-sm space-y-1">
+                                            {rewriteExportData.instructions.map((inst, i) => (
+                                                <li key={i}>{inst}</li>
+                                            ))}
+                                        </ol>
+                                    </div>
+
+                                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                                        <h4 className="font-bold text-amber-900 mb-2">Suggested ChatGPT Prompt:</h4>
+                                        <div className="bg-white rounded-lg p-3 font-mono text-xs text-gray-700 border border-amber-300">
+                                            <p>Rewrite the following text entries to be more engaging and professional. Keep the exact same numbering format [1], [2], etc. Do NOT add or remove any lines. Keep all placeholders like {'{CITY}'}, {'{STATE}'}, {'{PHONE}'}, {'{COMPANY}'}, {'{COMPANY_NAME}'}, {'{{CITY}}'}, {'{{STATE}}'} exactly as they are. Only change the actual text content:</p>
+                                        </div>
+                                        <button
+                                            onClick={() => {
+                                                const prompt = `Rewrite the following text entries to be more engaging and professional. Keep the exact same numbering format [1], [2], etc. Do NOT add or remove any lines. Keep all placeholders like {CITY}, {STATE}, {PHONE}, {COMPANY}, {COMPANY_NAME}, {{CITY}}, {{STATE}} exactly as they are. Only change the actual text content:\n\n${rewriteExportData.textBlock}`;
+                                                navigator.clipboard.writeText(prompt);
+                                                setMessage({ type: 'success', text: 'Prompt + text copied to clipboard! Paste it into ChatGPT.' });
+                                            }}
+                                            className="mt-3 bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-6 rounded-lg transition text-sm"
+                                        >
+                                            Copy Prompt + Text to Clipboard
+                                        </button>
+                                    </div>
+
+                                    <div>
+                                        <div className="flex justify-between items-center mb-2">
+                                            <label className="block text-sm font-medium text-gray-700">
+                                                Exported Text ({rewriteExportData.totalEntries} entries)
+                                            </label>
+                                            <button
+                                                onClick={() => {
+                                                    navigator.clipboard.writeText(rewriteExportData.textBlock);
+                                                    setMessage({ type: 'success', text: 'Text block copied to clipboard!' });
+                                                }}
+                                                className="text-sm text-[#1e3a5f] hover:text-[#2d5a8a] font-medium"
+                                            >
+                                                Copy Text Only
+                                            </button>
+                                        </div>
+                                        <textarea
+                                            value={rewriteExportData.textBlock}
+                                            readOnly
+                                            rows={15}
+                                            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 font-mono text-sm focus:outline-none"
+                                        />
+                                    </div>
+
+                                    <div className="text-center">
+                                        <button
+                                            onClick={() => setRewriteStep('import')}
+                                            className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition"
+                                        >
+                                            I&apos;ve rewritten the text, proceed to Import →
+                                        </button>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Step 2: Import rewritten text */}
+                        {rewriteExportData && rewriteStep === 'import' && (
+                            <div className="bg-white rounded-xl shadow-md p-6">
+                                <div className="flex items-center gap-3 mb-4">
+                                    <span className="w-8 h-8 rounded-full bg-[#1e3a5f] text-white flex items-center justify-center font-bold text-sm">2</span>
+                                    <h3 className="text-xl font-bold text-gray-800">Import Rewritten Text</h3>
+                                </div>
+
+                                <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
+                                    <h4 className="font-bold text-red-900 mb-1">Before you import:</h4>
+                                    <ul className="list-disc list-inside text-red-800 text-sm space-y-1">
+                                        <li>Make sure there are exactly <strong>{rewriteExportData.totalEntries}</strong> numbered entries</li>
+                                        <li>Each line must start with <code className="bg-red-100 px-1 rounded">[N]</code> where N is the entry number</li>
+                                        <li>All placeholders ({'{CITY}'}, {'{STATE}'}, etc.) must be preserved exactly</li>
+                                        <li>A backup of the original file will be created automatically</li>
+                                    </ul>
+                                </div>
+
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                        Paste ChatGPT&apos;s rewritten text here:
+                                    </label>
+                                    <textarea
+                                        value={rewriteImportText}
+                                        onChange={(e) => setRewriteImportText(e.target.value)}
+                                        placeholder={`Paste the rewritten text from ChatGPT here...\n\nExample format:\n[1] New rewritten text for entry 1\n[2] New rewritten text for entry 2\n[3] New rewritten text for entry 3\n...`}
+                                        rows={20}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg font-mono text-sm focus:ring-2 focus:ring-[#1e3a5f] focus:outline-none"
+                                    />
+                                </div>
+
+                                {rewriteImportText.trim() && (
+                                    <div className="bg-gray-50 rounded-lg p-4 mb-4">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <span className="text-lg">🔍</span>
+                                            <span className="font-medium text-gray-700">Import Preview</span>
+                                        </div>
+                                        <p className="text-sm text-gray-600">
+                                            Detected <strong className="text-[#1e3a5f]">
+                                                {rewriteImportText.split('\n').filter(l => l.trim().match(/^\[\d+\]/)).length}
+                                            </strong> numbered entries (expected: <strong>{rewriteExportData.totalEntries}</strong>)
+                                        </p>
+                                        {rewriteImportText.split('\n').filter(l => l.trim().match(/^\[\d+\]/)).length !== rewriteExportData.totalEntries && (
+                                            <p className="text-sm text-red-600 font-medium mt-1">
+                                                Entry count mismatch! Please check the rewritten text.
+                                            </p>
+                                        )}
+                                    </div>
+                                )}
+
+                                <div className="flex gap-4">
+                                    <button
+                                        onClick={() => setRewriteStep('export')}
+                                        className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 px-6 rounded-lg transition"
+                                    >
+                                        ← Back to Export
+                                    </button>
+                                    <button
+                                        onClick={async () => {
+                                            if (!rewriteImportText.trim()) {
+                                                setMessage({ type: 'error', text: 'Please paste the rewritten text' });
+                                                return;
+                                            }
+                                            if (!confirm(`This will update "${rewriteFile}" with the rewritten text. A backup will be saved. Continue?`)) return;
+                                            setRewriteLoading(true);
+                                            setMessage(null);
+                                            try {
+                                                const res = await fetch('/api/admin/chatgpt-rewrite', {
+                                                    method: 'POST',
+                                                    headers: { 'Content-Type': 'application/json' },
+                                                    body: JSON.stringify({ fileName: rewriteFile, rewrittenText: rewriteImportText })
+                                                });
+                                                const data = await res.json();
+                                                if (data.success) {
+                                                    setMessage({ type: 'success', text: `${data.message} Backup: ${data.backupPath}` });
+                                                    setRewriteExportData(null);
+                                                    setRewriteImportText('');
+                                                    setRewriteStep('export');
+                                                    loadContentData();
+                                                    loadSeoData();
+                                                    loadServicesData();
+                                                    loadHeroTemplates();
+                                                    loadTestimonialsFaqs();
+                                                    loadServiceGrid();
+                                                    loadServiceTemplates();
+                                                } else {
+                                                    let errorMsg = data.error;
+                                                    if (data.details) {
+                                                        errorMsg += '\n' + data.details.join('\n');
+                                                    }
+                                                    setMessage({ type: 'error', text: errorMsg });
+                                                }
+                                            } catch {
+                                                setMessage({ type: 'error', text: 'Failed to import rewritten text' });
+                                            } finally {
+                                                setRewriteLoading(false);
+                                            }
+                                        }}
+                                        disabled={rewriteLoading || !rewriteImportText.trim()}
+                                        className="flex-1 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 text-white font-bold py-3 px-8 rounded-lg transition"
+                                    >
+                                        {rewriteLoading ? 'Importing & Validating...' : 'Import & Save Rewritten Text'}
+                                    </button>
+                                </div>
                             </div>
                         )}
                     </div>

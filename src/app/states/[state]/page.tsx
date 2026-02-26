@@ -220,7 +220,7 @@ export default async function StatePage({ params }: StatePageProps) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {constructionServices.map((service) => (
-              <Link key={service.slug} href={`/${service.slug}`} className="block">
+              <Link key={service.slug} href={`/states/${state}/${service.slug}`} className="block">
                 <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   <div className="h-48 bg-gradient-to-br from-[#1e3a5f] to-[#2d5a8a] flex items-center justify-center">
                     <span className="text-6xl">{service.icon}</span>

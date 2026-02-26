@@ -4,6 +4,8 @@ import path from 'path';
 import { auth } from '@/auth';
 import { ADMIN_AUTH_DISABLED } from '@/lib/admin-auth';
 
+export const maxDuration = 60;
+
 async function requireAuth() {
   if (ADMIN_AUTH_DISABLED) return true;
   const session = await auth();
@@ -112,7 +114,18 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
     try {
-        const body = await request.json();
+        let body: { fileName?: string; data?: unknown };
+        try {
+            const rawText = await request.text();
+            body = JSON.parse(rawText);
+        } catch (parseErr) {
+            const msg = parseErr instanceof Error ? parseErr.message : String(parseErr);
+            return NextResponse.json(
+                { success: false, error: `Invalid JSON in request body: ${msg}` },
+                { status: 400 }
+            );
+        }
+
         const { fileName, data } = body;
 
         if (!fileName || !data) {
@@ -154,9 +167,10 @@ export async function POST(request: NextRequest) {
         });
 
     } catch (error) {
-        console.error('Admin API Error:', error);
+        const msg = error instanceof Error ? error.message : String(error);
+        console.error('Admin API Error:', msg, error);
         return NextResponse.json(
-            { success: false, error: 'Failed to update file' },
+            { success: false, error: `Failed to update file: ${msg}` },
             { status: 500 }
         );
     }
