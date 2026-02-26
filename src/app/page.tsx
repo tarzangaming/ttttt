@@ -144,7 +144,8 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {allServices.slice(0, 9).map((service: any) => {
-              const serviceImage = imagesData.images?.services?.[service.slug as string];
+              const serviceImage =
+                ((imagesData as any).images?.services?.[service.slug as string] as any) || null;
               return (
                 <div key={service.slug} className="group relative h-[400px] w-full rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                   <Link href={`/services/${service.slug}`} className="absolute inset-0 z-20" aria-label={`View ${service.title}`} />
