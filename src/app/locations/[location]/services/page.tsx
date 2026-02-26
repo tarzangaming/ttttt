@@ -200,7 +200,11 @@ export default async function ServicesPage({ params }: LocationPageProps) {
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={imagesData.images.cta?.banner?.url || imagesData.images.defaults?.placeholder?.url || ''}
+            src={
+              ((imagesData as any).images?.cta?.banner?.url as string | undefined) ||
+              ((imagesData as any).images?.defaults?.placeholder?.url as string | undefined) ||
+              ''
+            }
             alt="Contact Bennett Construction"
             fill
             className="object-cover"
