@@ -39,12 +39,13 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function ServicesPage() {
-  const { services } = servicesData;
+  const servicesByCategory = (servicesData as any).servicesByCategory || {};
+  const allServices: any[] = Object.values(servicesByCategory).flat();
 
   // Group services by category
-  const roofingServices = services.filter(s => s.category === 'roofing');
-  const exteriorServices = services.filter(s => s.category === 'exterior');
-  const constructionServices = services.filter(s => s.category === 'construction');
+  const roofingServices = allServices.filter(s => s.category === 'roofing');
+  const exteriorServices = allServices.filter(s => s.category === 'exterior');
+  const constructionServices = allServices.filter(s => s.category === 'construction');
 
   // Helper function to get service image
   const getServiceImage = (slug: string) => {
@@ -53,7 +54,7 @@ export default function ServicesPage() {
   };
 
   // Service Card Component
-  const ServiceCard = ({ service, size = 'normal' }: { service: typeof services[0], size?: 'normal' | 'small' }) => {
+  const ServiceCard = ({ service, size = 'normal' }: { service: any; size?: 'normal' | 'small' }) => {
     const serviceImage = getServiceImage(service.slug);
     const heightClass = size === 'small' ? 'h-36' : 'h-44';
 
