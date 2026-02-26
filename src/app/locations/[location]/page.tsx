@@ -199,7 +199,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
           Complete Roofing Services in {city}
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
-          {(servicesData as any).services.slice(0, 6).map((service: any) => (
+          {(Object.values((servicesData as any).servicesByCategory || {}).flat() as any[]).slice(0, 6).map((service: any) => (
             <Link
               key={service.slug}
               href={`/${service.slug}`}

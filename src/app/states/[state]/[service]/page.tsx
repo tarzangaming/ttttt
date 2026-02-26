@@ -325,6 +325,7 @@ function getStateFullName(stateCode: string): string {
 }
 
 function getServiceName(serviceSlug: string): string {
-  const service = (servicesData as any).services.find((s: any) => s.slug === serviceSlug);
+  const allServices = Object.values((servicesData as any).servicesByCategory || {}).flat() as any[];
+  const service = allServices.find((s: any) => s.slug === serviceSlug);
   return service ? service.title : serviceSlug.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase());
 }

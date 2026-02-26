@@ -105,7 +105,7 @@ export default async function StateServicesPage({ params }: StateServicesPagePro
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {(servicesData as any).services.map((service: any) => (
+            {(Object.values((servicesData as any).servicesByCategory || {}).flat() as any[]).map((service: any) => (
               <Link key={service.slug} href={`/${service.slug}`} className="group block">
                 <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden transform group-hover:-translate-y-2 h-full flex flex-col">
                   <div className="h-48 bg-[#1e3a5f]/5 flex items-center justify-center text-6xl group-hover:scale-110 transition-transform duration-300">
