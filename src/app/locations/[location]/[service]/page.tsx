@@ -25,7 +25,17 @@ interface ServiceItem {
   features?: string[];
   faqs?: Array<{ question: string; answer: string; }>;
   relatedServices?: string[];
+  category?: string;
   [key: string]: unknown;
+}
+
+function getAllServicesFlat(): ServiceItem[] {
+  const data = servicesData as any;
+  if (data.servicesByCategory) {
+    return Object.values(data.servicesByCategory).flat() as ServiceItem[];
+  }
+  if (data.services) return data.services;
+  return [];
 }
 
 interface ServicePageProps {
@@ -39,7 +49,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const { location: locationId, service: serviceSlug } = await params;
 
   const location = getLocationById(locationId);
-  const serviceInfo = (servicesData as unknown as { services: ServiceItem[] }).services.find((s) => s.slug === serviceSlug);
+  const serviceInfo = getAllServicesFlat().find((s) => s.slug === serviceSlug);
 
   if (!location || !serviceInfo) {
     return {
@@ -70,7 +80,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const { location: locationId, service: serviceSlug } = await params;
 
   const location = getLocationById(locationId);
-  const serviceInfo = (servicesData as unknown as { services: ServiceItem[] }).services.find((s) => s.slug === serviceSlug);
+  const serviceInfo = getAllServicesFlat().find((s) => s.slug === serviceSlug);
 
   if (!location || !serviceInfo) {
     notFound();
@@ -388,7 +398,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {serviceInfo.relatedServices.map((slug: string) => {
-                  const relatedService = (servicesData as unknown as { services: ServiceItem[] }).services.find(s => s.slug === slug);
+                  const relatedService = getAllServicesFlat().find(s => s.slug === slug);
                   if (!relatedService) return null;
 
                   const serviceImage = imagesData.images.services[slug as keyof typeof imagesData.images.services];

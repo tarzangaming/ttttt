@@ -114,7 +114,7 @@ export default function StatesPage() {
       <section className="relative py-16 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src={imagesData.images.cta?.secondary?.url || imagesData.images.cta?.banner?.url || ''}
+            src={(imagesData as any).images?.cta?.secondary?.url || (imagesData as any).images?.cta?.banner?.url || ''}
             alt="CTA Background"
             fill
             className="object-cover"

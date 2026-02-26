@@ -3,6 +3,15 @@ import { headers } from 'next/headers'
 import servicesData from '@/data/services.json'
 import { getDomain, getAllStates, getAllLocations } from '@/utils/content'
 
+function getAllServicesFlat(): { slug: string }[] {
+  const data = servicesData as any;
+  if (data.servicesByCategory) {
+    return Object.values(data.servicesByCategory).flat() as { slug: string }[];
+  }
+  if (data.services) return data.services;
+  return [];
+}
+
 // Cache sitemap for 24 hours to reduce requests
 export const revalidate = 86400; // 24 hours
 
@@ -72,7 +81,7 @@ export async function GET() {
     ]
 
     // Main-domain service detail pages
-    const allServices = (servicesData as { services: { slug: string }[] }).services
+    const allServices = getAllServicesFlat()
     const mainServicePages = allServices
       .map(
         (service) => `  <url>
@@ -179,8 +188,8 @@ ${mainServicePages}
     })
 
     // State-level service detail pages (e.g. /roof-repair on the state subdomain)
-    const allServices = (servicesData as { services: { slug: string }[] }).services
-    const stateServicePages = allServices
+    const allServices2 = getAllServicesFlat()
+    const stateServicePages = allServices2
       .map(
         (service) => `  <url>
     <loc>${stateBase}/${service.slug}</loc>
@@ -208,7 +217,7 @@ ${stateServicePages}
   }
 
   // City subdomain: this subdomain's pages (home, about, contact, services, service slugs)
-  const services = (servicesData as { services: { slug: string }[] }).services
+  const services = getAllServicesFlat()
   const serviceSlugs = services.map((s) => s.slug)
 
   const mainPages = [

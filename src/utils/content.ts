@@ -248,16 +248,25 @@ export function getNearbyLocations(currentLocationId: string, state: string, lim
 }
 
 // Services
+function flattenServices(): Service[] {
+  const data = servicesData as any;
+  if (data.servicesByCategory) {
+    return Object.values(data.servicesByCategory).flat() as Service[];
+  }
+  if (data.services) return data.services;
+  return [];
+}
+
 export function getAllServices(): Service[] {
-  return servicesData.services;
+  return flattenServices();
 }
 
 export function getServiceBySlug(slug: string): Service | undefined {
-  return servicesData.services.find((s: Service) => s.slug === slug);
+  return flattenServices().find((s: Service) => s.slug === slug);
 }
 
 export function getServicesByCategory(category: string): Service[] {
-  return servicesData.services.filter((s: Service) => s.category === category);
+  return flattenServices().filter((s: Service) => s.category === category);
 }
 
 export function getServiceCategories() {
@@ -265,7 +274,7 @@ export function getServiceCategories() {
 }
 
 export function getServiceSlugs(): string[] {
-  return servicesData.services.map((s: Service) => s.slug);
+  return flattenServices().map((s: Service) => s.slug);
 }
 
 export function getRelatedServices(slug: string): Service[] {

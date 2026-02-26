@@ -193,7 +193,7 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
             </div>
             <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl skew-y-1 bg-gray-800">
               <Image
-                src={imagesData.images.gallery.projects[0]?.url || imagesData.images.services['roof-replacement'].url}
+                src={imagesData.images.gallery.projects[0]?.url || (imagesData.images.services as any)?.['roof-replacement']?.url || ''}
                 alt="USA Nationwide Roofing Project"
                 fill
                 className="object-cover opacity-90"

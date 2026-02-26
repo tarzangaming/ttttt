@@ -11,7 +11,7 @@ interface FooterProps {
 }
 
 export default function Footer({ location }: FooterProps) {
-  const ctaImage = imagesData.images.cta?.banner;
+  const ctaImage = (imagesData as any).images?.cta?.banner;
 
   return (
     <>

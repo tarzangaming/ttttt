@@ -21,6 +21,15 @@ interface ServiceItem {
   category: string;
 }
 
+function getAllServicesFlat(): ServiceItem[] {
+  const data = servicesData as any;
+  if (data.servicesByCategory) {
+    return Object.values(data.servicesByCategory).flat() as ServiceItem[];
+  }
+  if (data.services) return data.services;
+  return [];
+}
+
 interface LocationPageProps {
   params: Promise<{ location: string }>;
 }
@@ -76,7 +85,7 @@ export default async function ServicesPage({ params }: LocationPageProps) {
     zipCodes: safeLocation.zipCodes,
   });
 
-  const allServices = (servicesData as unknown as { services: ServiceItem[] }).services;
+  const allServices = getAllServicesFlat();
 
   return (
     <div className="bg-white min-h-screen flex flex-col font-sans">
