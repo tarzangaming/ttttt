@@ -20,13 +20,24 @@ interface PageProps {
     }>;
 }
 
+type ServiceItem = {
+    slug: string;
+    title: string;
+};
+
+function getAllServices(): ServiceItem[] {
+    const byCategory = (servicesData as any).servicesByCategory || {};
+    return Object.values(byCategory).flat() as ServiceItem[];
+}
+
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
     const locations = getAllLocations();
     const paths: { cityState: string; service: string }[] = [];
+    const allServices = getAllServices();
     for (const loc of locations) {
-        for (const svc of servicesData.services) {
+        for (const svc of allServices) {
             paths.push({ cityState: loc.id, service: svc.slug });
         }
     }
@@ -36,7 +47,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { cityState, service: serviceSlug } = await params;
     const location = getCityFromSlug(cityState);
-    const service = servicesData.services.find(s => s.slug === serviceSlug);
+    const service = getAllServices().find(s => s.slug === serviceSlug);
 
     if (!location || !service) return {};
 
@@ -61,7 +72,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function CostPage({ params }: PageProps) {
     const { cityState, service: serviceSlug } = await params;
     const location = getCityFromSlug(cityState);
-    const service = servicesData.services.find(s => s.slug === serviceSlug);
+    const service = getAllServices().find(s => s.slug === serviceSlug);
 
     if (!location || !service) {
         notFound();
