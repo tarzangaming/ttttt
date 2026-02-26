@@ -6,6 +6,8 @@ import Footer from '@/components/Footer';
 import { getAllLocations } from '@/utils/content';
 import { getStateUrl } from '@/utils/subdomain';
 import imagesData from '@/data/images.json';
+import siteConfig from '@/data/site.config.json';
+import contentData from '@/data/content.json';
 
 export default function StatesPage() {
   // Get all locations using the helper
@@ -49,18 +51,17 @@ export default function StatesPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/70 to-[#0f1f33]/50" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Roofing & Construction by State
+            {contentData.mainWebsite.states.hero.title}
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Professional roofing and construction services available across the United States.
-            Click on any state to view all cities we serve in that area.
+            {contentData.mainWebsite.states.hero.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:(866) 289-1750"
+              href={`tel:${siteConfig.phoneClean}`}
               className="bg-[#d97706] hover:bg-[#b45309] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
             >
-              Call (866) 289-1750
+              Call {siteConfig.phone}
             </a>
             <a
               href="#states"
@@ -124,18 +125,17 @@ export default function StatesPage() {
         <div className="absolute inset-0 bg-[#1e3a5f]/60" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Need Roofing or Construction Services?
+            {contentData.mainWebsite.states.cta.title.replace(/{PHONE}/g, siteConfig.phone)}
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Our licensed and experienced professionals are available for emergency services
-            and scheduled appointments across the United States.
+            {contentData.mainWebsite.states.cta.subtitle}
           </p>
           <div className="flex justify-center">
             <a
-              href="tel:(866) 289-1750"
+              href={`tel:${siteConfig.phoneClean}`}
               className="bg-[#d97706] hover:bg-[#b45309] text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
             >
-              Call (866) 289-1750
+              {contentData.mainWebsite.states.cta.buttonText.replace(/{PHONE}/g, siteConfig.phone)}
             </a>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import locationExtras from '@/data/location-extras.json';
+import siteConfig from '@/data/site.config.json';
 
 interface Testimonial {
   type: string;
@@ -18,8 +19,8 @@ interface LocationTestimonialsProps {
 const LocationTestimonials: React.FC<LocationTestimonialsProps> = ({
   locationName,
   stateName,
-  companyName = 'Dolimiti Steel Roofing',
-  phone = '(866) 289-1750'
+  companyName = siteConfig.companyName,
+  phone = siteConfig.phone
 }) => {
   const replacePlaceholders = (text: string) => {
     return text

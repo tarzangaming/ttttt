@@ -176,7 +176,7 @@ function generateVirtualStateLocation(slug: string, stateCode: string): Location
     zipCodes: representativeZip,
     image: getHeroImage('locations').url,
     meta: {
-      title: `Top Rated Roofing Company in ${stateName} | Dolimiti Steel Roofing`,
+      title: `Top Rated Roofing Company in ${stateName} | ${siteConfig.companyName}`,
       description: `Licensed roofing contractor serving ${stateName}. Residential & Commercial. Free Estimates. Call ${getPhone()}.`
     },
     faqs: [
@@ -438,8 +438,8 @@ export function generateLocalBusinessCitySchema(
   const template = schemaData.templates.localBusinessCity;
   return {
     ...template,
-    name: `Dolimiti Steel Roofing - ${cityName}`,
-    url: `https://${subdomain}.dolimitisteelroofing.com`,
+    name: `${siteConfig.companyName} - ${cityName}`,
+    url: `https://${subdomain}.${siteConfig.domain}`,
     address: {
       '@type': 'PostalAddress',
       addressLocality: cityName,

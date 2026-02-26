@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import locationExtras from '@/data/location-extras.json';
+import siteConfig from '@/data/site.config.json';
 
 interface FAQItem {
   question: string;
@@ -16,8 +17,8 @@ interface LocationFAQProps {
 const LocationFAQ: React.FC<LocationFAQProps> = ({
   locationName,
   stateName,
-  phone = '(866) 289-1750',
-  companyName = 'Dolimiti Steel Roofing'
+  phone = siteConfig.phone,
+  companyName = siteConfig.companyName
 }) => {
   const replacePlaceholders = (text: string) => {
     return text

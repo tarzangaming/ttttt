@@ -2,8 +2,9 @@ import { NextResponse } from 'next/server';
 import { getAllLocations } from '@/utils/content';
 import servicesData from '@/data/services.json';
 import costGuidesData from '@/data/cost-guides.json';
+import siteConfig from '@/data/site.config.json';
 
-const DOMAIN = 'https://dolimitisteelroofing.com';
+const DOMAIN = siteConfig.canonicalBase;
 
 // Cache sitemap for 24 hours to reduce requests
 export const revalidate = 86400; // 24 hours
@@ -100,7 +101,7 @@ export async function GET() {
   // Location pages (subdomain format)
   const locationPages = allLocations.map(loc =>
     `  <url>
-    <loc>https://${loc.id}.dolimitisteelroofing.com</loc>
+    <loc>https://${loc.id}.${siteConfig.domain}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -113,7 +114,7 @@ export async function GET() {
   // State pages (subdomain format)
   const statePages = uniqueStates.map(state =>
     `  <url>
-    <loc>https://${state.toLowerCase()}.dolimitisteelroofing.com</loc>
+    <loc>https://${state.toLowerCase()}.${siteConfig.domain}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

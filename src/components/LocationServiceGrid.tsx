@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import locationServicesData from '@/data/location-services.json';
 import imagesData from '@/data/images.json';
+import siteConfig from '@/data/site.config.json';
 import { getLocationUrl } from '@/utils/subdomain';
 
 interface LocationServiceGridProps {
@@ -15,8 +16,8 @@ const LocationServiceGrid: React.FC<LocationServiceGridProps> = ({
     locationId,
     locationName,
     stateName,
-    phone = '(866) 289-1750',
-    companyName = 'Dolimiti Steel Roofing'
+    phone = siteConfig.phone,
+    companyName = siteConfig.companyName
 }) => {
     const replacePlaceholders = (text: string) => {
         return text

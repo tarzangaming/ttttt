@@ -7,6 +7,8 @@ import NearbyAreasSection from '@/components/NearbyAreasSection';
 import locationsData from '@/data/locations.json';
 import { getLocationById, getLocationZipCodes, getNearbyLocations } from '@/utils/content';
 import { buildDynamicHeroHeader, buildLocationPageHeroSubtext } from '@/lib/heroSubtext';
+import siteConfig from '@/data/site.config.json';
+import contentData from '@/data/content.json';
 
 interface LocationPageProps {
   params: Promise<{ location: string }>;
@@ -18,13 +20,13 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
 
   if (!location) {
     return {
-      title: 'About Us | Dolimiti Steel Roofing',
+      title: `About Us | ${siteConfig.companyName}`,
       description: 'Learn about our expert team. We provide reliable, affordable construction and roofing services.'
     };
   }
 
   return {
-    title: `About Dolimiti Steel Roofing in ${location.name} | Trusted Local Experts`,
+    title: `About ${siteConfig.companyName} in ${location.name} | Trusted Local Experts`,
     description: `Learn about our expert team in ${location.name}. We provide reliable, affordable roofing and construction services. Licensed & Insured.`,
     keywords: [
       `about roofer ${location.name}`,
@@ -32,19 +34,19 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
       `local roofer ${location.name}`,
     ],
     openGraph: {
-      title: `About Dolimiti Steel Roofing in ${location.name}`,
+      title: `About ${siteConfig.companyName} in ${location.name}`,
       description: `Learn about our expert team in ${location.name}. Trusted roofing and construction services.`,
       type: 'website',
       locale: 'en_US',
-      siteName: 'Dolimiti Steel Roofing'
+      siteName: siteConfig.companyName
     },
     twitter: {
       card: 'summary_large_image',
-      title: `About Dolimiti Steel Roofing in ${location.name}`,
+      title: `About ${siteConfig.companyName} in ${location.name}`,
       description: `Learn about our expert team in ${location.name}. Trusted roofing and construction services.`
     },
     alternates: {
-      canonical: `https://${location.id}.dolimitisteelroofing.com/about`
+      canonical: `https://${location.id}.${siteConfig.domain}/about`
     }
   };
 }
@@ -60,9 +62,11 @@ export default async function AboutPage({ params }: LocationPageProps) {
   // Safe location object
   const safeLocation = {
     ...location,
-    phone: location.phone || '(866) 289-1750',
+    phone: location.phone || siteConfig.phone,
     zipCodes: location.zipCodes || []
   };
+
+  function rp(s: string) { return s.replace(/{CITY}/g, safeLocation.name).replace(/{STATE}/g, safeLocation.state).replace(/{COMPANY}/g, siteConfig.companyName).replace(/{PHONE}/g, siteConfig.phone); }
 
   const zipCodes = getLocationZipCodes(safeLocation);
   const nearbyLocations = getNearbyLocations(safeLocation.id, safeLocation.state);
@@ -80,49 +84,9 @@ export default async function AboutPage({ params }: LocationPageProps) {
     zipCodes: safeLocation.zipCodes,
   });
 
-  const teamMembers = [
-    {
-      name: 'Marco Dolimiti',
-      role: 'Founder & Lead Contractor',
-      experience: '25+ years',
-      specialties: ['Roofing Systems', 'Structural Design', 'Project Management']
-    },
-    {
-      name: 'Michael Rodriguez',
-      role: 'Senior Project Manager',
-      experience: '18+ years',
-      specialties: ['Commercial Roofing', 'Safety Compliance', 'Team Leadership']
-    },
-    {
-      name: 'Sarah Thomas',
-      role: 'Customer Success Manager',
-      experience: '12+ years',
-      specialties: ['Client Relations', 'Project Coordination', 'Warranty Services']
-    }
-  ];
-
-  const values = [
-    {
-      title: 'Quality Craftsmanship',
-      description: 'We take pride in delivering high-quality work that stands the test of time.',
-      icon: '🔨'
-    },
-    {
-      title: 'Customer Satisfaction',
-      description: 'Your satisfaction is our top priority. We go above and beyond to exceed your expectations.',
-      icon: '😊'
-    },
-    {
-      title: 'Reliability',
-      description: 'Count on us to be there when you need us most, with prompt and dependable service.',
-      icon: '⏰'
-    },
-    {
-      title: 'Integrity',
-      description: 'We provide honest, upfront pricing with no hidden fees or surprise charges.',
-      icon: '🤝'
-    }
-  ];
+  const aboutData = contentData.locationPages.about;
+  const teamMembers = aboutData.team.members;
+  const values = aboutData.values.items;
 
   return (
     <div className="bg-white min-h-screen flex flex-col font-sans">
@@ -171,30 +135,14 @@ export default async function AboutPage({ params }: LocationPageProps) {
       <section className="py-20 px-4 bg-gray-50 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center group">
-              <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="text-4xl md:text-5xl font-bold mb-2 text-[#1e3a5f]">25+</div>
-                <div className="text-sm md:text-base text-gray-600">Years of Experience</div>
+            {aboutData.stats.map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                  <div className="text-4xl md:text-5xl font-bold mb-2 text-[#1e3a5f]">{stat.value}</div>
+                  <div className="text-sm md:text-base text-gray-600">{stat.label}</div>
+                </div>
               </div>
-            </div>
-            <div className="text-center group">
-              <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="text-4xl md:text-5xl font-bold mb-2 text-[#1e3a5f]">50+</div>
-                <div className="text-sm md:text-base text-gray-600">Expert Contractors</div>
-              </div>
-            </div>
-            <div className="text-center group">
-              <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="text-4xl md:text-5xl font-bold mb-2 text-[#1e3a5f]">10k+</div>
-                <div className="text-sm md:text-base text-gray-600">Happy Customers</div>
-              </div>
-            </div>
-            <div className="text-center group">
-              <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="text-4xl md:text-5xl font-bold mb-2 text-[#1e3a5f]">100%</div>
-                <div className="text-sm md:text-base text-gray-600">Satisfaction Guaranteed</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -203,9 +151,9 @@ export default async function AboutPage({ params }: LocationPageProps) {
       <section id="about" className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Story & Values</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">{aboutData.sectionTitle}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover the journey that made us the most trusted name in roofing and construction in {safeLocation.name}
+              {rp(aboutData.sectionSubtitle)}
             </p>
           </div>
 
@@ -213,21 +161,14 @@ export default async function AboutPage({ params }: LocationPageProps) {
             <div className="p-8 md:p-12">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                  <h3 className="text-3xl font-bold text-[#1e3a5f] mb-6">Excellence in {safeLocation.name}, {safeLocation.state}</h3>
+                  <h3 className="text-3xl font-bold text-[#1e3a5f] mb-6">{rp(aboutData.storyTitle)}</h3>
                   <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
-                    <p>
-                      Dolimiti Steel Roofing began with a simple mission: to provide honest, reliable roofing and construction services in {safeLocation.name} and surrounding areas. What started as a small operation has grown into one of the most trusted names in the industry throughout {safeLocation.state}.
-                    </p>
-                    <p>
-                      Over the years, we&apos;ve witnessed the evolution of construction technology and materials. Through it all, we&apos;ve maintained our commitment to quality, integrity, and customer satisfaction while expanding our reach to serve communities throughout the region.
-                    </p>
-                    <p>
-                      Today, we serve residential and commercial customers in {safeLocation.name} with a team of licensed professionals, quality materials, and unwavering dedication to excellence in every project we undertake.
-                    </p>
+                    {aboutData.storyParagraphs.map((paragraph, index) => (
+                      <p key={index}>{rp(paragraph)}</p>
+                    ))}
                   </div>
                 </div>
                 <div className="relative h-full min-h-[400px]">
-                  {/* Placeholder for About Image - could use a generic construction image if no specific one available */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] to-[#2d5a8a] rounded-2xl flex items-center justify-center text-white">
                     <div className="text-center p-8">
                       <span className="text-6xl mb-4 block">🏗️</span>
@@ -246,30 +187,20 @@ export default async function AboutPage({ params }: LocationPageProps) {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Track Record in {location.name}
+              {rp(aboutData.trackRecord.title)}
             </h2>
             <p className="text-xl text-gray-600">
-              Numbers that speak to our commitment and expertise
+              {rp(aboutData.trackRecord.subtitle)}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <div className="text-4xl font-bold text-blue-700 mb-2">50+</div>
-              <div className="text-gray-600">Years in Business</div>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <div className="text-4xl font-bold text-blue-700 mb-2">1000+</div>
-              <div className="text-gray-600">Happy Customers</div>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <div className="text-4xl font-bold text-blue-700 mb-2">24/7</div>
-              <div className="text-gray-600">Emergency Service</div>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <div className="text-4xl font-bold text-blue-700 mb-2">100%</div>
-              <div className="text-gray-600">Satisfaction Guaranteed</div>
-            </div>
+            {aboutData.trackRecord.items.map((item, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
+                <div className="text-4xl font-bold text-blue-700 mb-2">{item.value}</div>
+                <div className="text-gray-600">{item.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -279,10 +210,10 @@ export default async function AboutPage({ params }: LocationPageProps) {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Meet Our Expert Team
+              {aboutData.team.title}
             </h2>
             <p className="text-xl text-gray-600">
-              Licensed professionals dedicated to serving {location.name}
+              {rp(aboutData.team.subtitle)}
             </p>
           </div>
 
@@ -313,10 +244,10 @@ export default async function AboutPage({ params }: LocationPageProps) {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Core Values
+              {aboutData.values.title}
             </h2>
             <p className="text-xl text-gray-600">
-              What drives us to provide exceptional service in {location.name}
+              {rp(aboutData.values.subtitle)}
             </p>
           </div>
 
@@ -344,19 +275,19 @@ export default async function AboutPage({ params }: LocationPageProps) {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Ready to Experience the Dolimiti Steel Roofing Difference?
+              {rp(aboutData.cta.title)}
             </h2>
             <p className="text-xl text-gray-600">
-              Join thousands of satisfied customers in {location.name} who trust us with their roofing needs
+              {rp(aboutData.cta.subtitle)}
             </p>
           </div>
 
           <div className="bg-blue-50 rounded-lg p-8 text-center">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              From emergency repairs to new installations, we&apos;re here to help
+              {rp(aboutData.cta.bodyTitle)}
             </h3>
             <p className="text-lg text-gray-600 mb-6">
-              Contact us today for reliable, professional services in {location.name}, {location.state}. We&apos;re available 24/7 for emergency calls and scheduled appointments.
+              {rp(aboutData.cta.bodyText)}
             </p>
             <a
               href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}

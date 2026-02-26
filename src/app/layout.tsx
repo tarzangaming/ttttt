@@ -5,6 +5,7 @@ import Script from "next/script";
 import "./globals.css";
 
 import { getPageSEOFromFile } from "@/lib/seo-server";
+import siteConfig from "@/data/site.config.json";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +17,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://dolimitisteelroofing.com";
+const SITE_URL = siteConfig.canonicalBase;
 
 const homeSeo = getPageSEOFromFile("home");
 
@@ -24,10 +25,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title:
     homeSeo?.title ||
-    "Expert Roofing & Construction Services | Dolimiti Steel Roofing",
+    `Expert Roofing & Construction Services | ${siteConfig.companyName}`,
   description:
     homeSeo?.description ||
-    "Dolimiti Steel Roofing provides professional roofing, siding, gutters, and construction services.",
+    `${siteConfig.companyName} provides professional roofing, siding, gutters, and construction services.`,
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
@@ -41,12 +42,12 @@ export const metadata: Metadata = {
   openGraph: {
     title:
       homeSeo?.title ||
-      "Expert Roofing & Construction Services | Dolimiti Steel Roofing",
+      `Expert Roofing & Construction Services | ${siteConfig.companyName}`,
     description:
       homeSeo?.description ||
-      "Dolimiti Steel Roofing provides professional roofing, siding, gutters, and construction services.",
+      `${siteConfig.companyName} provides professional roofing, siding, gutters, and construction services.`,
     url: SITE_URL,
-    siteName: "Dolimiti Steel Roofing",
+    siteName: siteConfig.companyName,
     locale: "en_US",
     type: "website",
   },
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title:
       homeSeo?.title ||
-      "Expert Roofing & Construction Services | Dolimiti Steel Roofing",
+      `Expert Roofing & Construction Services | ${siteConfig.companyName}`,
     description:
       homeSeo?.description ||
       "Professional roofing, siding, gutters, and construction services.",
@@ -70,12 +71,12 @@ export default function RootLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Dolimiti Steel Roofing",
+    name: siteConfig.companyName,
     url: SITE_URL,
-    logo: "https://dolimitisteelroofing.com/images/logo.png",
+    logo: `${siteConfig.canonicalBase}/images/logo.png`,
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+1-866-289-1750",
+      telephone: `+1${siteConfig.phoneClean}`,
       contactType: "customer service",
       areaServed: "US",
       availableLanguage: "English",
@@ -85,10 +86,10 @@ export default function RootLayout({
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "RoofingContractor",
-    name: "Dolimiti Steel Roofing",
-    image: "https://dolimitisteelroofing.com/images/logo.png",
+    name: siteConfig.companyName,
+    image: `${siteConfig.canonicalBase}/images/logo.png`,
     url: SITE_URL,
-    telephone: "+1-866-289-1750",
+    telephone: `+1${siteConfig.phoneClean}`,
     priceRange: "$$",
     openingHoursSpecification: [
       {

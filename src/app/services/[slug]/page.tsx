@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
 import servicesData from '@/data/services.json';
 import imagesData from '@/data/images.json';
+import siteConfig from '@/data/site.config.json';
 import { getExtendedServiceContent, replacePlaceholders } from '@/utils/content';
 import { buildHeroSubtext, buildIntroContent } from '@/lib/heroSubtext';
 import LocationServiceGrid from '@/components/LocationServiceGrid';
@@ -78,14 +79,14 @@ export default async function ServicePage({ params }: ServicePageProps) {
         id: 'national',
         name: 'near me', // "Roofing near me"
         state: 'USA',
-        phone: '(866) 289-1750'
+        phone: siteConfig.phone
     };
 
     const replacements = {
         CITY: safeLocation.name,
         STATE: safeLocation.state,
         PHONE: safeLocation.phone,
-        COMPANY_NAME: 'Dolimiti Steel Roofing'
+        COMPANY_NAME: siteConfig.companyName
     };
 
     const extendedContent = getExtendedServiceContent(slug);

@@ -3,18 +3,32 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import imagesData from '@/data/images.json';
+import siteConfig from '@/data/site.config.json';
+
+const navLinks = (siteConfig as any).navigation?.main || [
+  { href: "/", label: "Home" },
+  { href: "/locations", label: "Locations", hideOnSubdomain: true },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" }
+];
+
+const ctaButton = (siteConfig as any).navigation?.ctaButton || { href: "/contact", label: "Get a Quote" };
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSubDomain, setIsSubDomain] = useState(false);
 
   const logoImage = imagesData.images.defaults?.logo;
+  const phone = siteConfig.phone;
+  const phoneClean = siteConfig.phoneClean;
+  const companyName = siteConfig.companyName;
+  const shortName = siteConfig.shortName;
+  const domain = siteConfig.domain;
 
   useEffect(() => {
-    // Check if we're on a sub-domain (not main domain - non-www canonical)
     const hostname = window.location.hostname;
-    const isSub = hostname !== 'dolimitisteelroofing.com' &&
-      hostname.includes('.dolimitisteelroofing.com');
+    const isSub = hostname !== domain && hostname.endsWith(`.${domain}`);
     setIsSubDomain(isSub);
   }, []);
 
@@ -33,7 +47,7 @@ export default function Header() {
                 <div className="relative h-12 w-40 md:h-14 md:w-48">
                   <Image
                     src={logoImage.url}
-                    alt={logoImage.alt || 'Dolimiti Steel Roofing'}
+                    alt={logoImage.alt || companyName}
                     fill
                     className="object-contain"
                     priority
@@ -48,7 +62,7 @@ export default function Header() {
                     </svg>
                   </div>
                   <div className="hidden sm:block">
-                    <div className="text-[#1e3a5f] font-bold text-lg leading-tight">Dolimiti</div>
+                    <div className="text-[#1e3a5f] font-bold text-lg leading-tight">{shortName}</div>
                     <div className="text-[#d97706] text-xs font-semibold">Construction & Roofing</div>
                   </div>
                 </div>
@@ -56,49 +70,36 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Navigation Menu - Desktop Only */}
+          {/* Navigation Menu - Desktop */}
           <nav className="hidden md:flex space-x-6">
-            <Link href="/" className="text-gray-700 hover:text-[#1e3a5f] px-4 py-2 text-base font-semibold transition-all duration-300 hover:bg-gray-50 rounded-lg relative group">
-              <span className="relative z-10">Home</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/10 to-[#1e3a5f]/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </Link>
-            {!isSubDomain && (
-              <Link href="/locations" className="text-gray-700 hover:text-[#1e3a5f] px-4 py-2 text-base font-semibold transition-all duration-300 hover:bg-gray-50 rounded-lg relative group">
-                <span className="relative z-10">Locations</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/10 to-[#1e3a5f]/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </Link>
-            )}
-            <Link href="/services" className="text-gray-700 hover:text-[#1e3a5f] px-4 py-2 text-base font-semibold transition-all duration-300 hover:bg-gray-50 rounded-lg relative group">
-              <span className="relative z-10">Services</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/10 to-[#1e3a5f]/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </Link>
-            <Link href="/about" className="text-gray-700 hover:text-[#1e3a5f] px-4 py-2 text-base font-semibold transition-all duration-300 hover:bg-gray-50 rounded-lg relative group">
-              <span className="relative z-10">About</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/10 to-[#1e3a5f]/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-[#1e3a5f] px-4 py-2 text-base font-semibold transition-all duration-300 hover:bg-gray-50 rounded-lg relative group">
-              <span className="relative z-10">Contact</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/10 to-[#1e3a5f]/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </Link>
+            {navLinks.map((link: any) => {
+              if (link.hideOnSubdomain && isSubDomain) return null;
+              return (
+                <Link key={link.href} href={link.href} className="text-gray-700 hover:text-[#1e3a5f] px-4 py-2 text-base font-semibold transition-all duration-300 hover:bg-gray-50 rounded-lg relative group">
+                  <span className="relative z-10">{link.label}</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/10 to-[#1e3a5f]/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* CTA Buttons - Desktop Only */}
+          {/* CTA Buttons - Desktop */}
           <div className="hidden md:flex items-center gap-3">
             <Link
-              href="/contact"
+              href={ctaButton.href}
               className="bg-[#1e3a5f] text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-[#2d5a8a] transition flex items-center"
             >
-              Get a Quote
+              {ctaButton.label}
             </Link>
-            <a href="tel:8662891750" className="bg-[#d97706] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#b45309] transition flex items-center">
+            <a href={`tel:${phoneClean}`} className="bg-[#d97706] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#b45309] transition flex items-center">
               <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
-              <span>(866) 289-1750</span>
+              <span>{phone}</span>
             </a>
           </div>
 
-          {/* Mobile Menu Button - Mobile Only */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={toggleMobileMenu}
@@ -118,64 +119,40 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu - Mobile Only */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
-              <Link
-                href="/"
-                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#1e3a5f] hover:bg-gray-50 rounded-md transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-              {!isSubDomain && (
-                <Link
-                  href="/locations"
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#1e3a5f] hover:bg-gray-50 rounded-md transition-colors duration-200"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Locations
-                </Link>
-              )}
-              <Link
-                href="/services"
-                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#1e3a5f] hover:bg-gray-50 rounded-md transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Services
-              </Link>
-              <Link
-                href="/about"
-                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#1e3a5f] hover:bg-gray-50 rounded-md transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#1e3a5f] hover:bg-gray-50 rounded-md transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
+              {navLinks.map((link: any) => {
+                if (link.hideOnSubdomain && isSubDomain) return null;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#1e3a5f] hover:bg-gray-50 rounded-md transition-colors duration-200"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
               <div className="pt-2 border-t border-gray-200 space-y-2">
                 <Link
-                  href="/contact"
+                  href={ctaButton.href}
                   className="block px-3 py-3 text-base font-semibold bg-[#1e3a5f] text-white rounded-md hover:bg-[#2d5a8a] transition-colors duration-200 text-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  Get a Quote
+                  {ctaButton.label}
                 </Link>
                 <a
-                  href="tel:8662891750"
+                  href={`tel:${phoneClean}`}
                   className="block px-3 py-2 text-base font-medium bg-[#d97706] text-white rounded-md hover:bg-[#b45309] transition-colors duration-200 text-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <svg className="w-4 h-4 mr-2 inline" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
-                  (866) 289-1750
+                  {phone}
                 </a>
               </div>
             </div>

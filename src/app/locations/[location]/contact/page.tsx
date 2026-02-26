@@ -6,6 +6,8 @@ import NearbyAreasSection from '@/components/NearbyAreasSection';
 import locationsData from '@/data/locations.json';
 import { getLocationById, getLocationZipCodes, getNearbyLocations } from '@/utils/content';
 import { buildDynamicHeroHeader, buildLocationPageHeroSubtext } from '@/lib/heroSubtext';
+import siteConfig from '@/data/site.config.json';
+import contentData from '@/data/content.json';
 
 interface LocationPageProps {
   params: Promise<{ location: string }>;
@@ -17,14 +19,14 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
 
   if (!location) {
     return {
-      title: 'Contact Us | Dolimiti Steel Roofing',
+      title: `Contact Us | ${siteConfig.companyName}`,
       description: 'Need roofing help? Contact our team today for fast, affordable services.'
     };
   }
 
   return {
-    title: `Contact Roofers in ${location.name} | Dolimiti Steel Roofing`,
-    description: `Need roofing or construction help in ${location.name}? Contact our team today for free estimates and 24/7 emergency service. Call ${location.phone || '(866) 289-1750'}.`,
+    title: `Contact Roofers in ${location.name} | ${siteConfig.companyName}`,
+    description: `Need roofing or construction help in ${location.name}? Contact our team today for free estimates and 24/7 emergency service. Call ${location.phone || siteConfig.phone}.`,
     keywords: [
       `contact roofer ${location.name}`,
       `roofer near me ${location.name}`,
@@ -34,14 +36,14 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
       `roofing contractor ${location.name}`,
     ],
     openGraph: {
-      title: `Contact Roofers in ${location.name} | Dolimiti Steel Roofing`,
+      title: `Contact Roofers in ${location.name} | ${siteConfig.companyName}`,
       description: `Need roofing help in ${location.name}? Contact our team today for fast, affordable services.`,
       type: 'website',
       locale: 'en_US',
-      siteName: 'Dolimiti Steel Roofing'
+      siteName: siteConfig.companyName
     },
     alternates: {
-      canonical: `https://${location.id}.dolimitisteelroofing.com/contact`
+      canonical: `https://${location.id}.${siteConfig.domain}/contact`
     }
   };
 }
@@ -57,9 +59,11 @@ export default async function ContactPage({ params }: LocationPageProps) {
   // Safe location object
   const safeLocation = {
     ...location,
-    phone: location.phone || '(866) 289-1750',
+    phone: location.phone || siteConfig.phone,
     zipCodes: location.zipCodes || []
   };
+
+  function rp(s: string) { return s.replace(/{CITY}/g, safeLocation.name).replace(/{STATE}/g, safeLocation.state).replace(/{COMPANY}/g, siteConfig.companyName).replace(/{PHONE}/g, siteConfig.phone); }
 
   const zipCodes = getLocationZipCodes(safeLocation);
   const nearbyLocations = getNearbyLocations(safeLocation.id, safeLocation.state);
@@ -77,43 +81,18 @@ export default async function ContactPage({ params }: LocationPageProps) {
     zipCodes: safeLocation.zipCodes,
   });
 
-  const contactMethods = [
-    {
-      title: 'Call Us Now',
-      description: 'Speak directly with our experts',
-      contact: safeLocation.phone,
-      action: `tel:${safeLocation.phone.replace(/\D/g, '')}`,
-      icon: '📞',
-      highlight: true
-    },
-    {
-      title: 'Emergency Service',
-      description: '24/7 emergency roofing available',
-      contact: 'Available 24/7',
-      action: `tel:${safeLocation.phone.replace(/\D/g, '')}`,
-      icon: '🚨',
-      highlight: true
-    },
-    {
-      title: 'Service Area',
-      description: 'Serving the greater area',
-      contact: `${safeLocation.name}, ${safeLocation.state}`,
-      action: '#',
-      icon: '📍',
-      highlight: false
+  const contactContent = contentData.locationPages.contact;
+  const contactMethods = contactContent.methods.map((method, index) => {
+    if (index === 0) {
+      return { ...method, contact: safeLocation.phone, action: `tel:${safeLocation.phone.replace(/\D/g, '')}` };
     }
-  ];
+    if (index === 1) {
+      return { ...method, contact: method.contactText || 'Available 24/7', action: `tel:${safeLocation.phone.replace(/\D/g, '')}` };
+    }
+    return { ...method, contact: `${safeLocation.name}, ${safeLocation.state}`, action: '#' };
+  });
 
-  const services = [
-    'Roof Repair & Replacement',
-    'Storm Damage Restoration',
-    'Gutter Installation',
-    'Siding Installation',
-    'Emergency Roofing',
-    'Leak Detection',
-    'Commercial Roofing',
-    'General Construction'
-  ];
+  const services = contactContent.servicesList;
 
   return (
     <div className="bg-white min-h-screen flex flex-col font-sans">
@@ -163,10 +142,10 @@ export default async function ContactPage({ params }: LocationPageProps) {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-4">
-              Get in Touch with Our {safeLocation.name} Team
+              {rp(contactContent.sectionTitle)}
             </h2>
             <p className="text-xl text-gray-600">
-              Multiple ways to reach us for all your roofing and construction needs
+              {rp(contactContent.sectionSubtitle)}
             </p>
           </div>
 
@@ -199,10 +178,10 @@ export default async function ContactPage({ params }: LocationPageProps) {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-4">
-              Services We Offer in {safeLocation.name}
+              {rp(contactContent.servicesTitle)}
             </h2>
             <p className="text-xl text-gray-600">
-              Comprehensive solutions for residential and commercial properties
+              {rp(contactContent.servicesSubtitle)}
             </p>
           </div>
 
@@ -227,10 +206,10 @@ export default async function ContactPage({ params }: LocationPageProps) {
       <section className="py-16 px-4 bg-[#1e3a5f] text-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Schedule Your Estimate?
+            {rp(contactContent.cta.title)}
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Contact our {safeLocation.name} team today for reliable, professional service. We're here to help.
+            {rp(contactContent.cta.subtitle)}
           </p>
           <a
             href={`tel:${safeLocation.phone.replace(/\D/g, '')}`}

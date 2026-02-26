@@ -45,6 +45,9 @@ type TabType =
     | 'service-templates'
     | 'main-content'
     | 'location-content'
+    | 'hero-templates'
+    | 'testimonials-faqs'
+    | 'service-grid'
     | 'seo'
     | 'rebrand';
 
@@ -111,6 +114,9 @@ export default function AdminDashboard() {
     const [seoData, setSeoData] = useState<any>(null);
     const [servicesContent, setServicesContent] = useState<any>(null);
     const [serviceTemplates, setServiceTemplates] = useState<any>(null);
+    const [heroTemplates, setHeroTemplates] = useState<any>(null);
+    const [testimonialsFaqs, setTestimonialsFaqs] = useState<any>(null);
+    const [serviceGridData, setServiceGridData] = useState<any>(null);
 
     useEffect(() => {
         fetchFiles();
@@ -119,6 +125,9 @@ export default function AdminDashboard() {
         loadContentData();
         loadSeoData();
         loadServiceTemplates();
+        loadHeroTemplates();
+        loadTestimonialsFaqs();
+        loadServiceGrid();
     }, []);
 
     const fetchFiles = async () => {
@@ -265,6 +274,123 @@ export default function AdminDashboard() {
         } catch (error) {
             console.error('Failed to save service templates:', error);
             setMessage({ type: 'error', text: 'Failed to save service templates' });
+        } finally {
+            setSaving(false);
+        }
+    };
+
+    const loadHeroTemplates = async () => {
+        try {
+            const response = await fetch('/api/admin/json?file=hero-content.json');
+            const data = await response.json();
+            if (data.success && data.data) {
+                setHeroTemplates(data.data);
+            } else {
+                setHeroTemplates(null);
+            }
+        } catch (error) {
+            console.error('Failed to load hero templates:', error);
+            setHeroTemplates(null);
+        }
+    };
+
+    const saveHeroTemplates = async (updated: any) => {
+        setSaving(true);
+        setMessage(null);
+        try {
+            const response = await fetch('/api/admin/json', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ fileName: 'hero-content.json', data: updated })
+            });
+            const result = await response.json();
+            if (result.success) {
+                setMessage({ type: 'success', text: 'Hero templates saved successfully!' });
+                setHeroTemplates(updated);
+            } else {
+                setMessage({ type: 'error', text: result.error || 'Failed to save hero templates' });
+            }
+        } catch (error) {
+            console.error('Failed to save hero templates:', error);
+            setMessage({ type: 'error', text: 'Failed to save hero templates' });
+        } finally {
+            setSaving(false);
+        }
+    };
+
+    const loadTestimonialsFaqs = async () => {
+        try {
+            const response = await fetch('/api/admin/json?file=location-extras.json');
+            const data = await response.json();
+            if (data.success && data.data) {
+                setTestimonialsFaqs(data.data);
+            } else {
+                setTestimonialsFaqs(null);
+            }
+        } catch (error) {
+            console.error('Failed to load testimonials/FAQs:', error);
+            setTestimonialsFaqs(null);
+        }
+    };
+
+    const saveTestimonialsFaqs = async (updated: any) => {
+        setSaving(true);
+        setMessage(null);
+        try {
+            const response = await fetch('/api/admin/json', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ fileName: 'location-extras.json', data: updated })
+            });
+            const result = await response.json();
+            if (result.success) {
+                setMessage({ type: 'success', text: 'Testimonials & FAQs saved successfully!' });
+                setTestimonialsFaqs(updated);
+            } else {
+                setMessage({ type: 'error', text: result.error || 'Failed to save testimonials/FAQs' });
+            }
+        } catch (error) {
+            console.error('Failed to save testimonials/FAQs:', error);
+            setMessage({ type: 'error', text: 'Failed to save testimonials & FAQs' });
+        } finally {
+            setSaving(false);
+        }
+    };
+
+    const loadServiceGrid = async () => {
+        try {
+            const response = await fetch('/api/admin/json?file=location-services.json');
+            const data = await response.json();
+            if (data.success && data.data) {
+                setServiceGridData(data.data);
+            } else {
+                setServiceGridData(null);
+            }
+        } catch (error) {
+            console.error('Failed to load service grid:', error);
+            setServiceGridData(null);
+        }
+    };
+
+    const saveServiceGrid = async (updated: any) => {
+        setSaving(true);
+        setMessage(null);
+        try {
+            const response = await fetch('/api/admin/json', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ fileName: 'location-services.json', data: updated })
+            });
+            const result = await response.json();
+            if (result.success) {
+                setMessage({ type: 'success', text: 'Location service grid saved successfully!' });
+                setServiceGridData(updated);
+            } else {
+                setMessage({ type: 'error', text: result.error || 'Failed to save service grid' });
+            }
+        } catch (error) {
+            console.error('Failed to save service grid:', error);
+            setMessage({ type: 'error', text: 'Failed to save service grid' });
         } finally {
             setSaving(false);
         }
@@ -981,6 +1107,33 @@ export default function AdminDashboard() {
                         📍 Location Content
                     </button>
                     <button
+                        onClick={() => setActiveTab('hero-templates')}
+                        className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'hero-templates'
+                            ? 'bg-[#1e3a5f] text-white'
+                            : 'text-gray-600 hover:bg-gray-100'
+                            }`}
+                    >
+                        🎯 Hero Templates
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('testimonials-faqs')}
+                        className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'testimonials-faqs'
+                            ? 'bg-[#1e3a5f] text-white'
+                            : 'text-gray-600 hover:bg-gray-100'
+                            }`}
+                    >
+                        💬 Testimonials & FAQs
+                    </button>
+                    <button
+                        onClick={() => setActiveTab('service-grid')}
+                        className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'service-grid'
+                            ? 'bg-[#1e3a5f] text-white'
+                            : 'text-gray-600 hover:bg-gray-100'
+                            }`}
+                    >
+                        📊 Location Service Grid
+                    </button>
+                    <button
                         onClick={() => setActiveTab('seo')}
                         className={`px-6 py-3 rounded-lg font-medium transition ${activeTab === 'seo'
                             ? 'bg-[#1e3a5f] text-white'
@@ -1186,6 +1339,102 @@ export default function AdminDashboard() {
                                     className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
                                 >
                                     Refresh Content
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                )}
+
+                {/* Hero Templates Tab */}
+                {activeTab === 'hero-templates' && (
+                    <div className="space-y-6">
+                        <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 mb-6">
+                            <h3 className="font-bold text-purple-900 mb-2">🎯 Hero & Intro Templates</h3>
+                            <p className="text-purple-800 text-sm">
+                                Manage hero section content, service-specific copy, climate lines, and intro paragraph templates.
+                                Placeholders: <code className="bg-purple-100 px-2 py-1 rounded">{'{CITY}'}</code>, <code className="bg-purple-100 px-2 py-1 rounded">{'{STATE}'}</code>, <code className="bg-purple-100 px-2 py-1 rounded">{'{SERVICE}'}</code>, <code className="bg-purple-100 px-2 py-1 rounded">{'{COMPANY}'}</code>
+                            </p>
+                        </div>
+                        {heroTemplates ? (
+                            <ContentEditor
+                                content={heroTemplates}
+                                onSave={saveHeroTemplates}
+                                saving={saving}
+                                sectionTitle="🎯 Hero & Intro Content Templates"
+                            />
+                        ) : (
+                            <div className="bg-white rounded-xl shadow-md p-12 text-center">
+                                <h3 className="text-xl font-bold text-gray-800 mb-2">No Hero Templates Loaded</h3>
+                                <p className="text-gray-600 mb-6">Load hero-content.json to manage hero and intro templates.</p>
+                                <button
+                                    onClick={loadHeroTemplates}
+                                    className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
+                                >
+                                    Load Hero Templates
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                )}
+
+                {/* Testimonials & FAQs Tab */}
+                {activeTab === 'testimonials-faqs' && (
+                    <div className="space-y-6">
+                        <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                            <h3 className="font-bold text-green-900 mb-2">💬 Testimonials & FAQs</h3>
+                            <p className="text-green-800 text-sm">
+                                Manage customer testimonials and FAQ entries used on location pages.
+                                Placeholders: <code className="bg-green-100 px-2 py-1 rounded">{'{CITY}'}</code> = <code className="bg-green-100 px-2 py-1 rounded">{'{{CITY}}'}</code>, <code className="bg-green-100 px-2 py-1 rounded">{'{STATE}'}</code> = <code className="bg-green-100 px-2 py-1 rounded">{'{{STATE}}'}</code>
+                            </p>
+                        </div>
+                        {testimonialsFaqs ? (
+                            <ContentEditor
+                                content={testimonialsFaqs}
+                                onSave={saveTestimonialsFaqs}
+                                saving={saving}
+                                sectionTitle="💬 Testimonials & FAQ Content"
+                            />
+                        ) : (
+                            <div className="bg-white rounded-xl shadow-md p-12 text-center">
+                                <h3 className="text-xl font-bold text-gray-800 mb-2">No Testimonials/FAQs Loaded</h3>
+                                <p className="text-gray-600 mb-6">Load location-extras.json to manage testimonials and FAQs.</p>
+                                <button
+                                    onClick={loadTestimonialsFaqs}
+                                    className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
+                                >
+                                    Load Testimonials & FAQs
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                )}
+
+                {/* Location Service Grid Tab */}
+                {activeTab === 'service-grid' && (
+                    <div className="space-y-6">
+                        <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
+                            <h3 className="font-bold text-orange-900 mb-2">📊 Location Service Grid</h3>
+                            <p className="text-orange-800 text-sm">
+                                Manage the service cards shown on location pages.
+                                Placeholders: <code className="bg-orange-100 px-2 py-1 rounded">{'{{CITY}}'}</code>, <code className="bg-orange-100 px-2 py-1 rounded">{'{{STATE}}'}</code>, <code className="bg-orange-100 px-2 py-1 rounded">{'{{PHONE}}'}</code>, <code className="bg-orange-100 px-2 py-1 rounded">{'{{COMPANY_NAME}}'}</code>
+                            </p>
+                        </div>
+                        {serviceGridData ? (
+                            <ContentEditor
+                                content={serviceGridData}
+                                onSave={saveServiceGrid}
+                                saving={saving}
+                                sectionTitle="📊 Location Service Grid Cards"
+                            />
+                        ) : (
+                            <div className="bg-white rounded-xl shadow-md p-12 text-center">
+                                <h3 className="text-xl font-bold text-gray-800 mb-2">No Service Grid Data Loaded</h3>
+                                <p className="text-gray-600 mb-6">Load location-services.json to manage the service grid.</p>
+                                <button
+                                    onClick={loadServiceGrid}
+                                    className="bg-[#1e3a5f] text-white font-bold px-6 py-3 rounded-lg hover:bg-[#2d5a8a] transition"
+                                >
+                                    Load Service Grid
                                 </button>
                             </div>
                         )}

@@ -1,9 +1,10 @@
 import { getAllLocations } from './content';
 import { getStateUrl, isValidStateCode, STATE_CODES } from './state-codes';
+import siteConfig from '@/data/site.config.json';
 
 export { getStateUrl, isValidStateCode, STATE_CODES };
 
-const DOMAIN = 'dolimitisteelroofing.com';
+const DOMAIN = siteConfig.domain;
 
 /** Canonical URL for a location (subdomain format) */
 export function getLocationUrl(locationId: string, path = ''): string {

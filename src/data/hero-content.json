@@ -1,0 +1,312 @@
+{
+  "heroModifiers": ["Best", "Professional", "Expert", "Top-Rated"],
+  "defaultAudience": "businesses, warehouses, and homeowners",
+  "commercialAudience": "businesses, warehouses, and HOAs",
+  "climateLines": {
+    "AZ": "Built to handle {CITY}'s heat, sun exposure, and monsoon seasons.",
+    "TX": "Designed for Texas heat, storms, and seasonal weather changes.",
+    "FL": "Engineered for humidity, heavy rain, and hurricane conditions.",
+    "CA": "Built for sun exposure, temperature swings, and seasonal storms.",
+    "CO": "Engineered for altitude, heavy snow loads, and rapid temperature swings.",
+    "MN": "Built for harsh winters, heavy snow, and freeze-thaw cycles.",
+    "IL": "Designed for Chicago-area winds, ice dams, and seasonal extremes.",
+    "NY": "Built for Northeast storms, snow loads, and coastal weather.",
+    "OH": "Engineered for Midwest weather swings, ice, and storm seasons.",
+    "GA": "Designed for Southern heat, humidity, and severe storm seasons.",
+    "NC": "Built for coastal storms, humidity, and seasonal weather shifts.",
+    "SC": "Engineered for hurricane-zone conditions, heat, and heavy rainfall.",
+    "VA": "Built for mid-Atlantic weather, seasonal storms, and humidity.",
+    "WA": "Designed for Pacific Northwest rain, moss growth, and moisture.",
+    "OR": "Built for persistent rain, moss, and temperature fluctuations.",
+    "MI": "Engineered for Great Lakes weather, heavy snow, and ice dams.",
+    "PA": "Built for Northeast winters, ice, and seasonal storm damage.",
+    "NJ": "Designed for coastal storms, nor'easters, and seasonal weather.",
+    "MA": "Built for New England winters, ice dams, and coastal wind.",
+    "LA": "Engineered for Gulf Coast hurricanes, humidity, and heavy rain.",
+    "OK": "Built for tornado alley conditions, hail, and extreme wind.",
+    "KS": "Designed for severe storms, hail, and high-wind events.",
+    "default": "Built for local weather conditions and long-term durability."
+  },
+  "serviceTemplates": {
+    "curb-appeal-boost": {
+      "keyword": "curb appeal",
+      "action": "enhancing your home's exterior aesthetic with coordinated roofing, siding, and gutter upgrades",
+      "altOpeners": [
+        "Want to boost curb appeal in {CITY}, {STATE}?",
+        "Improving your home's look in {CITY}, {STATE}?",
+        "Upgrade your exterior in {CITY}, {STATE}."
+      ]
+    },
+    "roof-installation": {
+      "keyword": "roof installation",
+      "action": "installing high-quality roofing systems for new and existing homes using durable materials and proven installation practices",
+      "altOpeners": [
+        "Looking for professional {SERVICE} in {CITY}, {STATE}?",
+        "Planning a new {SERVICE} in {CITY}, {STATE}?",
+        "Need a trusted team for {SERVICE} in {CITY}, {STATE}?"
+      ]
+    },
+    "new-roof-installation": {
+      "keyword": "new roof construction",
+      "action": "coordinating with builders to install precise, code-compliant roofing systems for new construction projects",
+      "altOpeners": [
+        "Building a new home in {CITY}, {STATE}?",
+        "Need {SERVICE} for a project in {CITY}, {STATE}?",
+        "Expert {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "roof-replacement": {
+      "keyword": "roof replacement",
+      "action": "replacing old or damaged roofs with long-lasting materials designed for performance, curb appeal, and peace of mind",
+      "altOpeners": [
+        "Need a {SERVICE} in {CITY}, {STATE}?",
+        "Is it time for a {SERVICE} in {CITY}, {STATE}?",
+        "Looking for reliable {SERVICE} in {CITY}, {STATE}?"
+      ]
+    },
+    "roof-repair": {
+      "keyword": "roof repair",
+      "action": "fixing leaks, storm damage, and worn roofing before problems spread—restoring protection fast and correctly",
+      "altOpeners": [
+        "Need fast {SERVICE} in {CITY}, {STATE}?",
+        "Dealing with leaks? Get {SERVICE} in {CITY}, {STATE}.",
+        "Looking for dependable {SERVICE} in {CITY}, {STATE}?"
+      ]
+    },
+    "roof-leak-repair": {
+      "keyword": "roof leak repair",
+      "action": "tracing and stopping stubborn leaks at their source to prevent water damage to your drywall and insulation",
+      "altOpeners": [
+        "Spot a leak in {CITY}, {STATE}?",
+        "Need ultimate {SERVICE} in {CITY}, {STATE}?",
+        "Stop water damage with {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "emergency-roof-repair": {
+      "keyword": "emergency roof repair",
+      "action": "providing rapid-response repairs for active leaks and storm damage to prevent further structural issues",
+      "altOpeners": [
+        "Roof damage that can't wait in {CITY}, {STATE}?",
+        "Need urgent {SERVICE} in {CITY}, {STATE}?",
+        "Leaking now? Get {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "storm-damage-roof-repair": {
+      "keyword": "storm damage repair",
+      "action": "assessing and repairing roofs impacted by wind, hail, or debris, and helping you document damage for insurance",
+      "altOpeners": [
+        "Hit by a storm in {CITY}, {STATE}?",
+        "Need {SERVICE} after recent weather in {CITY}, {STATE}?",
+        "Restore your home with {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "metal-roofing": {
+      "keyword": "metal roofing",
+      "action": "installing energy-efficient, durable metal roofing built for long lifespan, strong protection, and modern curb appeal",
+      "altOpeners": [
+        "Considering {SERVICE} in {CITY}, {STATE}?",
+        "Ready to upgrade to {SERVICE} in {CITY}, {STATE}?",
+        "Looking for {SERVICE} experts in {CITY}, {STATE}?"
+      ]
+    },
+    "tile-roofing": {
+      "keyword": "tile roofing",
+      "action": "installing and repairing concrete and clay tile roofs that offer superior durability and classic Southwest style",
+      "altOpeners": [
+        "Interested in {SERVICE} in {CITY}, {STATE}?",
+        "Need expert {SERVICE} in {CITY}, {STATE}?",
+        "Protect your home with {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "shingle-roofing": {
+      "keyword": "shingle roofing",
+      "action": "installing high-performance asphalt shingles that combine affordability with excellent weather resistance",
+      "altOpeners": [
+        "Need quality {SERVICE} in {CITY}, {STATE}?",
+        "Looking for affordable {SERVICE} in {CITY}, {STATE}?",
+        "Get a free quote for {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "foam-roofing": {
+      "keyword": "foam roofing",
+      "action": "applying seamless spray polyurethane foam (SPF) for unmatched insulation and leak protection on flat roofs",
+      "altOpeners": [
+        "Need energy-efficient {SERVICE} in {CITY}, {STATE}?",
+        "Looking for {SERVICE} experts in {CITY}, {STATE}?",
+        "Seal your roof with {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "commercial-roofing": {
+      "keyword": "commercial roofing",
+      "action": "delivering code-compliant commercial roofing solutions—installation, repairs, and maintenance with minimal disruption",
+      "altOpeners": [
+        "Need {SERVICE} in {CITY}, {STATE}?",
+        "Searching for a {SERVICE} contractor in {CITY}, {STATE}?",
+        "Looking for dependable {SERVICE} in {CITY}, {STATE}?"
+      ]
+    },
+    "flat-roofing": {
+      "keyword": "flat roof services",
+      "action": "installing and repairing flat roofing systems engineered for drainage, durability, and long-term performance",
+      "altOpeners": [
+        "Need {SERVICE} in {CITY}, {STATE}?",
+        "Looking for {SERVICE} in {CITY}, {STATE}?",
+        "Get expert {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "flat-roofing-systems": {
+      "keyword": "flat roofing system",
+      "action": "implementing complete flat roof solutions including TPO, EPDM, and modified bitumen for commercial assets",
+      "altOpeners": [
+        "Upgrading your {SERVICE} in {CITY}, {STATE}?",
+        "Need a new {SERVICE} in {CITY}, {STATE}?",
+        "Expert {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "flat-roof-repair": {
+      "keyword": "flat roof repair",
+      "action": "diagnosing and fixing ponding water, blistering, and leaks on low-slope roofs to extend their service life",
+      "altOpeners": [
+        "Need {SERVICE} for your building in {CITY}, {STATE}?",
+        "Having issues? Get {SERVICE} in {CITY}, {STATE}.",
+        "Fast {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "roof-coatings": {
+      "keyword": "roof coating",
+      "action": "applying restorative silicone or acrylic coatings to extend your roof's life and improve energy efficiency",
+      "altOpeners": [
+        "Consider {SERVICE} in {CITY}, {STATE}?",
+        "Extend roof life with {SERVICE} in {CITY}, {STATE}.",
+        "Save energy with {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "roof-inspection-maintenance": {
+      "keyword": "roof inspection",
+      "action": "inspecting your roof thoroughly and preventing costly damage with maintenance plans that keep your system performing year-round",
+      "altOpeners": [
+        "Want a professional {SERVICE} in {CITY}, {STATE}?",
+        "Need {SERVICE} in {CITY}, {STATE}?",
+        "Get peace of mind with {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "roof-inspection": {
+      "keyword": "roof inspection",
+      "action": "providing detailed roof assessments and photo reports for real estate transactions or insurance purposes",
+      "altOpeners": [
+        "Need a {SERVICE} in {CITY}, {STATE}?",
+        "Buying a home? Get a {SERVICE} in {CITY}, {STATE}.",
+        "Schedule your {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "roof-maintenance-plans": {
+      "keyword": "roof maintenance",
+      "action": "performing regular cleaning, sealing, and inspections to catch small issues before they become expensive repairs",
+      "altOpeners": [
+        "Protect your investment with {SERVICE} in {CITY}, {STATE}.",
+        "Sign up for {SERVICE} in {CITY}, {STATE}.",
+        "Need {SERVICE} in {CITY}, {STATE}?"
+      ]
+    },
+    "gutter-installation": {
+      "keyword": "gutter installation",
+      "action": "installing and optimizing seamless gutter systems to protect your roof, siding, and foundation from water damage",
+      "altOpeners": [
+        "Need {SERVICE} in {CITY}, {STATE}?",
+        "Looking for {SERVICE} in {CITY}, {STATE}?",
+        "Upgrade your home with {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "gutter-repair": {
+      "keyword": "gutter repair",
+      "action": "realigning, sealing, and fixing damaged gutters to ensure proper water diversion away from your home",
+      "altOpeners": [
+        "Need {SERVICE} in {CITY}, {STATE}?",
+        "Gutters leaking? Get {SERVICE} in {CITY}, {STATE}.",
+        "Fix your drainage with {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "gutter-cleaning": {
+      "keyword": "gutter cleaning",
+      "action": "removing debris and ensuring downspouts are clear to prevent overflows and water damage during storms",
+      "altOpeners": [
+        "Time for {SERVICE} in {CITY}, {STATE}?",
+        "Need professional {SERVICE} in {CITY}, {STATE}?",
+        "Get {SERVICE} done right in {CITY}, {STATE}."
+      ]
+    },
+    "gutter-guards": {
+      "keyword": "gutter guard installation",
+      "action": "installing protective guards to keep leaves out and reduce the need for frequent gutter cleaning",
+      "altOpeners": [
+        "Tired of cleaning? Get {SERVICE} in {CITY}, {STATE}.",
+        "Install {SERVICE} in {CITY}, {STATE}.",
+        "Protect your gutters with {SERVICE} in {CITY}, {STATE}."
+      ]
+    },
+    "siding-installation": {
+      "keyword": "siding installation",
+      "action": "installing premium vinyl or fiber cement siding to beautify your home and improve its thermal efficiency",
+      "altOpeners": [
+        "Ready for {SERVICE} in {CITY}, {STATE}?",
+        "Upgrade your exterior with {SERVICE} in {CITY}, {STATE}.",
+        "Need {SERVICE} in {CITY}, {STATE}?"
+      ]
+    },
+    "general-construction": {
+      "keyword": "general construction",
+      "action": "managing residential and commercial construction projects from additions to remodels with licensed expertise",
+      "altOpeners": [
+        "Planning a project? Need {SERVICE} in {CITY}, {STATE}?",
+        "Looking for {SERVICE} in {CITY}, {STATE}?",
+        "Start your {SERVICE} project in {CITY}, {STATE}."
+      ]
+    },
+    "skylight-services": {
+      "keyword": "skylight services",
+      "action": "installing and repairing skylights to bring natural light into your home without compromising your roof's seal",
+      "altOpeners": [
+        "Brighten your home with {SERVICE} in {CITY}, {STATE}.",
+        "Need {SERVICE} in {CITY}, {STATE}?",
+        "Expert {SERVICE} in {CITY}, {STATE}."
+      ]
+    }
+  },
+  "introTemplate": {
+    "headlineTemplate": "Best {SERVICE} in {CITY}, {STATE}",
+    "paragraphs": [
+      "When you need reliable {SERVICE_LOWER} in {CITY}, trust the experts at {COMPANY}. We bring over 25 years of experience to every project, ensuring quality workmanship and superior customer service.",
+      "Our team understands the specific challenges posed by {CITY}'s climate, from intense sun exposure to seasonal storms. We use only premium materials and proven installation techniques to ensure your {SERVICE_LOWER} stands the test of time.",
+      "Whether you're upgrading your home or addressing urgent repairs, we act as your local partners in maintaining property value and safety. {ACTION_SENTENCE} with a focus on durability and aesthetic appeal."
+    ]
+  },
+  "subtextTemplates": {
+    "servicePage": {
+      "line1": "Reliable {KEYWORD} solutions for {CITY}'s {AUDIENCE}.",
+      "line2": "We specialize in {ACTION}, built for long-term performance in {CITY}, {STATE}.",
+      "line3": "{CLIMATE_LINE} Licensed, insured, and trusted for 25+ years—call for a free estimate."
+    }
+  },
+  "locationPageHeroTemplates": {
+    "location": {
+      "line1": "Trusted local experts for roof repair, replacement, and storm damage restoration in {CITY}, {STATE}.",
+      "line2": "From residential to commercial—we deliver quality craftsmanship built for {CITY}'s climate and conditions.",
+      "line3": "Licensed, insured, and trusted for 25+ years. Free estimates. Call for same-day service."
+    },
+    "about": {
+      "line1": "Trusted roofing and construction experts serving {CITY} and surrounding areas since 2000.",
+      "line2": "Our licensed team brings 25+ years of experience to every project—residential, commercial, and industrial.",
+      "line3": "Quality craftsmanship, transparent pricing, and satisfaction guaranteed. Call for a free estimate today."
+    },
+    "contact": {
+      "line1": "Get fast, reliable roofing and construction services in {CITY}, {STATE}. Free estimates available.",
+      "line2": "Speak with our expert team for emergency repairs, new installations, and ongoing maintenance.",
+      "line3": "24/7 emergency service. Licensed, insured, and committed to your satisfaction. Call now."
+    },
+    "services": {
+      "line1": "Comprehensive roofing and construction solutions tailored for {CITY} homes and businesses.",
+      "line2": "From roof repair and replacement to gutters, siding, and general construction—we do it all.",
+      "line3": "Licensed, insured, and trusted for 25+ years. Get your free estimate from local experts today."
+    }
+  }
+}

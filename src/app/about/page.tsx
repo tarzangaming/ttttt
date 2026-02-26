@@ -1,17 +1,18 @@
 import type { Metadata } from 'next';
 import AboutPageContent from '@/components/AboutPageContent';
 import { getPageSEOFromFile } from '@/lib/seo-server';
+import siteConfig from '@/data/site.config.json';
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('about');
 
   if (!seo) {
     return {
-      title: 'About Dolimiti Steel Roofing',
+      title: `About ${siteConfig.companyName}`,
       description:
-        'Learn more about Dolimiti Steel Roofing, our experience, values, and commitment to quality roofing and construction services.',
+        `Learn more about ${siteConfig.companyName}, our experience, values, and commitment to quality roofing and construction services.`,
       alternates: {
-        canonical: 'https://dolimitisteelroofing.com/about',
+        canonical: `${siteConfig.canonicalBase}/about`,
       },
     };
   }
@@ -25,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: seo.title,
       description: seo.description,
       type: 'website',
-      url: seo.canonical ?? 'https://dolimitisteelroofing.com/about',
+      url: seo.canonical ?? `${siteConfig.canonicalBase}/about`,
     },
     twitter: {
       card: 'summary_large_image',

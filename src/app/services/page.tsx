@@ -6,20 +6,29 @@ import Footer from '@/components/Footer';
 import { getPageSEOFromFile } from '@/lib/seo-server';
 import servicesData from '@/data/services.json';
 import imagesData from '@/data/images.json';
+import contentData from '@/data/content.json';
+import siteConfig from '@/data/site.config.json';
 
-// Type for service image
 type ServiceImageKey = keyof typeof imagesData.images.services;
+
+const pageContent = contentData.mainWebsite.services;
+const phone = siteConfig.phone;
+const phoneClean = siteConfig.phoneClean;
+const companyName = siteConfig.companyName;
+
+function r(s: string) {
+  return s.replace(/{COMPANY}/g, companyName).replace(/{PHONE}/g, phone);
+}
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('services');
 
   if (!seo) {
     return {
-      title: 'Our Services | Dolimiti Steel Roofing',
-      description:
-        'Explore roofing, exterior, and construction services from Dolimiti Steel Roofing.',
+      title: `Our Services | ${companyName}`,
+      description: `Explore roofing, exterior, and construction services from ${companyName}.`,
       alternates: {
-        canonical: 'https://dolimitisteelroofing.com/services',
+        canonical: `https://${siteConfig.domain}/services`,
       },
     };
   }
@@ -33,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: seo.title,
       description: seo.description,
       type: 'website',
-      url: seo.canonical ?? 'https://dolimitisteelroofing.com/services',
+      url: seo.canonical ?? `https://${siteConfig.domain}/services`,
     },
   };
 }
@@ -42,18 +51,15 @@ export default function ServicesPage() {
   const servicesByCategory = (servicesData as any).servicesByCategory || {};
   const allServices: any[] = Object.values(servicesByCategory).flat();
 
-  // Group services by category
   const roofingServices = allServices.filter(s => s.category === 'roofing');
   const exteriorServices = allServices.filter(s => s.category === 'exterior');
   const constructionServices = allServices.filter(s => s.category === 'construction');
 
-  // Helper function to get service image
   const getServiceImage = (slug: string) => {
     const serviceImages = imagesData.images?.services;
     return serviceImages?.[slug as ServiceImageKey] || null;
   };
 
-  // Service Card Component
   const ServiceCard = ({ service, size = 'normal' }: { service: any; size?: 'normal' | 'small' }) => {
     const serviceImage = getServiceImage(service.slug);
     const heightClass = size === 'small' ? 'h-36' : 'h-44';
@@ -97,11 +103,13 @@ export default function ServicesPage() {
     );
   };
 
+  const categories = pageContent.categories;
+
   return (
     <div className="bg-white min-h-screen">
       <Header />
 
-      {/* Hero Section with Background Image */}
+      {/* Hero Section */}
       <section className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0">
           <Image
@@ -116,10 +124,10 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a5f]/80 to-[#0f1f33]/60" />
         <div className="relative max-w-5xl mx-auto text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Our Services
+            {pageContent.hero.title}
           </h1>
           <p className="text-xl opacity-90 max-w-3xl mx-auto">
-            From roof repairs to complete home renovations, Dolimiti Steel Roofing delivers quality craftsmanship on every project.
+            {r(pageContent.hero.subtitle)}
           </p>
         </div>
       </section>
@@ -128,9 +136,9 @@ export default function ServicesPage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
-            <span className="text-[#d97706] font-semibold text-sm uppercase tracking-wider">Professional Roofing</span>
+            <span className="text-[#d97706] font-semibold text-sm uppercase tracking-wider">{categories.roofing.label}</span>
             <h2 className="text-3xl font-bold text-[#1e3a5f] mt-2">
-              Roofing Services
+              {categories.roofing.title}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -145,9 +153,9 @@ export default function ServicesPage() {
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
-            <span className="text-[#d97706] font-semibold text-sm uppercase tracking-wider">Home Exterior</span>
+            <span className="text-[#d97706] font-semibold text-sm uppercase tracking-wider">{categories.exterior.label}</span>
             <h2 className="text-3xl font-bold text-[#1e3a5f] mt-2">
-              Exterior Services
+              {categories.exterior.title}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -162,9 +170,9 @@ export default function ServicesPage() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
-            <span className="text-[#d97706] font-semibold text-sm uppercase tracking-wider">Build & Renovate</span>
+            <span className="text-[#d97706] font-semibold text-sm uppercase tracking-wider">{categories.construction.label}</span>
             <h2 className="text-3xl font-bold text-[#1e3a5f] mt-2">
-              Construction & Remodeling
+              {categories.construction.title}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -196,26 +204,26 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-[#1e3a5f]/70" />
         <div className="relative max-w-4xl mx-auto text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Get Started?
+            {pageContent.cta.title}
           </h2>
           <p className="text-xl opacity-90 mb-8">
-            Contact us today for a free estimate on your next project.
+            {pageContent.cta.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:8662891750"
+              href={`tel:${phoneClean}`}
               className="inline-flex items-center justify-center bg-[#d97706] hover:bg-[#b45309] text-white font-bold px-8 py-4 rounded-lg text-lg transition"
             >
               <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
-              Call (866) 289-1750
+              {r(pageContent.cta.primaryButton)}
             </a>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center bg-white text-[#1e3a5f] font-bold px-8 py-4 rounded-lg text-lg hover:bg-gray-100 transition"
             >
-              Request Free Estimate
+              {pageContent.cta.secondaryButton}
             </Link>
           </div>
         </div>

@@ -1,17 +1,18 @@
 import type { Metadata } from 'next';
 import ContactPageContent from '@/components/ContactPageContent';
 import { getPageSEOFromFile } from '@/lib/seo-server';
+import siteConfig from '@/data/site.config.json';
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('contact');
 
   if (!seo) {
     return {
-      title: 'Contact Dolimiti Steel Roofing',
+      title: `Contact ${siteConfig.companyName}`,
       description:
-        'Get in touch with Dolimiti Steel Roofing for roofing, siding, gutters, and construction services. Request a free estimate today.',
+        `Get in touch with ${siteConfig.companyName} for roofing, siding, gutters, and construction services. Request a free estimate today.`,
       alternates: {
-        canonical: 'https://dolimitisteelroofing.com/contact',
+        canonical: `${siteConfig.canonicalBase}/contact`,
       },
     };
   }
@@ -25,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: seo.title,
       description: seo.description,
       type: 'website',
-      url: seo.canonical ?? 'https://dolimitisteelroofing.com/contact',
+      url: seo.canonical ?? `${siteConfig.canonicalBase}/contact`,
     },
     twitter: {
       card: 'summary_large_image',

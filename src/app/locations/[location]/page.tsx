@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import { getLocationById, getLocationZipCodes, getNearbyLocations } from '@/utils/content';
 import { buildDynamicHeroHeader, buildLocationPageHeroSubtext } from '@/lib/heroSubtext';
 import locationsData from '@/data/locations.json';
+import siteConfig from '@/data/site.config.json';
 import imagesData from '@/data/images.json';
 import servicesData from '@/data/services.json';
 import contentData from '@/data/content.json';
@@ -65,7 +66,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
     ...location,
     areas: location.areas || [],
     services: location.services || [],
-    phone: location.phone || '(866) 289-1750',
+    phone: location.phone || siteConfig.phone,
     zipCodes: location.zipCodes || []
   };
 

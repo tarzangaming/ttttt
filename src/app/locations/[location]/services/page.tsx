@@ -11,6 +11,8 @@ import { buildDynamicHeroHeader, buildLocationPageHeroSubtext } from '@/lib/hero
 import locationsData from '@/data/locations.json';
 import servicesData from '@/data/services.json';
 import imagesData from '@/data/images.json';
+import siteConfig from '@/data/site.config.json';
+import contentData from '@/data/content.json';
 
 // Type definitions
 interface ServiceItem {
@@ -40,16 +42,16 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
 
   if (!location) {
     return {
-      title: 'Construction Services | Dolimiti Steel Roofing',
+      title: `Construction Services | ${siteConfig.companyName}`,
       description: 'Professional construction and roofing services.'
     };
   }
 
   return {
-    title: `Construction & Roofing Services in ${location.name} | Dolimiti Steel Roofing`,
-    description: `Expert roofing, siding, and remodeling services in ${location.name}, ${location.state}. Residential and commercial solutions by Dolimiti Steel Roofing.`,
+    title: `Construction & Roofing Services in ${location.name} | ${siteConfig.companyName}`,
+    description: `Expert roofing, siding, and remodeling services in ${location.name}, ${location.state}. Residential and commercial solutions by ${siteConfig.companyName}.`,
     alternates: {
-      canonical: `https://${location.id}.dolimitisteelroofing.com/services`
+      canonical: `https://${location.id}.${siteConfig.domain}/services`
     }
   };
 }
@@ -65,10 +67,13 @@ export default async function ServicesPage({ params }: LocationPageProps) {
   // Safe location object
   const safeLocation = {
     ...location,
-    phone: location.phone || '(866) 289-1750',
+    phone: location.phone || siteConfig.phone,
     zipCodes: location.zipCodes || []
   };
 
+  function rp(s: string) { return s.replace(/{CITY}/g, safeLocation.name).replace(/{STATE}/g, safeLocation.state).replace(/{COMPANY}/g, siteConfig.companyName).replace(/{PHONE}/g, siteConfig.phone); }
+
+  const servicesContent = contentData.locationPages.services;
   const zipCodes = getLocationZipCodes(safeLocation);
   const nearbyLocations = getNearbyLocations(safeLocation.id, safeLocation.state);
   const dynamicHeroHeader = buildDynamicHeroHeader({
@@ -96,7 +101,7 @@ export default async function ServicesPage({ params }: LocationPageProps) {
         <div className="absolute inset-0">
           <Image
             src={imagesData.images.hero.services.url}
-            alt="Dolimiti Steel Roofing Services"
+            alt={`${siteConfig.companyName} Services`}
             fill
             priority
             className="object-cover"
@@ -136,12 +141,12 @@ export default async function ServicesPage({ params }: LocationPageProps) {
       <section className="py-20 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <span className="text-[#d97706] font-semibold text-sm uppercase tracking-wider">What We Do</span>
+            <span className="text-[#d97706] font-semibold text-sm uppercase tracking-wider">{rp(servicesContent.gridLabel)}</span>
             <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mt-2 mb-4">
-              Premium Construction Services
+              {rp(servicesContent.gridTitle)}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From minor repairs to major renovations, we deliver excellence on every project.
+              {rp(servicesContent.gridSubtitle)}
             </p>
           </div>
 
@@ -214,7 +219,7 @@ export default async function ServicesPage({ params }: LocationPageProps) {
               ((imagesData as any).images?.defaults?.placeholder?.url as string | undefined) ||
               ''
             }
-            alt="Contact Dolimiti Steel Roofing"
+            alt={`Contact ${siteConfig.companyName}`}
             fill
             className="object-cover"
             style={{ filter: 'brightness(0.3)' }}
@@ -223,10 +228,10 @@ export default async function ServicesPage({ params }: LocationPageProps) {
         <div className="absolute inset-0 bg-[#1e3a5f]/70" />
         <div className="relative max-w-4xl mx-auto text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Start Your Project in {safeLocation.name}?
+            {rp(servicesContent.cta.title)}
           </h2>
           <p className="text-xl opacity-90 mb-8">
-            Contact us today for a free estimate on your next roofing or construction project.
+            {rp(servicesContent.cta.subtitle)}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

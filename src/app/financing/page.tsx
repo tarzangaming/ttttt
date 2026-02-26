@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import FloatingCTA from '@/components/FloatingCTA';
 import { getPageSEOFromFile } from '@/lib/seo-server';
 import imagesData from '@/data/images.json';
+import siteConfig from '@/data/site.config.json';
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('financing');
@@ -15,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description:
         'Explore roof financing options with flexible payment plans to fit your budget.',
       alternates: {
-        canonical: 'https://dolimitisteelroofing.com/financing',
+        canonical: `${siteConfig.canonicalBase}/financing`,
       },
     };
   }
@@ -108,7 +109,7 @@ export default function FinancingPage() {
                                 <li className="flex items-center gap-2">✓ Low minimum payments</li>
                                 <li className="flex items-center gap-2">✓ Ideal for short-term flexibility</li>
                             </ul>
-                            <a href="tel:8662891750" className="block w-full bg-[#1e3a5f] text-white font-bold text-center py-4 rounded-xl hover:bg-[#2d5a8a] transition">Call to Apply</a>
+                            <a href={`tel:${siteConfig.phoneClean}`} className="block w-full bg-[#1e3a5f] text-white font-bold text-center py-4 rounded-xl hover:bg-[#2d5a8a] transition">Call to Apply</a>
                         </div>
 
                         {/* Plan 2 */}
@@ -121,7 +122,7 @@ export default function FinancingPage() {
                                 <li className="flex items-center gap-2">✓ Fixed rate never increases</li>
                                 <li className="flex items-center gap-2">✓ Large projects made affordable</li>
                             </ul>
-                            <a href="tel:8662891750" className="block w-full bg-[#1e3a5f] text-white font-bold text-center py-4 rounded-xl hover:bg-[#2d5a8a] transition">Call to Apply</a>
+                            <a href={`tel:${siteConfig.phoneClean}`} className="block w-full bg-[#1e3a5f] text-white font-bold text-center py-4 rounded-xl hover:bg-[#2d5a8a] transition">Call to Apply</a>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import siteConfig from '@/data/site.config.json';
 
 interface CalculatorProps {
     city: string;
@@ -193,10 +194,10 @@ export default function RoofReplacementCalculator({ city, state, stateName, regi
 
                     <div className="mt-6 text-center">
                         <a
-                            href="tel:8662891750"
+                            href={`tel:${siteConfig.phoneClean}`}
                             className="inline-flex items-center bg-[#1e3a5f] hover:bg-[#0f1f33] text-white font-bold px-8 py-4 rounded-xl text-lg transition"
                         >
-                            Get Accurate Quote: (866) 289-1750
+                            Get Accurate Quote: {siteConfig.phone}
                         </a>
                     </div>
                 </div>

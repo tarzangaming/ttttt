@@ -4,12 +4,13 @@ import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { getStateUrl } from '@/utils/subdomain';
+import siteConfig from '@/data/site.config.json';
 
 export default function StateNotFound() {
   const params = useParams();
   const state = params.state as string;
 
-  const redirectUrl = state ? getStateUrl(state) : 'https://dolimitisteelroofing.com';
+  const redirectUrl = state ? getStateUrl(state) : `https://${siteConfig.domain}`;
 
   useEffect(() => {
     const timer = setTimeout(() => {

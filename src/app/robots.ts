@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import siteConfig from '@/data/site.config.json'
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -12,9 +13,9 @@ export default function robots(): MetadataRoute.Robots {
           '/admin/',
           '/private/',
         ],
-        crawlDelay: 1, // 1 second delay between requests to reduce load
+        crawlDelay: 1,
       },
     ],
-    sitemap: 'https://dolimitisteelroofing.com/sitemap-index.xml',
+    sitemap: `${siteConfig.canonicalBase}/sitemap-index.xml`,
   }
 }

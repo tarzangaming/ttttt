@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { CalculatorField, CALCULATOR_CONSTANTS } from '@/lib/cost-constants';
+import siteConfig from '@/data/site.config.json';
 
 interface CostCalculatorProps {
     serviceSlug: string;
@@ -153,7 +154,7 @@ export default function CostCalculator({ serviceSlug, city, config }: CostCalcul
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto shrink-0">
-                            <a href="tel:8662891750" className="bg-[#d97706] hover:bg-[#b45309] text-white font-bold py-4 px-8 rounded-xl shadow-lg transition transform hover:scale-[1.02] text-center whitespace-nowrap min-w-[200px]">
+                            <a href={`tel:${siteConfig.phoneClean}`} className="bg-[#d97706] hover:bg-[#b45309] text-white font-bold py-4 px-8 rounded-xl shadow-lg transition transform hover:scale-[1.02] text-center whitespace-nowrap min-w-[200px]">
                                 Get Exact Quote
                             </a>
                             <button className="bg-white text-[#1e3a5f] font-bold py-4 px-8 rounded-xl hover:bg-gray-50 transition shadow-lg whitespace-nowrap min-w-[200px]">

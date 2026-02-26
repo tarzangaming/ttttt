@@ -23,7 +23,10 @@ const ALLOWED_FILES = [
     'schema.json',
     'locations.json',
     'content.json',
-    'footer.json'
+    'footer.json',
+    'hero-content.json',
+    'location-extras.json',
+    'location-services.json'
 ];
 
 const DATA_DIR = path.join(process.cwd(), 'src', 'data');
@@ -169,7 +172,10 @@ function getCategoryFromFileName(fileName: string): string {
         'schema.json': 'SEO',
         'locations.json': 'Content',
         'content.json': 'Content',
-        'footer.json': 'Content'
+        'footer.json': 'Content',
+        'hero-content.json': 'Content',
+        'location-extras.json': 'Content',
+        'location-services.json': 'Content'
     };
     return categories[fileName] || 'Other';
 }

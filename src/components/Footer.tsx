@@ -2,6 +2,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import imagesData from '@/data/images.json';
+import footerData from '@/data/footer.json';
+import siteConfig from '@/data/site.config.json';
 
 interface FooterProps {
   location?: {
@@ -12,6 +14,8 @@ interface FooterProps {
 
 export default function Footer({ location }: FooterProps) {
   const ctaImage = (imagesData as any).images?.cta?.banner;
+  const phone = siteConfig.phone;
+  const phoneClean = siteConfig.phoneClean;
 
   return (
     <>
@@ -19,10 +23,9 @@ export default function Footer({ location }: FooterProps) {
       <section className="py-4 px-4 bg-gradient-to-r from-[#1e3a5f] to-[#0f1f33] text-white">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            {/* Left Side - Text Content */}
             <div className="text-center lg:text-left flex-1">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-                Need a Roofer or Contractor?<br />We&apos;re Here to Help!
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight whitespace-pre-line">
+                {footerData.ctaBar.heading}
               </h2>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                 <div className="bg-[#d97706] rounded-lg p-3">
@@ -31,13 +34,12 @@ export default function Footer({ location }: FooterProps) {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-sm opacity-90 mb-1">CALL FOR FREE ESTIMATE</div>
-                  <div className="text-2xl md:text-3xl font-bold">(866) 289-1750</div>
+                  <div className="text-sm opacity-90 mb-1">{footerData.ctaBar.label}</div>
+                  <div className="text-2xl md:text-3xl font-bold">{phone}</div>
                 </div>
               </div>
             </div>
 
-            {/* Right Side - CTA Image */}
             <div className="flex-1 flex justify-center lg:justify-end items-end">
               <div className="w-48 h-32 sm:w-64 sm:h-40 lg:w-80 lg:h-48 relative rounded-lg overflow-hidden">
                 {ctaImage?.url ? (
@@ -63,7 +65,7 @@ export default function Footer({ location }: FooterProps) {
       <section className="py-8 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
-            Service Area Map
+            {footerData.map.heading}
           </h2>
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
             <iframe
@@ -85,16 +87,16 @@ export default function Footer({ location }: FooterProps) {
       {/* Big CTA Banner */}
       <section className="bg-[#d97706] text-white py-16 px-4 mt-auto">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-8">Ready for Your Free Roofing Estimate?</h2>
+          <h2 className="text-4xl font-bold mb-8">{footerData.bigCta.heading}</h2>
           <div className="mb-8">
             <a
-              href="tel:8662891750"
+              href={`tel:${phoneClean}`}
               className="bg-white text-[#1e3a5f] font-bold px-12 py-6 rounded-xl text-3xl hover:bg-gray-50 transition shadow-lg inline-block"
             >
-              (866) 289-1750
+              {phone}
             </a>
           </div>
-          <p className="text-lg opacity-90">Licensed • Insured • 25+ Years Experience</p>
+          <p className="text-lg opacity-90">{footerData.bigCta.tagline}</p>
         </div>
       </section>
 
@@ -104,10 +106,10 @@ export default function Footer({ location }: FooterProps) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Company Info */}
             <div>
-              <h3 className="text-xl font-bold mb-4">Dolimiti Steel Roofing</h3>
-              <p className="text-gray-300 mb-4">Quality roofing and construction services you can trust. Serving homeowners and businesses for over 25 years.</p>
+              <h3 className="text-xl font-bold mb-4">{footerData.company.name}</h3>
+              <p className="text-gray-300 mb-4">{footerData.company.description}</p>
               <div className="flex space-x-4">
-                <a href="tel:8662891750" className="text-[#d97706] hover:text-[#f59e0b] transition">
+                <a href={`tel:${phoneClean}`} className="text-[#d97706] hover:text-[#f59e0b] transition">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
@@ -115,41 +117,39 @@ export default function Footer({ location }: FooterProps) {
               </div>
             </div>
 
-            {/* Services */}
+            {/* Roofing Services */}
             <div>
-              <h3 className="text-xl font-bold mb-4">Roofing Services</h3>
+              <h3 className="text-xl font-bold mb-4">{footerData.columns.roofingServices.title}</h3>
               <ul className="space-y-2 text-gray-300">
-                <li><Link href="/services/roof-repair" className="hover:text-[#d97706] transition">Roof Repair</Link></li>
-                <li><Link href="/services/roof-replacement" className="hover:text-[#d97706] transition">Roof Replacement</Link></li>
-                <li><Link href="/services/storm-damage-roof-repair" className="hover:text-[#d97706] transition">Storm Damage</Link></li>
-                <li><Link href="/services/commercial-roofing" className="hover:text-[#d97706] transition">Commercial Roofing</Link></li>
+                {footerData.columns.roofingServices.links.map((link) => (
+                  <li key={link.href}><Link href={link.href} className="hover:text-[#d97706] transition">{link.label}</Link></li>
+                ))}
               </ul>
             </div>
 
             {/* More Services */}
             <div>
-              <h3 className="text-xl font-bold mb-4">More Services</h3>
+              <h3 className="text-xl font-bold mb-4">{footerData.columns.moreServices.title}</h3>
               <ul className="space-y-2 text-gray-300">
-                <li><Link href="/services/gutter-installation" className="hover:text-[#d97706] transition">Gutter Installation</Link></li>
-                <li><Link href="/services/siding-installation" className="hover:text-[#d97706] transition">Siding Installation</Link></li>
-                <li><Link href="/services/general-construction" className="hover:text-[#d97706] transition">General Construction</Link></li>
-                <li><Link href="/services/home-remodeling" className="hover:text-[#d97706] transition">Home Remodeling</Link></li>
+                {footerData.columns.moreServices.links.map((link) => (
+                  <li key={link.href}><Link href={link.href} className="hover:text-[#d97706] transition">{link.label}</Link></li>
+                ))}
               </ul>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h3 className="text-xl font-bold mb-4">Quick Links</h3>
+              <h3 className="text-xl font-bold mb-4">{footerData.columns.quickLinks.title}</h3>
               <ul className="space-y-2 text-gray-300">
-                <li><Link href="/about" className="hover:text-[#d97706] transition">About Us</Link></li>
-                <li><Link href="/contact" className="hover:text-[#d97706] transition">Contact</Link></li>
-                <li><Link href="/services" className="hover:text-[#d97706] transition">All Services</Link></li>
+                {footerData.columns.quickLinks.links.map((link) => (
+                  <li key={link.href}><Link href={link.href} className="hover:text-[#d97706] transition">{link.label}</Link></li>
+                ))}
               </ul>
             </div>
           </div>
 
           <div className="border-t border-gray-600 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Dolimiti Steel Roofing. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} {footerData.bottom.copyright}</p>
           </div>
         </div>
       </footer>

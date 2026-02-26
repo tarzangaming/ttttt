@@ -4,12 +4,13 @@ import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { getLocationUrl } from '@/utils/subdomain';
+import siteConfig from '@/data/site.config.json';
 
 export default function LocationNotFound() {
   const params = useParams();
   const location = params.location as string;
 
-  const redirectUrl = location ? getLocationUrl(location) : 'https://dolimitisteelroofing.com';
+  const redirectUrl = location ? getLocationUrl(location) : `https://${siteConfig.domain}`;
 
   useEffect(() => {
     const timer = setTimeout(() => {

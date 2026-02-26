@@ -6,6 +6,8 @@ import { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import servicesData from '@/data/services.json';
+import siteConfig from '@/data/site.config.json';
+import contentData from '@/data/content.json';
 
 interface StateServicesPageProps {
   params: Promise<{ state: string }>;
@@ -39,10 +41,10 @@ export async function generateMetadata({ params }: StateServicesPageProps): Prom
       `construction repair ${stateFullName}`
     ],
     openGraph: {
-      title: `Roofing & Construction Services in ${stateFullName} | Dolimiti Steel Roofing`,
+      title: `Roofing & Construction Services in ${stateFullName} | ${siteConfig.companyName}`,
       description: `Complete roofing and construction services in ${stateFullName}. Roof repair, replacement, storm restoration, and more.`,
       url: getStateUrl(state, 'services'),
-      siteName: 'Dolimiti Steel Roofing',
+      siteName: siteConfig.companyName,
       locale: 'en_US',
       type: 'website',
     },
@@ -77,20 +79,20 @@ export default async function StateServicesPage({ params }: StateServicesPagePro
       <section className="relative py-24 bg-gradient-to-r from-[#1e3a5f] to-[#0f1f33] text-white overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Roofing & Construction Services in {stateFullName}
+            {contentData.statePages.servicesPage.titleTemplate.replace(/{STATE_NAME}/g, stateFullName).replace(/{COMPANY}/g, siteConfig.companyName).replace(/{PHONE}/g, siteConfig.phone)}
           </h1>
           <p className="text-xl md:text-2xl opacity-95 max-w-3xl mx-auto leading-relaxed mb-8">
-            Superior craftsmanship and reliable roofing solutions for homes and businesses throughout {stateFullName}.
+            {contentData.statePages.servicesPage.subtitleTemplate.replace(/{STATE_NAME}/g, stateFullName).replace(/{COMPANY}/g, siteConfig.companyName).replace(/{PHONE}/g, siteConfig.phone)}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:8662891750"
+              href={`tel:${siteConfig.phoneClean}`}
               className="inline-flex items-center bg-[#d97706] text-white font-bold px-8 py-4 rounded-xl text-lg hover:bg-[#b45309] transition-all"
             >
               <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" />
               </svg>
-              <span>(866) 289-1750</span>
+              <span>{siteConfig.phone}</span>
             </a>
           </div>
         </div>
@@ -101,7 +103,7 @@ export default async function StateServicesPage({ params }: StateServicesPagePro
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1e3a5f] mb-4">Complete Solutions for {stateFullName}</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Dolimiti Steel Roofing provides specialized services tailored to your local climate.</p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">{siteConfig.companyName} provides specialized services tailored to your local climate.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -130,16 +132,16 @@ export default async function StateServicesPage({ params }: StateServicesPagePro
       {/* State CTA */}
       <section className="bg-[#d97706] text-white py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Need Expert Help in {stateFullName}?</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">{contentData.statePages.cta.title.replace(/{STATE_NAME}/g, stateFullName).replace(/{COMPANY}/g, siteConfig.companyName).replace(/{PHONE}/g, siteConfig.phone)}</h2>
           <p className="text-xl opacity-90 mb-10">
-            Contact Dolimiti Steel Roofing today for a free inspection and detailed estimate on any roofing or construction project.
+            {contentData.statePages.cta.subtitle.replace(/{STATE_NAME}/g, stateFullName).replace(/{COMPANY}/g, siteConfig.companyName).replace(/{PHONE}/g, siteConfig.phone)}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
-              href="tel:8662891750"
+              href={`tel:${siteConfig.phoneClean}`}
               className="bg-[#1e3a5f] text-white font-bold px-10 py-5 rounded-xl text-xl hover:bg-[#2d5a8a] transition shadow-2xl"
             >
-              Call (866) 289-1750
+              {contentData.statePages.cta.buttonText.replace(/{STATE_NAME}/g, stateFullName).replace(/{COMPANY}/g, siteConfig.companyName).replace(/{PHONE}/g, siteConfig.phone)}
             </a>
             <Link
               href="/contact"

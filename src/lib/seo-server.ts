@@ -5,6 +5,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import siteConfig from '@/data/site.config.json';
 
 export interface PageSEO {
   title: string;
@@ -105,9 +106,9 @@ export function getLocationSEOFromFile(
   const template = getLocationTemplateFromFile();
   if (!template) {
     return {
-      title: `Roofing in ${cityName}, ${state} | Dolimiti Steel Roofing`,
-      description: `Professional roofing services in ${cityName}, ${state}. Licensed, insured. Call (866) 289-1750.`,
-      canonical: `https://${locationId}.dolimitisteelroofing.com`,
+      title: `Roofing in ${cityName}, ${state} | ${siteConfig.companyName}`,
+      description: `Professional roofing services in ${cityName}, ${state}. Licensed, insured. Call ${siteConfig.phone}.`,
+      canonical: `https://${locationId}.${siteConfig.domain}`,
     };
   }
   const zipDisplay = zipCodes?.length
@@ -140,9 +141,9 @@ export function getLocationServiceSEOFromFile(
   const template = getLocationServiceTemplateFromFile();
   if (!template) {
     return {
-      title: `${serviceTitle} in ${cityName}, ${state} | Dolimiti Steel Roofing`,
-      description: `Professional ${serviceTitle} in ${cityName}, ${state}. Licensed, insured. Call (866) 289-1750.`,
-      canonical: `https://${locationId}.dolimitisteelroofing.com/${serviceSlug}`,
+      title: `${serviceTitle} in ${cityName}, ${state} | ${siteConfig.companyName}`,
+      description: `Professional ${serviceTitle} in ${cityName}, ${state}. Licensed, insured. Call ${siteConfig.phone}.`,
+      canonical: `https://${locationId}.${siteConfig.domain}/${serviceSlug}`,
     };
   }
   const zipDisplay = zipCodes?.length
@@ -174,9 +175,9 @@ export function getServiceSEOFromFile(serviceTitle: string, serviceSlug: string)
   const template = getServiceTemplateFromFile();
   if (!template) {
     return {
-      title: `${serviceTitle} | Dolimiti Steel Roofing`,
-      description: `Professional ${serviceTitle} services. Licensed, insured. Call (866) 289-1750.`,
-      canonical: `https://dolimitisteelroofing.com/services/${serviceSlug}`,
+      title: `${serviceTitle} | ${siteConfig.companyName}`,
+      description: `Professional ${serviceTitle} services. Licensed, insured. Call ${siteConfig.phone}.`,
+      canonical: `${siteConfig.canonicalBase}/services/${serviceSlug}`,
     };
   }
   return {
@@ -198,7 +199,7 @@ export function getCostPageSEOFromFile(
   const templates = seo.templates as Record<string, SEOTemplate> | undefined;
   const template = templates?.costPage || null;
   const year = new Date().getFullYear();
-  const defaultCanonical = `https://dolimitisteelroofing.com/${cityState}/${serviceSlug}/cost`;
+  const defaultCanonical = `${siteConfig.canonicalBase}/${cityState}/${serviceSlug}/cost`;
   const subdomain = options?.host?.split('.')[0]?.toLowerCase();
   const shortCanonical = (subdomain && subdomain === cityState.toLowerCase())
     ? `https://${options!.host}/${serviceSlug}/cost`
@@ -238,7 +239,7 @@ export function getCostCalculatorPageSEOFromFile(
   const templates = seo.templates as Record<string, SEOTemplate> | undefined;
   const template = templates?.costCalculatorPage || null;
   const year = new Date().getFullYear();
-  const defaultCanonical = `https://dolimitisteelroofing.com/${cityState}/${serviceSlug}/cost-calculator`;
+  const defaultCanonical = `${siteConfig.canonicalBase}/${cityState}/${serviceSlug}/cost-calculator`;
   const subdomain = options?.host?.split('.')[0]?.toLowerCase();
   const shortCanonical = (subdomain && subdomain === cityState.toLowerCase())
     ? `https://${options!.host}/${serviceSlug}/cost-calculator`
@@ -278,7 +279,7 @@ export function getCostGuideSEOFromFile(
     return {
       title,
       description,
-      canonical: `https://dolimitisteelroofing.com/cost-guides/${slug}`,
+      canonical: `${siteConfig.canonicalBase}/cost-guides/${slug}`,
     };
   }
   return {

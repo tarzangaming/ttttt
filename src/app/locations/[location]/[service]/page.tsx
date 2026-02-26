@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import servicesData from '@/data/services.json';
 import imagesData from '@/data/images.json';
+import siteConfig from '@/data/site.config.json';
 import FloatingCTA from '@/components/FloatingCTA';
 import { getLocationById, getLocationZipCodes, getNearbyLocations, getExtendedServiceContent, replacePlaceholders, getDomain } from '@/utils/content';
 import { buildDynamicHeroHeader, buildDynamicHeroSubtextLines, buildHeroSubtext, buildIntroContent } from '@/lib/heroSubtext';
@@ -89,7 +90,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   // Safe location object
   const safeLocation = {
     ...location,
-    phone: location.phone || '(866) 289-1750',
+    phone: location.phone || siteConfig.phone,
     zipCodes: location.zipCodes || []
   };
 
@@ -97,7 +98,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
     CITY: safeLocation.name,
     STATE: safeLocation.state,
     PHONE: safeLocation.phone,
-    COMPANY_NAME: 'Dolimiti Steel Roofing'
+    COMPANY_NAME: siteConfig.companyName
   };
 
   const extendedContent = getExtendedServiceContent(serviceSlug);

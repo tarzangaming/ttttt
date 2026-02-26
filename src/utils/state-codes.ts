@@ -3,7 +3,9 @@
  * Safe for Edge runtime (middleware) - no imports from content.
  */
 
-const DOMAIN = 'dolimitisteelroofing.com';
+import siteConfig from '@/data/site.config.json';
+
+const DOMAIN = siteConfig.domain;
 
 /** US state codes for state subdomains */
 export const STATE_CODES = [

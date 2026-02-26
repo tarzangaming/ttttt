@@ -9,6 +9,7 @@ import { getPageSEOFromFile } from '@/lib/seo-server';
 import servicesData from '@/data/services.json';
 import locationsData from '@/data/locations.json';
 import imagesData from '@/data/images.json';
+import siteConfig from '@/data/site.config.json';
 
 export async function generateMetadata(): Promise<Metadata> {
   const seo = getPageSEOFromFile('home');
@@ -16,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
     return {
       title: 'Premier Roofing & Construction Services | Nationwide Coverage',
       description: 'Dolimiti Steel Roofing provides expert residential and commercial roofing services across the USA. Licensed, bonded, and insured. Call for a free estimate.',
-      alternates: { canonical: 'https://dolimitisteelroofing.com' },
+      alternates: { canonical: siteConfig.canonicalBase },
     };
   }
   return {
@@ -54,15 +55,15 @@ export default function HomePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "RoofingContractor",
-            "name": "Dolimiti Steel Roofing",
-            "url": "https://dolimitisteelroofing.com",
-            "logo": "https://dolimitisteelroofing.com/logo.png",
+            "name": siteConfig.companyName,
+            "url": siteConfig.canonicalBase,
+            "logo": `${siteConfig.canonicalBase}/logo.png`,
             "description": "Licensed nationwide roofing contractor specializing in residential and commercial roofing.",
             "address": {
               "@type": "PostalAddress",
               "addressCountry": "US"
             },
-            "telephone": "(866) 289-1750",
+            "telephone": siteConfig.phone,
             "priceRange": "$$",
             "areaServed": {
               "@type": "Country",
@@ -109,12 +110,12 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <a
-                href="tel:8662891750"
+                href={`tel:${siteConfig.phoneClean}`}
                 className="group relative px-8 py-4 bg-[#d97706] text-white text-lg font-bold rounded-xl shadow-xl hover:bg-[#b45309] transition-all transform hover:-translate-y-1 overflow-hidden"
               >
                 <div className="absolute inset-0 w-full h-full bg-white/20 transform -translate-x-full skew-x-12 group-hover:translate-x-full transition-transform duration-700"></div>
                 <div className="relative flex items-center justify-center gap-2">
-                  Call (866) 289-1750
+                  Call {siteConfig.phone}
                 </div>
               </a>
             </div>
@@ -330,10 +331,10 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
-              href="tel:8662891750"
+              href={`tel:${siteConfig.phoneClean}`}
               className="bg-[#d97706] text-white font-bold px-10 py-5 rounded-xl text-xl hover:bg-[#b45309] transition shadow-2xl flex items-center justify-center gap-3"
             >
-              {ctaSection.primaryButtonText ?? 'Call (866) 289-1750'}
+              {ctaSection.primaryButtonText ?? `Call ${siteConfig.phone}`}
             </a>
             <Link
               href="/contact"

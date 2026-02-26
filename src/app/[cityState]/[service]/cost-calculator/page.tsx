@@ -6,6 +6,7 @@ import { getServiceCostConfig, getCityFromSlug } from '@/lib/cost-data';
 import { getCostCalculatorPageSEOFromFile } from '@/lib/seo-server';
 import { getDomain, getAllLocations } from '@/utils/content';
 import servicesData from '@/data/services.json';
+import siteConfig from '@/data/site.config.json';
 import CostCalculator from '@/components/cost/CostCalculator';
 import PriceTierCards from '@/components/cost/PriceTierCards';
 import ImpactFactors from '@/components/cost/ImpactFactors';
@@ -191,8 +192,8 @@ export default async function CostPage({ params }: PageProps) {
                         <p className="mb-6 opacity-80">
                             Online calculators are great for planning, but every roof is unique. Get a penny-perfect quote that is good for 30 days.
                         </p>
-                        <a href="tel:8662891750" className="block w-full bg-[#d97706] hover:bg-[#b45309] text-white text-center font-bold py-4 rounded-xl shadow-lg transition">
-                            Call (866) 289-1750
+                        <a href={`tel:${siteConfig.phoneClean}`} className="block w-full bg-[#d97706] hover:bg-[#b45309] text-white text-center font-bold py-4 rounded-xl shadow-lg transition">
+                            Call {siteConfig.phone}
                         </a>
                     </div>
                 </div>
@@ -259,7 +260,7 @@ export default async function CostPage({ params }: PageProps) {
             </section>
 
             <Footer location={{ name: location.city, state: location.state }} />
-            <FloatingCTA phone="(866) 289-1750" locationName={location.city} />
+            <FloatingCTA phone={siteConfig.phone} locationName={location.city} />
         </div>
     );
 }
