@@ -1,19 +1,26 @@
-import { NextResponse } from 'next/server'
-import { getAllLocations } from '@/utils/content'
-import servicesData from '@/data/services.json'
-import costGuidesData from '@/data/cost-guides.json'
+import { NextResponse } from 'next/server';
+import { getAllLocations } from '@/utils/content';
+import servicesData from '@/data/services.json';
+import costGuidesData from '@/data/cost-guides.json';
 
-const DOMAIN = 'https://bennettconstructionandroofing.com'
+const DOMAIN = 'https://bennettconstructionandroofing.com';
 
 // Cache sitemap for 24 hours to reduce requests
 export const revalidate = 86400; // 24 hours
 
+type SitemapService = { slug: string };
+
+function getAllServicesForSitemap(): SitemapService[] {
+  const byCategory = (servicesData as any).servicesByCategory || {};
+  return Object.values(byCategory).flat() as SitemapService[];
+}
+
 export async function GET() {
-  const currentDate = new Date().toISOString()
+  const currentDate = new Date().toISOString();
 
   // Get all services and cost guides
-  const services = (servicesData as { services: { slug: string }[] }).services
-  const costGuides = costGuidesData as { slug: string }[]
+  const services = getAllServicesForSitemap();
+  const costGuides = costGuidesData as { slug: string }[];
 
   // Main domain pages
   const mainPages = [
@@ -65,7 +72,7 @@ export async function GET() {
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`
-  ].join('\n')
+  ].join('\n');
 
   // Cost guide pages
   const costGuidePages = costGuides.map(guide =>
@@ -75,7 +82,7 @@ export async function GET() {
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`
-  ).join('\n')
+  ).join('\n');
 
   // Main domain service pages
   const mainServicePages = services.map(service =>
@@ -85,10 +92,10 @@ export async function GET() {
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`
-  ).join('\n')
+  ).join('\n');
 
   // Get all locations using helper (handles nested states/cities structure)
-  const allLocations = getAllLocations()
+  const allLocations = getAllLocations();
 
   // Location pages (subdomain format)
   const locationPages = allLocations.map(loc =>
@@ -98,10 +105,10 @@ export async function GET() {
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`
-  ).join('\n')
+  ).join('\n');
 
   // Get unique states for the new /areas/ structure
-  const uniqueStates = [...new Set(allLocations.map(loc => loc.state))];
+  const uniqueStates = [...new Set(allLocations.map((loc) => loc.state))];
 
   // State pages (subdomain format)
   const statePages = uniqueStates.map(state =>
@@ -111,7 +118,7 @@ export async function GET() {
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>`
-  ).join('\n')
+  ).join('\n');
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -120,13 +127,13 @@ ${mainServicePages}
 ${costGuidePages}
 ${locationPages}
 ${statePages}
-</urlset>`
+</urlset>`;
 
   return new NextResponse(sitemap, {
     headers: {
       'Content-Type': 'application/xml',
       'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200', // Cache for 24h
     },
-  })
+  });
 }
 
